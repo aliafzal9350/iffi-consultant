@@ -1,4 +1,4 @@
-"""Generate site.json, tools.json and meta.json for the IFFI Global website kit.
+"""Generate site.json, tools.json and meta.json for the IFFI Consultant website kit.
 
 Copy comes from Gujjify_Website_Extraction.txt (typos fixed), the Instagram captions (SECTION 13 of
 that file) and computed statistics from programs.json / the keyword-research CSVs.
@@ -7,7 +7,7 @@ import json, os, statistics, collections, csv, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent  # research folder
-KIT_DATA = ROOT / 'gujjify-website' / 'src' / 'data'
+KIT_DATA = ROOT / 'iffi-consultant' / 'src' / 'data'
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else str(KIT_DATA)
 ps = json.load(open(os.path.join(OUT, "programs.json"), encoding="utf-8"))
@@ -16,6 +16,8 @@ fx = json.load(open(HERE / "inputs" / "fx_cny.json", encoding="utf-8"))
 KW = ROOT / "Gujjify_Keyword_Research_Global.csv"
 kw = list(csv.DictReader(open(KW, encoding="utf-8-sig")))
 
+BRAND = "IFFI Consultant"
+SITE_URL = "https://www.ifficonsultant.com"
 WA = "923264570214"
 n = len(ps)
 english = sum("English" in (p["teachingLanguages"] or []) for p in ps)
@@ -26,12 +28,11 @@ cities = len({p["city"] for p in ps if p["city"]})
 
 site = {
     "brand": {
-        "name": "IFFI Global Education Consultants", "shortName": "IFFI Global", "wordmarkSub": "EDUCATION CONSULTANTS",
-        "legalName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD",
+        "name": BRAND, "shortName": BRAND, "wordmarkMain": "IFFI", "wordmarkSub": "CONSULTANT",
         "tagline": "Your Gateway to Study in China",
         "taglineAlt": ["Study in China Made Easy", "Study in China with Confidence",
                        "Your Gateway to China Education"],
-        "description": "IFFI Global Education Consultants helps students from Pakistan and around the world win admissions, "
+        "description": "IFFI Consultant helps students from Pakistan and around the world win admissions, "
                        "scholarships and X1/X2 student visas for Chinese universities - from the first question "
                        "to arrival in China.",
         "logo": {"mark": "src/assets/brand/logo-mark-gold.png",
@@ -46,33 +47,30 @@ site = {
     },
     "contact": {
         "phoneDisplay": "+92 326 4570214", "phoneE164": "+923264570214", "whatsappNumber": WA,
-        "whatsappUrl": f"https://wa.me/{WA}", "email": "gujjify@gmail.com",
+        # email / Instagram / Facebook / UK company belonged to Gujjify - left empty until IFFI confirms its own
+        "whatsappUrl": f"https://wa.me/{WA}", "email": None,
         "responsePromise": "We usually reply within minutes on WhatsApp.",
         "hours": "Open 24/7 on WhatsApp",
         "offices": [
             {"label": "Pakistan office", "city": "Lahore", "country": "Pakistan",
              "address": "Lakshmi Station, Lahore, Pakistan", "verified": False,
              "note": "Address as written on Facebook - confirm the full street address with the client"},
-            {"label": "UK registered office", "city": "Ilford, Essex", "country": "United Kingdom",
-             "address": "Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ", "verified": True,
-             "note": "Companies House registered office (likely a registered-office service - not a walk-in office)"},
             {"label": "China", "city": None, "country": "China", "address": None, "verified": False,
              "note": "Listed on the old site with no city - confirm before publishing"},
         ],
     },
     "social": {
-        "facebook": "https://www.facebook.com/profile.php?id=61590861647152",
-        "instagram": "https://www.instagram.com/gujjifyconsultant/",
+        "facebook": None,
+        "instagram": None,
         "whatsapp": f"https://wa.me/{WA}",
-        "email": "mailto:gujjify@gmail.com",
+        "email": None,
         "phone": "tel:+923264570214",
     },
     "legal": {
-        "companyName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD", "companyNumber": "16657100", "registeredIn": "England and Wales",
-        "registeredOffice": "Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, United Kingdom",
-        "footerDisclosure": "IFFI Global Education Consultants Ltd is a company registered in England and Wales, company no. 16657100. "
-                            "Registered office: Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ.",
-        "copyright": "© 2026 IFFI Global Education Consultants. All rights reserved.",
+        "companyName": None, "companyNumber": None, "registeredIn": None, "registeredOffice": None,
+        "footerDisclosure": None,
+        "note": "IFFI's legal entity, registered address and governing law are not confirmed yet - ask the client.",
+        "copyright": f"© 2026 {BRAND}. All rights reserved.",
         "credit": "Designed & Developed by RAVISN",
         "pagesRequired": ["Privacy Policy", "Terms of Service", "Cookie Policy"],
     },
@@ -179,7 +177,7 @@ site = {
     },
     "about": {
         "title": "Helping Students Reach Top Chinese Universities",
-        "body": "IFFI Global Education Consultants is a dedicated China study consultancy helping students from Pakistan and beyond "
+        "body": "IFFI Consultant is a dedicated China study consultancy helping students from Pakistan and beyond "
                 "achieve their dream of studying at top Chinese universities. With deep knowledge of the Chinese "
                 "admission and scholarship system, our mission is to make the entire journey - admissions, "
                 "scholarships, visa and pre-departure - simple, transparent and successful. We treat every student "
@@ -200,7 +198,7 @@ site = {
          "a": f"Not always. {english} of the {n} programmes in our current list are taught in English. "
               "Chinese-taught programmes ask for an HSK certificate (usually HSK 4 or 5) - and we help you prepare. "
               "Basic Chinese still makes daily life much easier."},
-        {"q": "What scholarships can IFFI Global Education Consultants help me apply for?", "status": "published",
+        {"q": "What scholarships can IFFI Consultant help me apply for?", "status": "published",
          "a": "We assist with the Chinese Government Scholarship (CSC), Confucius Institute Scholarship, provincial "
               "scholarships and individual university scholarships, depending on your profile and programme."},
         {"q": "How long does the admission process take?", "status": "published",
@@ -243,12 +241,9 @@ site = {
               "include free accommodation. Single rooms and off-campus options cost more. Campuses have canteens, "
               "sports facilities and large international student communities."},
     ],
-    "testimonials": [
-        {"quote": "Mainay 3 consultants se baat ki... lekin farq IFFI Global ne dikhaya.",
-         "translation": "I spoke to 3 consultants... but IFFI Global showed the difference.",
-         "source": "Student success story, IFFI Global Instagram (23 Jul 2026)", "publish": False,
-         "note": "Get the student's written permission (and name/photo if wanted) before publishing."},
-    ],
+    # The only testimonial found was given to Gujjify (the previous brand): never reuse it for IFFI.
+    # Add IFFI students' stories here, with written permission, and "publish": True once approved.
+    "testimonials": [],
     "documentChecklist": {
         "general": ["Matric / FSc / A-Level certificates & transcripts (or your country's equivalent)",
                     "Valid passport (2+ years)", "Passport-size photos (white background)",
@@ -269,19 +264,19 @@ site = {
     "whatsapp": {
         "number": WA,
         "messages": {
-            "default": "Hello IFFI Global Education Consultants, I want to study in China.",
-            "heroConsultation": "Hello IFFI Global Education Consultants, I want a free consultation for studying in China.",
-            "ctaJourney": "Hello IFFI Global Education Consultants, I want to start my China study journey.",
-            "aboutServices": "Hello IFFI Global Education Consultants, I would like to know more about your services.",
-            "serviceInterest": "Hello IFFI Global Education Consultants, I am interested in: {service}",
-            "chooseService": "Hello IFFI Global Education Consultants, I need help choosing the right service.",
-            "faqQuestion": "Hello IFFI Global Education Consultants, I have a question about studying in China.",
-            "blogGuidance": "Hello IFFI Global Education Consultants, I read your article and want guidance.",
-            "programInterest": "Hello IFFI Global Education Consultants, I am interested in programme {id} ({level}, {location}).",
-            "shortlist": "Hello IFFI Global Education Consultants, here is my programme shortlist: {ids}. Please advise.",
-            "costEstimate": "Hello IFFI Global Education Consultants, my cost estimate: {summary}. Please send me an exact quote.",
-            "eligibilityResult": "Hello IFFI Global Education Consultants, my eligibility check: {summary}. Please assess my profile.",
-            "provinceInterest": "Hello IFFI Global Education Consultants, I want to study in {province}, China.",
+            "default": "Hello IFFI Consultant, I want to study in China.",
+            "heroConsultation": "Hello IFFI Consultant, I want a free consultation for studying in China.",
+            "ctaJourney": "Hello IFFI Consultant, I want to start my China study journey.",
+            "aboutServices": "Hello IFFI Consultant, I would like to know more about your services.",
+            "serviceInterest": "Hello IFFI Consultant, I am interested in: {service}",
+            "chooseService": "Hello IFFI Consultant, I need help choosing the right service.",
+            "faqQuestion": "Hello IFFI Consultant, I have a question about studying in China.",
+            "blogGuidance": "Hello IFFI Consultant, I read your article and want guidance.",
+            "programInterest": "Hello IFFI Consultant, I am interested in programme {id} ({level}, {location}).",
+            "shortlist": "Hello IFFI Consultant, here is my programme shortlist: {ids}. Please advise.",
+            "costEstimate": "Hello IFFI Consultant, my cost estimate: {summary}. Please send me an exact quote.",
+            "eligibilityResult": "Hello IFFI Consultant, my eligibility check: {summary}. Please assess my profile.",
+            "provinceInterest": "Hello IFFI Consultant, I want to study in {province}, China.",
         },
     },
     "blogSeeds": [
@@ -289,38 +284,38 @@ site = {
         {"slug": "top-10-chinese-universities-for-international-students-2026", "title": "Top 10 Chinese Universities for International Students in 2026", "date": "2026-06-29"},
         {"slug": "top-scholarships-for-international-students-in-china", "title": "Top Scholarships for International Students in China", "date": "2026-06-29"},
         {"slug": "how-to-apply-for-chinese-student-visa-2026", "title": "How to Apply for a Chinese Student Visa in 2026", "date": "2026-06-29"},
-        {"slug": "why-choose-iffi-global-for-study-in-china", "title": "Why Choose IFFI Global Education Consultants for Study in China?", "date": "2026-06-29"},
+        {"slug": "why-choose-iffi-consultant-for-study-in-china", "title": "Why Choose IFFI Consultant for Study in China?", "date": "2026-06-29"},
         {"slug": "why-study-in-china-2026", "title": "Why Study in China in 2026? Top 7 Reasons", "date": "2026-06-23"},
         {"slug": "csc-scholarship-complete-guide", "title": "CSC Scholarship: A Complete Step-by-Step Guide", "date": "2026-06-23"},
         {"slug": "china-student-visa-x1-x2", "title": "Student Visa for China (X1 vs X2): What You Must Know", "date": "2026-06-23"},
         {"slug": "cost-of-studying-in-china", "title": "Cost of Studying in China: Tuition, Living & Budget", "date": "2026-06-23"},
     ],
     "seo": {
-        "siteUrl": "https://www.iffiglobal.com",
+        "siteUrl": SITE_URL,
         "routes": {
-            "/": {"title": "Study in China with Scholarships | IFFI Global Education Consultants",
+            "/": {"title": "Study in China with Scholarships | IFFI Consultant",
                   "description": f"Explore {n} China programmes in {len(provs)} provinces - CSC & university "
                                  "scholarships, costs and X1 visa support. Free eligibility check and WhatsApp counselling."},
-            "/programmes": {"title": "China University & Scholarship Finder 2026-27 | IFFI Global",
+            "/programmes": {"title": "China University & Scholarship Finder 2026-27 | IFFI Consultant",
                             "description": "Filter China programmes by level, major, city, teaching language, scholarship "
                                            "and stipend. Shortlist, compare and download your list as PDF."},
-            "/tools/cost-calculator": {"title": "Study in China Cost Calculator - Tuition + Living | IFFI Global",
+            "/tools/cost-calculator": {"title": "Study in China Cost Calculator - Tuition + Living | IFFI Consultant",
                                        "description": "Estimate tuition, hostel and living costs in China by city and "
                                                       "scholarship - shown in PKR, BDT, NGN, IDR and 40+ currencies."},
-            "/tools/eligibility-checker": {"title": "China Scholarship (CSC) Eligibility Checker | IFFI Global",
+            "/tools/eligibility-checker": {"title": "China Scholarship (CSC) Eligibility Checker | IFFI Consultant",
                                            "description": "Check your eligibility for Chinese university scholarships "
                                                           "in 2 minutes - with or without IELTS - and see matching programmes."},
-            "/services": {"title": "China Admission, CSC Scholarship & X1 Visa Services | IFFI Global",
+            "/services": {"title": "China Admission, CSC Scholarship & X1 Visa Services | IFFI Consultant",
                           "description": "Admissions, scholarships, X1/X2 visas, attestation, HSK and pre-departure "
                                          "support for studying in China."},
-            "/about": {"title": "About IFFI Global Education Consultants - China Study Experts",
-                       "description": "A China study consultancy (IFFI Global Education Consultants Ltd, UK) helping students from Pakistan and "
+            "/about": {"title": "About IFFI Consultant - China Study Experts",
+                       "description": "A China study consultancy (IFFI Consultant) helping students from Pakistan and "
                                       "worldwide reach Chinese universities."},
-            "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Global",
+            "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Consultant",
                      "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."},
-            "/contact": {"title": "Contact IFFI Global Education Consultants - WhatsApp +92 326 4570214",
-                         "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Global Education Consultants."},
-            "/blog": {"title": "Study in China Guides & News | IFFI Global Blog",
+            "/contact": {"title": "Contact IFFI Consultant - WhatsApp +92 326 4570214",
+                         "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Consultant."},
+            "/blog": {"title": "Study in China Guides & News | IFFI Consultant Blog",
                       "description": "Guides on CSC scholarships, China student visas, costs and universities."},
         },
         "oldUrlRedirects": {
@@ -330,7 +325,7 @@ site = {
     },
     "disclaimers": {
         "dataFreshness": "Programme details come from university brochures for the 2024-2025 intakes. Fees, "
-                         "scholarships and deadlines change every year - confirm the latest details with IFFI Global "
+                         "scholarships and deadlines change every year - confirm the latest details with IFFI Consultant "
                          "before applying.",
         "universityNames": "University names are shared during your free consultation.",
         "costEstimate": "Estimates only. Living costs are typical student budgets by city tier; exchange rates update "
@@ -493,7 +488,7 @@ meta = {
     "generated": "2026-10-07",
     "sources": {
         "programmes": "Extracted_Features_All_Programs.txt (7 brochures/forms; university names removed on purpose)",
-        "website": "Gujjify_Website_Extraction.txt (iffiglobal.com + Facebook + Instagram + Companies House)",
+        "website": "Gujjify_Website_Extraction.txt (old gujjify.com site - copy reused with the brand name replaced)",
         "keywords": "Gujjify_Keyword_Research_Global.csv + Gujjify_Keyword_Research_Autocomplete.csv",
         "geo": "Alibaba DataV GeoAtlas China provinces, simplified (china-provinces.geo.json)",
         "fx": f"fawazahmed0 currency-api, {fx['date']}",
@@ -510,10 +505,13 @@ meta = {
 
 # original blog text (the client's own words, from the saved old-site pages) - no third-party images
 import re, html as _html
+# posts whose slug changed with the rebrand still read the old saved page
+OLD_POST_FILES = {"why-choose-iffi-consultant-for-study-in-china": "why-choose-gujjify-consultant-for-study-in-china"}
 for post in site["blogSeeds"]:
-    raw = open(HERE / "inputs" / "old-site-posts" / (post["slug"] + ".html"), encoding="utf-8").read()
+    raw = open(HERE / "inputs" / "old-site-posts" / (OLD_POST_FILES.get(post["slug"], post["slug"]) + ".html"), encoding="utf-8").read()
     art = raw[raw.find('<div class="article'):raw.find('<div style="margin-top:28px')]
-    post["body"] = [_html.unescape(re.sub(r"<[^>]+>", "", x)).strip() for x in re.findall(r"<p>(.*?)</p>", art, re.S)]
+    post["body"] = [_html.unescape(re.sub(r"<[^>]+>", "", x)).strip().replace("Gujjify Consultant", BRAND)
+                    for x in re.findall(r"<p>(.*?)</p>", art, re.S)]
     post["status"] = "thin - expand to 800+ words before relaunch"
     post["coverImage"] = None   # old covers were hot-linked third-party images - do not reuse
 
