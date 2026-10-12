@@ -423,7 +423,7 @@ for p in programs:
     # ---- language policy (curated from SECTION 11.1 / 11.2)
     p["languagePolicy"] = LANG.get(pid) or (
         {"type": "none", "note": "No IELTS/Duolingo required (as stated)"} if pid in NO_IELTS
-        else {"type": "not-stated", "note": "Not stated in the brochure - ask Gujjify"})
+        else {"type": "not-stated", "note": "Not stated in the brochure - ask IFFI Global"})
 
     # ---- study fields (broad categories for the finder)
     p["fields"] = sorted({field_of(m) for m in p["majors"]} - {None})

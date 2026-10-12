@@ -1,11 +1,15 @@
-# Gujjify website - Hostinger (LiteSpeed/Apache) config for the built React app (upload dist/ to public_html)
-Options -MultiViews
+# IFFI Global website - Hostinger (LiteSpeed/Apache) config. Upload the contents of dist/ to public_html.
+# Every page is prerendered: /programmes is served from programmes.html, /programmes/b-04-... from
+# programmes/b-04-....html, and unknown URLs get 404.html with a real 404 status.
+Options -MultiViews -Indexes
+DirectorySlash Off
+DirectoryIndex index.html
 RewriteEngine On
 
-# 1) One canonical host: https://www.gujjify.com
+# 1) One canonical host: https://www.iffiglobal.com
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.gujjify.com%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://www.iffiglobal.com%{REQUEST_URI} [L,R=301]
 
 # 2) Old PHP site URLs -> new routes (keeps links shared on WhatsApp/Instagram working)
 RewriteRule ^index\.php$ / [L,R=301]
@@ -17,26 +21,41 @@ RewriteRule ^contact\.php$ /contact [L,R=301]
 RewriteCond %{QUERY_STRING} (?:^|&)slug=([^&]+)
 RewriteRule ^blog-post\.php$ /blog/%1? [L,R=301]
 
-# 3) Single-page-app fallback: serve index.html for app routes (real files/folders are served as-is)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+# 3) No trailing slashes (the canonical URLs have none)
+RewriteRule ^(.+)/$ /$1 [L,R=301]
 
-# 4) Security headers
+# 4) Clean URLs -> prerendered HTML files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# 5) Anything else that does not exist
+ErrorDocument 404 /404.html
+
+# 6) Security headers
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always unset X-Powered-By
 </IfModule>
 
-# 5) Caching: hashed build assets forever, HTML never
+# 7) Caching: hashed build assets forever, HTML always revalidated
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|png|jpg|jpeg|webp|svg|woff2)$">
+  <FilesMatch "\.(js|css|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "\.html$">
+  <FilesMatch "\.(png|jpg|jpeg|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+</IfModule>
+
+# 8) Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml text/plain
 </IfModule>

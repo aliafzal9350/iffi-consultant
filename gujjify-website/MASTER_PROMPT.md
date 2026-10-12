@@ -1,4 +1,4 @@
-# MASTER PROMPT — Gujjify Consultant website (Google AI Studio Build)
+# MASTER PROMPT — IFFI Global Education Consultants website (Google AI Studio Build)
 
 > **How to use:** import this repository into AI Studio Build first (see README.md), then either
 > paste everything below the line into the chat, **or** send this short message:
@@ -9,7 +9,7 @@
 ## 1. ROLE & MISSION
 
 You are a senior product designer and senior front-end engineer (React, TypeScript, Three.js, accessibility, SEO).
-Build the new website for **Gujjify Consultant** — a China study-abroad consultancy (legal entity **GUJJIFY LTD**,
+Build the new website for **IFFI Global Education Consultants** — a China study-abroad consultancy (legal entity **IFFI GLOBAL EDUCATION CONSULTANTS LTD**,
 England & Wales; office in **Lahore, Pakistan**) that helps students from Pakistan and 37 other countries win
 admissions, scholarships (CSC, provincial, university) and X1/X2 student visas for Chinese universities.
 
@@ -31,7 +31,7 @@ The website must:
    Never invent programmes, universities, fees, stipends, rankings, deadlines, statistics, testimonials,
    team members, photos of "our students", partner logos or reviews. If `src/data` is missing, STOP and tell
    the user to import the `gujjify-website` repository — do not fabricate data.
-2. **No university names.** They were removed from the dataset on purpose (students must come through Gujjify).
+2. **No university names.** They were removed from the dataset on purpose (students must come through IFFI Global).
    Use `program.displayName` (e.g. "Bachelor programme in Shenzhen"), city, province, ranking and status.
    Where a user would expect a name, show `site.disclaimers.universityNames`.
 3. **Data freshness.** Programme data comes from 2024–2025 brochures; all 2025 deadlines have passed.
@@ -135,7 +135,7 @@ count-up stats; hover lift on cards (−4 px). All motion disabled under `prefer
 **Imagery:** no stock photos of people and no hot-linked images. Use the 3D/2D map, abstract navy/gold
 geometric patterns (deterministic SVG per slug), Lucide icons in gold-on-navy tiles, and the logo crest.
 Logo: `src/assets/brand/logo-mark-gold.png` on dark, `logo-mark-navy.png` on light, `logo-mark-white.png`
-where gold clashes. Wordmark is live text: "Gujjify" (Fraunces 600) + "CONSULTANT" (Poppins, tracking .28em, gold).
+where gold clashes. Wordmark is live text: "IFFI Global" (Fraunces 600) + "CONSULTANT" (Poppins, tracking .28em, gold).
 
 **Components to build once and reuse:** Container, Section (light/dark/tinted variants with eyebrow + title +
 lede), Button (gold / navy / outline / ghost / whatsapp; sizes sm/md/lg; icon slot), Badge, Chip/Toggle,
@@ -232,7 +232,7 @@ trust line: "UK-registered company · Lahore office · Replies within minutes on
 5. **Services** — 8 services (`site.services`) in a refined grid; each links to `/services#{id}`.
 6. **How it works** — `site.process.steps` as a 5-step timeline + the "Behind every admission letter" checklist
    (`site.process.behindTheScenes`).
-7. **Why Gujjify** — `site.whyUs` (4) beside a navy panel with the crest.
+7. **Why IFFI Global** — `site.whyUs` (4) beside a navy panel with the crest.
 8. **FAQ preview** — 5 published FAQs + "All FAQs".
 9. **Final CTA band** — gold gradient band: "Ready to start your China study journey?" + WhatsApp (`ctaJourney`)
    + "Check my eligibility" button.
@@ -273,7 +273,7 @@ Finder card → "Estimate cost" (Calculator pre-filled with `?program=ID`); Map 
 language & requirements explained in plain English from `languagePolicy` / `ageRange` / `bankStatementUSD` /
 `interview` / `introVideoRequired`, documents checklist (tickable, printable), location mini-map (2D, province
 highlighted, city pin), similar programmes (same field or province), disclaimers, sticky mobile CTA
-"Apply with Gujjify" (WhatsApp `programInterest`). Title: `{displayName} – {n} majors | Gujjify`.
+"Apply with IFFI Global" (WhatsApp `programInterest`). Title: `{displayName} – {n} majors | IFFI Global`.
 
 ### 9.2 Study Cost Calculator — `/tools/cost-calculator`
 - **Modes:** "Estimate by level & city" or "Use a specific programme" (`?program=ID` pre-fills everything).
@@ -328,7 +328,7 @@ highlighted, city pin), similar programmes (same field or province), disclaimers
 - **Province page `/provinces/:province`:** navy hero with the 2D map zoomed to the province (programme cities
   pinned), name + 中文, stats (programmes by level, cities, max stipend, English-taught count, fully funded count),
   living-cost tier note for its cities (from `tools.costCalculator`), programme cards (filtered), "Compare with
-  another province", WhatsApp `provinceInterest`. Title: `Study in {Province}, China – {n} programmes | Gujjify`.
+  another province", WhatsApp `provinceInterest`. Title: `Study in {Province}, China – {n} programmes | IFFI Global`.
   Unknown province → 404.
 - **Tools hub `/tools`:** the 3 tools as hero cards + "why these tools" (demand evidence from
   `tools.demandEvidence`, shown tastefully as "searched in 38 countries").
@@ -347,7 +347,7 @@ highlighted, city pin), similar programmes (same field or province), disclaimers
   phone/WhatsApp, country, study level, message*, consent checkbox linking to Privacy, hidden honeypot). If
   `VITE_FORM_ENDPOINT` is set, POST JSON to it; otherwise open WhatsApp with the form content pre-filled. Clear
   success / error states.
-- **Privacy / Terms / Cookies:** clean, readable templates naming GUJJIFY LTD (company no. 16657100, registered
+- **Privacy / Terms / Cookies:** clean, readable templates naming IFFI GLOBAL EDUCATION CONSULTANTS LTD (company no. 16657100, registered
   office from `site.legal`), contact email, data collected (form fields, WhatsApp, cookie choice, analytics if
   accepted), UK GDPR rights; terms: information only, no guarantee of admission/scholarship/visa, fees change yearly.
   Add a visible note "Template — have it reviewed by a professional".
@@ -356,7 +356,7 @@ highlighted, city pin), similar programmes (same field or province), disclaimers
 ## 11. SEO & SHARING
 
 - Per-route `<title>` / description from `site.seo.routes`; programme and province pages generate their own.
-- Canonical `https://www.gujjify.com{path}`; Open Graph + Twitter tags with `/og-image.png` (1200 × 630).
+- Canonical `https://www.iffiglobal.com{path}`; Open Graph + Twitter tags with `/og-image.png` (1200 × 630).
 - JSON-LD: `Organization` + `ProfessionalService` (name, legalName, url, logo, `sameAs` = Facebook + Instagram,
   contactPoint WhatsApp/phone, address = UK registered office) on every page; `FAQPage` on /faq;
   `BreadcrumbList` on inner pages. Do not use Course schema (it requires university names).

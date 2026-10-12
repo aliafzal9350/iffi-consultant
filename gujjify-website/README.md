@@ -1,89 +1,69 @@
-# Gujjify Consultant — website starter kit for Google AI Studio
+# IFFI Global Education Consultants: website
 
-A ready-to-import React + Vite + Tailwind project for building the new **gujjify.com** with **Google AI Studio
-Build**. It contains the cleaned research data, brand assets, deployment files and the master prompt.
-The visible app is a placeholder ("Starter kit loaded") until you run the master prompt.
+The new **iffiglobal.com**: a study-in-China site for IFFI Global Education Consultants (IFFI GLOBAL EDUCATION CONSULTANTS LTD). React 19 + TypeScript + Vite 8 +
+Tailwind CSS v4, prerendered to static HTML for SEO, with a 3D programme map of China and three free tools.
+`MASTER_PROMPT.md` is the full specification the site implements.
 
-```
-gujjify-website/
-├─ MASTER_PROMPT.md        ← the full website spec to give AI Studio
-├─ FOLLOW_UP_PROMPTS.md    ← prompts for continuing, polishing, auditing, deploying
-├─ DATA_DICTIONARY.md      ← every data field explained
-├─ src/data/               ← programmes (72), provinces (21), China map, site copy, tool config, meta
-├─ src/types/data.ts       ← TypeScript types; `npm run typecheck` validates the JSON
-├─ src/assets/brand/       ← transparent logo crest: gold / white / navy
-├─ src/index.css           ← Tailwind v4 + navy & gold brand tokens (same palette as the old site)
-└─ public/                 ← .htaccess (Hostinger), robots.txt, sitemap.xml (115 URLs), og-image.png, favicons
-```
+## What is in it
 
-## ⚠️ Use a separate GitHub repository
-AI Studio's **Import from GitHub** rewrites the project for its runtime and then asks you to **force-push** to the
-repository. Never import the research repository (`aliafzal9350/guijify-consultant`) — a force-push would replace
-its PDFs and research files. Put this folder in its **own** repository.
+| Area | Where |
+|---|---|
+| Home with the 3D China programme map (React Three Fiber, SVG fallback, list view) | `src/pages/Home.tsx`, `src/components/map/*` |
+| University & Programme Finder: filters, URL sync, shortlist, PDF print sheet, compare | `src/pages/Finder.tsx`, `src/components/programmes/*`, `src/lib/filters.ts` |
+| 72 programme pages and 21 province pages | `src/pages/ProgrammeDetail.tsx`, `src/pages/ProvincePage.tsx` |
+| Study Cost Calculator (live exchange rates with offline fallback) | `src/pages/CostCalculator.tsx`, `src/lib/cost.ts`, `src/lib/currency.ts` |
+| Scholarship Eligibility Checker (pure matcher + "unlock more") | `src/pages/EligibilityChecker.tsx`, `src/lib/eligibility.ts` |
+| Services, About, FAQ, Contact, Privacy, Terms, Cookies, 404 | `src/pages/*` |
+| Blog: 9 articles written around the keyword research | `src/content/blog.ts` |
+| Titles, descriptions, canonicals, Open Graph, JSON-LD | `src/components/ui/Seo.tsx`, `src/lib/seo.ts` |
 
-## Step 1 — Create the website repository
-1. On GitHub create an **empty** repository, e.g. `gujjify-website` (Private is fine; no README / .gitignore).
-2. In PowerShell copy this folder out of the research repo (skips `node_modules` and `dist`) and push it:
+Data comes only from `src/data/*.json` (read-only, see `DATA_DICTIONARY.md`). University names are never shown.
 
-```powershell
-robocopy "C:\Users\User\Documents\Gujify consultant\gujjify-website" "C:\Users\User\Documents\gujjify-website" /E /XD node_modules dist
-cd "C:\Users\User\Documents\gujjify-website"
-git init
-git add .
-git commit -m "Gujjify website starter kit"
-git branch -M main
-git remote add origin https://github.com/aliafzal9350/gujjify-website.git
-git push -u origin main
-```
+## Run it locally
 
-## Step 2 — Import into AI Studio
-1. Open <https://aistudio.google.com/build>, click **+** in the prompt box → **Import from GitHub**.
-2. Connect your GitHub account, choose `gujjify-website`, click **Import repository**.
-3. Wait for the build. The preview should say **"Starter kit loaded — 72 programmes in 21 provinces and 30 cities"**.
-   If it does, the data, theme and logo imported correctly.
-4. When the banner offers **Sync to GitHub → Force push**, accept it (safe: this repo is only for the website).
-
-## Step 3 — Build the website
-Send this message in the AI Studio chat (or paste the whole MASTER_PROMPT.md):
-
-> Read MASTER_PROMPT.md in the project root and implement it completely, following its build order.
-
-The prompt builds in 5 phases. If it stops early, send **"continue"** (see FOLLOW_UP_PROMPTS.md #1).
-Then run the polish and audit prompts (#2–#6). Push to GitHub from AI Studio: ⚙ Settings → **GitHub** → Push.
-
-## Step 4 — Before going live (client approvals)
-These items are deliberately hidden in production until confirmed (see `site.json`):
-- [ ] Marketing stats (1200+ students, 80+ universities, 500+ scholarships, 7+ years) — what do they count?
-- [ ] 5 draft FAQs (marks needed, MBBS & PM&DC, Chinese required, total costs, hostels) — approve the wording;
-      check the PM&DC answer against current PM&DC rules.
-- [ ] Testimonial from Instagram — written permission from the student.
-- [ ] Full Lahore office address (Facebook shows only "Lakshmi Station Lahore") and whether there is a China office.
-- [ ] Privacy Policy / Terms / Cookie Policy templates — have them reviewed.
-- [ ] Logo: ask for the SVG master (the original is in a Canva Education workspace, design `DAHNTCmo-8Q`).
-- [ ] Companies House: the confirmation statement is overdue (was due 31 Aug 2026).
-
-## Step 5 — Deploy
-- **Quick preview:** AI Studio → Deploy (Cloud Run) gives a shareable URL.
-- **Production on Hostinger (current host of gujjify.com):** back up the old site, then locally run
-  `npm install` and `npm run build` and upload the contents of `dist/` to `public_html`.
-  `public/.htaccess` forces `https://www.`, serves the app routes, and 301-redirects the old PHP URLs
-  (`about.php`, `blog-post.php?slug=…` …) so existing links keep working.
-- Optional env vars: `VITE_GA4_ID` (analytics, consent-gated), `VITE_FORM_ENDPOINT` (contact form POST target —
-  e.g. the old `/ajax/contact.php` or a form service). Without it the form opens WhatsApp pre-filled.
-
-## Updating the data later
-The JSON files are generated from the research repository (`data-pipeline/` scripts) from the brochures and
-keyword research. To update: regenerate, copy the JSON into `src/data/`, run `npm run typecheck`, push to GitHub,
-then in AI Studio ⚙ → GitHub → **Pull** (AI Studio does not pull automatically).
-
-## Local development
 ```powershell
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # type-check + production build
+npm run dev        # http://localhost:5173 (shows draft content with amber "Draft" badges)
+npm run build      # type-check, client build, server build, prerender -> dist/
+npm run preview    # serve dist/ at http://localhost:4173
 ```
 
-## Sources & licences
-- Programme data: Gujjify's partner brochures (university names removed on purpose).
-- Map: Alibaba DataV GeoAtlas China provinces (simplified). Exchange rates: fawazahmed0/currency-api (free, CORS).
-- Fonts: Fraunces and Poppins (Google Fonts, SIL Open Font License).
+`npm run build` writes one HTML file per route (116 pages) plus `sitemap.xml`, so search engines and WhatsApp /
+Facebook link previews see real content and tags. The browser then hydrates the same markup.
+
+## Deploy to Hostinger
+
+1. Back up the old site in `public_html`.
+2. Run `npm run build` and upload **the contents of `dist/`** (including `.htaccess`) to `public_html`.
+
+`public/.htaccess` forces `https://www.`, serves clean URLs from the prerendered `.html` files, returns a real 404
+page, 301-redirects the old PHP URLs (`about.php`, `blog-post.php?slug=…`), and sets caching and security headers.
+
+Optional environment variables (create `.env` before building):
+
+```
+VITE_GA4_ID=G-XXXXXXX          # Google Analytics 4, loads only after the visitor accepts cookies
+VITE_FORM_ENDPOINT=https://…   # contact form POST target (JSON). Without it the form opens WhatsApp pre-filled.
+```
+
+## Before going live (client approvals)
+
+Hidden in production until confirmed (they render only in `npm run dev`, marked "Draft"):
+- [ ] Marketing stats (1200+ students, 80+ universities, 500+ scholarships, 7+ years): what do they count?
+- [ ] 5 draft FAQs (marks needed, MBBS & PM&DC, Chinese required, total costs, hostels); check PM&DC wording.
+- [ ] Testimonial from Instagram: written permission from the student.
+- [ ] Full Lahore office address and whether there is a China office.
+
+Also:
+- [ ] Have the Privacy Policy, Terms and Cookie Policy reviewed by a professional (`src/pages/legal/*`).
+- [ ] `site.json` blog seed for "top-10-chinese-universities…" still contains university names in its second
+      paragraph. The site never shows it, but it ships inside the data bundle; remove it in `data-pipeline/build_site_data.py`.
+- [ ] Logo: ask for the SVG master (original in a Canva Education workspace, design `DAHNTCmo-8Q`).
+- [ ] Companies House: the confirmation statement is overdue (was due 31 Aug 2026).
+- [ ] Fresh brochures for the 2027 intakes (all programme data is from 2024-2025).
+
+## Updating the data
+
+The JSON files are generated from the research repository (`data-pipeline/` scripts) from the brochures and the
+keyword research. To update: regenerate, copy the JSON into `src/data/`, run `npm run typecheck`, then `npm run build`.
+Blog figures, counts, tool constants and the sitemap all recalculate from the data automatically.

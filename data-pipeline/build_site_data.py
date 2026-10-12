@@ -1,4 +1,4 @@
-"""Generate site.json, tools.json and meta.json for the Gujjify website kit.
+"""Generate site.json, tools.json and meta.json for the IFFI Global website kit.
 
 Copy comes from Gujjify_Website_Extraction.txt (typos fixed), the Instagram captions (SECTION 13 of
 that file) and computed statistics from programs.json / the keyword-research CSVs.
@@ -26,12 +26,12 @@ cities = len({p["city"] for p in ps if p["city"]})
 
 site = {
     "brand": {
-        "name": "Gujjify Consultant", "shortName": "Gujjify", "wordmarkSub": "CONSULTANT",
-        "legalName": "GUJJIFY LTD",
+        "name": "IFFI Global Education Consultants", "shortName": "IFFI Global", "wordmarkSub": "EDUCATION CONSULTANTS",
+        "legalName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD",
         "tagline": "Your Gateway to Study in China",
         "taglineAlt": ["Study in China Made Easy", "Study in China with Confidence",
                        "Your Gateway to China Education"],
-        "description": "Gujjify Consultant helps students from Pakistan and around the world win admissions, "
+        "description": "IFFI Global Education Consultants helps students from Pakistan and around the world win admissions, "
                        "scholarships and X1/X2 student visas for Chinese universities - from the first question "
                        "to arrival in China.",
         "logo": {"mark": "src/assets/brand/logo-mark-gold.png",
@@ -68,11 +68,11 @@ site = {
         "phone": "tel:+923264570214",
     },
     "legal": {
-        "companyName": "GUJJIFY LTD", "companyNumber": "16657100", "registeredIn": "England and Wales",
+        "companyName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD", "companyNumber": "16657100", "registeredIn": "England and Wales",
         "registeredOffice": "Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, United Kingdom",
-        "footerDisclosure": "Gujjify Ltd is a company registered in England and Wales, company no. 16657100. "
+        "footerDisclosure": "IFFI Global Education Consultants Ltd is a company registered in England and Wales, company no. 16657100. "
                             "Registered office: Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ.",
-        "copyright": "© 2026 Gujjify Consultant. All rights reserved.",
+        "copyright": "© 2026 IFFI Global Education Consultants. All rights reserved.",
         "credit": "Designed & Developed by RAVISN",
         "pagesRequired": ["Privacy Policy", "Terms of Service", "Cookie Policy"],
     },
@@ -179,7 +179,7 @@ site = {
     },
     "about": {
         "title": "Helping Students Reach Top Chinese Universities",
-        "body": "Gujjify Consultant is a dedicated China study consultancy helping students from Pakistan and beyond "
+        "body": "IFFI Global Education Consultants is a dedicated China study consultancy helping students from Pakistan and beyond "
                 "achieve their dream of studying at top Chinese universities. With deep knowledge of the Chinese "
                 "admission and scholarship system, our mission is to make the entire journey - admissions, "
                 "scholarships, visa and pre-departure - simple, transparent and successful. We treat every student "
@@ -200,7 +200,7 @@ site = {
          "a": f"Not always. {english} of the {n} programmes in our current list are taught in English. "
               "Chinese-taught programmes ask for an HSK certificate (usually HSK 4 or 5) - and we help you prepare. "
               "Basic Chinese still makes daily life much easier."},
-        {"q": "What scholarships can Gujjify Consultant help me apply for?", "status": "published",
+        {"q": "What scholarships can IFFI Global Education Consultants help me apply for?", "status": "published",
          "a": "We assist with the Chinese Government Scholarship (CSC), Confucius Institute Scholarship, provincial "
               "scholarships and individual university scholarships, depending on your profile and programme."},
         {"q": "How long does the admission process take?", "status": "published",
@@ -244,9 +244,9 @@ site = {
               "sports facilities and large international student communities."},
     ],
     "testimonials": [
-        {"quote": "Mainay 3 consultants se baat ki... lekin farq Gujjify ne dikhaya.",
-         "translation": "I spoke to 3 consultants... but Gujjify showed the difference.",
-         "source": "Student success story, Gujjify Instagram (23 Jul 2026)", "publish": False,
+        {"quote": "Mainay 3 consultants se baat ki... lekin farq IFFI Global ne dikhaya.",
+         "translation": "I spoke to 3 consultants... but IFFI Global showed the difference.",
+         "source": "Student success story, IFFI Global Instagram (23 Jul 2026)", "publish": False,
          "note": "Get the student's written permission (and name/photo if wanted) before publishing."},
     ],
     "documentChecklist": {
@@ -269,19 +269,19 @@ site = {
     "whatsapp": {
         "number": WA,
         "messages": {
-            "default": "Hello Gujjify Consultant, I want to study in China.",
-            "heroConsultation": "Hello Gujjify Consultant, I want a free consultation for studying in China.",
-            "ctaJourney": "Hello Gujjify Consultant, I want to start my China study journey.",
-            "aboutServices": "Hello Gujjify Consultant, I would like to know more about your services.",
-            "serviceInterest": "Hello Gujjify Consultant, I am interested in: {service}",
-            "chooseService": "Hello Gujjify Consultant, I need help choosing the right service.",
-            "faqQuestion": "Hello Gujjify Consultant, I have a question about studying in China.",
-            "blogGuidance": "Hello Gujjify Consultant, I read your article and want guidance.",
-            "programInterest": "Hello Gujjify Consultant, I am interested in programme {id} ({level}, {location}).",
-            "shortlist": "Hello Gujjify Consultant, here is my programme shortlist: {ids}. Please advise.",
-            "costEstimate": "Hello Gujjify Consultant, my cost estimate: {summary}. Please send me an exact quote.",
-            "eligibilityResult": "Hello Gujjify Consultant, my eligibility check: {summary}. Please assess my profile.",
-            "provinceInterest": "Hello Gujjify Consultant, I want to study in {province}, China.",
+            "default": "Hello IFFI Global Education Consultants, I want to study in China.",
+            "heroConsultation": "Hello IFFI Global Education Consultants, I want a free consultation for studying in China.",
+            "ctaJourney": "Hello IFFI Global Education Consultants, I want to start my China study journey.",
+            "aboutServices": "Hello IFFI Global Education Consultants, I would like to know more about your services.",
+            "serviceInterest": "Hello IFFI Global Education Consultants, I am interested in: {service}",
+            "chooseService": "Hello IFFI Global Education Consultants, I need help choosing the right service.",
+            "faqQuestion": "Hello IFFI Global Education Consultants, I have a question about studying in China.",
+            "blogGuidance": "Hello IFFI Global Education Consultants, I read your article and want guidance.",
+            "programInterest": "Hello IFFI Global Education Consultants, I am interested in programme {id} ({level}, {location}).",
+            "shortlist": "Hello IFFI Global Education Consultants, here is my programme shortlist: {ids}. Please advise.",
+            "costEstimate": "Hello IFFI Global Education Consultants, my cost estimate: {summary}. Please send me an exact quote.",
+            "eligibilityResult": "Hello IFFI Global Education Consultants, my eligibility check: {summary}. Please assess my profile.",
+            "provinceInterest": "Hello IFFI Global Education Consultants, I want to study in {province}, China.",
         },
     },
     "blogSeeds": [
@@ -289,38 +289,38 @@ site = {
         {"slug": "top-10-chinese-universities-for-international-students-2026", "title": "Top 10 Chinese Universities for International Students in 2026", "date": "2026-06-29"},
         {"slug": "top-scholarships-for-international-students-in-china", "title": "Top Scholarships for International Students in China", "date": "2026-06-29"},
         {"slug": "how-to-apply-for-chinese-student-visa-2026", "title": "How to Apply for a Chinese Student Visa in 2026", "date": "2026-06-29"},
-        {"slug": "why-choose-gujjify-consultant-for-study-in-china", "title": "Why Choose Gujjify Consultant for Study in China?", "date": "2026-06-29"},
+        {"slug": "why-choose-iffi-global-for-study-in-china", "title": "Why Choose IFFI Global Education Consultants for Study in China?", "date": "2026-06-29"},
         {"slug": "why-study-in-china-2026", "title": "Why Study in China in 2026? Top 7 Reasons", "date": "2026-06-23"},
         {"slug": "csc-scholarship-complete-guide", "title": "CSC Scholarship: A Complete Step-by-Step Guide", "date": "2026-06-23"},
         {"slug": "china-student-visa-x1-x2", "title": "Student Visa for China (X1 vs X2): What You Must Know", "date": "2026-06-23"},
         {"slug": "cost-of-studying-in-china", "title": "Cost of Studying in China: Tuition, Living & Budget", "date": "2026-06-23"},
     ],
     "seo": {
-        "siteUrl": "https://www.gujjify.com",
+        "siteUrl": "https://www.iffiglobal.com",
         "routes": {
-            "/": {"title": "Study in China with Scholarships | Gujjify Consultant",
+            "/": {"title": "Study in China with Scholarships | IFFI Global Education Consultants",
                   "description": f"Explore {n} China programmes in {len(provs)} provinces - CSC & university "
                                  "scholarships, costs and X1 visa support. Free eligibility check and WhatsApp counselling."},
-            "/programmes": {"title": "China University & Scholarship Finder 2026-27 | Gujjify",
+            "/programmes": {"title": "China University & Scholarship Finder 2026-27 | IFFI Global",
                             "description": "Filter China programmes by level, major, city, teaching language, scholarship "
                                            "and stipend. Shortlist, compare and download your list as PDF."},
-            "/tools/cost-calculator": {"title": "Study in China Cost Calculator - Tuition + Living | Gujjify",
+            "/tools/cost-calculator": {"title": "Study in China Cost Calculator - Tuition + Living | IFFI Global",
                                        "description": "Estimate tuition, hostel and living costs in China by city and "
                                                       "scholarship - shown in PKR, BDT, NGN, IDR and 40+ currencies."},
-            "/tools/eligibility-checker": {"title": "China Scholarship (CSC) Eligibility Checker | Gujjify",
+            "/tools/eligibility-checker": {"title": "China Scholarship (CSC) Eligibility Checker | IFFI Global",
                                            "description": "Check your eligibility for Chinese university scholarships "
                                                           "in 2 minutes - with or without IELTS - and see matching programmes."},
-            "/services": {"title": "China Admission, CSC Scholarship & X1 Visa Services | Gujjify",
+            "/services": {"title": "China Admission, CSC Scholarship & X1 Visa Services | IFFI Global",
                           "description": "Admissions, scholarships, X1/X2 visas, attestation, HSK and pre-departure "
                                          "support for studying in China."},
-            "/about": {"title": "About Gujjify Consultant - China Study Experts",
-                       "description": "A China study consultancy (Gujjify Ltd, UK) helping students from Pakistan and "
+            "/about": {"title": "About IFFI Global Education Consultants - China Study Experts",
+                       "description": "A China study consultancy (IFFI Global Education Consultants Ltd, UK) helping students from Pakistan and "
                                       "worldwide reach Chinese universities."},
-            "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | Gujjify",
+            "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Global",
                      "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."},
-            "/contact": {"title": "Contact Gujjify Consultant - WhatsApp +92 326 4570214",
-                         "description": "Free counselling for studying in China. WhatsApp, call or email Gujjify Consultant."},
-            "/blog": {"title": "Study in China Guides & News | Gujjify Blog",
+            "/contact": {"title": "Contact IFFI Global Education Consultants - WhatsApp +92 326 4570214",
+                         "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Global Education Consultants."},
+            "/blog": {"title": "Study in China Guides & News | IFFI Global Blog",
                       "description": "Guides on CSC scholarships, China student visas, costs and universities."},
         },
         "oldUrlRedirects": {
@@ -330,7 +330,7 @@ site = {
     },
     "disclaimers": {
         "dataFreshness": "Programme details come from university brochures for the 2024-2025 intakes. Fees, "
-                         "scholarships and deadlines change every year - confirm the latest details with Gujjify "
+                         "scholarships and deadlines change every year - confirm the latest details with IFFI Global "
                          "before applying.",
         "universityNames": "University names are shared during your free consultation.",
         "costEstimate": "Estimates only. Living costs are typical student budgets by city tier; exchange rates update "
@@ -493,7 +493,7 @@ meta = {
     "generated": "2026-10-07",
     "sources": {
         "programmes": "Extracted_Features_All_Programs.txt (7 brochures/forms; university names removed on purpose)",
-        "website": "Gujjify_Website_Extraction.txt (gujjify.com + Facebook + Instagram + Companies House)",
+        "website": "Gujjify_Website_Extraction.txt (iffiglobal.com + Facebook + Instagram + Companies House)",
         "keywords": "Gujjify_Keyword_Research_Global.csv + Gujjify_Keyword_Research_Autocomplete.csv",
         "geo": "Alibaba DataV GeoAtlas China provinces, simplified (china-provinces.geo.json)",
         "fx": f"fawazahmed0 currency-api, {fx['date']}",

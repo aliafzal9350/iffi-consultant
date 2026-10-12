@@ -1,16 +1,16 @@
 {
  "brand": {
-  "name": "Gujjify Consultant",
-  "shortName": "Gujjify",
-  "wordmarkSub": "CONSULTANT",
-  "legalName": "GUJJIFY LTD",
+  "name": "IFFI Global Education Consultants",
+  "shortName": "IFFI Global",
+  "wordmarkSub": "EDUCATION CONSULTANTS",
+  "legalName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD",
   "tagline": "Your Gateway to Study in China",
   "taglineAlt": [
    "Study in China Made Easy",
    "Study in China with Confidence",
    "Your Gateway to China Education"
   ],
-  "description": "Gujjify Consultant helps students from Pakistan and around the world win admissions, scholarships and X1/X2 student visas for Chinese universities - from the first question to arrival in China.",
+  "description": "IFFI Global Education Consultants helps students from Pakistan and around the world win admissions, scholarships and X1/X2 student visas for Chinese universities - from the first question to arrival in China.",
   "logo": {
    "mark": "src/assets/brand/logo-mark-gold.png",
    "variants": [
@@ -84,12 +84,12 @@
   "phone": "tel:+923264570214"
  },
  "legal": {
-  "companyName": "GUJJIFY LTD",
+  "companyName": "IFFI GLOBAL EDUCATION CONSULTANTS LTD",
   "companyNumber": "16657100",
   "registeredIn": "England and Wales",
   "registeredOffice": "Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, United Kingdom",
-  "footerDisclosure": "Gujjify Ltd is a company registered in England and Wales, company no. 16657100. Registered office: Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ.",
-  "copyright": "© 2026 Gujjify Consultant. All rights reserved.",
+  "footerDisclosure": "IFFI Global Education Consultants Ltd is a company registered in England and Wales, company no. 16657100. Registered office: Office 6317, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ.",
+  "copyright": "© 2026 IFFI Global Education Consultants. All rights reserved.",
   "credit": "Designed & Developed by RAVISN",
   "pagesRequired": [
    "Privacy Policy",
@@ -330,7 +330,7 @@
  },
  "about": {
   "title": "Helping Students Reach Top Chinese Universities",
-  "body": "Gujjify Consultant is a dedicated China study consultancy helping students from Pakistan and beyond achieve their dream of studying at top Chinese universities. With deep knowledge of the Chinese admission and scholarship system, our mission is to make the entire journey - admissions, scholarships, visa and pre-departure - simple, transparent and successful. We treat every student like family, offering honest advice and complete support at every step.",
+  "body": "IFFI Global Education Consultants is a dedicated China study consultancy helping students from Pakistan and beyond achieve their dream of studying at top Chinese universities. With deep knowledge of the Chinese admission and scholarship system, our mission is to make the entire journey - admissions, scholarships, visa and pre-departure - simple, transparent and successful. We treat every student like family, offering honest advice and complete support at every step.",
   "mission": "To make studying in China accessible, simple and successful for every deserving student through honest, expert guidance at every step.",
   "vision": "To be the most trusted China study consultancy - known for transparency, results, and treating every student like family.",
   "values": "Honesty, dedication and student-first service. We never make false promises - your success and trust are everything to us."
@@ -347,7 +347,7 @@
    "a": "Not always. 60 of the 72 programmes in our current list are taught in English. Chinese-taught programmes ask for an HSK certificate (usually HSK 4 or 5) - and we help you prepare. Basic Chinese still makes daily life much easier."
   },
   {
-   "q": "What scholarships can Gujjify Consultant help me apply for?",
+   "q": "What scholarships can IFFI Global Education Consultants help me apply for?",
    "status": "published",
    "a": "We assist with the Chinese Government Scholarship (CSC), Confucius Institute Scholarship, provincial scholarships and individual university scholarships, depending on your profile and programme."
   },
@@ -404,9 +404,9 @@
  ],
  "testimonials": [
   {
-   "quote": "Mainay 3 consultants se baat ki... lekin farq Gujjify ne dikhaya.",
-   "translation": "I spoke to 3 consultants... but Gujjify showed the difference.",
-   "source": "Student success story, Gujjify Instagram (23 Jul 2026)",
+   "quote": "Mainay 3 consultants se baat ki... lekin farq IFFI Global ne dikhaya.",
+   "translation": "I spoke to 3 consultants... but IFFI Global showed the difference.",
+   "source": "Student success story, IFFI Global Instagram (23 Jul 2026)",
    "publish": false,
    "note": "Get the student's written permission (and name/photo if wanted) before publishing."
   }
@@ -451,19 +451,19 @@
  "whatsapp": {
   "number": "923264570214",
   "messages": {
-   "default": "Hello Gujjify Consultant, I want to study in China.",
-   "heroConsultation": "Hello Gujjify Consultant, I want a free consultation for studying in China.",
-   "ctaJourney": "Hello Gujjify Consultant, I want to start my China study journey.",
-   "aboutServices": "Hello Gujjify Consultant, I would like to know more about your services.",
-   "serviceInterest": "Hello Gujjify Consultant, I am interested in: {service}",
-   "chooseService": "Hello Gujjify Consultant, I need help choosing the right service.",
-   "faqQuestion": "Hello Gujjify Consultant, I have a question about studying in China.",
-   "blogGuidance": "Hello Gujjify Consultant, I read your article and want guidance.",
-   "programInterest": "Hello Gujjify Consultant, I am interested in programme {id} ({level}, {location}).",
-   "shortlist": "Hello Gujjify Consultant, here is my programme shortlist: {ids}. Please advise.",
-   "costEstimate": "Hello Gujjify Consultant, my cost estimate: {summary}. Please send me an exact quote.",
-   "eligibilityResult": "Hello Gujjify Consultant, my eligibility check: {summary}. Please assess my profile.",
-   "provinceInterest": "Hello Gujjify Consultant, I want to study in {province}, China."
+   "default": "Hello IFFI Global Education Consultants, I want to study in China.",
+   "heroConsultation": "Hello IFFI Global Education Consultants, I want a free consultation for studying in China.",
+   "ctaJourney": "Hello IFFI Global Education Consultants, I want to start my China study journey.",
+   "aboutServices": "Hello IFFI Global Education Consultants, I would like to know more about your services.",
+   "serviceInterest": "Hello IFFI Global Education Consultants, I am interested in: {service}",
+   "chooseService": "Hello IFFI Global Education Consultants, I need help choosing the right service.",
+   "faqQuestion": "Hello IFFI Global Education Consultants, I have a question about studying in China.",
+   "blogGuidance": "Hello IFFI Global Education Consultants, I read your article and want guidance.",
+   "programInterest": "Hello IFFI Global Education Consultants, I am interested in programme {id} ({level}, {location}).",
+   "shortlist": "Hello IFFI Global Education Consultants, here is my programme shortlist: {ids}. Please advise.",
+   "costEstimate": "Hello IFFI Global Education Consultants, my cost estimate: {summary}. Please send me an exact quote.",
+   "eligibilityResult": "Hello IFFI Global Education Consultants, my eligibility check: {summary}. Please assess my profile.",
+   "provinceInterest": "Hello IFFI Global Education Consultants, I want to study in {province}, China."
   }
  },
  "blogSeeds": [
@@ -488,7 +488,7 @@
     "China is home to many globally recognized universities that attract thousands of international students every year.",
     "Institutions like Tsinghua University, Peking University, Zhejiang University, Fudan University, Shanghai Jiao Tong University, Wuhan University, and Nanjing University consistently rank among the world's best.",
     "These universities offer modern campuses, advanced research facilities, English-taught programs, and outstanding academic environments.",
-    "Choosing the right university depends on your program, career goals, and budget. Gujjify Consultant helps students select the best university based on their profile."
+    "Choosing the right university depends on your program, career goals, and budget. IFFI Global Education Consultants helps students select the best university based on their profile."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
@@ -498,7 +498,7 @@
    "title": "Top Scholarships for International Students in China",
    "date": "2026-06-29",
    "body": [
-    "China offers several scholarships that help international students reduce the cost of education. Popular options include the Chinese Government Scholarship (CSC), provincial scholarships, university scholarships, and Confucius Institute scholarships. These scholarships may cover tuition fees, accommodation, monthly allowances, and medical insurance depending on the program. Students with strong academic records and complete application documents have a higher chance of securing scholarships. Gujjify Consultant helps students identify suitable scholarship opportunities and prepare competitive applications."
+    "China offers several scholarships that help international students reduce the cost of education. Popular options include the Chinese Government Scholarship (CSC), provincial scholarships, university scholarships, and Confucius Institute scholarships. These scholarships may cover tuition fees, accommodation, monthly allowances, and medical insurance depending on the program. Students with strong academic records and complete application documents have a higher chance of securing scholarships. IFFI Global Education Consultants helps students identify suitable scholarship opportunities and prepare competitive applications."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
@@ -508,17 +508,17 @@
    "title": "How to Apply for a Chinese Student Visa in 2026",
    "date": "2026-06-29",
    "body": [
-    "A Chinese student visa is one of the most important requirements for studying in China. Students generally need an admission letter, JW202/JW201 form, passport, photographs, medical documents, and other supporting paperwork. The process includes receiving admission confirmation from the university, preparing the required documents, submitting the visa application, and attending any necessary verification procedures. Gujjify Consultant assists students throughout the visa process, ensuring that all documents are correctly prepared and submitted on time."
+    "A Chinese student visa is one of the most important requirements for studying in China. Students generally need an admission letter, JW202/JW201 form, passport, photographs, medical documents, and other supporting paperwork. The process includes receiving admission confirmation from the university, preparing the required documents, submitting the visa application, and attending any necessary verification procedures. IFFI Global Education Consultants assists students throughout the visa process, ensuring that all documents are correctly prepared and submitted on time."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
   },
   {
-   "slug": "why-choose-gujjify-consultant-for-study-in-china",
-   "title": "Why Choose Gujjify Consultant for Study in China?",
+   "slug": "why-choose-iffi-global-for-study-in-china",
+   "title": "Why Choose IFFI Global Education Consultants for Study in China?",
    "date": "2026-06-29",
    "body": [
-    "Applying to universities in China can be challenging without the right guidance. Gujjify Consultant helps students choose the best university, prepare documents, apply for scholarships, and complete the student visa process smoothly. Our team provides support for MBBS, Engineering, Business, Computer Science, Artificial Intelligence, and many other degree programs. We simplify every step of the application process so students can focus on their future goals. With years of experience and a student-focused approach, Gujjify Consultant has become a trusted choice for students who want to study in China with confidence."
+    "Applying to universities in China can be challenging without the right guidance. IFFI Global Education Consultants helps students choose the best university, prepare documents, apply for scholarships, and complete the student visa process smoothly. Our team provides support for MBBS, Engineering, Business, Computer Science, Artificial Intelligence, and many other degree programs. We simplify every step of the application process so students can focus on their future goals. With years of experience and a student-focused approach, IFFI Global Education Consultants has become a trusted choice for students who want to study in China with confidence."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
@@ -528,7 +528,7 @@
    "title": "Why Study in China in 2026? Top 7 Reasons",
    "date": "2026-06-23",
    "body": [
-    "China is now home to world-class universities, affordable tuition, and an unmatched scholarship ecosystem. In this guide we cover the top reasons students choose China: globally ranked universities, generous CSC scholarships, affordable living costs, fast-growing job market, modern campuses, safety, and rich culture. With the right guidance, the application process is simpler than most students expect — and that is exactly where Gujjify Consultant helps you every step of the way."
+    "China is now home to world-class universities, affordable tuition, and an unmatched scholarship ecosystem. In this guide we cover the top reasons students choose China: globally ranked universities, generous CSC scholarships, affordable living costs, fast-growing job market, modern campuses, safety, and rich culture. With the right guidance, the application process is simpler than most students expect — and that is exactly where IFFI Global Education Consultants helps you every step of the way."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
@@ -548,7 +548,7 @@
    "title": "Student Visa for China (X1 vs X2): What You Must Know",
    "date": "2026-06-23",
    "body": [
-    "After receiving your admission letter and JW202 form, the next step is the student visa. The X1 visa is for long-term study (over 180 days) and the X2 visa is for short-term study. This article walks through the documents, the process, and how to avoid the most common errors. Gujjify Consultant prepares your complete visa file so the process is smooth."
+    "After receiving your admission letter and JW202 form, the next step is the student visa. The X1 visa is for long-term study (over 180 days) and the X2 visa is for short-term study. This article walks through the documents, the process, and how to avoid the most common errors. IFFI Global Education Consultants prepares your complete visa file so the process is smooth."
    ],
    "status": "thin - expand to 800+ words before relaunch",
    "coverImage": null
@@ -565,42 +565,42 @@
   }
  ],
  "seo": {
-  "siteUrl": "https://www.gujjify.com",
+  "siteUrl": "https://www.iffiglobal.com",
   "routes": {
    "/": {
-    "title": "Study in China with Scholarships | Gujjify Consultant",
+    "title": "Study in China with Scholarships | IFFI Global Education Consultants",
     "description": "Explore 72 China programmes in 21 provinces - CSC & university scholarships, costs and X1 visa support. Free eligibility check and WhatsApp counselling."
    },
    "/programmes": {
-    "title": "China University & Scholarship Finder 2026-27 | Gujjify",
+    "title": "China University & Scholarship Finder 2026-27 | IFFI Global",
     "description": "Filter China programmes by level, major, city, teaching language, scholarship and stipend. Shortlist, compare and download your list as PDF."
    },
    "/tools/cost-calculator": {
-    "title": "Study in China Cost Calculator - Tuition + Living | Gujjify",
+    "title": "Study in China Cost Calculator - Tuition + Living | IFFI Global",
     "description": "Estimate tuition, hostel and living costs in China by city and scholarship - shown in PKR, BDT, NGN, IDR and 40+ currencies."
    },
    "/tools/eligibility-checker": {
-    "title": "China Scholarship (CSC) Eligibility Checker | Gujjify",
+    "title": "China Scholarship (CSC) Eligibility Checker | IFFI Global",
     "description": "Check your eligibility for Chinese university scholarships in 2 minutes - with or without IELTS - and see matching programmes."
    },
    "/services": {
-    "title": "China Admission, CSC Scholarship & X1 Visa Services | Gujjify",
+    "title": "China Admission, CSC Scholarship & X1 Visa Services | IFFI Global",
     "description": "Admissions, scholarships, X1/X2 visas, attestation, HSK and pre-departure support for studying in China."
    },
    "/about": {
-    "title": "About Gujjify Consultant - China Study Experts",
-    "description": "A China study consultancy (Gujjify Ltd, UK) helping students from Pakistan and worldwide reach Chinese universities."
+    "title": "About IFFI Global Education Consultants - China Study Experts",
+    "description": "A China study consultancy (IFFI Global Education Consultants Ltd, UK) helping students from Pakistan and worldwide reach Chinese universities."
    },
    "/faq": {
-    "title": "Study in China FAQ - Scholarships, Costs, Visa | Gujjify",
+    "title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Global",
     "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."
    },
    "/contact": {
-    "title": "Contact Gujjify Consultant - WhatsApp +92 326 4570214",
-    "description": "Free counselling for studying in China. WhatsApp, call or email Gujjify Consultant."
+    "title": "Contact IFFI Global Education Consultants - WhatsApp +92 326 4570214",
+    "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Global Education Consultants."
    },
    "/blog": {
-    "title": "Study in China Guides & News | Gujjify Blog",
+    "title": "Study in China Guides & News | IFFI Global Blog",
     "description": "Guides on CSC scholarships, China student visas, costs and universities."
    }
   },
@@ -615,7 +615,7 @@
   }
  },
  "disclaimers": {
-  "dataFreshness": "Programme details come from university brochures for the 2024-2025 intakes. Fees, scholarships and deadlines change every year - confirm the latest details with Gujjify before applying.",
+  "dataFreshness": "Programme details come from university brochures for the 2024-2025 intakes. Fees, scholarships and deadlines change every year - confirm the latest details with IFFI Global before applying.",
   "universityNames": "University names are shared during your free consultation.",
   "costEstimate": "Estimates only. Living costs are typical student budgets by city tier; exchange rates update daily. Ask us for an exact quote.",
   "eligibility": "Indicative only - this is not an admission or scholarship decision. Final decisions are made by universities and scholarship bodies.",

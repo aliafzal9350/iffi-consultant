@@ -20,7 +20,7 @@ export const LANGUAGE_POLICY_TYPES = [
   'any-english', // any English certificate accepted
   'hsk', // Chinese-taught: HSK level required
   'unspecified', // a language certificate is required but the test is not named
-  'not-stated', // brochure says nothing - "ask Gujjify"
+  'not-stated', // brochure says nothing - "ask IFFI Global"
 ] as const;
 
 export interface LanguagePolicy {

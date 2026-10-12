@@ -64,9 +64,9 @@ pre-filled messages (keep the rest English). Write natural Roman Urdu like the b
 e.g. "China mein scholarship ke sath admission - free consultation". Store strings in a dictionary file.
 ```
 
-## 8. (Optional) "Ask Gujjify" AI assistant — only if the client wants it
+## 8. (Optional) "Ask IFFI Global" AI assistant — only if the client wants it
 ```
-Add an "Ask Gujjify" chat drawer powered by the Gemini API through a server-side function (never expose the key
+Add an "Ask IFFI Global" chat drawer powered by the Gemini API through a server-side function (never expose the key
 in the browser). Ground every answer ONLY in src/data (programmes, provinces, site FAQ, tools constants); if the
 answer is not in the data, say so and offer WhatsApp. Never name universities, never promise admission or
 scholarships, always add the data-freshness note to programme answers, and end with a "Continue on WhatsApp"
