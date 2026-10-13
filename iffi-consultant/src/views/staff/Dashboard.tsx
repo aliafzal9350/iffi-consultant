@@ -1,4 +1,4 @@
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, GraduationCap, Users } from 'lucide-react';
 import type { Profile } from '@/lib/auth/dal';
 import { Link } from '@/lib/router';
 import { STATUS_GROUPS } from '@/lib/portal/transitions';
@@ -10,7 +10,17 @@ import { ApplicationList } from '@/components/staff/StaffBits';
 // the groups that need someone at IFFI to act, in the order to check them
 const ATTENTION = ['payment', 'waiting', 'review', 'new'];
 
-export default function Dashboard({ me, apps, studentCount }: { me: Profile; apps: StaffApplication[]; studentCount: number }) {
+export default function Dashboard({
+  me,
+  apps,
+  studentCount,
+  programCount = 72,
+}: {
+  me: Profile;
+  apps: StaffApplication[];
+  studentCount: number;
+  programCount?: number;
+}) {
   const firstName = me.full_name?.split(' ')[0];
   const groups = ATTENTION.map((k) => STATUS_GROUPS.find((g) => g.key === k)!).map((g) => ({
     ...g,
@@ -77,6 +87,14 @@ export default function Dashboard({ me, apps, studentCount }: { me: Profile; app
             <p className="mt-1.5 text-[14px] text-muted">students have signed up</p>
             <Link to="/staff/students" className={buttonClass('outline', 'sm', 'mt-4')}>
               <Users size={16} aria-hidden="true" /> See all students
+            </Link>
+          </section>
+
+          <section className="rounded-card border border-line bg-white p-6">
+            <p className="tabular font-display text-[2rem] font-semibold leading-none text-navy">{programCount}</p>
+            <p className="mt-1.5 text-[14px] text-muted">active degree programmes</p>
+            <Link to="/staff/programmes" className={buttonClass('outline', 'sm', 'mt-4')}>
+              <GraduationCap size={16} aria-hidden="true" /> Manage programmes
             </Link>
           </section>
 

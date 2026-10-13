@@ -47,7 +47,6 @@ function FocusOnNavigate() {
 /** Client shell. The footer arrives as a prop so it stays a Server Component (no JS for it). */
 export function Layout({ children, footer, assistant = false }: { children: ReactNode; footer: ReactNode; assistant?: boolean }) {
   const { pathname } = useLocation();
-  const isAdmin = pathname.startsWith('/admin');
   // signed-in areas bring their own chrome (PortalShell); the sign-in page keeps the public header
   const inArea = (base: string) => pathname === base || pathname.startsWith(`${base}/`);
   const isPortalApp = (inArea('/portal') && pathname !== '/portal/sign-in') || inArea('/staff');
@@ -65,15 +64,6 @@ export function Layout({ children, footer, assistant = false }: { children: Reac
         {children /* PortalShell renders <main id="content"> after its own header */}
         <Toast />
       </>
-    );
-  }
-
-  if (isAdmin) {
-    return (
-      <main id="content" tabIndex={-1} className="outline-none min-h-screen bg-[#071124] text-slate-100">
-        {children}
-        <Toast />
-      </main>
     );
   }
 

@@ -16,6 +16,7 @@ const STAFF_NAV: NavItem[] = [
   { href: '/staff', label: 'Dashboard' },
   { href: '/staff/applications', label: 'Applications' },
   { href: '/staff/students', label: 'Students' },
+  { href: '/staff/programmes', label: 'Programmes' },
 ];
 const ADMIN_NAV: NavItem[] = [...STAFF_NAV, { href: '/staff/team', label: 'Team' }];
 
