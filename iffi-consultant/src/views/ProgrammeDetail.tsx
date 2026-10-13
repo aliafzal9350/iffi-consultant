@@ -68,6 +68,8 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
   ];
   const waVars = { id: p.id, level: LEVEL_LABEL[p.level], location };
   const applyLabel = `Apply with ${site.brand.name}`;
+  // the online application: sign-in (if needed) -> profile quiz (if needed) -> this programme
+  const applyHref = `/portal/apply/${p.id}`;
 
   return (
     <>
@@ -92,8 +94,11 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
           <ProgrammeBadges p={p} max={8} dark />
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <WhatsAppButton messageKey="programInterest" vars={waVars} size="lg">
-            {applyLabel}
+          <Button to={applyHref} variant="gold" size="lg">
+            Apply online
+          </Button>
+          <WhatsAppButton messageKey="programInterest" vars={waVars} variant="outline-light" size="lg">
+            Ask on WhatsApp
           </WhatsAppButton>
           <ListToggles id={p.id} dark />
           <ShareButton title={p.displayName} />
@@ -248,9 +253,12 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
             </div>
             <div className="rounded-card border border-line bg-white p-5">
               <p className="font-display text-xl text-navy">Interested in {p.id}?</p>
-              <p className="mt-2 text-[15px] text-muted">Send us your marks and we will confirm the latest fees, scholarship and deadline for this programme.</p>
-              <WhatsAppButton messageKey="programInterest" vars={waVars} className="mt-4 w-full">
-                {applyLabel}
+              <p className="mt-2 text-[15px] text-muted">Apply online in a few minutes, or send us your marks and we will confirm the latest fees, scholarship and deadline.</p>
+              <Button to={applyHref} variant="gold" className="mt-4 w-full">
+                Apply online
+              </Button>
+              <WhatsAppButton messageKey="programInterest" vars={waVars} variant="outline" className="mt-2.5 w-full">
+                {applyLabel} on WhatsApp
               </WhatsAppButton>
             </div>
           </aside>
@@ -272,7 +280,7 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
         )}
       </Container>
 
-      <StickyApplyBar vars={waVars} label={applyLabel} />
+      <StickyApplyBar vars={waVars} applyHref={applyHref} />
     </>
   );
 }

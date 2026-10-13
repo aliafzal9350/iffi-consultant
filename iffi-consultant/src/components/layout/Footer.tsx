@@ -147,6 +147,11 @@ export function Footer() {
                   Cookie Policy
                 </Link>
               </li>
+              <li>
+                <Link to="/portal/sign-in?mode=staff" className="inline-flex min-h-6 items-center hover:text-gold-2">
+                  Staff login
+                </Link>
+              </li>
               <li>{site.legal.credit}</li>
             </ul>
           </div>

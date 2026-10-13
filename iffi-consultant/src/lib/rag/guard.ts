@@ -57,7 +57,7 @@ export interface GuardResult {
   flags: string[];
 }
 
-const UNIVERSITY_NAME =
+export const UNIVERSITY_NAME =
   /\b(?:(?:[A-Z][a-z]+|[A-Z]{2,})[ -]){1,5}(?:University|Institute of Technology|Medical College|Normal College|Polytechnic|Academy of Sciences)(?: of (?:[A-Z][a-z]+(?: and )?){1,4})?\b|\bUniversity of (?:[A-Z][a-z]+[ -]?){1,4}\b|\b(?:Tsinghua|Peking|Fudan|Tongji|Zhejiang|Nanjing|Wuhan|Sichuan|Jilin|Shandong|Xiamen|Nankai|Beihang|Renmin|Jiao ?Tong|Sun Yat-sen|Harbin|Xi'an Jiaotong)\b(?= University| Uni\b)/g;
 
 // phrases from the system prompt that should never appear in an answer

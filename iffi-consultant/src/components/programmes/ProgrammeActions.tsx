@@ -1,7 +1,9 @@
 'use client';
 import { Share2 } from 'lucide-react';
 import { useLists } from '@/hooks/useLists';
+import { Link } from '@/lib/router';
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
+import { buttonClass } from '@/components/ui/buttonStyles';
 
 /** Native share sheet, or copy the link where sharing is not supported. */
 export function ShareButton({ title }: { title: string }) {
@@ -30,17 +32,20 @@ export function ShareButton({ title }: { title: string }) {
   );
 }
 
-/** Phones: sticky apply bar (the compare tray takes its place when it is open). */
-export function StickyApplyBar({ vars, label }: { vars: Record<string, string>; label: string }) {
+/** Phones: sticky apply bar - apply online, or ask on WhatsApp (the compare tray takes its place when it is open). */
+export function StickyApplyBar({ vars, applyHref }: { vars: Record<string, string>; applyHref: string }) {
   const { compare } = useLists();
   return (
     <div
       hidden={compare.length > 0}
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_auto] gap-2 border-t border-line bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden"
       data-noprint
     >
-      <WhatsAppButton messageKey="programInterest" vars={vars} className="w-full">
-        {label}
+      <Link to={applyHref} className={buttonClass('gold', 'md', 'w-full')}>
+        Apply online
+      </Link>
+      <WhatsAppButton messageKey="programInterest" vars={vars} className="w-12 px-0">
+        <span className="sr-only">Ask on WhatsApp</span>
       </WhatsAppButton>
     </div>
   );

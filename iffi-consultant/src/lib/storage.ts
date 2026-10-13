@@ -44,4 +44,5 @@ export const KEYS = {
   eligibility: 'gj:eligibility',
   checklist: 'gj:checklist',
   currency: 'gj:currency',
+  portalQuiz: 'gj:portal-quiz',
 } as const;

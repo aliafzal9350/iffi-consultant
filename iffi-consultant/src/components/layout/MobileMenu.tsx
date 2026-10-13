@@ -9,11 +9,14 @@ import { Link, NavLink, useLocation } from '@/lib/router';
 import { Drawer } from '@/components/ui/Drawer';
 import { WhatsAppButton } from '@/components/ui/Button';
 import { FacebookIcon, InstagramIcon } from '@/components/ui/BrandIcons';
+import { buttonClass } from '@/components/ui/buttonStyles';
+import { useSignedIn } from './AccountCta';
 
 /** Full-height navy sheet for phones and tablets: large tap targets, complete navigation, WhatsApp CTA. */
 export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { pathname } = useLocation();
   const [toolsExpanded, setToolsExpanded] = useState(true);
+  const signedIn = useSignedIn();
 
   return (
     <Drawer
@@ -25,7 +28,21 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
       labelId="mobile-menu-title"
       footer={
         <div className="space-y-3 pt-2">
-          <WhatsAppButton messageKey="heroConsultation" size="lg" className="w-full">
+          {signedIn ? (
+            <Link href="/portal" onClick={onClose} className={buttonClass('gold', 'lg', 'w-full')}>
+              My portal
+            </Link>
+          ) : (
+            <div className="grid grid-cols-[1fr_auto] gap-2">
+              <Link href="/portal/sign-in?mode=signup" onClick={onClose} className={buttonClass('gold', 'lg', 'w-full')}>
+                Get started, it&apos;s free
+              </Link>
+              <Link href="/portal/sign-in?mode=login" onClick={onClose} className={buttonClass('outline-light', 'lg')}>
+                Log in
+              </Link>
+            </div>
+          )}
+          <WhatsAppButton messageKey="heroConsultation" variant="outline-light" size="lg" className="w-full">
             Free Consultation on WhatsApp
           </WhatsAppButton>
           <div className="flex items-center justify-center gap-5 text-sm text-mist">

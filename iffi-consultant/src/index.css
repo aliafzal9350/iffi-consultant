@@ -231,6 +231,15 @@
   animation: skeleton-pulse 1.8s ease-in-out infinite;
 }
 
+/* Student portal: the journey route's gold line fills once to the current step */
+@keyframes route-fill {
+  from { transform: scaleX(0); }
+}
+@utility animate-route-fill {
+  transform-origin: left center;
+  animation: route-fill 1.1s var(--ease-premium) 0.15s both;
+}
+
 /* Hero count-up numbers stay hidden only between first paint and hydration */
 @keyframes reveal-late { to { opacity: 1; } }
 .js [data-countup]:not([data-ready]) {

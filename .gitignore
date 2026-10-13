@@ -1,2 +1,7 @@
 # Office lock files
 ~$*
+
+# IDE & Tooling
+.claude/
+.vscode/
+

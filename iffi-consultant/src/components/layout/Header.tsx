@@ -7,7 +7,7 @@ import { site } from '@/data/content';
 import { cn } from '@/lib/cn';
 import { TOOLS } from '@/lib/toolsMeta';
 import { Wordmark } from '@/components/ui/Logo';
-import { WhatsAppButton } from '@/components/ui/Button';
+import { AccountCta } from './AccountCta';
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { Container } from '@/components/ui/primitives';
 import { useLists } from '@/hooks/useLists';
@@ -266,15 +266,12 @@ export function Header() {
           {/* Action CTAs & Mobile Hamburger */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             <ShortlistButton />
-            <span className="hidden sm:block">
-              <WhatsAppButton
-                messageKey="heroConsultation"
-                variant="gold"
-                size="sm"
-                className="md:h-10 md:px-5"
-              >
-                Free Consultation
-              </WhatsAppButton>
+            {/* the free consultation stays in the top bar, the floating WhatsApp button and the mobile menu */}
+            <span className="hidden lg:block">
+              <AccountCta />
+            </span>
+            <span className="lg:hidden">
+              <AccountCta compact />
             </span>
             <button
               type="button"

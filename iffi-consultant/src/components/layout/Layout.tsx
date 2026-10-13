@@ -48,6 +48,25 @@ function FocusOnNavigate() {
 export function Layout({ children, footer, assistant = false }: { children: ReactNode; footer: ReactNode; assistant?: boolean }) {
   const { pathname } = useLocation();
   const isAdmin = pathname.startsWith('/admin');
+  // signed-in areas bring their own chrome (PortalShell); the sign-in page keeps the public header
+  const inArea = (base: string) => pathname === base || pathname.startsWith(`${base}/`);
+  const isPortalApp = (inArea('/portal') && pathname !== '/portal/sign-in') || inArea('/staff');
+
+  if (isPortalApp) {
+    return (
+      <>
+        <a
+          href="#content"
+          className="sr-only z-[100] rounded-full bg-gold px-5 py-3 font-medium text-navy focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content
+        </a>
+        <FocusOnNavigate />
+        {children /* PortalShell renders <main id="content"> after its own header */}
+        <Toast />
+      </>
+    );
+  }
 
   if (isAdmin) {
     return (
@@ -74,12 +93,13 @@ export function Layout({ children, footer, assistant = false }: { children: Reac
         {children}
       </main>
       {footer}
-      <FloatingWhatsApp />
+      {/* the sign-in page has its own WhatsApp link, and floating buttons would cover its content */}
+      {pathname !== '/portal/sign-in' && <FloatingWhatsApp />}
       <BackToTop />
       <Toast />
       <CookieConsent />
       <ListsHost />
-      {assistant && <ChatLauncher />}
+      {assistant && pathname !== '/portal/sign-in' && <ChatLauncher />}
     </>
   );
 }
