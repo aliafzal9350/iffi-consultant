@@ -7,7 +7,7 @@ import re, json, os, collections
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent  # research folder
-KIT_DATA = ROOT / 'gujjify-website' / 'src' / 'data'
+KIT_DATA = ROOT / 'iffi-consultant' / 'src' / 'data'
 
 SRC = ROOT / "Extracted_Features_All_Programs.txt"
 OUT_DIR = os.environ.get("OUT_DIR", str(KIT_DATA))
@@ -423,7 +423,7 @@ for p in programs:
     # ---- language policy (curated from SECTION 11.1 / 11.2)
     p["languagePolicy"] = LANG.get(pid) or (
         {"type": "none", "note": "No IELTS/Duolingo required (as stated)"} if pid in NO_IELTS
-        else {"type": "not-stated", "note": "Not stated in the brochure - ask Gujjify"})
+        else {"type": "not-stated", "note": "Not stated in the brochure - ask IFFI Consultant"})
 
     # ---- study fields (broad categories for the finder)
     p["fields"] = sorted({field_of(m) for m in p["majors"]} - {None})

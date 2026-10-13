@@ -3,7 +3,7 @@
 - keeps the 34 province-level regions, drops the South China Sea dash-line feature
   (100000_JD: decorative line boxes, not a province - bad for 3D extrusion)
 - Douglas-Peucker simplification + drops tiny islands + 3-decimal rounding
-- adds English names and Gujjify programme counts (from provinces.json)
+- adds English names and IFFI Global programme counts (from provinces.json)
 """
 import json, math, os, sys
 

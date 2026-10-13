@@ -2,7 +2,7 @@
 import json, re, collections, statistics
 from pathlib import Path
 
-ps = json.load(open(Path(__file__).resolve().parent.parent / "gujjify-website/src/data/programs.json", encoding="utf-8"))
+ps = json.load(open(Path(__file__).resolve().parent.parent / "iffi-consultant/src/data/programs.json", encoding="utf-8"))
 PAT = {
     "insurance": r"insurance[^:]*:\s*([\d,]{3,5})",
     "residencePermit": r"(?:residen(?:ce|t) permit|visa extension)[^:]*:\s*([\d,]{3,5})",
