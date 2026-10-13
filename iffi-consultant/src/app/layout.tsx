@@ -76,13 +76,18 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false },
 };
 
+// the assistant button appears only when the server has a Gemini key (decided at build time)
+const assistantEnabled = Boolean(process.env.GEMINI_API_KEY) && process.env.NEXT_PUBLIC_ASSISTANT !== 'off';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${frauncesItalic.variable} ${poppins.variable} ${notoSc.variable} js`}>
       <body>
         <JsonLd data={[organizationLd()]} />
         <ListsProvider>
-          <Layout footer={<Footer />}>{children}</Layout>
+          <Layout footer={<Footer />} assistant={assistantEnabled}>
+            {children}
+          </Layout>
         </ListsProvider>
       </body>
     </html>

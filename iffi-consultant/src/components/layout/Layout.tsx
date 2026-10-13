@@ -6,6 +6,7 @@ import { TopBar, Header } from './Header';
 import { BackToTop, FloatingWhatsApp, Toast } from './Floating';
 import { CookieConsent } from './CookieConsent';
 import { ListsHost } from '@/components/programmes/ListsHost';
+import { ChatLauncher } from '@/components/chat/ChatLauncher';
 
 /** Scroll to top on page change, or to the #hash target when there is one. */
 function ScrollManager() {
@@ -44,7 +45,7 @@ function FocusOnNavigate() {
 }
 
 /** Client shell. The footer arrives as a prop so it stays a Server Component (no JS for it). */
-export function Layout({ children, footer }: { children: ReactNode; footer: ReactNode }) {
+export function Layout({ children, footer, assistant = false }: { children: ReactNode; footer: ReactNode; assistant?: boolean }) {
   const { pathname } = useLocation();
   const isAdmin = pathname.startsWith('/admin');
 
@@ -78,6 +79,7 @@ export function Layout({ children, footer }: { children: ReactNode; footer: Reac
       <Toast />
       <CookieConsent />
       <ListsHost />
+      {assistant && <ChatLauncher />}
     </>
   );
 }

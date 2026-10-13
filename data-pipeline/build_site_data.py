@@ -277,6 +277,7 @@ site = {
             "costEstimate": "Hello IFFI Consultant, my cost estimate: {summary}. Please send me an exact quote.",
             "eligibilityResult": "Hello IFFI Consultant, my eligibility check: {summary}. Please assess my profile.",
             "provinceInterest": "Hello IFFI Consultant, I want to study in {province}, China.",
+            "chatSummary": "Hello IFFI Consultant, I was using your website assistant. My questions: {summary}",
         },
     },
     "blogSeeds": [
