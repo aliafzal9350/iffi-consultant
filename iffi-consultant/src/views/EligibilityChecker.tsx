@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { ArrowLeft, Lock, LockOpen, RotateCcw } from 'lucide-react';
 import { Link } from '@/lib/router';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { tools } from '@/data/config';
 import { cn } from '@/lib/cn';
 import { fmtNumber, plural } from '@/lib/format';
@@ -12,7 +12,6 @@ import { KEYS, readJSON, writeJSON, removeKey } from '@/lib/storage';
 import { CURRENCIES } from '@/lib/currency';
 import { waHref } from '@/lib/whatsapp';
 import { track } from '@/lib/analytics';
-import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, Disclaimer, Section } from '@/components/ui/primitives';
 import { Field, Select, inputClass } from '@/components/ui/Form';
@@ -335,7 +334,6 @@ export default function EligibilityChecker() {
 
   return (
     <>
-      <JsonLd crumbs={crumbs} />
       <PageHeader
         crumbs={crumbs}
         title="China Scholarship (CSC) Eligibility Checker"

@@ -1,11 +1,10 @@
 'use client';
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
+import type { SiteContent } from '@/data/content';
 import { cn } from '@/lib/cn';
-import { faqLd } from '@/lib/seo';
 import { SHOW_DRAFTS } from '@/lib/env';
-import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, DraftBadge, Disclaimer } from '@/components/ui/primitives';
 import { Accordion } from '@/components/ui/Accordion';
@@ -25,16 +24,15 @@ function topicOf(q: string): (typeof TOPICS)[number] {
   return 'Process';
 }
 
-export default function Faq() {
+/** The FAQ list comes from the page (server), so the full site copy stays out of this client bundle. */
+export default function Faq({ faq }: { faq: SiteContent['faq'] }) {
   const [query, setQuery] = useState('');
-  const items = useMemo(() => site.faq.filter((f) => f.status === 'published' || SHOW_DRAFTS), []);
-  const published = site.faq.filter((f) => f.status === 'published');
+  const items = useMemo(() => faq.filter((f) => f.status === 'published' || SHOW_DRAFTS), [faq]);
   const needle = query.trim().toLowerCase();
   const shown = needle ? items.filter((f) => `${f.q} ${f.a}`.toLowerCase().includes(needle)) : items;
 
   return (
     <>
-      <JsonLd crumbs={crumbs} data={[faqLd(published)]} />
       <PageHeader crumbs={crumbs} title="Study in China: frequently asked questions" lede="Scholarships, costs, language, visas and MBBS. If your question is not here, ask us on WhatsApp." />
 
       <Container narrow className="py-12 md:py-16">

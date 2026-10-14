@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link } from '@/lib/router';
 import { GitCompareArrows, Heart, Printer, X } from 'lucide-react';
 import { programById } from '@/data/catalog';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import type { Program } from '@/types/data';
 import {
   LEVEL_LABEL,

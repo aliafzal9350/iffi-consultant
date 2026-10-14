@@ -44,7 +44,8 @@ export function StickyApplyBar({ vars, applyHref }: { vars: Record<string, strin
       <Link to={applyHref} className={buttonClass('gold', 'md', 'w-full')}>
         Apply online
       </Link>
-      <WhatsAppButton messageKey="programInterest" vars={vars} className="w-12 px-0">
+      {/* icon-only: px-0! because the md size's own padding would otherwise squeeze the icon */}
+      <WhatsAppButton messageKey="programInterest" vars={vars} className="w-12 px-0!">
         <span className="sr-only">Ask on WhatsApp</span>
       </WhatsAppButton>
     </div>

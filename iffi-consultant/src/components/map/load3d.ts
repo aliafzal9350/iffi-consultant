@@ -20,10 +20,9 @@ export interface DeviceContext {
 }
 
 /**
- * TODO(you): this is the trade-off between the "wow" of the 3D map and a 90+ mobile score.
- * Baseline: phones and weak devices opt in with a button, desktops load it on first interaction.
- * Lighthouse throttles the CPU but reports the test machine's real core count, so anything that
- * loads on 'idle' runs during a mobile test - keep 'idle' out of the mobile branch.
+ * The trade-off between the 3D map and a 90+ mobile score: phones and weak devices opt in with a button,
+ * desktops load it on first interaction. Lighthouse throttles the CPU but reports the test machine's real
+ * core count, so anything that loads on 'idle' runs during a mobile test - keep 'idle' out of the mobile branch.
  */
 export function load3DTrigger({ mobile, weak, reduced, webgl }: DeviceContext): Load3DTrigger {
   if (!webgl || reduced) return 'never';

@@ -1,6 +1,6 @@
 'use client';
 import { Link } from '@/lib/router';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { GA4_ID } from '@/lib/env';
 import { Button } from '@/components/ui/Button';
 import { OPEN_CONSENT_EVENT } from '@/components/layout/CookieConsent';

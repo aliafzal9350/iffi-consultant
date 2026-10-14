@@ -33,5 +33,5 @@ export function buildSystemPrompt(sources: Chunk[]): string {
 export const REPLIES = {
   injection: `I can only help with studying in China: programmes, scholarships, costs, documents and visas. What would you like to know? For anything else, message ${site.brand.name} on WhatsApp (${site.contact.phoneDisplay}).`,
   blocked: `Sorry, I can't help with that here. For personal advice, message ${site.brand.name} on WhatsApp (${site.contact.phoneDisplay}).`,
-  unavailable: `The assistant is busy right now. Please message ${site.brand.name} on WhatsApp (${site.contact.phoneDisplay}) and we usually reply within minutes.`,
+  unavailable: `Answers are not available right now. Please message ${site.brand.name} on WhatsApp (${site.contact.phoneDisplay}) and we usually reply within minutes.`,
 };

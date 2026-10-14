@@ -148,9 +148,7 @@ export function ToolsSection() {
           </article>
         ))}
       </div>
-      <p className="mt-6 text-sm text-muted">
-        Built from what students in {tools.currency.currencies.filter((c) => c.keywordDemand > 0).length} countries search for when they plan to study in China.
-      </p>
+      <p className="mt-6 text-sm text-muted">Free to use and no sign-up needed. Your answers stay in your browser.</p>
     </Section>
   );
 }

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import { Lock } from 'lucide-react';
+import { ListChecks, Lock, Search } from 'lucide-react';
 import { site } from '@/data/content';
 import { safeNext } from '@/lib/auth/redirects';
+import { supabaseConfigured } from '@/lib/supabase/keys';
+import { WhatsAppButton } from '@/components/ui/Button';
 import { JOURNEY } from '@/lib/portal/journey';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { Crest } from '@/components/ui/Logo';
@@ -70,49 +72,83 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
         <div className="fret-line absolute inset-x-0 bottom-0 opacity-70" aria-hidden="true" />
       </section>
 
-      {/* right: sign in */}
+      {/* right: sign in (or, before accounts are switched on, the WhatsApp route) */}
       <section aria-labelledby="sign-in-title" className="flex items-center justify-center bg-paper px-4 py-10 sm:px-8 lg:py-16">
-        <div className="w-full max-w-[420px]">
-          <div className="rounded-card border border-line bg-white p-6 shadow-lift sm:p-9">
-            <Crest variant="navy" size={44} className="mb-5" />
-            <h2 id="sign-in-title" className="text-h3">
-              {copy.title}
-            </h2>
-            <p className="mt-2 text-[15px] text-muted">{copy.lede}</p>
-            {error && (
-              <p className="mt-5 rounded-xl bg-danger/10 px-4 py-3 text-[14px] text-danger" role="alert">
-                {error}
+        {!supabaseConfigured() ? (
+          <AccountsOpeningSoon />
+        ) : (
+          <div className="w-full max-w-[420px]">
+            <div className="rounded-card border border-line bg-white p-6 shadow-lift sm:p-9">
+              <Crest variant="navy" size={44} className="mb-5" />
+              <h2 id="sign-in-title" className="text-h3">
+                {copy.title}
+              </h2>
+              <p className="mt-2 text-[15px] text-muted">{copy.lede}</p>
+              {error && (
+                <p className="mt-5 rounded-xl bg-danger/10 px-4 py-3 text-[14px] text-danger" role="alert">
+                  {error}
+                </p>
+              )}
+              <div className="mt-7">
+                <GoogleSignInButton next={next} label={copy.button} />
+              </div>
+              <p className="mt-6 flex gap-2.5 border-t border-line pt-5 text-[13px] leading-relaxed text-muted">
+                <Lock size={15} aria-hidden="true" className="mt-0.5 shrink-0 text-navy" />
+                Google shares only your name, email address and profile photo with us.
+              </p>
+            </div>
+            {(mode === 'signup' || mode === 'login') && (
+              <p className="mt-6 text-center text-[14px] text-muted">
+                {mode === 'signup' ? 'Already have an account?' : 'New here?'}{' '}
+                <Link to={switchHref} className="font-medium text-navy underline underline-offset-4 hover:text-gold-deep">
+                  {mode === 'signup' ? 'Log in' : 'Create a free account'}
+                </Link>
               </p>
             )}
-            <div className="mt-7">
-              <GoogleSignInButton next={next} label={copy.button} />
-            </div>
-            <p className="mt-6 flex gap-2.5 border-t border-line pt-5 text-[13px] leading-relaxed text-muted">
-              <Lock size={15} aria-hidden="true" className="mt-0.5 shrink-0 text-navy" />
-              Google shares only your name, email address and profile photo with us.
+            <p className="mt-3 text-center text-[14px] text-muted">
+              Want to talk first?{' '}
+              <a
+                href={site.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-navy underline underline-offset-4 hover:text-gold-deep"
+              >
+                <WhatsAppIcon size={15} className="text-[#1a9e4b]" /> Message an adviser
+              </a>
             </p>
           </div>
-          {(mode === 'signup' || mode === 'login') && (
-            <p className="mt-6 text-center text-[14px] text-muted">
-              {mode === 'signup' ? 'Already have an account?' : 'New here?'}{' '}
-              <Link to={switchHref} className="font-medium text-navy underline underline-offset-4 hover:text-gold-deep">
-                {mode === 'signup' ? 'Log in' : 'Create a free account'}
-              </Link>
-            </p>
-          )}
-          <p className="mt-3 text-center text-[14px] text-muted">
-            Want to talk first?{' '}
-            <a
-              href={site.contact.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-medium text-navy underline underline-offset-4 hover:text-gold-deep"
-            >
-              <WhatsAppIcon size={15} className="text-[#1a9e4b]" /> Message an adviser
-            </a>
-          </p>
-        </div>
+        )}
       </section>
+    </div>
+  );
+}
+
+/** Shown while the student portal is not connected yet: the same help, through WhatsApp and the free tools. */
+function AccountsOpeningSoon() {
+  return (
+    <div className="w-full max-w-[420px]">
+      <div className="rounded-card border border-line bg-white p-6 shadow-lift sm:p-9">
+        <Crest variant="navy" size={44} className="mb-5" />
+        <h2 id="sign-in-title" className="text-h3">
+          Online accounts open soon
+        </h2>
+        <p className="mt-2 text-[15px] text-muted">
+          Until then our advisers handle every application on WhatsApp. Send your marks and the programmes you like, and we usually reply within minutes.
+        </p>
+        <WhatsAppButton messageKey="heroConsultation" size="lg" className="mt-7 w-full">
+          Start on WhatsApp
+        </WhatsAppButton>
+        <div className="mt-6 space-y-1 border-t border-line pt-5">
+          <Link to="/tools/eligibility-checker" className="flex min-h-11 items-center gap-3 rounded-lg text-[15px] font-medium text-navy hover:text-gold-deep">
+            <ListChecks size={18} aria-hidden="true" className="text-gold-deep" />
+            Check your scholarship eligibility
+          </Link>
+          <Link to="/programmes" className="flex min-h-11 items-center gap-3 rounded-lg text-[15px] font-medium text-navy hover:text-gold-deep">
+            <Search size={18} aria-hidden="true" className="text-gold-deep" />
+            Browse all programmes
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

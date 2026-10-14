@@ -8,7 +8,10 @@ import { waHref } from '@/lib/whatsapp';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { cn } from '@/lib/cn';
 
-/** Glass info card shown for the hovered / selected / toured province (shared by the 3D and 2D maps). */
+/**
+ * Info card for the hovered / selected / toured province (shared by the 3D and 2D maps).
+ * `compact` is the desktop hero version: short enough that it never covers the eastern provinces it describes.
+ */
 export function ProvinceCard({ p, className, onNavigate, compact }: { p: Province; className?: string; onNavigate?: () => void; compact?: boolean }) {
   const levels = LEVEL_ORDER.filter((l) => p.programsByLevel[l]);
   return (
@@ -31,17 +34,17 @@ export function ProvinceCard({ p, className, onNavigate, compact }: { p: Provinc
       </ul>
       <p className="mt-3 flex items-start gap-1.5 text-[13.5px]">
         <MapPin size={15} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-2" />
-        <span>{p.cities.length ? p.cities.map((c) => c.name).join(', ') : 'Province-wide programmes'}</span>
+        <span className={cn(compact && 'min-w-0 truncate')}>{p.cities.length ? p.cities.map((c) => c.name).join(', ') : 'Province-wide programmes'}</span>
       </p>
       {p.maxStipendCNYPerMonth && (
         <p className="mt-1.5 text-[13.5px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} CNY/month</p>
       )}
-      {p.sampleMajors.length > 0 && <p className="mt-1.5 text-[13px] text-mist/85">{p.sampleMajors.slice(0, 3).join(', ')}</p>}
-      <div className="mt-4 flex flex-wrap gap-2">
+      {!compact && p.sampleMajors.length > 0 && <p className="mt-1.5 text-[13px] text-mist/85">{p.sampleMajors.slice(0, 3).join(', ')}</p>}
+      <div className={cn('flex gap-2', compact ? 'mt-3.5' : 'mt-4 flex-wrap')}>
         <Link
           to={provincePath(p.name)}
           onClick={onNavigate}
-          className="inline-flex min-h-10 items-center rounded-full bg-gold px-4 text-sm font-medium text-navy hover:bg-gold-2"
+          className="inline-flex min-h-10 items-center rounded-full bg-gold px-4 text-sm font-medium text-navy transition-colors hover:bg-gold-2"
         >
           View programmes
         </Link>
@@ -49,10 +52,14 @@ export function ProvinceCard({ p, className, onNavigate, compact }: { p: Provinc
           href={waHref('provinceInterest', { province: p.name })}
           target="_blank"
           rel="noopener"
-          className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/20 px-4 text-sm text-white hover:border-gold-2 hover:text-gold-2"
+          aria-label={compact ? `Ask about ${p.name} on WhatsApp` : undefined}
+          className={cn(
+            'inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/20 text-sm text-white transition-colors hover:border-gold-2 hover:text-gold-2',
+            compact ? 'w-10 justify-center' : 'px-4',
+          )}
         >
-          <WhatsAppIcon size={15} />
-          Ask about {p.name}
+          <WhatsAppIcon size={compact ? 17 : 15} />
+          {!compact && <>Ask about {p.name}</>}
         </a>
       </div>
     </div>

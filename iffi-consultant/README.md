@@ -25,14 +25,16 @@ names are never shown.
 
 | Import | Contains | Use from |
 |---|---|---|
-| `@/data/content` | site copy, contacts, SEO routes, WhatsApp messages, counts | anywhere |
+| `@/data/content` | site copy, contacts, SEO routes, WhatsApp messages, counts | server components, page.tsx |
+| `@/data/core` | the client slice of the copy (brand, contacts, navigation, WhatsApp messages, disclaimers) and counts | client components |
 | `@/data/places` | provinces | anywhere |
 | `@/data/config` | tools config (currencies, cost tables) | anywhere |
 | `@/data/catalog` | the full programme list (~220 KB) | server components, page.tsx, tool pages only |
 | `@/data/geo` | map geometry (114 KB) | the lazy map components only |
 | `@/data/keywords` | ranked SEO keywords | page.tsx metadata only (server-only) |
 
-Importing `@/data/catalog` into a component that renders on every page (header, layout, providers) puts the
+Client components import `@/data/core`, not `@/data/content`: the full copy (FAQ, blog seeds, services, SEO) would
+otherwise ship to every visitor. Importing `@/data/catalog` into a component that renders on every page (header, layout, providers) puts the
 whole programme list into every visitor's download. `src/lib/programs.ts` is light; helpers that need the full
 list live in `src/lib/catalog.ts`.
 

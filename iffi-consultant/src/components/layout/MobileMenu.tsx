@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, Mail, Phone } from 'lucide-react';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { TOOLS } from '@/lib/toolsMeta';
 import { Link, NavLink, useLocation } from '@/lib/router';

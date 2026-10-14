@@ -79,8 +79,8 @@ export function ProgrammeCard({ p, q, headingLevel = 'h3', className }: CardProp
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-muted">
           <span className="font-medium text-navy">{LEVEL_LABEL[p.level] ?? p.level}</span>
           <span aria-hidden="true" className="h-1 w-1 rounded-full bg-gold" />
-          <span>{teachingLabel(p)}</span>
-          <span className="tabular text-muted">{p.id}</span>
+          <span className="whitespace-nowrap">{teachingLabel(p)}</span>
+          <span className="tabular whitespace-nowrap text-muted">{p.id}</span>
         </div>
         <div className="relative z-10">
           <ListToggles id={p.id} />
@@ -92,14 +92,16 @@ export function ProgrammeCard({ p, q, headingLevel = 'h3', className }: CardProp
           {p.displayName}
         </Link>
       </H>
-      <p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted">
-        <MapPin size={15} aria-hidden="true" className="text-gold-deep" />
-        {p.city ? `${p.city}, ` : ''}
-        {p.province}
-        <span className="font-cjk text-[13px] text-muted" lang="zh">
-          {provinceZh(p.province)}
+      <p className="mt-1.5 flex items-start gap-1.5 text-sm text-muted">
+        <MapPin size={15} aria-hidden="true" className="mt-[3px] shrink-0 text-gold-deep" />
+        <span>
+          {p.city ? `${p.city}, ` : ''}
+          {p.province}{' '}
+          <span className="font-cjk whitespace-nowrap text-[13px] text-muted" lang="zh">
+            {provinceZh(p.province)}
+          </span>
+          {!p.city && <span className="whitespace-nowrap text-muted"> (province-wide)</span>}
         </span>
-        {!p.city && <span className="text-muted">(province-wide)</span>}
       </p>
 
       <ProgrammeBadges p={p} max={5} className="mt-4" />
@@ -125,11 +127,11 @@ export function ProgrammeCard({ p, q, headingLevel = 'h3', className }: CardProp
           )}
         </div>
         <div className="relative z-10 mt-4 flex flex-wrap gap-2">
-          <Link to={programPath(p)} className="inline-flex min-h-10 items-center rounded-full bg-navy px-4 text-sm font-medium text-white hover:bg-navy-3">
+          <Link to={programPath(p)} className="inline-flex min-h-10 items-center rounded-full bg-navy px-4 text-sm font-medium text-white transition-colors hover:bg-navy-3">
             Details
           </Link>
           {p.level !== 'Language' && (
-            <Link to={`/tools/cost-calculator?program=${p.id}`} className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm font-medium text-navy hover:border-navy/40">
+            <Link to={`/tools/cost-calculator?program=${p.id}`} className="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-sm font-medium text-navy transition-colors hover:border-navy/40">
               Estimate cost
             </Link>
           )}

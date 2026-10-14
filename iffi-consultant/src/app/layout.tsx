@@ -11,12 +11,13 @@ import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/ui/Seo';
 import { ListsProvider } from '@/hooks/useLists';
 
-// Variable font: one file per style instead of one per weight. Only the upright style is preloaded;
-// the italic (one line in the hero) loads when it is first used.
+// Only the weights the site uses, so every page preloads less: headings are Fraunces 600, the hero accent is
+// Fraunces italic 500 (loaded when first used, not preloaded) and body copy is Poppins 400/500/600.
 const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-fraunces',
+  weight: '600',
 });
 
 const frauncesItalic = Fraunces({
@@ -24,6 +25,7 @@ const frauncesItalic = Fraunces({
   display: 'swap',
   variable: '--font-fraunces-italic',
   style: 'italic',
+  weight: '500',
   preload: false,
 });
 
@@ -31,7 +33,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-poppins',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
 });
 
 // Chinese province names only: a 14 KB subset of Noto Serif SC 600, self-hosted (no render-blocking

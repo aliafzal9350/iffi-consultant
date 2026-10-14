@@ -89,6 +89,10 @@ Lucide `icon` name, `summary`, `detail`) · `whyUs` · `process` (5 steps + behi
 `programmesPromoted` · `whatsapp.messages` (templates with `{placeholders}`) · `blogSeeds` (9 posts with
 original `body`) · `seo.routes` + `seo.oldUrlRedirects` · `disclaimers`.
 
+`site-core.json` is generated next to it: the part client components need (brand names, contact, social,
+navigation, `hero.mapCaption`, WhatsApp messages, disclaimers, document checklist, `seo.siteUrl`,
+`legal.footerDisclosure`). It is read through `src/data/core.ts`. Edit `build_site_data.py`, never the JSON.
+
 ## tools.json — the 3 tools
 - `demandEvidence` — keyword counts per tool (why these 3 tools).
 - `currency` — `liveRatesUrl`, `liveRatesFallbackUrl`, `fallbackRates` (1 CNY = x, dated `fallbackRatesDate`),
