@@ -12,6 +12,7 @@ import { programById } from '@/data/catalog';
 import { LEVEL_ORDER } from '@/lib/programs';
 import { checkAll, normaliseWhatsApp, type QuizAnswers } from './quiz';
 import { safeNext } from '@/lib/auth/redirects';
+import { emailStaffNewApplication } from '@/lib/notify/application';
 
 export interface ProfileFormState {
   ok: boolean;
@@ -98,6 +99,7 @@ export async function startApplication(form: FormData): Promise<void> {
     redirect(`/portal/apply/${program.id}?error=1`);
   }
 
+  emailStaffNewApplication(data.id);
   revalidatePath('/portal', 'layout');
   redirect(`/portal/applications/${data.id}`);
 }

@@ -2,6 +2,7 @@
  * The student's journey, in order. One list drives the route on the dashboard, the mobile progress bar, the sign-in
  * page and the "next step" card. Each step knows where its button goes.
  */
+import { formComplete } from './progress';
 
 export type StepState = 'done' | 'current' | 'upcoming';
 
@@ -39,13 +40,15 @@ export const JOURNEY: JourneyStep[] = [
     key: 'documents',
     label: 'Documents',
     title: 'Upload your documents',
-    description: 'Passport, photo, certificates and the rest, with a sample of each so you know what we need.',
+    description: 'Passport, photo, certificates and the two forms, with a sample of each so you know exactly what we need.',
+    cta: 'Upload my documents',
   },
   {
     key: 'fee',
     label: 'Fee',
     title: 'Pay the application fee',
-    description: 'Scan the QR code, pay from your banking app, then send us the transaction ID.',
+    description: 'Sign your application, scan the QR code, pay from your banking app, then send us the transaction ID.',
+    cta: 'Sign and pay',
   },
   {
     key: 'review',
@@ -59,9 +62,12 @@ export interface JourneyFacts {
   profileComplete: boolean;
   /** the student's most recent application, if any */
   application: { id: string; form: Record<string, unknown>; status: string } | null;
+  /** every required document of that application is uploaded */
+  documentsReady?: boolean;
 }
 
-const sectionDone = (form: Record<string, unknown>, key: string) => Boolean((form[key] as { completed?: boolean } | undefined)?.completed);
+/** past the student's part: signed, paid and with IFFI (or further) */
+const submitted = (status: string) => !['draft', 'action_needed'].includes(status);
 
 function isDone(key: JourneyStep['key'], f: JourneyFacts): boolean {
   const app = f.application;
@@ -71,9 +77,9 @@ function isDone(key: JourneyStep['key'], f: JourneyFacts): boolean {
     case 'matches':
       return Boolean(app);
     case 'apply':
-      return Boolean(app) && ['personal', 'education', 'family'].every((s) => sectionDone(app!.form, s));
+      return Boolean(app) && (formComplete(app!.form) || submitted(app!.status));
     case 'documents':
-      return Boolean(app) && sectionDone(app!.form, 'documents');
+      return Boolean(app) && (Boolean(f.documentsReady) || submitted(app!.status));
     case 'fee':
       return Boolean(app) && app!.status !== 'draft';
     case 'review':
@@ -85,7 +91,9 @@ function isDone(key: JourneyStep['key'], f: JourneyFacts): boolean {
 export function hrefFor(key: JourneyStep['key'], f: JourneyFacts): string | undefined {
   if (key === 'profile') return '/portal/start';
   if (key === 'matches') return '/portal/matches';
-  return f.application ? `/portal/applications/${f.application.id}` : undefined;
+  if (!f.application) return undefined;
+  const base = `/portal/applications/${f.application.id}`;
+  return key === 'documents' ? `${base}/documents` : key === 'fee' ? `${base}/review` : base;
 }
 
 export function journeyFor(f: JourneyFacts) {

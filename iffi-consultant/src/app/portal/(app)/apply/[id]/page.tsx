@@ -9,6 +9,7 @@ import { classify } from '@/lib/eligibility';
 import { Link } from '@/lib/router';
 import { durationLabel, locationLabel, programPath, teachingLabel } from '@/lib/programs';
 import { startApplication } from '@/lib/portal/actions';
+import { DOCS, requiredDocuments } from '@/lib/portal/documents';
 import { getStudyProfile, isStudyProfileComplete, toEligibilityProfile } from '@/lib/portal/study';
 import { PortalBand } from '@/components/portal/PortalBand';
 import { SubmitButton } from '@/components/portal/SubmitButton';
@@ -64,20 +65,23 @@ export default async function ApplyPage({ params, searchParams }: { params: Prom
             </div>
           )}
 
-          {program.documents.length > 0 && (
-            <div className="mt-7">
-              <h3 className="font-sans text-[15px] font-medium text-navy">The brochure asks for</h3>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {program.documents.slice(0, 10).map((d) => (
-                  <li key={d} className="flex gap-2 text-[14px] text-muted">
+          <div className="mt-7">
+            <h3 className="font-sans text-[15px] font-medium text-navy">What you will need</h3>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {requiredDocuments(program)
+                .filter((r) => r.need === 'required')
+                .map((r) => (
+                  <li key={r.kind} className="flex gap-2 text-[14px] text-muted">
                     <FileText size={15} aria-hidden="true" className="mt-0.5 shrink-0 text-navy" />
-                    {d}
+                    {DOCS[r.kind].title}
                   </li>
                 ))}
-              </ul>
-              <p className="mt-3 text-[13px] text-muted">No need to have everything now. You upload documents later, with a sample of each.</p>
-            </div>
-          )}
+            </ul>
+            <p className="mt-3 text-[13px] text-muted">
+              No need to have everything now. The online form takes about 15 minutes; you upload documents after it, with a sample of each. IFFI gives you the
+              application form already filled in, and the medical form for your doctor.
+            </p>
+          </div>
 
           {error && (
             <p role="alert" className="mt-6 rounded-xl bg-danger/10 px-4 py-3 text-[14px] text-danger">

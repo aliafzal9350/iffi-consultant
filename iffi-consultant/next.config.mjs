@@ -23,6 +23,13 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+  // the Next.js development badge (local only, never on the live site) sits top-right, away from the chat button.
+  // devIndicators: false would hide it, but in Next 16.4 that makes every page reload in a loop during development.
+  devIndicators: { position: 'top-right' },
+  // the blank application and medical forms, served to signed-in students by src/app/portal/forms/[file]/route.ts
+  outputFileTracingIncludes: {
+    '/portal/forms/*': ['./private/forms/**/*'],
+  },
   async redirects() {
     return legacyRedirects;
   },
