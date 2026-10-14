@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { CalendarClock, Clock, Languages, MapPin, Sparkles } from 'lucide-react';
+import { CalendarClock, CircleCheck, Clock, Languages, MapPin } from 'lucide-react';
 import type { Program } from '@/types/data';
 import { cn } from '@/lib/cn';
 import { Link } from '@/lib/router';
@@ -82,7 +82,7 @@ export function MatchCard({ program: p, reasons, notes, best, applicationId, gap
       {notes && (
         <div className="mt-5 rounded-2xl bg-gold-soft/70 p-4 sm:p-5">
           <p className="mb-1.5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-gold-deep">
-            <Sparkles size={15} aria-hidden="true" /> Why it fits you
+            <CircleCheck size={15} aria-hidden="true" /> Why it fits you
           </p>
           <Suspense fallback={<NoteSkeleton />}>
             <Note notes={notes} id={p.id} reasons={reasons} />

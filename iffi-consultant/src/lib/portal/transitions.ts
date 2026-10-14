@@ -15,15 +15,16 @@ export interface StatusAction {
 }
 
 export const TRANSITIONS: Record<ApplicationStatus, StatusAction[]> = {
-  // until the online fee step exists, staff can start a review straight from a draft
+  // normally the student signs and pays online (draft -> payment_submitted); this is for fees paid another way
   draft: [
-    { to: 'under_review', label: 'Start reviewing' },
+    { to: 'under_review', label: 'Start reviewing (fee paid another way)' },
     { to: 'action_needed', label: 'Ask the student for something', needsNote: true },
     { to: 'withdrawn', label: 'Withdraw (student backed off)', needsNote: true },
   ],
+  // these two also mark the submitted payment as received / not found (lib/staff/actions.ts)
   payment_submitted: [
     { to: 'under_review', label: 'Payment received: start reviewing' },
-    { to: 'action_needed', label: 'Problem with the payment', needsNote: true },
+    { to: 'action_needed', label: 'Payment not found: ask the student', needsNote: true },
   ],
   under_review: [
     { to: 'sent_to_university', label: 'Sent to the university' },

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 import { site } from '@/data/content';
 import { Link } from '@/lib/router';
 import type { Profile } from '@/lib/auth/dal';
@@ -18,7 +18,7 @@ const STAFF_NAV: NavItem[] = [
   { href: '/staff/students', label: 'Students' },
   { href: '/staff/programmes', label: 'Programmes' },
 ];
-const ADMIN_NAV: NavItem[] = [...STAFF_NAV, { href: '/staff/team', label: 'Team' }];
+const ADMIN_NAV: NavItem[] = [...STAFF_NAV, { href: '/staff/team', label: 'Team' }, { href: '/staff/settings', label: 'Settings' }];
 
 /** App chrome for the signed-in areas: slim navy bar, then the page, then a one-line footer. */
 export function PortalShell({ me, area, children }: { me: Profile; area: 'student' | 'staff'; children: ReactNode }) {
@@ -62,6 +62,11 @@ export function PortalShell({ me, area, children }: { me: Profile; area: 'studen
             <a href={site.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-navy">
               <MessageCircle size={14} aria-hidden="true" /> Help on WhatsApp
             </a>
+            {site.social.email && (
+              <a href={site.social.email} className="inline-flex items-center gap-1.5 hover:text-navy">
+                <Mail size={14} aria-hidden="true" /> {site.contact.email}
+              </a>
+            )}
           </div>
         </div>
       </footer>

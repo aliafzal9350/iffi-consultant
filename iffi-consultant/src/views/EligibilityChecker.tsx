@@ -412,12 +412,12 @@ export default function EligibilityChecker() {
                 <section aria-labelledby="unlock-h" className="rounded-card border border-gold/35 bg-gold-soft/60 p-6">
                   <h2 id="unlock-h" className="flex items-center gap-2 text-h3">
                     <LockOpen size={20} aria-hidden="true" className="text-gold-deep" />
-                    Unlock more programmes
+                    Qualify for more programmes
                   </h2>
                   <ul className="mt-3 space-y-1.5 text-[15.5px]">
                     {gains.map((g) => (
                       <li key={g.label}>
-                        {g.label.charAt(0).toUpperCase() + g.label.slice(1)} would unlock <strong className="text-navy">{plural(g.gain, 'more programme')}</strong>.
+                        {g.label.charAt(0).toUpperCase() + g.label.slice(1)} would qualify you for <strong className="text-navy">{plural(g.gain, 'more programme')}</strong>.
                       </li>
                     ))}
                   </ul>

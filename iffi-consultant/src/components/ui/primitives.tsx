@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Info, TriangleAlert } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { SHOW_DRAFTS } from '@/lib/env';
+import { Reveal } from './Reveal';
 
 export function Container({ className, children, narrow }: { className?: string; children: ReactNode; narrow?: boolean }) {
   return (
@@ -46,7 +47,7 @@ export function Section({ id, tone = 'paper', eyebrow, title, lede, action, clas
       {dark && <div className="pointer-events-none absolute inset-0 bg-dots opacity-60" aria-hidden="true" />}
       <Container className="relative">
         {(title || eyebrow) && (
-          <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <Reveal className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               {eyebrow && <p className={cn('eyebrow mb-3', dark ? 'text-gold-2' : 'text-gold-deep')}>{eyebrow}</p>}
               {title && (
@@ -57,7 +58,7 @@ export function Section({ id, tone = 'paper', eyebrow, title, lede, action, clas
               {lede && <p className={cn('text-lede mt-4', dark ? 'text-mist' : 'text-muted')}>{lede}</p>}
             </div>
             {action && <div className="shrink-0">{action}</div>}
-          </div>
+          </Reveal>
         )}
         {children}
       </Container>

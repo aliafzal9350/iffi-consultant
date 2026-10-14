@@ -129,7 +129,7 @@ add('process', site.process.title, '/services',
 add('about', `About ${site.brand.name}`, '/about', `${site.about.body} Mission: ${site.about.mission} Values: ${site.about.values} ${site.whyUs.map((w) => `${w.title}: ${w.text}`).join(' ')}`);
 add('documents', 'Documents checklist', '/programmes', `Typical documents for a China application: ${site.documentChecklist.general.join('; ')}.`);
 add('contact', `Contact ${site.brand.name}`, '/contact',
-  `WhatsApp and phone: ${site.contact.phoneDisplay}. ${site.contact.responsePromise} ${site.contact.hours}. ` +
+  `WhatsApp and phone: ${site.contact.phoneDisplay}. ${site.contact.email ? `Email: ${site.contact.email}. ` : ''}${site.contact.responsePromise} ${site.contact.hours}. ` +
   `Office: ${site.contact.offices[0].city}, ${site.contact.offices[0].country} (visits by appointment - message on WhatsApp first). Counselling is free.`);
 
 const cc = tools.costCalculator;

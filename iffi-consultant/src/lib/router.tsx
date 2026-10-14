@@ -27,7 +27,7 @@ function useIntentPrefetch(target: NextLinkProps['href'], prefetch: boolean | un
   }, [router, target, prefetch]);
 }
 
-/** Universal Link that seamlessly accepts either `href` or `to` */
+/** Universal Link that accepts either `href` or `to` */
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   { href, to, children, prefetch, onMouseEnter, onTouchStart, onFocus, ...props },
   ref

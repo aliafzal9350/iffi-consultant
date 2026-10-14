@@ -60,6 +60,14 @@ export default function Cookies() {
         </table>
       </div>
 
+      <h2>Student portal sign-in</h2>
+      <p>
+        When you sign in to the student portal with Google, we set cookies whose names start with <code>sb-</code> and end in <code>auth-token</code>. They keep
+        you signed in and are strictly necessary, so they do not need your consent. They are set only after you sign in, are removed when you sign out, and
+        expire on their own if you stay away. While you answer the profile questions, your answers are kept in your browser tab (<code>gj:portal-quiz</code>) so
+        a refresh does not lose them.
+      </p>
+
       <h2>Analytics cookies (only with your consent)</h2>
       <p>
         {GA4_ID ? 'We use' : 'If enabled, we use'} Google Analytics 4 to count visits and see which pages help students. It sets cookies named _ga and _ga_

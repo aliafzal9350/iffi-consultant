@@ -19,6 +19,7 @@ kw = list(csv.DictReader(open(KW, encoding="utf-8-sig")))
 BRAND = "IFFI Consultant"
 SITE_URL = "https://www.ifficonsultant.com"
 WA = "923264570214"
+EMAIL = "ifficonsultant@gmail.com"
 n = len(ps)
 english = sum("English" in (p["teachingLanguages"] or []) for p in ps)
 funded = sum(p["fullyFunded"] for p in ps)
@@ -47,8 +48,8 @@ site = {
     },
     "contact": {
         "phoneDisplay": "+92 326 4570214", "phoneE164": "+923264570214", "whatsappNumber": WA,
-        # email / Instagram / Facebook / UK company belonged to Gujjify - left empty until IFFI confirms its own
-        "whatsappUrl": f"https://wa.me/{WA}", "email": None,
+        # Instagram / Facebook / UK company belonged to Gujjify - left empty until IFFI confirms its own
+        "whatsappUrl": f"https://wa.me/{WA}", "email": EMAIL,
         "responsePromise": "We usually reply within minutes on WhatsApp.",
         "hours": "Open 24/7 on WhatsApp",
         "offices": [
@@ -63,7 +64,7 @@ site = {
         "facebook": None,
         "instagram": None,
         "whatsapp": f"https://wa.me/{WA}",
-        "email": None,
+        "email": f"mailto:{EMAIL}",
         "phone": "tel:+923264570214",
     },
     "legal": {

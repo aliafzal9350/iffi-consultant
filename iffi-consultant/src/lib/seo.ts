@@ -24,7 +24,7 @@ export function canonical(path: string): string {
 }
 
 export function organizationLd(): Record<string, unknown> {
-  // only details the client has confirmed: no legal entity, street address or email until IFFI provides them
+  // only details the client has confirmed: no legal entity or street address until IFFI provides them
   const sameAs = [site.social.facebook, site.social.instagram].filter((x): x is string => !!x);
   return {
     '@context': 'https://schema.org',
