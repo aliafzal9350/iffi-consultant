@@ -44,6 +44,24 @@ export function StudentWhatsApp({ student, about, className }: { student: { full
   );
 }
 
+/** What is waiting for staff on one application, as small chips. */
+function Waiting({ a }: { a: StaffApplication }) {
+  const chips = [
+    a.paymentToCheck && 'Payment to check',
+    a.pendingDocs > 0 && `${a.pendingDocs} file${a.pendingDocs > 1 ? 's' : ''} to check`,
+  ].filter(Boolean) as string[];
+  if (!chips.length) return null;
+  return (
+    <span className="mt-1 flex flex-wrap gap-1.5">
+      {chips.map((c) => (
+        <span key={c} className="rounded-full bg-gold-soft px-2 py-0.5 text-[11.5px] font-medium text-gold-deep">
+          {c}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /** One application per row; the whole row opens the application. */
 export function ApplicationList({ apps, empty }: { apps: StaffApplication[]; empty: string }) {
   if (!apps.length) return <p className="rounded-card border border-line bg-white p-6 text-[15px] text-muted">{empty}</p>;
@@ -58,6 +76,13 @@ export function ApplicationList({ apps, empty }: { apps: StaffApplication[]; emp
               <p className="truncate text-[13.5px] text-muted">
                 {a.program_snapshot.displayName} <span className="tabular">({a.program_id})</span>
               </p>
+              <Waiting a={a} />
+            </div>
+            <div className="hidden w-28 shrink-0 md:block" aria-label={`${a.progress}% complete`}>
+              <span className="tabular block text-right text-[12px] text-muted">{a.progress}%</span>
+              <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-line">
+                <span className="block h-full rounded-full bg-gold" style={{ width: `${a.progress}%` }} />
+              </span>
             </div>
             <div className="hidden flex-col items-end gap-1 sm:flex">
               <StatusPill status={a.status} />

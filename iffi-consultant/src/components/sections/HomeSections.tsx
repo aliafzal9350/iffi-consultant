@@ -1,5 +1,20 @@
 import { Link } from '@/lib/router';
-import { BadgeCheck, Check, ChevronRight, MapPin, MessageCircle } from 'lucide-react';
+import {
+  Award,
+  BadgeCheck,
+  Check,
+  ChevronRight,
+  FileCheck2,
+  GraduationCap,
+  Languages,
+  MapPin,
+  MessageCircle,
+  Plane,
+  PlaneLanding,
+  ShieldCheck,
+  Undo2,
+  type LucideIcon,
+} from 'lucide-react';
 import { meta, site } from '@/data/content';
 import { programs } from '@/data/catalog';
 import { provinces } from '@/data/places';
@@ -11,50 +26,73 @@ import { runFinder, EMPTY } from '@/lib/filters';
 import { runEligibility, EMPTY_PROFILE } from '@/lib/eligibility';
 import { calculate } from '@/lib/cost';
 import { LEVEL_LABEL, LEVEL_ORDER, isEnglishTaught, provincePath } from '@/lib/programs';
-import { SHOW_DRAFTS } from '@/lib/env';
-import { Section, Disclaimer, DraftBadge, IconTile } from '@/components/ui/primitives';
+import { Container, Section, Disclaimer, IconTile } from '@/components/ui/primitives';
 import { Button, WhatsAppButton } from '@/components/ui/Button';
 import { DataIcon } from '@/components/ui/Icon';
 import { Accordion } from '@/components/ui/Accordion';
 import { Crest } from '@/components/ui/Logo';
+import { CountUp } from '@/components/ui/CountUp';
+import { Marquee } from '@/components/ui/Marquee';
+import { Reveal } from '@/components/ui/Reveal';
 import { ProgrammeCard } from '@/components/programmes/ProgrammeCard';
 
-/* 1. Trust strip --------------------------------------------------------- */
+const hours = site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '');
+
+/** "3,500 CNY" -> 3500 and " CNY", so text figures can count up too */
+function splitFigure(v: number | string): { n: number | null; rest: string } {
+  if (typeof v === 'number') return { n: v, rest: '' };
+  const m = v.match(/^([\d,]+)(.*)$/);
+  return m ? { n: Number(m[1].replace(/,/g, '')), rest: m[2] } : { n: null, rest: v };
+}
+
+/* 1. Trust strip: the figures, then a ribbon of what every student gets ---------------------------------- */
+const noIeltsCount = programs.filter((p) => p.noIeltsRequired && p.level !== 'Language').length;
+
+// verified facts only: unconfirmed marketing claims (site.stats.marketingClaims) stay out until IFFI confirms them
+const PROMISES: { icon: LucideIcon; text: string }[] = [
+  { icon: MapPin, text: `Office in ${site.contact.offices[0].city}` },
+  { icon: MessageCircle, text: `WhatsApp support, ${hours}` },
+  { icon: BadgeCheck, text: 'Free counselling' },
+  { icon: ShieldCheck, text: 'Free eligibility check' },
+  { icon: FileCheck2, text: 'Apply online, with a sample of every document' },
+  { icon: Undo2, text: 'Application fee refunded if you do not qualify' },
+  { icon: Award, text: 'CSC and university scholarships' },
+  { icon: Languages, text: `${noIeltsCount} programmes with no IELTS needed` },
+  { icon: Plane, text: 'X1 and X2 student visa support' },
+  { icon: PlaneLanding, text: 'Airport pickup in China' },
+  { icon: GraduationCap, text: 'Bachelor, Master, PhD, MBBS and Chinese language' },
+];
+
 export function TrustStrip() {
   // the first three figures (programmes, provinces, cities) are already in the hero
   const stats = site.stats.dataBacked.slice(3);
   return (
     <section aria-label="Our programme list in numbers" className="border-b border-line bg-white">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-2 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-        {stats.map((s, i) => (
-          <div key={s.label} className={cn('py-8 md:py-10', i % 2 === 1 && 'pl-5 md:pl-0', 'md:border-l md:border-line md:px-8 md:first:border-l-0 md:first:pl-0')}>
-            <p className="tabular font-display text-[1.8rem] font-semibold leading-none text-navy sm:text-[2.2rem]">{typeof s.value === 'number' ? fmtNumber(s.value) : s.value}</p>
-            <p className="mt-2 text-sm leading-snug text-muted">{s.label}</p>
-          </div>
-        ))}
-      </div>
-      <div className="border-t border-line bg-paper/60">
-        <ul className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-8 gap-y-2 px-4 py-4 text-sm text-ink sm:px-6 lg:px-8">
-          <li className="inline-flex items-center gap-2">
-            <MapPin size={17} aria-hidden="true" className="text-gold-deep" />
-            Office in {site.contact.offices[0].city}
-          </li>
-          <li className="inline-flex items-center gap-2">
-            <MessageCircle size={17} aria-hidden="true" className="text-gold-deep" />
-            WhatsApp support, {site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '')}
-          </li>
-          <li className="inline-flex items-center gap-2">
-            <BadgeCheck size={17} aria-hidden="true" className="text-gold-deep" />
-            Free counselling
-          </li>
-          {SHOW_DRAFTS &&
-            site.stats.marketingClaims.items.map((m) => (
-              <li key={m.label} className="inline-flex items-center text-muted">
-                {m.value} {m.label}
-                <DraftBadge note={site.stats.marketingClaims.note} />
-              </li>
-            ))}
-        </ul>
+      <Reveal stagger className="mx-auto grid max-w-[1240px] grid-cols-2 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+        {stats.map((s, i) => {
+          const { n, rest } = splitFigure(s.value);
+          return (
+            <div key={s.label} className={cn('py-8 md:py-10', i % 2 === 1 && 'pl-5 md:pl-0', 'md:border-l md:border-line md:px-8 md:first:border-l-0 md:first:pl-0')}>
+              <p className="tabular font-display text-[1.8rem] font-semibold leading-none text-navy sm:text-[2.2rem]">
+                {n != null ? <CountUp value={n} /> : s.value}
+                {n != null && rest}
+              </p>
+              <span className="reveal-grow-x mt-3 block h-[3px] w-10 rounded-full bg-gold" aria-hidden="true" />
+              <p className="mt-3 text-sm leading-snug text-muted">{s.label}</p>
+            </div>
+          );
+        })}
+      </Reveal>
+      <div className="border-t border-line bg-paper/70">
+        <Marquee seconds={55} label="What every IFFI student gets" className="mx-auto max-w-[1600px]" trackClassName="py-4">
+          {PROMISES.map(({ icon: Icon, text }) => (
+            <span key={text} className="inline-flex items-center whitespace-nowrap text-[14.5px] text-ink">
+              <Icon size={17} aria-hidden="true" className="mr-2.5 text-gold-deep" />
+              {text}
+              <span className="mx-7 h-1.5 w-1.5 rotate-45 bg-gold/70" aria-hidden="true" />
+            </span>
+          ))}
+        </Marquee>
       </div>
     </section>
   );
@@ -77,7 +115,7 @@ function ToolPreview({ id }: { id: string }) {
           ))}
         </div>
         <p className="mt-3 text-sm text-ink">
-          <span className="tabular font-display text-2xl font-semibold text-navy">{finderPreview}</span> programmes match
+          <CountUp value={finderPreview} className="tabular font-display text-2xl font-semibold text-navy" /> programmes match
         </p>
       </div>
     );
@@ -95,7 +133,7 @@ function ToolPreview({ id }: { id: string }) {
         <p className="text-sm text-ink">
           Bachelor in a tier-2 city: about <strong className="font-semibold text-navy">{fmtCNY(tools.costCalculator.livingMonthlyCNY.tier2.standard)}</strong> a month to live
         </p>
-        <div className="mt-3 flex h-2.5 overflow-hidden rounded-full" aria-hidden="true">
+        <div className="reveal-grow-x mt-3 flex h-2.5 overflow-hidden rounded-full" aria-hidden="true">
           {parts.map((p) => (
             <span key={p.label} className={p.c} style={{ width: `${(p.v / total) * 100}%` }} />
           ))}
@@ -112,7 +150,7 @@ function ToolPreview({ id }: { id: string }) {
     <div className="rounded-xl border border-line bg-paper p-4">
       <p className="text-[12.5px] text-muted">Example: Bachelor, 75% marks, no IELTS yet</p>
       <p className="mt-2 text-sm text-ink">
-        <span className="tabular font-display text-2xl font-semibold text-navy">{eligibilityPreview}</span> programmes to explore
+        <CountUp value={eligibilityPreview} className="tabular font-display text-2xl font-semibold text-navy" /> programmes to explore
       </p>
     </div>
   );
@@ -126,10 +164,13 @@ export function ToolsSection() {
       title="Three free tools to plan your studies in China"
       lede="Find a programme, work out the cost in your own currency and check your scholarship chances before you talk to anyone."
     >
-      <div className="grid gap-5 md:grid-cols-3">
+      <Reveal stagger className="grid gap-5 md:grid-cols-3">
         {TOOLS.map((t) => (
-          <article key={t.id} className="group relative flex flex-col rounded-card border border-line bg-white p-6 shadow-soft transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <IconTile>
+          <article
+            key={t.id}
+            className="group relative flex flex-col rounded-card border border-line bg-white p-6 shadow-soft transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-lift"
+          >
+            <IconTile className="transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105">
               <t.icon size={21} />
             </IconTile>
             <h3 className="text-h3 mt-5">
@@ -143,12 +184,12 @@ export function ToolsSection() {
             </div>
             <p className="mt-5 flex items-center gap-1 text-sm font-medium text-navy">
               {t.id === 'finder' ? 'Open the finder' : t.id === 'cost' ? 'Calculate my costs' : 'Check my eligibility'}
-              <ChevronRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+              <ChevronRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
             </p>
           </article>
         ))}
-      </div>
-      <p className="mt-6 text-sm text-muted">Free to use and no sign-up needed. Your answers stay in your browser.</p>
+      </Reveal>
+      <p className="mt-6 text-sm text-muted">Free to use, no sign-up needed. Your answers stay in your browser.</p>
     </Section>
   );
 }
@@ -159,7 +200,7 @@ function ProvinceTile({ name, compact }: { name: string; compact?: boolean }) {
   const levels = LEVEL_ORDER.filter((l) => p.programsByLevel[l]).map((l) => LEVEL_LABEL[l]);
   if (compact) {
     return (
-      <Link to={provincePath(p.name)} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3 text-mist hover:border-gold-2/60 hover:text-white">
+      <Link to={provincePath(p.name)} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 px-4 py-3 text-mist transition-colors hover:border-gold-2/60 hover:text-white">
         <span>
           {p.name}
           <span className="font-cjk ml-2 text-[13px] text-gold-2/90" lang="zh">
@@ -173,9 +214,12 @@ function ProvinceTile({ name, compact }: { name: string; compact?: boolean }) {
   return (
     <Link
       to={provincePath(p.name)}
-      className="group relative flex h-full w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-white/10 bg-navy-2 p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-gold/50 sm:w-[280px]"
+      className="group relative flex h-full w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-card border border-white/10 bg-navy-2 p-6 transition-[transform,border-color,box-shadow] duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] sm:w-[280px]"
     >
-      <span className="font-cjk pointer-events-none absolute -right-2 -top-3 text-[92px] leading-none text-gold/10 transition-colors group-hover:text-gold/20" aria-hidden="true">
+      <span
+        className="font-cjk pointer-events-none absolute -right-2 -top-3 text-[92px] leading-none text-gold/10 transition-[color,transform] duration-700 group-hover:-translate-x-2 group-hover:text-gold/25"
+        aria-hidden="true"
+      >
         {p.nameZh}
       </span>
       <span className="relative font-display text-[1.6rem] font-semibold text-white">{p.name}</span>
@@ -183,6 +227,7 @@ function ProvinceTile({ name, compact }: { name: string; compact?: boolean }) {
       <span className="relative mt-5 text-[13.5px] text-mist">{levels.join(', ')}</span>
       <span className="relative mt-1 text-[13.5px] text-mist/75">{p.cities.length ? p.cities.map((c) => c.name).join(', ') : 'Province-wide'}</span>
       {p.maxStipendCNYPerMonth && <span className="relative mt-auto pt-5 text-[13px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} CNY/month</span>}
+      <span className="absolute inset-x-6 bottom-0 h-[2px] origin-left scale-x-0 bg-gold-2 transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
     </Link>
   );
 }
@@ -190,34 +235,60 @@ function ProvinceTile({ name, compact }: { name: string; compact?: boolean }) {
 export function ProvincesSection() {
   const top = provinces.slice(0, 8);
   return (
-    <Section
-      id="where"
-      tone="dark"
-      title="Where you can study in China"
-      lede={`Our current list covers ${meta.counts.provinces} provinces and municipalities. Most programmes sit in the affordable cities of eastern China, from Jiangsu and Zhejiang to Hubei and Sichuan.`}
-    >
-      <ul className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
-        {top.map((p) => (
-          <li key={p.name} className="lg:[&>a]:w-auto">
-            <ProvinceTile name={p.name} />
-          </li>
+    <section id="where" aria-labelledby="where-title" className="relative overflow-hidden bg-navy py-16 text-mist md:py-24 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-dots opacity-60" aria-hidden="true" />
+      <Container className="relative">
+        <Reveal className="max-w-2xl">
+          <h2 id="where-title" className="text-h2 text-white">
+            Where you can study in China
+          </h2>
+          <p className="text-lede mt-4 text-mist">
+            Our current list covers {meta.counts.provinces} provinces and municipalities. Most programmes sit in the affordable cities of eastern China, from
+            Jiangsu and Zhejiang to Hubei and Sichuan.
+          </p>
+        </Reveal>
+      </Container>
+
+      {/* every province on the list, drifting past in its own characters */}
+      <Marquee seconds={90} direction="right" className="relative my-10 md:my-14" trackClassName="gap-0">
+        {provinces.map((p) => (
+          <span key={p.name} className="inline-flex items-baseline whitespace-nowrap px-6 md:px-9">
+            <span lang="zh" className="font-cjk text-[56px] leading-none text-transparent [-webkit-text-stroke:1px_rgba(224,189,107,0.55)] md:text-[84px]">
+              {p.nameZh}
+            </span>
+            <span className="ml-3 font-display text-[15px] text-mist/70 md:text-[17px]">{p.name}</span>
+          </span>
         ))}
-      </ul>
-      {/* native disclosure: no JavaScript needed for the toggle */}
-      <details className="group mt-8">
-        <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-white/20 px-5 text-sm text-white hover:border-gold-2 hover:text-gold-2 [&::-webkit-details-marker]:hidden">
-          <span className="group-open:hidden">See all {meta.counts.provinces} provinces</span>
-          <span className="hidden group-open:inline">Show fewer</span>
-        </summary>
-        <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {provinces.map((p) => (
-            <li key={p.name}>
-              <ProvinceTile name={p.name} compact />
+      </Marquee>
+
+      <Container className="relative">
+        <Reveal
+          as="ul"
+          stagger
+          className="scrollbar-none -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0"
+        >
+          {top.map((p) => (
+            <li key={p.name} className="lg:[&>a]:w-auto">
+              <ProvinceTile name={p.name} />
             </li>
           ))}
-        </ul>
-      </details>
-    </Section>
+        </Reveal>
+        {/* native disclosure: no JavaScript needed for the toggle */}
+        <details className="group mt-8">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-white/20 px-5 text-sm text-white transition-colors hover:border-gold-2 hover:text-gold-2 [&::-webkit-details-marker]:hidden">
+            <span className="group-open:hidden">See all {meta.counts.provinces} provinces</span>
+            <span className="hidden group-open:inline">Show fewer</span>
+          </summary>
+          <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {provinces.map((p) => (
+              <li key={p.name}>
+                <ProvinceTile name={p.name} compact />
+              </li>
+            ))}
+          </ul>
+        </details>
+      </Container>
+    </section>
   );
 }
 
@@ -247,30 +318,36 @@ export function HighlightsSection() {
       title="Scholarships and programmes in our current list"
       lede="Fully funded Master and PhD offers, routes without IELTS, English-taught MBBS and Bachelor programmes. University names are shared during your free consultation."
     >
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <Reveal as="ul" stagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {routes.map((r) => (
           <li key={r.label}>
-            <Link to={r.to} className="group flex h-full flex-col rounded-card border border-line bg-paper p-5 transition-colors hover:border-gold/50 hover:bg-white">
+            <Link
+              to={r.to}
+              className="group relative flex h-full flex-col overflow-hidden rounded-card border border-line bg-paper p-5 transition-[border-color,background-color,transform] duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white"
+            >
               <span className="flex items-baseline justify-between gap-3">
                 <span className="font-display text-[1.15rem] font-semibold text-navy">{r.label}</span>
-                <span className="tabular font-display text-2xl font-semibold text-navy">{r.count}</span>
+                <CountUp value={r.count} className="tabular font-display text-2xl font-semibold text-gold-deep" />
               </span>
               <span className="mt-1.5 text-sm leading-snug text-muted">{r.text}</span>
               <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-navy">
                 See programmes
-                <ChevronRight size={15} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+                <ChevronRight size={15} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
               </span>
+              <span className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
             </Link>
           </li>
         ))}
-      </ul>
+      </Reveal>
 
-      <h3 className="mt-12 font-display text-[1.35rem]">Featured fully funded offers</h3>
-      <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <Reveal>
+        <h3 className="mt-12 font-display text-[1.35rem]">Featured fully funded offers</h3>
+      </Reveal>
+      <Reveal stagger className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {fullyFunded.slice(0, 3).map((p) => (
           <ProgrammeCard key={p.id} p={p} />
         ))}
-      </div>
+      </Reveal>
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Button to="/programmes" variant="navy">
           Open the programme finder
@@ -298,21 +375,21 @@ export function ServicesSection() {
         </Button>
       }
     >
-      <ul className="grid gap-x-12 gap-y-1 md:grid-cols-2">
+      <Reveal as="ul" stagger className="grid gap-x-12 gap-y-1 md:grid-cols-2">
         {site.services.map((s) => (
           <li key={s.id} className="border-t border-line">
             <Link to={`/services#${s.id}`} className="group flex gap-4 py-6">
-              <IconTile light>
+              <IconTile light className="transition-[transform,background-color] duration-500 group-hover:-rotate-6 group-hover:bg-gold-soft">
                 <DataIcon name={s.icon} size={20} />
               </IconTile>
               <span>
-                <span className="block font-display text-[1.2rem] font-semibold leading-snug text-navy group-hover:text-navy-3">{s.title}</span>
+                <span className="block font-display text-[1.2rem] font-semibold leading-snug text-navy transition-colors group-hover:text-gold-deep">{s.title}</span>
                 <span className="mt-1 block text-[15px] leading-relaxed text-muted">{s.summary}</span>
               </span>
             </Link>
           </li>
         ))}
-      </ul>
+      </Reveal>
     </Section>
   );
 }
@@ -322,11 +399,11 @@ export function ProcessSection({ tone = 'light' }: { tone?: 'light' | 'paper' })
   return (
     <Section id="process" tone={tone} title={site.process.title} lede="Your free eligibility assessment is the first step. We handle the paperwork from there.">
       <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
-        <ol className="relative space-y-0">
+        <Reveal as="ol" stagger className="relative space-y-0">
           {site.process.steps.map((s, i) => (
-            <li key={s.title} className="relative flex gap-5 pb-9 last:pb-0">
-              {i < site.process.steps.length - 1 && <span className="absolute left-[21px] top-12 h-[calc(100%-3rem)] w-px bg-gradient-to-b from-gold/60 to-line" aria-hidden="true" />}
-              <span className="tabular relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-white font-display text-lg font-semibold text-navy">
+            <li key={s.title} className="group relative flex gap-5 pb-9 last:pb-0">
+              {i < site.process.steps.length - 1 && <span className="reveal-grow-y absolute left-[21px] top-12 h-[calc(100%-3rem)] w-px bg-gradient-to-b from-gold to-line" aria-hidden="true" />}
+              <span className="tabular relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-white font-display text-lg font-semibold text-navy transition-colors duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-navy">
                 {i + 1}
               </span>
               <div className="pt-1.5">
@@ -335,8 +412,8 @@ export function ProcessSection({ tone = 'light' }: { tone?: 'light' | 'paper' })
               </div>
             </li>
           ))}
-        </ol>
-        <div className="self-start rounded-card bg-navy p-7 text-mist shadow-lift">
+        </Reveal>
+        <Reveal variant="right" className="self-start rounded-card bg-navy p-7 text-mist shadow-lift">
           <h3 className="text-h3 text-white">Behind every admission letter</h3>
           <ul className="mt-5 space-y-3">
             {site.process.behindTheScenes.map((b) => (
@@ -351,7 +428,7 @@ export function ProcessSection({ tone = 'light' }: { tone?: 'light' | 'paper' })
           <WhatsAppButton messageKey="heroConsultation" variant="gold" className="mt-7 w-full">
             Book my free assessment
           </WhatsAppButton>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -362,28 +439,33 @@ export function WhyUsSection() {
   return (
     <Section id="why" tone="paper">
       <div className="grid items-stretch gap-10 lg:grid-cols-[1fr_1.1fr]">
-        <div className="relative overflow-hidden rounded-[22px] bg-navy p-8 text-mist sm:p-10">
+        <Reveal variant="left" className="relative overflow-hidden rounded-[22px] bg-navy p-8 text-mist sm:p-10">
           <div className="pointer-events-none absolute inset-0 bg-dots opacity-50" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full opacity-25"
+            style={{ background: 'radial-gradient(circle, #e0bd6b 0%, transparent 70%)' }}
+            aria-hidden="true"
+          />
           <div className="relative">
-            <Crest size={72} />
+            <Crest size={72} className="animate-float" />
             <h2 className="text-h2 mt-8 text-white">Why students choose {site.brand.name}</h2>
             <p className="mt-4 max-w-md leading-relaxed">{site.about.values}</p>
             <p className="mt-6 text-sm text-mist/80">
-              Office in {site.contact.offices[0].city}, support on WhatsApp {site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '')}.
+              Office in {site.contact.offices[0].city}, support on WhatsApp {hours}.
             </p>
           </div>
-        </div>
-        <ul className="grid gap-x-8 gap-y-8 self-center sm:grid-cols-2">
+        </Reveal>
+        <Reveal as="ul" stagger className="grid gap-x-8 gap-y-8 self-center sm:grid-cols-2">
           {site.whyUs.map((w) => (
-            <li key={w.title}>
-              <IconTile light>
+            <li key={w.title} className="group">
+              <IconTile light className="transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-6">
                 <DataIcon name={w.icon} size={20} />
               </IconTile>
               <h3 className="mt-4 font-display text-[1.25rem]">{w.title}</h3>
               <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{w.text}</p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </Section>
   );
@@ -403,9 +485,9 @@ export function FaqPreview() {
         </Button>
       }
     >
-      <div className="max-w-3xl">
+      <Reveal className="max-w-3xl">
         <Accordion items={items.map((f, i) => ({ id: `f${i}`, title: f.q, content: <p>{f.a}</p> }))} />
-      </div>
+      </Reveal>
     </Section>
   );
 }
@@ -414,11 +496,13 @@ export function FaqPreview() {
 export function FinalCta() {
   return (
     <section aria-labelledby="cta-title" className="bg-paper px-4 pb-20 pt-4 sm:px-6 lg:px-8">
-      <div
+      <Reveal
+        variant="zoom"
         className="relative mx-auto max-w-[1240px] overflow-hidden rounded-[26px] px-6 py-14 text-center sm:px-12 md:py-16"
-        style={{ background: 'linear-gradient(115deg, #b48d39 0%, #c8a24c 40%, #e0bd6b 100%)' }}
       >
-        <Crest variant="navy" size={56} className="relative mx-auto opacity-90" />
+        <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(115deg, #b48d39 0%, #c8a24c 40%, #e0bd6b 100%)' }} aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 animate-sheen bg-gradient-to-r from-transparent via-white/30 to-transparent" aria-hidden="true" />
+        <Crest variant="navy" size={56} className="animate-float relative mx-auto opacity-90" />
         <h2 id="cta-title" className="text-h2 relative mx-auto mt-5 max-w-2xl text-navy">
           Ready to start your China study journey?
         </h2>
@@ -427,11 +511,19 @@ export function FinalCta() {
           <WhatsAppButton messageKey="ctaJourney" variant="navy" size="lg">
             Start on WhatsApp
           </WhatsAppButton>
-          <Button to="/tools/eligibility-checker" variant="outline" size="lg" className="border-navy/30 bg-white/40 hover:bg-white/70">
-            Check my eligibility
+          <Button to="/portal/sign-in" variant="outline" size="lg" className="border-navy/30 bg-white/40 hover:bg-white/70">
+            Apply online
           </Button>
         </div>
-      </div>
+        {site.contact.email && (
+          <p className="relative mt-5 text-[14px] text-navy/80">
+            Or email us at{' '}
+            <a href={site.social.email ?? undefined} className="font-medium text-navy underline underline-offset-4">
+              {site.contact.email}
+            </a>
+          </p>
+        )}
+      </Reveal>
     </section>
   );
 }

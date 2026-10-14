@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { MessageCircleQuestionMark } from 'lucide-react';
+import { MessageSquareText } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { useLocation } from '@/lib/router';
 
@@ -31,7 +31,7 @@ export function ChatLauncher() {
         )}
         data-noprint
       >
-        <MessageCircleQuestionMark size={18} aria-hidden="true" className="text-gold-2" />
+        <MessageSquareText size={17} aria-hidden="true" className="text-gold-2" />
         Ask a question
       </button>
       {loaded && <ChatPanel open={open} onClose={() => setOpen(false)} />}

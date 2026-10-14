@@ -1,6 +1,6 @@
 'use client';
 import { Fragment, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { ArrowUp, MessageCircleQuestionMark } from 'lucide-react';
+import { ArrowUp, MessageSquareText } from 'lucide-react';
 import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { Link } from '@/lib/router';
@@ -120,7 +120,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
       widthClass="sm:max-w-[420px]"
       title={
         <span className="inline-flex items-center gap-2">
-          <MessageCircleQuestionMark size={19} aria-hidden="true" className="text-gold-deep" />
+          <MessageSquareText size={18} aria-hidden="true" className="text-gold-deep" />
           Ask {site.brand.name}
         </span>
       }
@@ -155,7 +155,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
             </button>
           </form>
           <p className="text-[12px] leading-snug text-muted">
-            Automatic answers from our published programme data. They can be wrong, so confirm anything important with our team. Do not share passport or ID numbers.{' '}
+            Automatic answers from our programme list. They can be incomplete, so check important details with an adviser. Do not share passport or ID numbers.{' '}
             <Link to="/privacy" className="underline underline-offset-2">
               Privacy
             </Link>
