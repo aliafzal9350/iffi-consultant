@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from '@/lib/router';
 import { Copy, Info } from 'lucide-react';
 import { programById, programs } from '@/data/catalog';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { tools } from '@/data/config';
 import { cn } from '@/lib/cn';
 import { fmtCNY, fmtDate, fmtMoney, fmtNumber } from '@/lib/format';
@@ -13,7 +13,6 @@ import { waHref } from '@/lib/whatsapp';
 import { useIsClient } from '@/hooks/useIsClient';
 import { useCurrency } from '@/hooks/useCurrency';
 import { useLists } from '@/hooks/useLists';
-import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, Disclaimer } from '@/components/ui/primitives';
 import { Field, Select, inputClass } from '@/components/ui/Form';
@@ -177,7 +176,6 @@ export default function CostCalculator() {
 
   return (
     <>
-      <JsonLd crumbs={crumbs} />
       <PageHeader
         crumbs={crumbs}
         title="Study in China Cost Calculator"
@@ -189,14 +187,14 @@ export default function CostCalculator() {
           <form className="space-y-8" onSubmit={(e) => e.preventDefault()} aria-label="Cost calculator inputs">
             <fieldset>
               <legend className="mb-2 text-sm font-medium text-navy">Estimate</legend>
-              <div className="inline-flex rounded-full border border-line bg-white p-1">
+              <div className="grid grid-cols-2 rounded-full border border-line bg-white p-1 sm:inline-grid">
                 {(
                   [
                     ['level', 'By level and city'],
-                    ['programme', 'For a specific programme'],
+                    ['programme', 'For one programme'],
                   ] as const
                 ).map(([m, label]) => (
-                  <label key={m} className={cn('cursor-pointer rounded-full px-4 py-2 text-sm font-medium has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-gold', s.mode === m ? 'bg-navy text-white' : 'text-ink')}>
+                  <label key={m} className={cn('cursor-pointer whitespace-nowrap rounded-full px-4 py-2 text-center text-sm font-medium transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-gold', s.mode === m ? 'bg-navy text-white' : 'text-ink hover:text-navy')}>
                     <input type="radio" name="mode" value={m} checked={s.mode === m} onChange={() => update({ mode: m, programId: m === 'programme' ? (s.programId ?? programs[0].id) : s.programId })} className="sr-only" />
                     {label}
                   </label>
@@ -318,7 +316,8 @@ export default function CostCalculator() {
             <details className="group rounded-card border border-line bg-white p-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-navy">
                 Assumptions and sources
-                <span className="text-sm font-normal text-muted group-open:hidden">Show and edit</span>
+                <span className="shrink-0 whitespace-nowrap text-sm font-normal text-muted group-open:hidden">Show and edit</span>
+                <span className="hidden shrink-0 text-sm font-normal text-muted group-open:inline">Hide</span>
               </summary>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <Field label="Living cost per month (CNY)" hint={`Default ${fmtCNY(defaults.living)} for a ${TIER_LABEL[r.tier].toLowerCase()}`}>
@@ -415,10 +414,10 @@ export default function CostCalculator() {
                     href={waHref('costEstimate', { summary })}
                     target="_blank"
                     rel="noopener"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 font-medium text-navy hover:brightness-105"
+                    className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-whatsapp px-5 font-medium text-navy transition-[filter] hover:brightness-105"
                   >
                     <WhatsAppIcon size={19} />
-                    Get an exact quote on WhatsApp
+                    Get an exact quote<span className="sr-only"> on WhatsApp</span>
                   </a>
                   <Button variant="outline" icon={<Copy size={16} aria-hidden="true" />} onClick={copyLink}>
                     Copy link to this estimate

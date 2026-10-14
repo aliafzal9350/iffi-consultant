@@ -1,0 +1,140 @@
+{
+ "brand": {
+  "name": "IFFI Consultant",
+  "shortName": "IFFI Consultant",
+  "wordmarkMain": "IFFI",
+  "wordmarkSub": "CONSULTANT"
+ },
+ "hero": {
+  "mapCaption": "72 programmes · 21 provinces · 30 cities"
+ },
+ "contact": {
+  "phoneDisplay": "+92 326 4570214",
+  "phoneE164": "+923264570214",
+  "whatsappNumber": "923264570214",
+  "whatsappUrl": "https://wa.me/923264570214",
+  "email": null,
+  "responsePromise": "We usually reply within minutes on WhatsApp.",
+  "hours": "Open 24/7 on WhatsApp",
+  "offices": [
+   {
+    "label": "Pakistan office",
+    "city": "Lahore",
+    "country": "Pakistan",
+    "address": "Lakshmi Station, Lahore, Pakistan",
+    "verified": false,
+    "note": "Address as written on Facebook - confirm the full street address with the client"
+   },
+   {
+    "label": "China",
+    "city": null,
+    "country": "China",
+    "address": null,
+    "verified": false,
+    "note": "Listed on the old site with no city - confirm before publishing"
+   }
+  ]
+ },
+ "social": {
+  "facebook": null,
+  "instagram": null,
+  "whatsapp": "https://wa.me/923264570214",
+  "email": null,
+  "phone": "tel:+923264570214"
+ },
+ "navigation": [
+  {
+   "label": "Home",
+   "path": "/"
+  },
+  {
+   "label": "Programmes",
+   "path": "/programmes"
+  },
+  {
+   "label": "Tools",
+   "path": "/tools",
+   "children": [
+    {
+     "label": "Cost Calculator",
+     "path": "/tools/cost-calculator"
+    },
+    {
+     "label": "University Finder",
+     "path": "/programmes"
+    },
+    {
+     "label": "Eligibility Checker",
+     "path": "/tools/eligibility-checker"
+    }
+   ]
+  },
+  {
+   "label": "Services",
+   "path": "/services"
+  },
+  {
+   "label": "About",
+   "path": "/about"
+  },
+  {
+   "label": "Blog",
+   "path": "/blog"
+  },
+  {
+   "label": "FAQ",
+   "path": "/faq"
+  },
+  {
+   "label": "Contact",
+   "path": "/contact"
+  }
+ ],
+ "whatsapp": {
+  "number": "923264570214",
+  "messages": {
+   "default": "Hello IFFI Consultant, I want to study in China.",
+   "heroConsultation": "Hello IFFI Consultant, I want a free consultation for studying in China.",
+   "ctaJourney": "Hello IFFI Consultant, I want to start my China study journey.",
+   "aboutServices": "Hello IFFI Consultant, I would like to know more about your services.",
+   "serviceInterest": "Hello IFFI Consultant, I am interested in: {service}",
+   "chooseService": "Hello IFFI Consultant, I need help choosing the right service.",
+   "faqQuestion": "Hello IFFI Consultant, I have a question about studying in China.",
+   "blogGuidance": "Hello IFFI Consultant, I read your article and want guidance.",
+   "programInterest": "Hello IFFI Consultant, I am interested in programme {id} ({level}, {location}).",
+   "shortlist": "Hello IFFI Consultant, here is my programme shortlist: {ids}. Please advise.",
+   "costEstimate": "Hello IFFI Consultant, my cost estimate: {summary}. Please send me an exact quote.",
+   "eligibilityResult": "Hello IFFI Consultant, my eligibility check: {summary}. Please assess my profile.",
+   "provinceInterest": "Hello IFFI Consultant, I want to study in {province}, China.",
+   "chatSummary": "Hello IFFI Consultant, I was using your website assistant. My questions: {summary}"
+  }
+ },
+ "disclaimers": {
+  "dataFreshness": "Programme details come from university brochures for the 2024-2025 intakes. Fees, scholarships and deadlines change every year - confirm the latest details with IFFI Consultant before applying.",
+  "universityNames": "University names are shared during your free consultation.",
+  "costEstimate": "Estimates only. Living costs are typical student budgets by city tier; exchange rates update daily. Ask us for an exact quote.",
+  "eligibility": "Indicative only - this is not an admission or scholarship decision. Final decisions are made by universities and scholarship bodies.",
+  "mbbsRecognition": "Recognition by your home medical council (e.g. PM&DC in Pakistan) depends on the university and year - we verify it for each student before applying."
+ },
+ "documentChecklist": {
+  "general": [
+   "Matric / FSc / A-Level certificates & transcripts (or your country's equivalent)",
+   "Valid passport (2+ years)",
+   "Passport-size photos (white background)",
+   "Foreigner physical (medical) examination form",
+   "Police character certificate",
+   "English proficiency proof (IELTS is optional for many programmes)",
+   "Study plan / motivation letter",
+   "Recommendation letters (Master & PhD: two from professors)",
+   "Bank statement (some programmes: USD 2,500-5,000)",
+   "Self-introduction video (some programmes)"
+  ],
+  "source": "Instagram checklist (2026-07-19) + programme brochures"
+ },
+ "seo": {
+  "siteUrl": "https://www.ifficonsultant.com"
+ },
+ "legal": {
+  "footerDisclosure": null
+ }
+}

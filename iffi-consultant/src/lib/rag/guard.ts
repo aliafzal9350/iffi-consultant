@@ -66,9 +66,9 @@ const PROMPT_FRAGMENTS = [/\bINTERNAL[- ]REF\b/i, /non-negotiable rules/i, /refe
 /**
  * Checks and cleans one model answer before it reaches the visitor.
  *
- * TODO(you): the policy for a university name in an answer. Baseline: redact the name and keep the answer
- * (the visitor still gets help). The stricter option is to block the whole answer and send the WhatsApp
- * fallback, which guarantees no partial leak but frustrates people more often. Decide with the client.
+ * University names are redacted and the rest of the answer is kept, so the visitor still gets help. The stricter
+ * alternative (block the whole answer and send the WhatsApp fallback) avoids any partial leak but frustrates
+ * people more often; switch to it only if the client asks.
  */
 export function guardOutput(raw: string, opts: GuardOptions): GuardResult {
   const flags: string[] = [];

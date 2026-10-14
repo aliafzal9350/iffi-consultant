@@ -55,7 +55,7 @@ export async function POST(req: Request) {
   const started = Date.now();
   const limit = rateLimit(clientIp(req));
   if (!limit.ok) return fail('Too many questions. Please wait a little or continue on WhatsApp.', 429, { 'retry-after': String(limit.retryAfter) });
-  if (!process.env.GEMINI_API_KEY) return fail('The assistant is not configured.', 503);
+  if (!process.env.GEMINI_API_KEY) return fail('Answers are not available right now.', 503);
   if (!req.headers.get('content-type')?.includes('application/json')) return fail('Expected JSON.', 415);
 
   const raw = await req.text();

@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
+import { MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
 import { meta, site } from '@/data/content';
 import { Button, WhatsAppButton } from '@/components/ui/Button';
 import { Container } from '@/components/ui/primitives';
@@ -25,14 +25,15 @@ export function Hero() {
         style={{ background: 'radial-gradient(circle, #1c3a6b 0%, transparent 70%)' }}
         aria-hidden="true"
       />
-      <Container className="relative lg:grid lg:min-h-[calc(100svh-116px)] lg:grid-cols-12 lg:items-center">
-        <div className="hero-enter relative z-10 py-12 sm:py-16 lg:col-span-5 lg:py-20">
-          <p className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/[0.08] px-3.5 py-1.5 text-[13px] text-gold-2">
-            <GraduationCap size={16} aria-hidden="true" />
+      {/* side by side from 1280px; below that the map sits under the copy so neither has to squeeze */}
+      <Container className="relative xl:flex xl:min-h-[calc(100svh-116px)] xl:items-center">
+        <div className="hero-enter relative z-10 max-w-[640px] py-12 sm:py-16 xl:max-w-[590px] xl:py-20">
+          <p className="eyebrow flex items-center gap-3 text-gold-2">
+            <span className="h-px w-8 bg-gold/70" aria-hidden="true" />
             {site.hero.eyebrow}
           </p>
 
-          <h1 id="hero-title" className="text-display mt-6 text-white">
+          <h1 id="hero-title" className="text-display mt-5 text-white">
             {site.hero.headline}{' '}
             <span className="text-gold-gradient font-display-italic block pb-1 font-medium">{site.hero.headlineAccent}</span>
           </h1>
@@ -43,7 +44,8 @@ export function Hero() {
             <WhatsAppButton messageKey={site.hero.primaryCta.whatsappMessageKey as 'heroConsultation'} variant="gold" size="lg">
               {site.hero.primaryCta.label}
             </WhatsAppButton>
-            <Button to={site.hero.secondaryCta.path} variant="outline-light" size="lg">
+            {/* solid fill: on wide screens the map's faded edge can sit behind this button */}
+            <Button to={site.hero.secondaryCta.path} variant="outline-light" size="lg" className="bg-navy-2!">
               {site.hero.secondaryCta.label}
             </Button>
           </div>
@@ -77,7 +79,7 @@ export function Hero() {
         </div>
       </Container>
 
-      <div className="relative px-4 pb-12 sm:px-6 md:h-[66vh] md:min-h-[560px] lg:absolute lg:inset-y-0 lg:left-[40%] lg:right-0 lg:h-auto lg:p-0">
+      <div className="relative px-4 pb-12 sm:px-6 md:h-[62vh] md:min-h-[520px] lg:px-8 xl:absolute xl:inset-y-0 xl:left-[calc(50%-118px)] xl:right-0 xl:h-auto xl:min-h-0 xl:p-0">
         <HeroMap />
       </div>
     </section>

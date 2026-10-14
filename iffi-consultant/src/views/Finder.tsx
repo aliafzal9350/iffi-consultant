@@ -2,14 +2,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from '@/lib/router';
 import { SearchX, SlidersHorizontal, X } from 'lucide-react';
-import { meta, site } from '@/data/content';
+import { meta, site } from '@/data/core';
 import { programs } from '@/data/catalog';
 import { plural } from '@/lib/format';
 import { EMPTY, SORTS, activeFilters, parseState, relaxSuggestions, runFinder, toParams, type FinderState, type SortId } from '@/lib/filters';
 import { useIsClient } from '@/hooks/useIsClient';
 import { useCurrency } from '@/hooks/useCurrency';
 import { useLists } from '@/hooks/useLists';
-import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, Disclaimer, EmptyState } from '@/components/ui/primitives';
 import { Select } from '@/components/ui/Form';
@@ -55,7 +54,6 @@ export default function Finder() {
 
   return (
     <>
-      <JsonLd crumbs={crumbs} />
       <PageHeader
         crumbs={crumbs}
         title="China University & Programme Finder"
@@ -68,7 +66,7 @@ export default function Finder() {
       />
 
       <Container className="py-10 md:py-14">
-        <div className="grid gap-10 lg:grid-cols-[300px_minmax(0,1fr)]">
+        <div className="grid gap-8 lg:grid-cols-[264px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-10">
           {/* Desktop filter rail */}
           <aside className="hidden lg:block" aria-label="Filters">
             <div className="sticky top-[96px] max-h-[calc(100vh-112px)] overflow-y-auto overscroll-contain rounded-card border border-line bg-white p-5 shadow-soft">

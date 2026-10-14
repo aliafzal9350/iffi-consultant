@@ -91,6 +91,35 @@ export default function ChinaMap2D({
       });
   }, [projection, showCities]);
 
+  // city labels (province pages): busiest city first; each label tries right, left, above, below and is
+  // left out when every spot would overlap another label or pin (the pin keeps its tooltip)
+  const labels = useMemo(() => {
+    const placed = new Map<string, { x: number; y: number; anchor: 'start' | 'end' | 'middle' }>();
+    if (!labelCities) return placed;
+    const fs = focus ? 30 : 13;
+    const pr = focus ? 7 : 4.2;
+    const visible = cities.filter((c) => !focus || c.province === focus);
+    const taken: [number, number, number, number][] = visible.map((c) => [c.x - pr * 1.6, c.y - pr * 1.6, c.x + pr * 1.6, c.y + pr * 1.6]);
+    const hits = (b: [number, number, number, number]) =>
+      b[0] < 0 || b[1] < 0 || b[2] > width || b[3] > height || taken.some((t) => b[0] < t[2] && b[2] > t[0] && b[1] < t[3] && b[3] > t[1]);
+    for (const c of [...visible].sort((a, b) => b.n - a.n)) {
+      const w = c.name.length * fs * 0.6;
+      const h = fs * 1.15;
+      const gap = pr + fs * 0.3;
+      const spots = [
+        { x: gap, y: fs * 0.36, anchor: 'start' as const, box: [c.x + gap, c.y - h / 2, c.x + gap + w, c.y + h / 2] },
+        { x: -gap, y: fs * 0.36, anchor: 'end' as const, box: [c.x - gap - w, c.y - h / 2, c.x - gap, c.y + h / 2] },
+        { x: 0, y: -gap - fs * 0.2, anchor: 'middle' as const, box: [c.x - w / 2, c.y - gap - h, c.x + w / 2, c.y - gap] },
+        { x: 0, y: gap + fs * 0.9, anchor: 'middle' as const, box: [c.x - w / 2, c.y + gap, c.x + w / 2, c.y + gap + h] },
+      ];
+      const spot = spots.find((o) => !hits(o.box as [number, number, number, number]));
+      if (!spot) continue;
+      taken.push(spot.box as [number, number, number, number]);
+      placed.set(c.name, { x: spot.x, y: spot.y, anchor: spot.anchor });
+    }
+    return placed;
+  }, [cities, labelCities, focus, width, height]);
+
   const pinXY = pin ? projection([pin.lng, pin.lat]) : null;
   const sw = compact ? 0.6 : focus ? 1.4 : 1;
   const interactive = !!(onSelect || onHover);
@@ -154,8 +183,20 @@ export default function ChinaMap2D({
             {!compact && !outside && <circle r={r * 2.3} fill="#e0bd6b" opacity={0.2} pointerEvents="none" />}
             <circle r={r} fill="url(#pin-glow)" fillOpacity={outside ? 0.45 : 1} stroke="#0d1f3f" strokeWidth={compact ? 0.6 : 1.2} />
             {onCity && <circle r={r * 3} fill="transparent" />}
-            {labelCities && !outside && (
-              <text x={r + 8} y={5} fill="#ffffff" fontSize={focus ? 30 : 13} fontFamily="Poppins, sans-serif" fontWeight={500} paintOrder="stroke" stroke="#0d1f3f" strokeWidth={4} strokeOpacity={0.85}>
+            {labels.has(c.name) && (
+              <text
+                x={labels.get(c.name)!.x}
+                y={labels.get(c.name)!.y}
+                textAnchor={labels.get(c.name)!.anchor}
+                fill="#ffffff"
+                fontSize={focus ? 30 : 13}
+                fontWeight={500}
+                paintOrder="stroke"
+                stroke="#0d1f3f"
+                strokeWidth={focus ? 6 : 4}
+                strokeOpacity={0.85}
+                style={{ fontFamily: 'var(--font-sans)' }}
+              >
                 {c.name}
               </text>
             )}
@@ -169,7 +210,7 @@ export default function ChinaMap2D({
           <circle r={26} fill="#e0bd6b" opacity={0.25} />
           <circle r={10} fill="#fff3d1" stroke="#0d1f3f" strokeWidth={2.5} />
           {pin?.label && (
-            <text x={16} y={-14} fill="#ffffff" fontSize={40} fontFamily="Poppins, sans-serif" fontWeight={500} paintOrder="stroke" stroke="#0d1f3f" strokeWidth={5}>
+            <text x={16} y={-14} fill="#ffffff" fontSize={40} fontWeight={500} paintOrder="stroke" stroke="#0d1f3f" strokeWidth={5} style={{ fontFamily: 'var(--font-sans)' }}>
               {pin.label}
             </text>
           )}

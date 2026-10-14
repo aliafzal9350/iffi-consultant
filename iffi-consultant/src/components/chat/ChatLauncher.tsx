@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Sparkles } from 'lucide-react';
+import { MessageCircleQuestionMark } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { useLocation } from '@/lib/router';
 
-// The chat panel (and its code) loads only when someone opens it, so the assistant costs nothing on page load.
+// The chat panel (and its code) loads only when someone opens it, so it costs nothing on page load.
 const ChatPanel = dynamic(() => import('./ChatPanel'), { ssr: false });
 
 export function ChatLauncher() {
@@ -31,8 +31,8 @@ export function ChatLauncher() {
         )}
         data-noprint
       >
-        <Sparkles size={17} aria-hidden="true" className="text-gold-2" />
-        Ask our assistant
+        <MessageCircleQuestionMark size={18} aria-hidden="true" className="text-gold-2" />
+        Ask a question
       </button>
       {loaded && <ChatPanel open={open} onClose={() => setOpen(false)} />}
     </>

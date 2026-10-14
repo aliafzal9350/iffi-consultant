@@ -1,4 +1,4 @@
-"""Generate site.json, tools.json and meta.json for the IFFI Consultant website kit.
+"""Generate site.json (+ its client slice site-core.json), tools.json and meta.json for the IFFI Consultant website kit.
 
 Copy comes from Gujjify_Website_Extraction.txt (typos fixed), the Instagram captions (SECTION 13 of
 that file) and computed statistics from programs.json / the keyword-research CSVs.
@@ -124,7 +124,7 @@ site = {
                    "Chinese Government Scholarship (CSC), Confucius Institute Scholarship, provincial and university "
                    "scholarships - eligibility checks, study plan and recommendation-letter preparation, and on-time "
                    "submission for the strongest possible application."},
-        {"id": "visa", "icon": "BookUser", "title": "Student Visa (X1 / X2) Processing",
+        {"id": "visa", "icon": "BookUser", "title": "Student Visa (X1/X2) Processing",
          "summary": "Complete X1/X2 student visa filing and visa-process preparation.",
          "detail": "Once you receive your admission letter and JW202/JW201 form, we prepare your full student visa "
                    "application (X1 for study longer than 180 days, X2 for shorter study), fill the forms correctly, "
@@ -516,10 +516,26 @@ for post in site["blogSeeds"]:
     post["status"] = "thin - expand to 800+ words before relaunch"
     post["coverImage"] = None   # old covers were hot-linked third-party images - do not reuse
 
+# The slice of site.json that client components need (header, menus, WhatsApp links, tool disclaimers).
+# Every page downloads this file, so the FAQ, blog seeds, services and SEO copy stay out of it.
+site_core = {
+    "brand": {k: site["brand"][k] for k in ("name", "shortName", "wordmarkMain", "wordmarkSub")},
+    "hero": {"mapCaption": site["hero"]["mapCaption"]},
+    "contact": site["contact"],
+    "social": site["social"],
+    "navigation": site["navigation"],
+    "whatsapp": site["whatsapp"],
+    "disclaimers": site["disclaimers"],
+    "documentChecklist": site["documentChecklist"],
+    "seo": {"siteUrl": site["seo"]["siteUrl"]},
+    "legal": {"footerDisclosure": site["legal"]["footerDisclosure"]},
+}
+
 json.dump(site, open(os.path.join(OUT, "site.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(site_core, open(os.path.join(OUT, "site-core.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 json.dump(tools, open(os.path.join(OUT, "tools.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 json.dump(meta, open(os.path.join(OUT, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-for f in ("site.json", "tools.json", "meta.json"):
+for f in ("site.json", "site-core.json", "tools.json", "meta.json"):
     print(f, os.path.getsize(os.path.join(OUT, f)), "bytes")
 print("counts:", meta["counts"])
 print("tool ranking:", tools["demandEvidence"]["ranking"][:4])

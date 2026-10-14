@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from '@/lib/router';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/cn';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { waHref } from '@/lib/whatsapp';
 import { track } from '@/lib/analytics';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
@@ -29,7 +29,7 @@ export function FloatingWhatsApp() {
     return () => io.disconnect();
   }, [pathname]);
 
-  const lift = compare.length > 0 ? 'bottom-24' : raised ? 'bottom-24 md:bottom-6' : 'bottom-5 md:bottom-6';
+  const lift = compare.length > 0 ? 'bottom-24' : 'bottom-5 md:bottom-6';
 
   return (
     <a
@@ -42,6 +42,8 @@ export function FloatingWhatsApp() {
       className={cn(
         'fixed right-4 z-40 mb-[env(safe-area-inset-bottom)] inline-flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition-[opacity,transform,bottom] duration-300 md:right-6',
         lift,
+        // programme pages already have WhatsApp in their sticky apply bar on phones
+        raised && compare.length === 0 && 'max-md:hidden',
         hidden ? 'pointer-events-none translate-y-4 opacity-0' : 'opacity-100',
       )}
     >
@@ -61,7 +63,7 @@ export function BackToTop() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const lift = compare.length > 0 ? 'bottom-[104px]' : raised ? 'bottom-[104px] md:bottom-8' : 'bottom-[26px] md:bottom-8';
+  const lift = compare.length > 0 ? 'bottom-[104px]' : raised ? 'bottom-[88px] max-md:right-4 md:bottom-8' : 'bottom-[26px] md:bottom-8';
   return (
     <button
       type="button"
@@ -91,11 +93,12 @@ export function Toast() {
     return () => window.clearTimeout(t);
   }, [notice]);
   return (
-    <div aria-live="polite" role="status" className="pointer-events-none fixed inset-x-0 top-20 z-[80] flex justify-center px-4" data-noprint>
+    // bottom centre: clear of the sticky header, the finder's filter bar and any open drawer's content
+    <div aria-live="polite" role="status" className="pointer-events-none fixed inset-x-0 bottom-32 z-[80] flex justify-center px-6 md:bottom-8" data-noprint>
       <div
         className={cn(
-          'rounded-full bg-navy px-5 py-2.5 text-sm text-white shadow-lift ring-1 ring-gold/30 transition-[opacity,transform] duration-300',
-          visible && notice ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0',
+          'rounded-full bg-navy px-5 py-2.5 text-center text-sm text-white shadow-lift ring-1 ring-gold/30 transition-[opacity,transform] duration-300',
+          visible && notice ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0',
         )}
       >
         {notice}

@@ -18,7 +18,20 @@ function rng(seed: number) {
   };
 }
 
-export function BlogCover({ slug, className, label }: { slug: string; className?: string; label?: string }) {
+/** Topic shown on each cover, so the art says what the guide is about. */
+const TOPIC: Record<string, string> = {
+  'why-study-in-china-2026': 'Why China',
+  'csc-scholarship-complete-guide': 'Scholarships',
+  'top-scholarships-for-international-students-in-china': 'Scholarships',
+  'cost-of-studying-in-china': 'Costs',
+  'study-engineering-in-china-guide': 'Engineering',
+  'top-10-chinese-universities-for-international-students-2026': 'Universities',
+  'how-to-apply-for-chinese-student-visa-2026': 'Student visa',
+  'china-student-visa-x1-x2': 'Student visa',
+  'why-choose-iffi-consultant-for-study-in-china': 'About us',
+};
+
+export function BlogCover({ slug, className, label, topic = true }: { slug: string; className?: string; label?: string; topic?: boolean }) {
   const h = hash(slug);
   const rand = rng(h);
   const variant = h % 4;
@@ -59,6 +72,14 @@ export function BlogCover({ slug, className, label }: { slug: string; className?
       </defs>
       <rect width={W} height={H} fill={`url(#g-${h})`} />
       {shapes}
+      {topic && TOPIC[slug] && (
+        <g transform="translate(48 64)" style={{ fontFamily: 'var(--font-sans)' }}>
+          <rect x={0} y={-6} width={36} height={2} fill="#e0bd6b" />
+          <text x={50} y={2} fill="#e0bd6b" fontSize={22} fontWeight={600} letterSpacing={4}>
+            {TOPIC[slug].toUpperCase()}
+          </text>
+        </g>
+      )}
     </svg>
   );
 }

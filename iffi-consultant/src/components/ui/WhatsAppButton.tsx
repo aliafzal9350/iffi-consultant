@@ -20,7 +20,7 @@ export function WhatsAppButton({ messageKey, vars, label, children, variant = 'w
       className={buttonClass(variant, size, className)}
       onClick={() => track('whatsapp_click', { context: messageKey })}
     >
-      <WhatsAppIcon size={size === 'sm' ? 16 : 19} />
+      <WhatsAppIcon size={size === 'sm' ? 16 : 19} className="shrink-0" />
       {children ?? label ?? 'Chat on WhatsApp'}
     </a>
   );

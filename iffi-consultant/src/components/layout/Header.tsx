@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Heart, Mail, Menu, Phone } from 'lucide-react';
 import { Link, NavLink, useLocation } from '@/lib/router';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { TOOLS } from '@/lib/toolsMeta';
 import { Wordmark } from '@/components/ui/Logo';
@@ -175,7 +175,7 @@ function ToolsMenu() {
 
 const navLinkClass = (active: boolean) =>
   cn(
-    'relative rounded-md px-1 py-1.5 text-[14px] xl:text-[14.5px] font-medium transition-colors duration-200',
+    'relative whitespace-nowrap rounded-md px-1 py-1.5 text-[14px] xl:text-[14.5px] font-medium transition-colors duration-200',
     'after:absolute after:inset-x-1 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-gold-2 after:transition-transform after:duration-300',
     active
       ? 'text-white after:scale-x-100'
@@ -220,7 +220,6 @@ export function Header() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Keep all navigation items, clean spacing
   const nav = site.navigation;
 
   return (
@@ -241,7 +240,8 @@ export function Header() {
           <nav aria-label="Main" className="hidden lg:block">
             <ul className="flex items-center gap-3.5 xl:gap-5">
               {nav.map((item) => (
-                <li key={item.path}>
+                // the logo already links home, so "Home" only shows when there is room for it
+                <li key={item.path} className={item.path === '/' ? 'hidden xl:block' : undefined}>
                   {item.children ? (
                     <ToolsMenu />
                   ) : (

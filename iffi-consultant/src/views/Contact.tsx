@@ -2,13 +2,12 @@
 import { useState, type FormEvent } from 'react';
 import { Link } from '@/lib/router';
 import { CircleCheck, Mail, MapPin, Phone } from 'lucide-react';
-import { site, whatsappLink } from '@/data/content';
+import { site, whatsappLink } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { FORM_ENDPOINT, SHOW_DRAFTS } from '@/lib/env';
 import { LEVEL_LABEL, LEVEL_ORDER } from '@/lib/programs';
 import { CURRENCIES } from '@/lib/currency';
 import { track } from '@/lib/analytics';
-import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, DraftBadge } from '@/components/ui/primitives';
 import { Field, Select, inputClass } from '@/components/ui/Form';
@@ -96,7 +95,6 @@ export default function Contact() {
 
   return (
     <>
-      <JsonLd crumbs={crumbs} />
       <PageHeader crumbs={crumbs} title={`Contact ${site.brand.name}`} lede="Free counselling for studying in China. WhatsApp is the fastest way to reach us." />
 
       <Container className="py-12 md:py-16">

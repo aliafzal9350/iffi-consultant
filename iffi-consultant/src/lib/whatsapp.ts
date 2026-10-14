@@ -1,4 +1,4 @@
-import { site, whatsappLink } from '@/data/content';
+import { site, whatsappLink } from '@/data/core';
 
 export type WhatsAppKey = keyof typeof site.whatsapp.messages;
 

@@ -1,7 +1,7 @@
 'use client';
 import { Fragment, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { ArrowUp, Sparkles } from 'lucide-react';
-import { site } from '@/data/content';
+import { ArrowUp, MessageCircleQuestionMark } from 'lucide-react';
+import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { Link } from '@/lib/router';
 import { Drawer } from '@/components/ui/Drawer';
@@ -91,7 +91,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(res.status === 429 ? 'You have asked a lot of questions in a short time. Please wait a minute, or continue on WhatsApp.' : data.error || 'The assistant is unavailable right now. Please continue on WhatsApp.');
+        setError(res.status === 429 ? 'You have asked a lot of questions in a short time. Please wait a minute, or continue on WhatsApp.' : data.error || 'Answers are unavailable right now. Please continue on WhatsApp.');
         return;
       }
       setMessages([...next, { role: 'assistant', content: data.answer, sig: data.sig, sources: data.sources }]);
@@ -120,7 +120,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
       widthClass="sm:max-w-[420px]"
       title={
         <span className="inline-flex items-center gap-2">
-          <Sparkles size={18} aria-hidden="true" className="text-gold-deep" />
+          <MessageCircleQuestionMark size={19} aria-hidden="true" className="text-gold-deep" />
           Ask {site.brand.name}
         </span>
       }
@@ -155,7 +155,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
             </button>
           </form>
           <p className="text-[12px] leading-snug text-muted">
-            AI answers from our published programme data (Google Gemini) and can be wrong. Do not share passport or ID numbers.{' '}
+            Automatic answers from our published programme data. They can be wrong, so confirm anything important with our team. Do not share passport or ID numbers.{' '}
             <Link to="/privacy" className="underline underline-offset-2">
               Privacy
             </Link>

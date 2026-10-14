@@ -7,10 +7,20 @@
  */
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
-import { supabaseKeys } from './keys';
+import { supabaseConfigured, supabaseKeys } from './keys';
 import { PORTAL_HOME, SIGN_IN_PATH } from '@/lib/auth/redirects';
 
 export async function updateSession(request: NextRequest) {
+  // Until Supabase is set up, every portal and staff URL lands on the sign-in page, which explains that online
+  // accounts are not open yet and points to WhatsApp - instead of an error page behind every "Get started" button.
+  if (!supabaseConfigured()) {
+    if (request.nextUrl.pathname === SIGN_IN_PATH) return NextResponse.next({ request });
+    const target = request.nextUrl.clone();
+    target.pathname = SIGN_IN_PATH;
+    target.search = '';
+    return NextResponse.redirect(target);
+  }
+
   let response = NextResponse.next({ request });
   const { url, publishableKey } = supabaseKeys();
 

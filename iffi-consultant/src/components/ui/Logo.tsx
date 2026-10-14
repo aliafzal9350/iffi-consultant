@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Link } from '@/lib/router';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import logoGold from '@/assets/brand/logo-mark-gold.png';
 import logoNavy from '@/assets/brand/logo-mark-navy.png';

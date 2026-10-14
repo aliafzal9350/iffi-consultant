@@ -29,7 +29,8 @@ export function AccountCta({ compact }: { compact?: boolean }) {
   return (
     <span className="flex items-center gap-1">
       {!compact && (
-        <Link to="/portal/sign-in?mode=login" className={cn(buttonClass('ghost-light', 'sm'), 'md:h-10')}>
+        // hidden on small laptops so the main navigation never wraps; "Get started" leads to the same page
+        <Link to="/portal/sign-in?mode=login" className={cn(buttonClass('ghost-light', 'sm'), 'max-xl:hidden md:h-10')}>
           Log in
         </Link>
       )}

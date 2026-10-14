@@ -7,7 +7,7 @@ report can print Chinese province names.
 ```powershell
 python parse_programs.py                                   # Extracted_Features_All_Programs.txt -> programs.json + provinces.json
 python simplify_geo.py inputs/china_full.json ../iffi-consultant/src/data/provinces.json ../iffi-consultant/src/data/china-provinces.geo.json
-python build_site_data.py                                  # -> site.json, tools.json, meta.json
+python build_site_data.py                                  # -> site.json (+ site-core.json), tools.json, meta.json
 python build_seo_keywords.py                               # both keyword CSVs -> seo-keywords.json (meta keywords per page)
 cd ../iffi-consultant; npm run typecheck                    # validates the JSON against src/types/data.ts
 ```
@@ -16,7 +16,7 @@ cd ../iffi-consultant; npm run typecheck                    # validates the JSON
 |---|---|---|
 | `parse_programs.py` | `../Extracted_Features_All_Programs.txt` | `programs.json`, `provinces.json` (prints a QA report) |
 | `simplify_geo.py` | `inputs/china_full.json` (DataV GeoAtlas), `provinces.json` | `china-provinces.geo.json` (simplified, English names, programme counts) |
-| `build_site_data.py` | `programs.json`, `provinces.json`, `inputs/fx_cny.json`, `../Gujjify_Keyword_Research_Global.csv`, `inputs/old-site-posts/*.html` | `site.json`, `tools.json`, `meta.json` |
+| `build_site_data.py` | `programs.json`, `provinces.json`, `inputs/fx_cny.json`, `../Gujjify_Keyword_Research_Global.csv`, `inputs/old-site-posts/*.html` | `site.json`, `site-core.json` (the client slice of site.json), `tools.json`, `meta.json` |
 | `build_seo_keywords.py` | both keyword CSVs, `tools.json`, `provinces.json` | `seo-keywords.json` (top 10 per route + per level; prints demand with no page yet) |
 | `fee_stats.py` | `programs.json` | prints fee / stipend / requirement statistics |
 | `kw_deep.py` | both keyword CSVs | prints tool demand by region and local-language seeds |

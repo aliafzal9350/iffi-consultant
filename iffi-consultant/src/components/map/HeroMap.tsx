@@ -3,7 +3,7 @@ import { Component, lazy, Suspense, useCallback, useEffect, useMemo, useRef, use
 import { useNavigate } from '@/lib/router';
 import { Box, List, X } from 'lucide-react';
 import { provinces, provinceByName } from '@/data/places';
-import { site } from '@/data/content';
+import { site } from '@/data/core';
 import { cn } from '@/lib/cn';
 import { provincePath } from '@/lib/programs';
 import { useIsClient } from '@/hooks/useIsClient';
@@ -15,8 +15,17 @@ const ChinaMap2D = lazy(() => import('./ChinaMap2D'));
 const ChinaMap3D = lazy(() => import('./ChinaMap3D'));
 
 const TOUR = [...provinces].sort((a, b) => b.programCount - a.programCount).map((p) => p.name);
-// fixed labels only for eastern provinces: the west of the map sits under the hero copy on desktop
-const TOP_LABELS = TOUR.filter((n) => (provinceByName.get(n)?.center.lng ?? 0) > 108).slice(0, 6);
+// fixed labels only for eastern provinces (the west of the map sits under the hero copy on desktop),
+// skipping any province whose label would sit on top of a bigger neighbour's (Shanghai next to Zhejiang)
+const TOP_LABELS = TOUR.reduce<string[]>((picked, n) => {
+  const c = provinceByName.get(n)?.center;
+  if (!c || c.lng <= 110 || picked.length >= 6) return picked;
+  const crowded = picked.some((m) => {
+    const o = provinceByName.get(m)!.center;
+    return Math.hypot(o.lng - c.lng, o.lat - c.lat) < 2;
+  });
+  return crowded ? picked : [...picked, n];
+}, []);
 const MAP_LABEL = `Map of China. ${provinces.length} provinces with programmes are raised in gold, the tallest is Jiangsu with ${TOUR.length ? provinces[0].programCount : 0} programmes. City beacons mark the ${provinces.reduce((n, p) => n + p.cities.length, 0)} cities. Use the list view below the map for keyboard access.`;
 
 /** If WebGL crashes, fall back to the SVG map instead of breaking the hero. */
@@ -33,7 +42,8 @@ class MapBoundary extends Component<{ fallback: ReactNode; children: ReactNode; 
   }
 }
 
-function Legend({ className }: { className?: string }) {
+/** `caption` repeats the hero's own figures, so the desktop legend leaves it out. */
+function Legend({ className, caption = true }: { className?: string; caption?: boolean }) {
   return (
     <div className={cn('pointer-events-none flex flex-col gap-2 text-[12px] text-mist', className)}>
       <div className="flex items-center gap-2.5">
@@ -49,11 +59,13 @@ function Legend({ className }: { className?: string }) {
         </span>
         <span className="text-mist/80">City with programmes</span>
       </div>
-      <p className="flex flex-wrap gap-x-3 text-mist/70" aria-hidden="true">
-        {site.hero.mapCaption.split(' · ').map((s) => (
-          <span key={s}>{s}</span>
-        ))}
-      </p>
+      {caption && (
+        <p className="flex flex-wrap gap-x-3 text-mist/70" aria-hidden="true">
+          {site.hero.mapCaption.split(' · ').map((s) => (
+            <span key={s}>{s}</span>
+          ))}
+        </p>
+      )}
     </div>
   );
 }
@@ -71,7 +83,7 @@ export function HeroMap() {
   const mapReady = useLoadWhenVisible(wrap, '120px');
   const reduced = usePrefersReducedMotion();
   const mobile = useMediaQuery('(max-width: 767px), (pointer: coarse)');
-  const desktop = useMediaQuery('(min-width: 1024px)');
+  const desktop = useMediaQuery('(min-width: 1280px)');
   const [webgl, setWebgl] = useState<boolean | null>(null);
   const [contextLost, setContextLost] = useState(false);
   const [ready3D, setReady3D] = useState(false);
@@ -193,7 +205,7 @@ export function HeroMap() {
     <div className="flex h-full flex-col">
       <div
         ref={wrap}
-        className="relative min-h-[380px] flex-1 overflow-hidden max-lg:rounded-[22px] max-lg:border max-lg:border-white/10 max-lg:bg-navy-2/40"
+        className="relative min-h-[380px] flex-1 overflow-hidden max-xl:rounded-[22px] max-xl:border max-xl:border-white/10 max-xl:bg-navy-2/40"
         onMouseEnter={pause}
         onTouchStart={pause}
         onFocus={pause}
@@ -242,32 +254,33 @@ export function HeroMap() {
         )}
 
         {/* soft blend into the copy column on large screens */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-40 bg-gradient-to-r from-navy via-navy/60 to-transparent lg:block" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-40 bg-gradient-to-r from-navy via-navy/60 to-transparent xl:block" aria-hidden="true" />
 
-        <div className="absolute bottom-12 left-10 z-10 hidden items-end gap-6 lg:flex">
-          <Legend />
+        {/* starts past the fade so it never runs into the hero copy */}
+        <div className="absolute bottom-12 left-44 z-10 hidden items-end gap-6 xl:flex">
+          <Legend caption={false} />
           {listToggle}
         </div>
 
         {province && desktop && (
-          <div className="absolute bottom-24 right-6 z-10 w-[300px] xl:right-12" aria-live="polite">
-            <ProvinceCard p={province} compact />
+          <div className="absolute bottom-24 right-6 z-10 w-[290px] 2xl:right-12" aria-live="polite">
+            <ProvinceCard key={province.name} p={province} compact className="animate-card-in" />
           </div>
         )}
       </div>
 
-      <div className="mt-4 flex flex-wrap items-end justify-between gap-3 lg:hidden">
+      <div className="mt-4 flex flex-wrap items-end justify-between gap-3 xl:hidden">
         <Legend />
         {listToggle}
       </div>
 
       {province && !desktop && isClient && (
         <div className="mt-3" aria-live="polite">
-          <ProvinceCard p={province} />
+          <ProvinceCard key={province.name} p={province} className="animate-card-in" />
         </div>
       )}
 
-      <div id="province-list" hidden={!listOpen} className="mt-4 lg:absolute lg:bottom-24 lg:left-10 lg:right-[360px] lg:z-20 lg:mt-0">
+      <div id="province-list" hidden={!listOpen} className="mt-4 xl:absolute xl:bottom-24 xl:left-44 xl:right-[340px] xl:z-20 xl:mt-0">
         {listOpen && (
           <>
             <p className="sr-only">Provinces with programmes, sorted by number of programmes</p>

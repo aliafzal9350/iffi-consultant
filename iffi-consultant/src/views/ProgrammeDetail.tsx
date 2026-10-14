@@ -22,7 +22,7 @@ import {
 } from '@/lib/programs';
 import { JsonLd } from '@/components/ui/Seo';
 import { PageHeader } from '@/components/layout/PageHeader';
-import { Container, Disclaimer, IconTile } from '@/components/ui/primitives';
+import { Container, Disclaimer } from '@/components/ui/primitives';
 import { Button, WhatsAppButton } from '@/components/ui/Button';
 import { Accordion } from '@/components/ui/Accordion';
 import { MiniMap } from '@/components/map/MiniMap';
@@ -32,16 +32,20 @@ import { MajorsList } from '@/components/programmes/MajorsList';
 import { ShareButton, StickyApplyBar } from '@/components/programmes/ProgrammeActions';
 
 // dt/dd must be direct children of the wrapper div (valid <dl> markup), so the icon sits inside the dt
+/** Two columns on phones (icon above the label), icon beside the label from sm up. */
 function Fact({ icon, label, value }: { icon: React.ReactNode; label: string; value: React.ReactNode }) {
   return (
-    <div className="relative min-h-[4.5rem] rounded-xl border border-line bg-white p-4 pl-[4.25rem]">
-      <dt className="text-[13px] text-muted">
-        <IconTile light className="absolute left-4 top-4 h-10 w-10">
+    <div className="relative rounded-xl border border-line bg-white p-3.5 sm:min-h-[4.5rem] sm:p-4 sm:pl-[4.25rem]">
+      <dt className="text-[13px] leading-snug text-muted">
+        <span
+          className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gold-soft text-gold-deep ring-1 ring-gold/25 sm:absolute sm:left-4 sm:top-4 sm:mb-0 sm:h-10 sm:w-10"
+          aria-hidden="true"
+        >
           {icon}
-        </IconTile>
-        {label}
+        </span>
+        <span className="block">{label}</span>
       </dt>
-      <dd className="mt-0.5 font-medium leading-snug text-navy">{value}</dd>
+      <dd className="mt-0.5 text-[15px] font-medium leading-snug text-navy sm:text-base">{value}</dd>
     </div>
   );
 }
@@ -67,7 +71,6 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
     { name: p.displayName, path: programPath(p) },
   ];
   const waVars = { id: p.id, level: LEVEL_LABEL[p.level], location };
-  const applyLabel = `Apply with ${site.brand.name}`;
   // the online application: sign-in (if needed) -> profile quiz (if needed) -> this programme
   const applyHref = `/portal/apply/${p.id}`;
 
@@ -106,10 +109,10 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
       </PageHeader>
 
       <Container className="py-12 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_340px]">
           <div className="min-w-0 space-y-14">
             <section aria-label="At a glance">
-              <dl className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <dl className="grid grid-cols-2 gap-2.5 sm:gap-3 xl:grid-cols-3">
                 <Fact icon={<GraduationCap size={18} />} label="Level" value={p.levelDetail && p.levelDetail !== p.level && !/see note/i.test(p.levelDetail) ? p.levelDetail : LEVEL_LABEL[p.level]} />
                 <Fact icon={<Clock size={18} />} label="Duration" value={durationLabel(p)} />
                 <Fact icon={<Languages size={18} />} label="Teaching language" value={teachingLabel(p)} />
@@ -119,7 +122,7 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
                   value={[p.ranking?.china && `#${p.ranking.china} in China`, p.ranking?.world && `#${p.ranking.world} world`].filter(Boolean).join(', ') || 'Not stated'}
                 />
                 <Fact icon={<Wallet size={18} />} label="Stipend" value={stipendLine(p) ?? (p.fullyFunded ? 'Ask us' : 'None listed')} />
-                <Fact icon={<Coins size={18} />} label="Tuition" value={tuitionLine(p)} />
+                <Fact icon={<Coins size={18} />} label="Tuition" value={tuitionLine(p).replace(/^Tuition (?=\d)/, '')} />
                 <Fact icon={<CalendarClock size={18} />} label="Usually closes" value={p.typicalDeadlineMonth ?? 'Ask us for the next deadline'} />
                 {p.intake && <Fact icon={<BookOpen size={18} />} label="Intake in the brochure" value={p.intake} />}
                 {p.status && <Fact icon={<Trophy size={18} />} label="University status" value={p.status} />}
@@ -258,7 +261,7 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
                 Apply online
               </Button>
               <WhatsAppButton messageKey="programInterest" vars={waVars} variant="outline" className="mt-2.5 w-full">
-                {applyLabel} on WhatsApp
+                Ask on WhatsApp
               </WhatsAppButton>
             </div>
           </aside>

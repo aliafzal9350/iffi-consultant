@@ -28,7 +28,7 @@ export default function BlogPost({ post }: { post: Post }) {
       <JsonLd crumbs={crumbs} data={[articleLd({ title: post.title, description: post.description, path, date: post.date })]} />
 
       <header className="relative overflow-hidden bg-navy text-mist">
-        <BlogCover slug={post.slug} className="absolute inset-0 h-full w-full opacity-70" />
+        <BlogCover slug={post.slug} topic={false} className="absolute inset-0 h-full w-full opacity-70" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/40" aria-hidden="true" />
         <Container narrow className="relative pb-14 pt-8 md:pb-20 md:pt-10">
           <Breadcrumbs items={crumbs} />

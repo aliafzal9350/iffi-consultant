@@ -101,9 +101,8 @@ def score_keyword(keyword: str, market_count: int, in_pk_autocomplete: bool) -> 
     in_pk_autocomplete - it also appears in the Pakistan-focused autocomplete file: the core market
     len(keyword.split()) - longer = more specific (converts better) but fewer searches
 
-    TODO(you): this baseline treats every market equally and gives Pakistan a flat bonus. Tune it to the
-    client's priorities - e.g. weight Pakistan higher if most leads come from there, or reward 3-5 word
-    long-tail phrases that a new domain can actually rank for.
+    Every market counts equally and Pakistan gets a flat bonus. To match the client's priorities, weight
+    Pakistan higher if most leads come from there, or reward 3-5 word long-tail phrases a new domain can rank for.
     """
     words = len(keyword.split())
     return market_count + (6 if in_pk_autocomplete else 0) - max(0, words - 5) * 1.5

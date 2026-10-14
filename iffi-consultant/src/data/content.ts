@@ -1,9 +1,10 @@
 /**
- * Light site data: copy, contacts, SEO routes, WhatsApp messages and counts.
- * Safe to import from client components - it does not pull in the 220 KB programme list.
+ * Site data: copy, contacts, SEO routes, WhatsApp messages and counts. Client components import the smaller
+ * '@/data/core' instead, so the FAQ, blog seeds and SEO copy are not downloaded on every page.
  *
  * Data modules (keep heavy and light apart so the browser only downloads what a page needs):
- *   '@/data/content'  site, meta, whatsappLink           (light)
+ *   '@/data/content'  site, meta, whatsappLink           (server components; the full copy)
+ *   '@/data/core'     site (client slice), whatsappLink (client components - every page downloads it)
  *   '@/data/places'   provinces + lookups               (light)
  *   '@/data/config'   tools config                      (light)
  *   '@/data/catalog'  programmes + lookups              (heavy - server components and tool pages only)
@@ -11,7 +12,6 @@
  *   '@/data/keywords' ranked SEO keywords               (server only - metadata)
  */
 import siteJson from './site.json';
-import metaJson from './meta.json';
 
 type SiteJson = typeof siteJson;
 type Maybe = string | null;
@@ -32,9 +32,5 @@ type Confirmable = Omit<SiteJson, 'contact' | 'social' | 'legal'> & {
 export const site: Confirmable = siteJson;
 export type SiteContent = Confirmable;
 
-export const meta = metaJson;
 
-/** WhatsApp click-to-chat link with a pre-filled message */
-export function whatsappLink(message: string): string {
-  return `https://wa.me/${site.contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
+export { meta, whatsappLink } from './core';

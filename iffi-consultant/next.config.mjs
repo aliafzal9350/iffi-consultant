@@ -8,12 +8,7 @@ const legacyRedirects = [
   { source: '/blog.php', destination: '/blog', permanent: true },
   { source: '/faq.php', destination: '/faq', permanent: true },
   { source: '/contact.php', destination: '/contact', permanent: true },
-  {
-    source: '/blog-post.php',
-    has: [{ type: 'query', key: 'slug', value: '(?<slug>[a-z0-9-]+)' }],
-    destination: '/blog/:slug',
-    permanent: true,
-  },
+  // /blog-post.php?slug=... is handled by src/app/blog-post.php/route.ts so the query string does not follow along
 ];
 
 const securityHeaders = [
