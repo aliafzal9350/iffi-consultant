@@ -31,7 +31,7 @@ const INJECTION_PATTERNS: [RegExp, string][] = [
   [/\b(system|developer|hidden|initial|original)\s+(prompt|instructions?|message|rules)\b/i, 'prompt-request'],
   [/\b(reveal|print|show|repeat|output|display|leak|dump|tell me)\b[^.\n]{0,40}\b(your|the)\s+(instructions?|prompt|rules|configuration|system message|context window)\b/i, 'prompt-request'],
   [/\b(jailbreak|DAN mode|do anything now|developer mode|god mode|unfiltered mode|sudo mode)\b/i, 'jailbreak'],
-  [/\byou are (now|no longer)\b[^.\n]{0,60}\b(assistant|AI|bot|model|chatgpt|gemini|unrestricted|free)\b/i, 'role-override'],
+  [/\byou are (now|no longer)\b[^.\n]{0,60}\b(assistant|AI|bot|model|chatgpt|gpt|gemini|groq|grok|llama|unrestricted|free)\b/i, 'role-override'],
   [/\b(api[_ -]?key|secret key|access token|environment variables?|process\.env|\.env\b)/i, 'secret-request'],
   [/<\s*\/?\s*(system|instructions?|admin|developer)\s*>|\[\s*(system|admin|developer)\s*\]|^\s*(system|admin)\s*:/im, 'fake-role-tag'],
 ];
@@ -72,12 +72,23 @@ const PROMPT_FRAGMENTS = [/\bINTERNAL[- ]REF\b/i, /non-negotiable rules/i, /refe
  */
 export function guardOutput(raw: string, opts: GuardOptions): GuardResult {
   const flags: string[] = [];
-  let text = raw.slice(0, MAX_ASSISTANT_CHARS);
+  let text = raw
+    .slice(0, MAX_ASSISTANT_CHARS)
+    // models write numbers and ids with no-break spaces and hyphens ("+86 182…", "B‑01"): plain ones copy and search properly
+    .replace(/[   ]/g, ' ')
+    .replace(/[‐‑]/g, '-')
+    // some models cite as 【1】; the chat links [1]
+    .replace(/【(\d{1,2})[^】]*】/g, '[$1]')
+    // the chat shows plain text, so markdown emphasis and headings would appear as stray symbols
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^(\s*)[*•]\s+/gm, '$1- ');
 
   if (text.includes(opts.canary) || PROMPT_FRAGMENTS.some((re) => re.test(text))) {
     return { text: '', blocked: true, flags: ['prompt-leak'] };
   }
-  if (/\bAIza[0-9A-Za-z_-]{30,}|\bAQ\.[0-9A-Za-z_-]{30,}|\bsk-[A-Za-z0-9_-]{20,}/.test(text)) {
+  if (/\bAIza[0-9A-Za-z_-]{30,}|\bAQ\.[0-9A-Za-z_-]{30,}|\bsk-[A-Za-z0-9_-]{20,}|\bgsk_[A-Za-z0-9]{20,}|\bxai-[A-Za-z0-9]{20,}|\bsb_secret_[A-Za-z0-9_-]{10,}/.test(text)) {
     return { text: '', blocked: true, flags: ['secret-leak'] };
   }
 

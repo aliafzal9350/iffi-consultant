@@ -46,9 +46,13 @@ function load() {
   return cache;
 }
 
+/** Words students use for money where the brochures say "tuition" ("MBBS fee", "fees kitni", "Bachelor cost"). */
+const ALSO_MEANS: Record<string, string> = { fee: 'tuition', fees: 'tuition', cost: 'tuition', costs: 'tuition', price: 'tuition', kharcha: 'tuition' };
+
 function bm25(query: string): Indexed[] {
   const { chunks, df, avgLen } = load();
-  const q = [...new Set(tokenize(query))];
+  const words = tokenize(query);
+  const q = [...new Set([...words, ...words.map((w) => ALSO_MEANS[w]).filter(Boolean)])];
   const N = chunks.length;
   const scored = chunks.map((c) => {
     let s = 0;

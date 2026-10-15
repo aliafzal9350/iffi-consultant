@@ -9,7 +9,9 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "rag:index": "node scripts/build-rag-index.mjs",
+    "chat:test": "node scripts/test-chat.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
