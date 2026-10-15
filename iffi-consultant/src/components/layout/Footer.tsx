@@ -10,6 +10,7 @@ import { FacebookIcon, InstagramIcon, WeChatIcon, WhatsAppIcon } from '@/compone
 const quickLinks = [
   { label: 'Programme finder', path: '/programmes' },
   { label: 'Services', path: '/services' },
+  { label: 'Success stories', path: '/testimonials' },
   { label: 'About us', path: '/about' },
   { label: 'Study in China guides', path: '/blog' },
   { label: 'FAQ', path: '/faq' },

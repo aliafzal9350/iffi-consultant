@@ -1,5 +1,7 @@
-import { MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, MessageCircle, Play, ShieldCheck } from 'lucide-react';
 import { meta, site } from '@/data/content';
+import { VIDEO_STORIES, videoPoster } from '@/data/testimonials';
 import { Button, WhatsAppButton } from '@/components/ui/Button';
 import { Container } from '@/components/ui/primitives';
 import { CountUp } from '@/components/ui/CountUp';
@@ -28,12 +30,33 @@ export function Hero() {
       {/* side by side from 1280px; below that the map sits under the copy so neither has to squeeze */}
       <Container className="relative xl:flex xl:min-h-[calc(100svh-116px)] xl:items-center">
         <div className="hero-enter relative z-10 max-w-[640px] py-12 sm:py-16 xl:max-w-[590px] xl:py-20">
-          <p className="eyebrow flex items-center gap-3 text-gold-2">
-            <span className="h-px w-8 bg-gold/70" aria-hidden="true" />
-            {site.hero.eyebrow}
-          </p>
+          {/* real students first: the faces link down to their videos */}
+          <a
+            href="#stories"
+            className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-navy-2/80 py-1.5 pl-1.5 pr-2 transition-[border-color,background-color] duration-300 hover:border-gold-2/50 hover:bg-navy-3/60"
+          >
+            <span className="flex -space-x-2.5" aria-hidden="true">
+              {VIDEO_STORIES.map((s) => (
+                <Image
+                  key={s.id}
+                  src={videoPoster(s.id)}
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-8 w-8 rounded-full object-cover object-[50%_30%] ring-2 sm:h-9 sm:w-9 ring-navy-2 transition-transform duration-500 ease-[var(--ease-premium)] group-hover:-translate-y-0.5"
+                />
+              ))}
+            </span>
+            <span className="whitespace-nowrap text-[13.5px] leading-tight text-white">
+              Hear from our students
+              <span className="block text-[12px] text-mist/75">{VIDEO_STORIES.length} short videos</span>
+            </span>
+            <span className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold text-navy transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+              <Play size={13} fill="currentColor" className="ml-0.5" />
+            </span>
+          </a>
 
-          <h1 id="hero-title" className="text-display mt-5 text-white">
+          <h1 id="hero-title" className="text-display mt-6 text-white">
             {site.hero.headline}{' '}
             <span className="text-gold-gradient font-display-italic block pb-1 font-medium">{site.hero.headlineAccent}</span>
           </h1>

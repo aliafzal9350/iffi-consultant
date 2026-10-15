@@ -78,6 +78,10 @@
    "path": "/services"
   },
   {
+   "label": "Success Stories",
+   "path": "/testimonials"
+  },
+  {
    "label": "About",
    "path": "/about"
   },
