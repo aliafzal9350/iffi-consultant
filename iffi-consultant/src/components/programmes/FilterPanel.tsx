@@ -52,7 +52,9 @@ export function FilterPanel({ state, onChange }: Props) {
 
   // major search: typing is local, the URL updates after a short pause
   const [q, setQ] = useState(state.q);
-  useEffect(() => setQ(state.q), [state.q]);
+  useEffect(() => {
+    setQ(state.q);
+  }, [state.q]);
   useEffect(() => {
     if (q === state.q) return;
     const t = window.setTimeout(() => onChange({ ...state, q }), 280);

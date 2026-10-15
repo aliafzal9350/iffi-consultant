@@ -62,7 +62,9 @@ export function Quiz({ initial, next, firstName }: { initial: QuizAnswers; next:
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  useEffect(() => writeJSON(KEYS.portalQuiz, { a, i }, 'session'), [a, i]);
+  useEffect(() => {
+    writeJSON(KEYS.portalQuiz, { a, i }, 'session');
+  }, [a, i]);
 
   // move focus to the new question so screen readers read it out
   useEffect(() => {

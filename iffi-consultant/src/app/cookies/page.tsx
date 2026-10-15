@@ -4,7 +4,7 @@ import Cookies from '@/views/legal/Cookies';
 
 export const metadata = pageMetadata({
   title: `Cookie Policy | ${site.brand.name}`,
-  description: `How ${site.brand.name} uses cookies and analytics on this website.`,
+  description: `How ${site.brand.name} uses cookies and browser storage on this website: what each one does, how long it lasts and how to say no to analytics.`,
   path: '/cookies',
 });
 

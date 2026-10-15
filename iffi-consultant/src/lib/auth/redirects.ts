@@ -16,7 +16,7 @@ export function safeNext(next: string | null | undefined): string | null {
 
 /** The live domain (site.json seo.siteUrl), kept here so proxy.ts does not pull the content bundle in. */
 const LIVE_HOSTS = ['ifficonsultant.com', 'www.ifficonsultant.com'];
-const LIVE_ORIGIN = 'https://ifficonsultant.com';
+const LIVE_ORIGIN = 'https://www.ifficonsultant.com';
 
 function allowedHost(host: string): boolean {
   const name = host.replace(/:\d+$/, '');

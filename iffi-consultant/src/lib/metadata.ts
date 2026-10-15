@@ -19,11 +19,25 @@ export interface PageMeta {
   noindex?: boolean;
 }
 
+const MAX_TITLE = 60;
+const BRAND_SUFFIX = new RegExp(`\\s*[|–-]\\s*${site.brand.name}(?: Blog)?$`);
+
+/**
+ * Google shows about 60 characters of a title. A longer one keeps its words and loses the brand first:
+ * "… | IFFI Consultant", then "… | IFFI", then no suffix. Social cards keep the full title.
+ */
+export function fitTitle(title: string): string {
+  if (title.length <= MAX_TITLE) return title;
+  const core = title.replace(BRAND_SUFFIX, '');
+  if (core === title) return title;
+  return [`${core} | ${site.brand.name}`, `${core} | IFFI`].find((t) => t.length <= MAX_TITLE) ?? core;
+}
+
 export function pageMetadata({ title, description, path, keywords, type = 'website', publishedTime, noindex }: PageMeta): Metadata {
   const desc = clampDescription(description);
   const url = canonical(path).replace(SITE_URL, '') || '/';
   return {
-    title: { absolute: title },
+    title: { absolute: fitTitle(title) },
     description: desc,
     ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical: url },
