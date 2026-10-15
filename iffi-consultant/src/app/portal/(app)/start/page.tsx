@@ -26,6 +26,7 @@ export default async function StartPage({ searchParams }: { searchParams: Promis
         scale: sp.cgpa_scale,
         englishTest: sp.english_test,
         englishScore: sp.english_score,
+        englishLetter: sp.english_letter ?? null,
         hsk: sp.hsk,
         funding: sp.funding,
         teaching: sp.teaching,

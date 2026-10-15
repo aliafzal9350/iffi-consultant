@@ -25,6 +25,14 @@ export function uploadPath(userId: string, applicationId: string, kind: string, 
 export const isUploadPathFor = (path: string, userId: string, applicationId: string, kind: string) =>
   path.startsWith(`students/${userId}/${applicationId}/${kind}/`) && !path.includes('..') && /^[\w\-/.]+$/.test(path);
 
+/** students/<user>/profile/english/<random>.<ext> */
+export function profileEnglishLetterPath(userId: string, mime: string): string {
+  return `students/${userId}/profile/english/${randomUUID()}.${EXT[mime] ?? 'bin'}`;
+}
+
+export const isProfileEnglishLetterPathFor = (path: string, userId: string) =>
+  path.startsWith(`students/${userId}/profile/english/`) && !path.includes('..') && /^[\w\-/.]+$/.test(path);
+
 /** settings/payment-qr/<random>.<ext> */
 export const settingsPath = (name: string, mime: string) => `settings/${name}/${randomUUID()}.${EXT[mime] ?? 'bin'}`;
 

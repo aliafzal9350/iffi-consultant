@@ -4,6 +4,7 @@
  */
 import { tools } from '@/data/config';
 import type { EnglishTest, FundingPref, TeachingPref } from '@/lib/eligibility';
+import type { EnglishLetterMeta } from './documents';
 
 export interface QuizAnswers {
   level: string;
@@ -15,6 +16,7 @@ export interface QuizAnswers {
   scale: number;
   englishTest: EnglishTest;
   englishScore: number | null;
+  englishLetter?: EnglishLetterMeta | null;
   hsk: number;
   funding: FundingPref;
   teaching: TeachingPref;
@@ -33,6 +35,7 @@ export const EMPTY_ANSWERS: QuizAnswers = {
   scale: 4,
   englishTest: 'none',
   englishScore: null,
+  englishLetter: null,
   hsk: 0,
   funding: 'partial',
   teaching: 'either',

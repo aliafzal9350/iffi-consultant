@@ -144,13 +144,18 @@ export const DOCS: Record<DocKind, DocSpec> = {
     sample: 'bank',
   },
   english: {
-    title: 'English certificate',
-    what: 'IELTS, TOEFL, Duolingo or PTE results, or a letter from your school or university saying you were taught in English.',
-    points: ['Your name as in your passport.', 'The overall score (or the medium-of-instruction sentence).', 'The test date or letter date.'],
-    avoid: ['A booking confirmation instead of the result'],
+    title: 'English proficiency letter or certificate',
+    what: 'A letter from your school, college or university saying you were taught in English (English proficiency certificate), or your IELTS, TOEFL, Duolingo or PTE test report.',
+    points: [
+      'Issued on official school, college or university letterhead.',
+      'States clearly that English was the medium of instruction (or your test overall score).',
+      'Signed and stamped with the institution official stamp.',
+      'Your name and date of birth match your passport.',
+    ],
+    avoid: ['An unverified or unsigned draft', 'A booking confirmation instead of the final result or letter'],
     files: 'docs',
-    maxFiles: 2,
-    sample: 'english',
+    maxFiles: 3,
+    sample: 'letter',
   },
   hsk: {
     title: 'Chinese certificate (HSK)',
@@ -356,6 +361,14 @@ export function requiredDocuments(p: DocProgram): DocRequirement[] {
 // ------------------------------------------------------------------------------------ uploaded files, summarised
 
 export type DocStatus = 'pending' | 'accepted' | 'rejected';
+
+export interface EnglishLetterMeta {
+  storage_path: string;
+  file_name: string;
+  mime_type: string;
+  size_bytes: number;
+  uploaded_at: string;
+}
 
 export interface UploadedDoc {
   id: string;

@@ -1,3 +1,4 @@
+import { FileText } from 'lucide-react';
 import { LEVEL_LABEL } from '@/lib/programs';
 import { Link } from '@/lib/router';
 import type { StudentSummary } from '@/lib/staff/queries';
@@ -5,7 +6,12 @@ import { Avatar } from '@/components/portal/Avatar';
 import { PortalBand } from '@/components/portal/PortalBand';
 import { StudentWhatsApp, shortDate } from '@/components/staff/StaffBits';
 
-export type StudentRow = StudentSummary & { level: string | null; applicationIds: string[] };
+export type StudentRow = StudentSummary & {
+  level: string | null;
+  applicationIds: string[];
+  english_test?: string | null;
+  english_letter?: unknown;
+};
 
 function Applied({ s }: { s: StudentRow }) {
   if (!s.applicationIds.length) return <span className="text-muted">Not yet</span>;
@@ -16,11 +22,44 @@ function Applied({ s }: { s: StudentRow }) {
   );
 }
 
+function EnglishStatus({ s }: { s: StudentRow }) {
+  const hasLetter = s.english_test === 'moi' && s.english_letter && typeof s.english_letter === 'object' && (s.english_letter as Record<string, unknown>).storage_path;
+
+  if (hasLetter) {
+    return (
+      <a
+        href={`/portal/files/${s.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 rounded-lg bg-navy/[0.05] border border-navy/20 px-2.5 py-1 text-[12.5px] font-medium text-navy hover:bg-navy/10"
+        title="View English proficiency letter"
+      >
+        <FileText size={12} aria-hidden="true" /> Letter uploaded
+      </a>
+    );
+  }
+
+  if (s.english_test && s.english_test !== 'none' && s.english_test !== 'moi') {
+    return <span className="text-[13px] text-ink">{s.english_test.toUpperCase()}</span>;
+  }
+
+  if (s.english_test === 'moi') {
+    return <span className="text-[13px] text-muted">MOI (no letter yet)</span>;
+  }
+
+  if (!s.level) return <span className="text-muted">—</span>;
+  return <span className="text-[13px] text-muted">No test yet</span>;
+}
+
 export default function StudentsView({ students, count }: { students: StudentRow[]; count: number }) {
   const quizDone = students.filter((s) => s.level).length;
+  const withLetters = students.filter((s) => s.english_test === 'moi' && s.english_letter && typeof s.english_letter === 'object' && (s.english_letter as Record<string, unknown>).storage_path).length;
   return (
     <>
-      <PortalBand title="Students" lede={`${count} signed up, ${quizDone} finished the profile quiz. Newest first.`} />
+      <PortalBand
+        title="Students"
+        lede={`${count} signed up · ${quizDone} finished quiz${withLetters ? ` · ${withLetters} with English proficiency letter` : ''}. Newest first.`}
+      />
 
       <div className="mx-auto max-w-[1240px] px-4 py-8 sm:px-6 md:py-10 lg:px-8">
         {!students.length ? (
@@ -33,6 +72,7 @@ export default function StudentsView({ students, count }: { students: StudentRow
                 <tr>
                   <th scope="col" className="px-6 py-3 font-medium">Student</th>
                   <th scope="col" className="px-6 py-3 font-medium">Wants to study</th>
+                  <th scope="col" className="px-6 py-3 font-medium">English</th>
                   <th scope="col" className="px-6 py-3 font-medium">WhatsApp</th>
                   <th scope="col" className="px-6 py-3 font-medium">Applied</th>
                   <th scope="col" className="px-6 py-3 font-medium">Joined</th>
@@ -51,6 +91,9 @@ export default function StudentsView({ students, count }: { students: StudentRow
                       </div>
                     </td>
                     <td className="px-6 py-3.5">{s.level ? LEVEL_LABEL[s.level] : <span className="text-muted">Quiz not finished</span>}</td>
+                    <td className="px-6 py-3.5">
+                      <EnglishStatus s={s} />
+                    </td>
                     <td className="px-6 py-3.5">
                       <StudentWhatsApp student={s} />
                     </td>
@@ -73,6 +116,7 @@ export default function StudentsView({ students, count }: { students: StudentRow
                     <p className="truncate text-muted">{s.email}</p>
                     <p className="mt-2 text-ink">{s.level ? LEVEL_LABEL[s.level] : <span className="text-muted">Quiz not finished</span>}</p>
                     <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+                      <EnglishStatus s={s} />
                       <StudentWhatsApp student={s} />
                       <Applied s={s} />
                     </div>

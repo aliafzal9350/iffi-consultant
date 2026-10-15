@@ -159,15 +159,16 @@ export async function listStudents(limit = 300) {
       .eq('role', 'student')
       .order('created_at', { ascending: false })
       .limit(limit),
-    supabase.from('study_profiles').select('user_id, level, completed_at'),
+    supabase.from('study_profiles').select('user_id, level, completed_at, english_test, english_letter'),
     supabase.from('applications').select('id, user_id'),
   ]);
   const levelOf = new Map((studies ?? []).filter((s) => s.completed_at).map((s) => [s.user_id as string, s.level as string]));
+  const englishOf = new Map((studies ?? []).map((s) => [s.user_id as string, { english_test: s.english_test as string | null, english_letter: s.english_letter }]));
   const appsOf = new Map<string, string[]>();
   for (const a of apps ?? []) appsOf.set(a.user_id as string, [...(appsOf.get(a.user_id as string) ?? []), a.id as string]);
   return {
     count: count ?? 0,
-    students: ((data ?? []) as StudentSummary[]).map((s) => ({ ...s, level: levelOf.get(s.id) ?? null, applicationIds: appsOf.get(s.id) ?? [] })),
+    students: ((data ?? []) as StudentSummary[]).map((s) => ({ ...s, level: levelOf.get(s.id) ?? null, applicationIds: appsOf.get(s.id) ?? [], ...englishOf.get(s.id) })),
   };
 }
 

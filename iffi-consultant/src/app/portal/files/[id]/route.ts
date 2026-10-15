@@ -20,12 +20,28 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
   const supabase = await createClient();
   const { data: doc } = await supabase.from('application_documents').select('storage_path, file_name').eq('id', id).maybeSingle();
-  if (!doc) return new NextResponse('Not found', { status: 404, headers: PRIVATE });
+  if (doc) {
+    const download = request.nextUrl.searchParams.has('download');
+    const { data, error } = await createAdminClient()
+      .storage.from(BUCKET)
+      .createSignedUrl(doc.storage_path, 120, download ? { download: doc.file_name } : undefined);
+    if (error || !data) return new NextResponse('This file could not be opened. Please try again.', { status: 502, headers: PRIVATE });
+    return NextResponse.redirect(data.signedUrl, { status: 302, headers: PRIVATE });
+  }
 
-  const download = request.nextUrl.searchParams.has('download');
-  const { data, error } = await createAdminClient()
-    .storage.from(BUCKET)
-    .createSignedUrl(doc.storage_path, 120, download ? { download: doc.file_name } : undefined);
-  if (error || !data) return new NextResponse('This file could not be opened. Please try again.', { status: 502, headers: PRIVATE });
-  return NextResponse.redirect(data.signedUrl, { status: 302, headers: PRIVATE });
+  // If not found as an application document, check if id is a student user_id with an english_letter
+  const { data: sp } = await supabase.from('study_profiles').select('user_id, english_letter').eq('user_id', id).maybeSingle();
+  if (sp?.english_letter && typeof sp.english_letter === 'object') {
+    const meta = sp.english_letter as { storage_path?: string; file_name?: string };
+    if (meta.storage_path) {
+      const download = request.nextUrl.searchParams.has('download');
+      const { data, error } = await createAdminClient()
+        .storage.from(BUCKET)
+        .createSignedUrl(meta.storage_path, 120, download ? { download: meta.file_name || 'english-proficiency-letter.pdf' } : undefined);
+      if (error || !data) return new NextResponse('This file could not be opened. Please try again.', { status: 502, headers: PRIVATE });
+      return NextResponse.redirect(data.signedUrl, { status: 302, headers: PRIVATE });
+    }
+  }
+
+  return new NextResponse('Not found', { status: 404, headers: PRIVATE });
 }

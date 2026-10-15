@@ -6,6 +6,9 @@ import { cache } from 'react';
 import { createClient } from '@/lib/supabase/server';
 import { EMPTY_PROFILE, type EnglishTest, type FundingPref, type Profile as EligibilityProfile, type TeachingPref } from '@/lib/eligibility';
 
+import { type EnglishLetterMeta } from './documents';
+export type { EnglishLetterMeta };
+
 export interface StudyProfile {
   user_id: string;
   level: string;
@@ -17,6 +20,7 @@ export interface StudyProfile {
   cgpa_scale: number;
   english_test: EnglishTest;
   english_score: number | null;
+  english_letter?: EnglishLetterMeta | null;
   hsk: number;
   teaching: TeachingPref;
   funding: FundingPref;

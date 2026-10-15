@@ -74,12 +74,13 @@ export default async function StaffApplicationPage({ params }: { params: Promise
   const pct = percentDone(steps);
   const form = app.form ?? {};
 
+  const englishLetter = (study?.english_letter && typeof study.english_letter === 'object') ? study.english_letter as { storage_path?: string; file_name?: string } : null;
   const english = !study
     ? null
     : study.english_test === 'none'
       ? 'No test yet'
       : study.english_test === 'moi'
-        ? 'English-medium letter'
+        ? 'English-medium school letter'
         : `${ENGLISH_TESTS.find((t) => t.id === study.english_test)?.label} ${study.english_score ?? ''}`;
   const result = !study ? null : study.grade_mode === 'cgpa' ? `CGPA ${study.cgpa ?? '?'} out of ${fmtNumber(Number(study.cgpa_scale), 1)}` : study.percent != null ? `${study.percent}%` : 'Not given';
 
@@ -312,7 +313,21 @@ export default async function StaffApplicationPage({ params }: { params: Promise
                       ['Subject', study.field ?? 'Not sure yet'],
                       ['Age', ageOn(study.date_of_birth) ?? 'Not given'],
                       ['Last result', result],
-                      ['English', english],
+                      ['English', (
+                        <span key="eng" className="flex flex-wrap items-center gap-2">
+                          <span>{english}</span>
+                          {englishLetter?.storage_path && (
+                            <a
+                              href={`/portal/files/${study.user_id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 rounded-lg border border-navy/20 bg-navy/[0.04] px-2 py-0.5 text-[12px] font-medium text-navy hover:bg-navy/10"
+                            >
+                              <Download size={11} aria-hidden="true" /> View letter
+                            </a>
+                          )}
+                        </span>
+                      )],
                       ['Chinese', study.hsk ? `HSK ${study.hsk}` : 'None'],
                       ['Funding', { full: 'Needs a full scholarship', partial: 'Partial scholarship is fine', self: 'Family can pay' }[study.funding]],
                       ['Teaching language', study.teaching === 'either' ? 'Either' : study.teaching],

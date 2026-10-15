@@ -11,6 +11,7 @@ import { buttonClass } from '@/components/ui/buttonStyles';
 import { Select, inputClass } from '@/components/ui/Form';
 import { saveQuiz } from '@/lib/portal/actions';
 import { ENGLISH_TESTS, QUESTIONS, checkQuestion, type QuestionId, type QuizAnswers } from '@/lib/portal/quiz';
+import { EnglishLetterUploader } from '@/components/portal/EnglishLetterUploader';
 
 const ec = tools.eligibilityChecker;
 const COUNTRIES = CURRENCIES.filter((c) => !['USD', 'GBP', 'EUR', 'CNY'].includes(c.code)).sort((a, b) => a.country.localeCompare(b.country));
@@ -211,16 +212,26 @@ export function Quiz({ initial, next, firstName }: { initial: QuizAnswers; next:
     case 'english':
       title = 'Do you have an English test?';
       lede = 'Many programmes need no IELTS at all.';
-      needsButton = Boolean(test?.max);
+      needsButton = Boolean(test?.max) || a.englishTest === 'moi';
       body = (
         <>
           {ENGLISH_TESTS.map((t) => (
             <Option
               key={t.id}
               selected={a.englishTest === t.id}
-              onPick={() => (t.max ? set({ englishTest: t.id, englishScore: null }) : pick({ englishTest: t.id, englishScore: null }))}
+              onPick={() =>
+                t.max
+                  ? set({ englishTest: t.id, englishScore: null })
+                  : t.id === 'moi'
+                  ? set({ englishTest: t.id, englishScore: null })
+                  : pick({ englishTest: t.id, englishScore: null })
+              }
               title={t.id === 'moi' ? 'No test, but my school taught in English' : t.label}
-              hint={t.id === 'moi' ? 'A letter from your school can be enough for some programmes.' : undefined}
+              hint={
+                t.id === 'moi'
+                  ? 'Upload a letter from your school confirming English was the medium of instruction.'
+                  : undefined
+              }
             />
           ))}
           <Option selected={a.englishTest === 'none'} onPick={() => pick({ englishTest: 'none', englishScore: null })} title="No English test yet" />
@@ -230,6 +241,12 @@ export function Quiz({ initial, next, firstName }: { initial: QuizAnswers; next:
               <input type="number" inputMode="decimal" min={0} max={test.max} step={test.step} value={a.englishScore ?? ''} onChange={(e) => set({ englishScore: e.target.value ? Number(e.target.value) : null })} aria-invalid={!!error} autoFocus className={cn(inputClass, 'h-14 text-lg')} />
               <span className="mt-1.5 block text-[13px] text-muted">Up to {test.max}</span>
             </label>
+          )}
+          {a.englishTest === 'moi' && (
+            <EnglishLetterUploader
+              value={a.englishLetter ?? null}
+              onChange={(letter) => set({ englishLetter: letter })}
+            />
           )}
         </>
       );
