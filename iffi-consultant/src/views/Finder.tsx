@@ -30,7 +30,9 @@ export default function Finder() {
   const [sheet, setSheet] = useState(false);
   // a page of cards keeps the DOM small on phones; filters reset it to the first page
   const [shown, setShown] = useState(PAGE);
-  useEffect(() => setShown(PAGE), [state]);
+  useEffect(() => {
+    setShown(PAGE);
+  }, [state]);
 
   const update = (next: FinderState) => setParams(toParams(next), { replace: true, preventScrollReset: true });
   const showMbbs = state.level.includes('MBBS') || (results.length > 0 && results.every((p) => p.level === 'MBBS'));

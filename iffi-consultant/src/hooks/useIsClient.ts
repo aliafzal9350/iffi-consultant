@@ -9,6 +9,8 @@ import { useLayoutEffect, useState } from 'react';
  */
 export function useIsClient(): boolean {
   const [isClient, setIsClient] = useState(false);
-  useLayoutEffect(() => setIsClient(true), []);
+  useLayoutEffect(() => {
+    setIsClient(true);
+  }, []);
   return isClient;
 }

@@ -73,7 +73,10 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
   const [error, setError] = useState('');
   const end = useRef<HTMLDivElement>(null);
 
-  useEffect(() => end.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }), [messages, busy]);
+  // braces matter: newer browsers return a Promise from scrollIntoView, and React would call it as the cleanup
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [messages, busy]);
 
   async function ask(question: string) {
     const q = question.trim().slice(0, MAX);
