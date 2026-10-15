@@ -47,13 +47,13 @@ export default function Cookies() {
               <td>Until you clear it</td>
             </tr>
             <tr>
-              <td>gj:checklist, gj:currency</td>
-              <td>Document ticks and your currency</td>
+              <td>gj:checklist</td>
+              <td>Document ticks</td>
               <td>Until you clear it</td>
             </tr>
             <tr>
-              <td>gj:compare, gj:eligibility, gj:fx</td>
-              <td>Compare list, eligibility answers, exchange rates</td>
+              <td>gj:compare, gj:eligibility</td>
+              <td>Compare list, eligibility answers</td>
               <td>Until you close the tab</td>
             </tr>
           </tbody>
@@ -77,8 +77,7 @@ export default function Cookies() {
       <h2>Other services</h2>
       <ul>
         <li>Fonts are served from this website itself; no request goes to Google Fonts.</li>
-        <li>The cost calculator loads exchange rates from a public currency service; no personal data is sent.</li>
-        <li>WhatsApp, Facebook and Instagram links take you to those services, where their own cookie policies apply.</li>
+        <li>WhatsApp, WeChat, Facebook and Instagram links take you to those services, where their own cookie policies apply.</li>
       </ul>
 
       <h2>Questions</h2>

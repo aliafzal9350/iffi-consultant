@@ -37,7 +37,7 @@ export function ProvinceCard({ p, className, onNavigate, compact }: { p: Provinc
         <span className={cn(compact && 'min-w-0 truncate')}>{p.cities.length ? p.cities.map((c) => c.name).join(', ') : 'Province-wide programmes'}</span>
       </p>
       {p.maxStipendCNYPerMonth && (
-        <p className="mt-1.5 text-[13.5px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} CNY/month</p>
+        <p className="mt-1.5 text-[13.5px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} RMB/month</p>
       )}
       {!compact && p.sampleMajors.length > 0 && <p className="mt-1.5 text-[13px] text-mist/85">{p.sampleMajors.slice(0, 3).join(', ')}</p>}
       <div className={cn('flex gap-2', compact ? 'mt-3.5' : 'mt-4 flex-wrap')}>

@@ -73,7 +73,7 @@ export function tuitionLine(p: Program): string {
   const min = p.tuitionMinCNYPerYear;
   const est = p.tuitionStandardEstimated && max === p.tuitionStandardCNYPerYear ? ' (est.)' : '';
   if (min != null && max != null && min !== max)
-    return `Tuition ${fmtNumber(min)}–${fmtNumber(max)} CNY/yr${est}, depending on scholarship`;
+    return `Tuition ${fmtNumber(min)}–${fmtNumber(max)} RMB/yr${est}, depending on scholarship`;
   if (max != null) return `Tuition ${fmtCNY(max)}/yr${est}`;
   if (min === 0) return p.fullyFunded ? 'Tuition-free (fully funded)' : 'Tuition-free scholarship option';
   if (min != null) return `Tuition ${fmtCNY(min)}/yr`;
@@ -81,7 +81,7 @@ export function tuitionLine(p: Program): string {
 }
 
 export function stipendLine(p: Program): string | null {
-  return hasStipend(p) ? `${fmtNumber(p.stipendCNYPerMonth!)} CNY/month stipend` : null;
+  return hasStipend(p) ? `${fmtNumber(p.stipendCNYPerMonth!)} RMB/month stipend` : null;
 }
 
 /** The language rule in words a student understands. */
@@ -175,7 +175,7 @@ export function detailSections(p: Program): { title: string; lines: string[] }[]
         .replace(/\b(\d)Nd\b/g, '$1nd')
         .replace(/\bHsk\b/g, 'HSK')
         .replace(/\bIct\b/g, 'ICT')
-        .replace(/\bCny\b/g, 'CNY')
+        .replace(/\bCny\b/g, 'RMB')
         .replace(/\bUsd\b/g, 'USD')
         .trim(),
       lines: (lines ?? []).filter((l) => !/\bphotos?:/i.test(l) && !/stay legal|legal stay/i.test(l)),
@@ -207,6 +207,6 @@ export function provinceStats(p: Province): { label: string; value: string }[] {
     { label: 'Cities', value: p.cities.length ? String(p.cities.length) : 'Province-wide' },
     { label: 'English-taught', value: String(p.englishTaughtCount) },
     { label: 'Fully funded', value: String(p.fullyFundedCount) },
-    { label: 'Highest stipend', value: p.maxStipendCNYPerMonth ? `${fmtNumber(p.maxStipendCNYPerMonth)} CNY/mo` : 'None listed' },
+    { label: 'Highest stipend', value: p.maxStipendCNYPerMonth ? `${fmtNumber(p.maxStipendCNYPerMonth)} RMB/mo` : 'None listed' },
   ];
 }

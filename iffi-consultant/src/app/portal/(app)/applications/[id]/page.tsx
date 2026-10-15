@@ -9,7 +9,7 @@ import { LEVEL_LABEL } from '@/lib/programs';
 import { STATUS_LABEL, applicationRef, stepPath, type ApplicationStatus } from '@/lib/portal/application';
 import { DOCS } from '@/lib/portal/documents';
 import { loadApplication } from '@/lib/portal/load';
-import { fmtMoney, latestPayment } from '@/lib/portal/payment';
+import { PAYMENT_CURRENCY, fmtMoney, latestPayment } from '@/lib/portal/payment';
 import { nextStep, percentDone } from '@/lib/portal/progress';
 import { buttonClass } from '@/components/ui/buttonStyles';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
@@ -147,7 +147,7 @@ export default async function ApplicationPage({ params }: { params: Promise<{ id
               {serviceDue && (
                 <div className="mt-5 flex flex-wrap items-center gap-4 rounded-2xl bg-white p-4 ring-1 ring-line">
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-navy">Service charge {app.service_charge_usd != null && <span className="tabular">· {fmtMoney(app.service_charge_usd, 'USD')}</span>}</p>
+                    <p className="font-medium text-navy">Service charge {app.service_charge_usd != null && <span className="tabular">· {fmtMoney(app.service_charge_usd, PAYMENT_CURRENCY)}</span>}</p>
                     <p className="text-[13.5px] text-muted">{service?.status === 'submitted' ? 'Your payment is being checked.' : 'Paid after the JW202, the same way as the application fee.'}</p>
                   </div>
                   {service?.status !== 'submitted' && (

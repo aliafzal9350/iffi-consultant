@@ -11,7 +11,7 @@ import { ageOn } from '@/lib/portal/study';
 import { ENGLISH_TESTS } from '@/lib/portal/quiz';
 import { STATUS_LABEL, applicationRef } from '@/lib/portal/application';
 import { DOCS, docState, fmtBytes, isDocKind, type DocRequirement } from '@/lib/portal/documents';
-import { PAYMENT_STATUS_LABEL, PURPOSE_LABEL, amountDue, fmtMoney } from '@/lib/portal/payment';
+import { PAYMENT_CURRENCY, PAYMENT_STATUS_LABEL, PURPOSE_LABEL, amountDue, fmtMoney } from '@/lib/portal/payment';
 import { percentDone } from '@/lib/portal/progress';
 import { getPaymentSettings } from '@/lib/portal/settings';
 import { ALL_STATUSES, TRANSITIONS } from '@/lib/portal/transitions';
@@ -95,7 +95,7 @@ export default async function StaffApplicationPage({ params }: { params: Promise
   const tiles: [string, React.ReactNode, string?][] = [
     ['Progress', `${pct}%`],
     ['Documents', `${summary.accepted} accepted · ${summary.pending} to check`, summary.missing.length ? `${summary.missing.length} required missing` : 'All required in'],
-    ['Application fee', payments.find((p) => p.purpose === 'application_fee') ? PAYMENT_STATUS_LABEL[payments.find((p) => p.purpose === 'application_fee')!.status] : 'Not paid', feeDue != null ? `Due ${fmtMoney(feeDue, 'USD')}` : 'Amount not set'],
+    ['Application fee', payments.find((p) => p.purpose === 'application_fee') ? PAYMENT_STATUS_LABEL[payments.find((p) => p.purpose === 'application_fee')!.status] : 'Not paid', feeDue != null ? `Due ${fmtMoney(feeDue, PAYMENT_CURRENCY)}` : 'Amount not set'],
     ['Signed', app.signed_at ? shortDate(app.signed_at) : 'Not yet', app.signed_name ?? undefined],
   ];
 
@@ -247,7 +247,7 @@ export default async function StaffApplicationPage({ params }: { params: Promise
             )}
           </Card>
 
-          <Card id="pay-h" title="Payments" aside={<span className="text-[13px] text-muted">{feeDue != null ? `Application fee due ${fmtMoney(feeDue, 'USD')}` : 'Fee not set'}</span>}>
+          <Card id="pay-h" title="Payments" aside={<span className="text-[13px] text-muted">{feeDue != null ? `Application fee due ${fmtMoney(feeDue, PAYMENT_CURRENCY)}` : 'Fee not set'}</span>}>
             {payments.length ? (
               <ul className="space-y-3">
                 {payments.map((p) => {

@@ -61,54 +61,6 @@
  },
  "currency": {
   "base": "CNY",
-  "liveRatesUrl": "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/cny.json",
-  "liveRatesFallbackUrl": "https://latest.currency-api.pages.dev/v1/currencies/cny.json",
-  "liveRatesShape": "{ date: 'YYYY-MM-DD', cny: { pkr: 41.2, usd: 0.149, ... } } (lower-case codes)",
-  "fallbackRatesDate": "2026-10-06",
-  "fallbackRates": {
-   "PKR": 41.236905,
-   "IDR": 2671.856506,
-   "VND": 3876.916663,
-   "KZT": 67.89972,
-   "EGP": 7.819057,
-   "BDT": 18.333625,
-   "INR": 14.379668,
-   "UZS": 1754.334784,
-   "MYR": 0.609329,
-   "THB": 5.019959,
-   "XAF": 87.23118,
-   "NPR": 23.018254,
-   "LKR": 49.190781,
-   "PHP": 9.372823,
-   "SDG": 89.510191,
-   "ZAR": 2.482995,
-   "NGN": 197.168094,
-   "KES": 19.359538,
-   "ETB": 24.259193,
-   "UGX": 599.559498,
-   "MMK": 313.068277,
-   "ZMW": 2.948525,
-   "GHS": 1.753373,
-   "KGS": 13.043477,
-   "TZS": 393.48579,
-   "MNT": 536.179992,
-   "LAK": 3346.484169,
-   "KHR": 604.176563,
-   "RWF": 219.826169,
-   "ZWG": 3.992672,
-   "MWK": 258.133744,
-   "TJS": 1.372619,
-   "AFN": 9.636041,
-   "GMD": 11.037914,
-   "SOS": 84.852853,
-   "LRD": 25.450363,
-   "SLE": 3.438377,
-   "XOF": 87.23118,
-   "USD": 0.149139,
-   "GBP": 0.112865,
-   "EUR": 0.132983,
-   "CNY": 1
-  },
   "currencies": [
    {
     "country": "Pakistan",
@@ -404,22 +356,7 @@
     "flag": "🇨🇳",
     "keywordDemand": 0
    }
-  ],
-  "defaultByTimezoneHint": {
-   "Asia/Karachi": "PKR",
-   "Asia/Dhaka": "BDT",
-   "Asia/Kolkata": "INR",
-   "Africa/Lagos": "NGN",
-   "Asia/Jakarta": "IDR",
-   "Asia/Ho_Chi_Minh": "VND",
-   "Africa/Nairobi": "KES",
-   "Africa/Cairo": "EGP",
-   "Asia/Almaty": "KZT",
-   "Asia/Tashkent": "UZS",
-   "Asia/Kathmandu": "NPR",
-   "Asia/Colombo": "LKR"
-  },
-  "defaultCurrency": "PKR"
+  ]
  },
  "costCalculator": {
   "note": "Fixed fees = most common values in the programme brochures. Living and accommodation = typical 2026 student budgets by city tier (estimates - editable).",
@@ -540,7 +477,7 @@
      0,
      0
     ],
-    "note": "All 5 PhD offers are fully funded with 3,500 CNY/month stipend"
+    "note": "All 5 PhD offers are fully funded with 3,500 RMB/month stipend"
    },
    "Language": {
     "durationYears": 0.5,

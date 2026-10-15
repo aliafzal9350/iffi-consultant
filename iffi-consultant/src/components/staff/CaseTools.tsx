@@ -143,11 +143,11 @@ export function CaseForm({
       </label>
       <div className="grid grid-cols-2 gap-3">
         <label className="block">
-          <span className="mb-1.5 block text-[13.5px] font-medium text-navy">Application fee (USD)</span>
+          <span className="mb-1.5 block text-[13.5px] font-medium text-navy">Application fee (RMB)</span>
           <input {...bind('application_fee_usd')} inputMode="decimal" placeholder={defaultFee != null ? `${defaultFee} (default)` : 'Not set'} className={cn(inputClass, 'tabular')} />
         </label>
         <label className="block">
-          <span className="mb-1.5 block text-[13.5px] font-medium text-navy">Service charge (USD)</span>
+          <span className="mb-1.5 block text-[13.5px] font-medium text-navy">Service charge (RMB)</span>
           <input {...bind('service_charge_usd')} inputMode="decimal" placeholder="After JW202" className={cn(inputClass, 'tabular')} />
         </label>
       </div>

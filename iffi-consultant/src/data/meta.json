@@ -4,8 +4,7 @@
   "programmes": "Extracted_Features_All_Programs.txt (7 brochures/forms; university names removed on purpose)",
   "website": "Gujjify_Website_Extraction.txt (old gujjify.com site - copy reused with the brand name replaced)",
   "keywords": "Gujjify_Keyword_Research_Global.csv + Gujjify_Keyword_Research_Autocomplete.csv",
-  "geo": "Alibaba DataV GeoAtlas China provinces, simplified (china-provinces.geo.json)",
-  "fx": "fawazahmed0 currency-api, 2026-10-06"
+  "geo": "Alibaba DataV GeoAtlas China provinces, simplified (china-provinces.geo.json)"
  },
  "counts": {
   "programmes": 72,

@@ -5,6 +5,7 @@ University names were removed from the source on purpose - never add them back.
 """
 import re, json, os, collections
 from pathlib import Path
+from rmb_label import rmb
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent  # research folder
 KIT_DATA = ROOT / 'iffi-consultant' / 'src' / 'data'
@@ -477,8 +478,8 @@ for name, (code, zh, capital, lat, lng, kind) in PROVINCES.items():
 prov_out.sort(key=lambda x: -x["programCount"])
 
 os.makedirs(OUT_DIR, exist_ok=True)
-json.dump(programs, open(os.path.join(OUT_DIR, "programs.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-json.dump(prov_out, open(os.path.join(OUT_DIR, "provinces.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(rmb(programs), open(os.path.join(OUT_DIR, "programs.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(rmb(prov_out), open(os.path.join(OUT_DIR, "provinces.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # ---------------------------------------------------------------- QA report
 print("programs:", len(programs), dict(collections.Counter(p["level"] for p in programs)))

@@ -6,19 +6,17 @@ import { programById, programs } from '@/data/catalog';
 import { site } from '@/data/core';
 import { tools } from '@/data/config';
 import { cn } from '@/lib/cn';
-import { fmtCNY, fmtDate, fmtMoney, fmtNumber } from '@/lib/format';
+import { fmtCNY, fmtNumber } from '@/lib/format';
 import { ACCOMMODATION, ALL_CITIES, LIFESTYLE, calculate, defaultMonthly, scholarshipSaving, type Accommodation, type CostInput, type Lifestyle } from '@/lib/cost';
 import { LEVEL_LABEL, LEVEL_ORDER, TIER_LABEL, programmeCity } from '@/lib/programs';
 import { waHref } from '@/lib/whatsapp';
 import { useIsClient } from '@/hooks/useIsClient';
-import { useCurrency } from '@/hooks/useCurrency';
 import { useLists } from '@/hooks/useLists';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, Disclaimer } from '@/components/ui/primitives';
 import { Field, Select, inputClass } from '@/components/ui/Form';
 import { Button } from '@/components/ui/Button';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
-import { CurrencySelect } from '@/components/tools/CurrencySelect';
 import { CostDonut } from '@/components/tools/CostDonut';
 import { ToolsCrossLinks } from '@/components/tools/ToolsCrossLinks';
 
@@ -119,7 +117,6 @@ export default function CostCalculator() {
   const [params, setParams] = useSearchParams();
   const [s, setS] = useState<UiState>(DEFAULTS);
   const [programQuery, setProgramQuery] = useState('');
-  const currency = useCurrency();
   const { notify } = useLists();
 
   // URL -> state once in the browser (the prerendered page shows the default scenario)
@@ -141,12 +138,9 @@ export default function CostCalculator() {
   const scenario = cc.scholarshipScenarios.find((x) => x.id === s.scenario)!;
   const accFree = scenario.accommodationFree || r.program?.tuitionAndDormCombinedCNYPerYear != null || r.isCourse;
 
-  const code = currency.code;
-  const local = (cny: number) => currency.toLocal(cny);
-  const rate = currency.rates.rates[code] ?? 1;
-  const travelCNY = rate ? s.travel / rate : 0;
-  const firstYearTotal = r.firstYear + travelCNY;
-  const wholeTotal = r.whole + travelCNY;
+  // every amount is in RMB, including the optional flight and visa figure
+  const firstYearTotal = r.firstYear + s.travel;
+  const wholeTotal = r.whole + s.travel;
 
   const programmeOptions = programs.filter((p) => {
     const q = programQuery.trim().toLowerCase();
@@ -155,7 +149,7 @@ export default function CostCalculator() {
 
   const summary = `${r.program ? `${r.program.id} ${r.program.displayName}` : `${LEVEL_LABEL[s.level]} in ${s.city}`}, ${scenario.label.toLowerCase()}, ${
     accFree ? 'accommodation included' : ACCOMMODATION.find((a) => a.id === s.accommodation)!.label.toLowerCase()
-  }, ${s.lifestyle} lifestyle: first year about ${fmtMoney(local(firstYearTotal), code)} (${fmtCNY(Math.round(firstYearTotal))})`;
+  }, ${s.lifestyle} lifestyle: first year about ${fmtCNY(firstYearTotal)}`;
 
   const copyLink = async () => {
     try {
@@ -167,10 +161,10 @@ export default function CostCalculator() {
   };
 
   const slices = [
-    { label: r.isCourse ? 'Course fee (incl. hostel)' : 'Tuition', value: local(r.tuition), color: '#0d1f3f' },
-    { label: 'Accommodation', value: local(r.accommodation), color: '#1c3a6b' },
-    { label: 'Living', value: local(r.living), color: '#c8a24c' },
-    { label: 'Insurance, permit and fees', value: local(r.fixed + r.extras), color: '#e0bd6b' },
+    { label: r.isCourse ? 'Course fee (incl. hostel)' : 'Tuition', value: r.tuition, color: '#0d1f3f' },
+    { label: 'Accommodation', value: r.accommodation, color: '#1c3a6b' },
+    { label: 'Living', value: r.living, color: '#c8a24c' },
+    { label: 'Insurance, permit and fees', value: r.fixed + r.extras, color: '#e0bd6b' },
     ...(s.travel ? [{ label: 'Flight and visa', value: s.travel, color: '#cdd6e6' }] : []),
   ];
 
@@ -179,7 +173,7 @@ export default function CostCalculator() {
       <PageHeader
         crumbs={crumbs}
         title="Study in China Cost Calculator"
-        lede="How much does it cost to study in China? Estimate tuition, hostel and living costs for your city and scholarship, converted into PKR, BDT, NGN, INR and 40 other currencies."
+        lede="How much does it cost to study in China? Estimate tuition, hostel and living costs for your city and scholarship, with every amount in RMB."
       />
 
       <Container className="py-10 md:py-14">
@@ -286,10 +280,7 @@ export default function CostCalculator() {
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Your currency" hint={currency.rates.source === 'live' ? `Live rate, ${currency.rates.date ? fmtDate(currency.rates.date) : 'today'}` : `Rates from ${fmtDate(currency.rates.date)}`}>
-                {({ id, describedBy }) => <CurrencySelect id={id} describedBy={describedBy} value={code} onChange={currency.setCode} />}
-              </Field>
-              <Field label={`Flight and visa (optional, ${code})`} hint={cc.optionalOneTime.join(', ')}>
+              <Field label="Flight and visa (optional, RMB)" hint={cc.optionalOneTime.join(', ')}>
                 {({ id, describedBy }) => (
                   <input
                     id={id}
@@ -320,12 +311,12 @@ export default function CostCalculator() {
                 <span className="hidden shrink-0 text-sm font-normal text-muted group-open:inline">Hide</span>
               </summary>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <Field label="Living cost per month (CNY)" hint={`Default ${fmtCNY(defaults.living)} for a ${TIER_LABEL[r.tier].toLowerCase()}`}>
+                <Field label="Living cost per month (RMB)" hint={`Default ${fmtCNY(defaults.living)} for a ${TIER_LABEL[r.tier].toLowerCase()}`}>
                   {({ id, describedBy }) => (
                     <input id={id} aria-describedby={describedBy} type="number" min={0} inputMode="numeric" value={s.livingMonthly ?? defaults.living} onChange={(e) => update({ livingMonthly: Math.max(0, Number(e.target.value) || 0) })} className={inputClass} />
                   )}
                 </Field>
-                <Field label="Accommodation per month (CNY)" hint={`Default ${fmtCNY(defaults.accommodation)}`}>
+                <Field label="Accommodation per month (RMB)" hint={`Default ${fmtCNY(defaults.accommodation)}`}>
                   {({ id, describedBy }) => (
                     <input
                       id={id}
@@ -366,36 +357,35 @@ export default function CostCalculator() {
                   {r.isCourse ? 'Whole 6-month course' : 'First year, estimated'}
                 </h2>
                 <div aria-live="polite" className="relative">
-                  <p className="tabular mt-1 font-display text-[2.6rem] font-semibold leading-tight text-white">{fmtMoney(local(firstYearTotal), code)}</p>
-                  <p className="tabular text-sm text-gold-2">{fmtCNY(Math.round(firstYearTotal))}</p>
+                  <p className="tabular mt-1 font-display text-[2.6rem] font-semibold leading-tight text-white">{fmtCNY(firstYearTotal)}</p>
                   {!r.isCourse && (
                     <p className="mt-3 text-sm">
-                      About <strong className="font-semibold text-white">{fmtMoney(local(r.monthly), code)}</strong> a month for rent and living
+                      About <strong className="font-semibold text-white">{fmtCNY(r.monthly)}</strong> a month for rent and living
                     </p>
                   )}
                 </div>
               </div>
               <div className="space-y-6 p-6">
-                <CostDonut slices={slices} code={code} centerLabel={r.isCourse ? `Course, ${code}` : `Year 1, ${code}`} centerValue={compact.format(slices.reduce((n, x) => n + x.value, 0))} />
+                <CostDonut slices={slices} centerLabel={r.isCourse ? 'Course, RMB' : 'Year 1, RMB'} centerValue={compact.format(slices.reduce((n, x) => n + x.value, 0))} />
                 {r.stipend > 0 && (
                   <p className="rounded-xl bg-good/10 px-4 py-3 text-sm text-ink">
-                    Includes a stipend of <strong>{fmtMoney(local(r.stipend), code)}</strong> a year ({fmtCNY(r.stipend / 12)}/month), already subtracted from the total.
+                    Includes a stipend of <strong>{fmtCNY(r.stipend)}</strong> a year ({fmtCNY(r.stipend / 12)}/month), already subtracted from the total.
                   </p>
                 )}
                 {saving && (
                   <p className="rounded-xl border border-gold/30 bg-gold-soft/60 px-4 py-3 text-sm text-ink">
-                    A scholarship could save you <strong className="text-navy">{fmtMoney(local(saving.saving), code)}</strong> in the first year {saving.label}.
+                    A scholarship could save you <strong className="text-navy">{fmtCNY(saving.saving)}</strong> in the first year {saving.label}.
                   </p>
                 )}
                 {!r.isCourse && (
                   <dl className="grid grid-cols-2 gap-4 border-t border-line pt-5 text-sm">
                     <div>
                       <dt className="text-muted">Each later year</dt>
-                      <dd className="tabular mt-0.5 font-medium text-navy">{fmtMoney(local(r.laterYear), code)}</dd>
+                      <dd className="tabular mt-0.5 font-medium text-navy">{fmtCNY(r.laterYear)}</dd>
                     </div>
                     <div>
                       <dt className="text-muted">Whole programme ({fmtNumber(r.years, 1)} years)</dt>
-                      <dd className="tabular mt-0.5 font-medium text-navy">{fmtMoney(local(wholeTotal), code)}</dd>
+                      <dd className="tabular mt-0.5 font-medium text-navy">{fmtCNY(wholeTotal)}</dd>
                     </div>
                   </dl>
                 )}

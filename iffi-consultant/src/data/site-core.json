@@ -9,10 +9,14 @@
   "mapCaption": "72 programmes · 21 provinces · 30 cities"
  },
  "contact": {
-  "phoneDisplay": "+92 326 4570214",
-  "phoneE164": "+923264570214",
-  "whatsappNumber": "923264570214",
-  "whatsappUrl": "https://wa.me/923264570214",
+  "phoneDisplay": "+86 182 7572 2580",
+  "phoneE164": "+8618275722580",
+  "whatsappNumber": "8618275722580",
+  "whatsappUrl": "https://wa.me/8618275722580",
+  "wechat": {
+   "qrImage": "/images/wechat-qr.jpg",
+   "note": "Scan with WeChat to add IFFI as a friend."
+  },
   "email": "ifficonsultant@gmail.com",
   "responsePromise": "We usually reply within minutes on WhatsApp.",
   "hours": "Open 24/7 on WhatsApp",
@@ -38,9 +42,9 @@
  "social": {
   "facebook": null,
   "instagram": null,
-  "whatsapp": "https://wa.me/923264570214",
+  "whatsapp": "https://wa.me/8618275722580",
   "email": "mailto:ifficonsultant@gmail.com",
-  "phone": "tel:+923264570214"
+  "phone": "tel:+8618275722580"
  },
  "navigation": [
   {
@@ -91,7 +95,7 @@
   }
  ],
  "whatsapp": {
-  "number": "923264570214",
+  "number": "8618275722580",
   "messages": {
    "default": "Hello IFFI Consultant, I want to study in China.",
    "heroConsultation": "Hello IFFI Consultant, I want a free consultation for studying in China.",

@@ -23,12 +23,12 @@
    "Tourism Management"
   ],
   "scholarships": [
-   "\"Belt and Road Scholarship\": 20,000 CNY"
+   "\"Belt and Road Scholarship\": 20,000 RMB"
   ],
   "fees": [
-   "Insurance Fees: 1000 CNY/Year",
-   "Registration Fees: 600 CNY (1st Year only)",
-   "Medical Health Check Up: Around 550 CNY (1st Year only)"
+   "Insurance Fees: 1000 RMB/Year",
+   "Registration Fees: 600 RMB (1st Year only)",
+   "Medical Health Check Up: Around 550 RMB (1st Year only)"
   ],
   "tuition": null,
   "dorm": null,
@@ -41,8 +41,8 @@
   "headline": null,
   "details": {
    "Deposit / Payment Flow": [
-    "After arriving at university the student pays Tuition Fees 7500 CNY",
-    "Plus one year Dormitory fees: 1500 CNY (International Business) / 4500 CNY (other majors)",
+    "After arriving at university the student pays Tuition Fees 7500 RMB",
+    "Plus one year Dormitory fees: 1500 RMB (International Business) / 4500 RMB (other majors)",
     "Refund system: after the end of each semester the Belt and Road Scholarship amount is paid into the student's bank account",
     "Student may live in an outside-campus dormitory; then NO dormitory fee to university"
    ]
@@ -57,11 +57,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Insurance Fees: 1000 CNY/Year",
-   "Registration Fees: 600 CNY (1st Year only)",
-   "Medical Health Check Up: Around 550 CNY (1st Year only)",
-   "After arriving at university the student pays Tuition Fees 7500 CNY",
-   "Plus one year Dormitory fees: 1500 CNY (International Business) / 4500 CNY (other majors)"
+   "Insurance Fees: 1000 RMB/Year",
+   "Registration Fees: 600 RMB (1st Year only)",
+   "Medical Health Check Up: Around 550 RMB (1st Year only)",
+   "After arriving at university the student pays Tuition Fees 7500 RMB",
+   "Plus one year Dormitory fees: 1500 RMB (International Business) / 4500 RMB (other majors)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -69,7 +69,7 @@
   "tuitionMinCNYPerYear": 7500,
   "tuitionPerSemesterCNY": null,
   "tuitionAndDormCombinedCNYPerYear": null,
-  "tuitionNote": "7500 CNY paid on arrival; Belt and Road Scholarship of 20,000 CNY/year is refunded each semester",
+  "tuitionNote": "7500 RMB paid on arrival; Belt and Road Scholarship of 20,000 RMB/year is refunded each semester",
   "languagePolicy": {
    "type": "none",
    "note": "No IELTS/Duolingo required (as stated)"
@@ -118,12 +118,12 @@
    "Type D: Guangdong Provincial Government Scholarship 10,000 RMB/Year"
   ],
   "fees": [
-   "Tuition Fees: 26000 CNY/Year",
-   "Accommodation: 27 CNY/Day (two persons per room); 12 CNY/Day (four persons per room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check Up: 400 CNY (only 1st year)",
-   "Registration Fees: 450 CNY (1st year only)"
+   "Tuition Fees: 26000 RMB/Year",
+   "Accommodation: 27 RMB/Day (two persons per room); 12 RMB/Day (four persons per room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check Up: 400 RMB (only 1st year)",
+   "Registration Fees: 450 RMB (1st year only)"
   ],
   "tuition": null,
   "dorm": null,
@@ -153,12 +153,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 26000 CNY/Year",
-   "Accommodation: 27 CNY/Day (two persons per room); 12 CNY/Day (four persons per room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check Up: 400 CNY (only 1st year)",
-   "Registration Fees: 450 CNY (1st year only)",
+   "Tuition Fees: 26000 RMB/Year",
+   "Accommodation: 27 RMB/Day (two persons per room); 12 RMB/Day (four persons per room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check Up: 400 RMB (only 1st year)",
+   "Registration Fees: 450 RMB (1st year only)",
    "Type A: Full tuition fees free for 4 years",
    "Type B: Half tuition fees for 4 years",
    "Type C: Half tuition fees for 2 years"
@@ -214,17 +214,17 @@
    "Petroleum Engineering"
   ],
   "scholarships": [
-   "Type A: Tuition free + Accommodation free (double-bed room) + Medical Insurance free + Monthly stipend 1800 CNY/Month",
+   "Type A: Tuition free + Accommodation free (double-bed room) + Medical Insurance free + Monthly stipend 1800 RMB/Month",
    "Type B: Tuition free + Accommodation free (double-bed room) + Insurance free",
    "Type C: Accommodation free (double-bed room) + Medical Insurance free"
   ],
   "fees": [
-   "Tuition Fees: 25000 CNY/Year",
-   "Accommodation Fees: 1200-1500 CNY/Month",
-   "Medical Insurance Fees: 800 CNY/Year",
-   "Residence Permit Fees: 400 CNY/Year",
-   "Health Checkup Fees: 400 CNY",
-   "Registration Fees (only 1st year): 400 CNY"
+   "Tuition Fees: 25000 RMB/Year",
+   "Accommodation Fees: 1200-1500 RMB/Month",
+   "Medical Insurance Fees: 800 RMB/Year",
+   "Residence Permit Fees: 400 RMB/Year",
+   "Health Checkup Fees: 400 RMB",
+   "Registration Fees (only 1st year): 400 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -246,13 +246,13 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Tuition free + Accommodation free (double-bed room) + Medical Insurance free + Monthly stipend 1800 CNY/Month",
-   "Tuition Fees: 25000 CNY/Year",
-   "Accommodation Fees: 1200-1500 CNY/Month",
-   "Medical Insurance Fees: 800 CNY/Year",
-   "Residence Permit Fees: 400 CNY/Year",
-   "Health Checkup Fees: 400 CNY",
-   "Registration Fees (only 1st year): 400 CNY"
+   "Type A: Tuition free + Accommodation free (double-bed room) + Medical Insurance free + Monthly stipend 1800 RMB/Month",
+   "Tuition Fees: 25000 RMB/Year",
+   "Accommodation Fees: 1200-1500 RMB/Month",
+   "Medical Insurance Fees: 800 RMB/Year",
+   "Residence Permit Fees: 400 RMB/Year",
+   "Health Checkup Fees: 400 RMB",
+   "Registration Fees (only 1st year): 400 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 25000,
@@ -315,11 +315,11 @@
    "Urban Planning"
   ],
   "scholarships": [
-   "Type A: Full tuition fees free + Monthly Stipend 1000 CNY/Month",
+   "Type A: Full tuition fees free + Monthly Stipend 1000 RMB/Month",
    "Type B: Full tuition fees free",
-   "Type C: 50% of tuition fees free (student pays 15000 CNY/Year)",
-   "Type D: 20% of tuition fees free (student pays 24000 CNY/Year)",
-   "Implied full tuition: ~30,000 CNY/Year"
+   "Type C: 50% of tuition fees free (student pays 15000 RMB/Year)",
+   "Type D: 20% of tuition fees free (student pays 24000 RMB/Year)",
+   "Implied full tuition: ~30,000 RMB/Year"
   ],
   "fees": [],
   "tuition": null,
@@ -343,11 +343,11 @@
   "headline": null,
   "details": {
    "Other Costs (Pay After Arriving)": [
-    "Accommodation: 500 CNY/Month (2 people per room) or 1000 CNY/Month (1 person per room)",
-    "Registration fees: 400 CNY",
-    "Visa Extension fees: 400 CNY/Year",
-    "Health Check Up: 500 CNY",
-    "Insurance fees: 800 CNY/Year"
+    "Accommodation: 500 RMB/Month (2 people per room) or 1000 RMB/Month (1 person per room)",
+    "Registration fees: 400 RMB",
+    "Visa Extension fees: 400 RMB/Year",
+    "Health Check Up: 500 RMB",
+    "Insurance fees: 800 RMB/Year"
    ]
   },
   "noIeltsRequired": false,
@@ -360,15 +360,15 @@
   "introVideoRequired": true,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Full tuition fees free + Monthly Stipend 1000 CNY/Month",
-   "Type C: 50% of tuition fees free (student pays 15000 CNY/Year)",
-   "Type D: 20% of tuition fees free (student pays 24000 CNY/Year)",
-   "Implied full tuition: ~30,000 CNY/Year (estimated)",
-   "Accommodation: 500 CNY/Month (2 people per room) or 1000 CNY/Month (1 person per room)",
-   "Registration fees: 400 CNY",
-   "Visa Extension fees: 400 CNY/Year",
-   "Health Check Up: 500 CNY",
-   "Insurance fees: 800 CNY/Year"
+   "Type A: Full tuition fees free + Monthly Stipend 1000 RMB/Month",
+   "Type C: 50% of tuition fees free (student pays 15000 RMB/Year)",
+   "Type D: 20% of tuition fees free (student pays 24000 RMB/Year)",
+   "Implied full tuition: ~30,000 RMB/Year (estimated)",
+   "Accommodation: 500 RMB/Month (2 people per room) or 1000 RMB/Month (1 person per room)",
+   "Registration fees: 400 RMB",
+   "Visa Extension fees: 400 RMB/Year",
+   "Health Check Up: 500 RMB",
+   "Insurance fees: 800 RMB/Year"
   ],
   "tuitionStandardEstimated": true,
   "tuitionStandardCNYPerYear": 30000,
@@ -429,18 +429,18 @@
   "headline": null,
   "details": {
    "1St Year Scholarship": [
-    "Type A: Tuition free + Accommodation free + Monthly Stipend 1400 CNY",
+    "Type A: Tuition free + Accommodation free + Monthly Stipend 1400 RMB",
     "Type B: Tuition free + Accommodation free"
    ],
    "Need To Pay To The University": [
-    "Insurance fees: 800 CNY/Year",
-    "Medical: 400 CNY (only one year)",
-    "Visa Fees: 400 CNY/Year"
+    "Insurance fees: 800 RMB/Year",
+    "Medical: 400 RMB (only one year)",
+    "Visa Fees: 400 RMB/Year"
    ],
    "Condition From 2Nd Year To 4Th Year (Performance-Based Split)": [
-    "20% of students -> Type A: Tuition free + Accommodation free + Stipend 1400 CNY/Month",
+    "20% of students -> Type A: Tuition free + Accommodation free + Stipend 1400 RMB/Month",
     "30% of students -> Type B: Tuition free + Accommodation free",
-    "50% of students -> Type C: Tuition free; student pays accommodation 6000 CNY/Year (double room)"
+    "50% of students -> Type C: Tuition free; student pays accommodation 6000 RMB/Year (double room)"
    ]
   },
   "noIeltsRequired": true,
@@ -453,13 +453,13 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Tuition free + Accommodation free + Monthly Stipend 1400 CNY",
-   "Insurance fees: 800 CNY/Year",
-   "Medical: 400 CNY (only one year)",
-   "Visa Fees: 400 CNY/Year",
-   "20% of students -> Type A: Tuition free + Accommodation free + Stipend 1400 CNY/Month",
+   "Type A: Tuition free + Accommodation free + Monthly Stipend 1400 RMB",
+   "Insurance fees: 800 RMB/Year",
+   "Medical: 400 RMB (only one year)",
+   "Visa Fees: 400 RMB/Year",
+   "20% of students -> Type A: Tuition free + Accommodation free + Stipend 1400 RMB/Month",
    "30% of students -> Type B: Tuition free + Accommodation free",
-   "50% of students -> Type C: Tuition free; student pays accommodation 6000 CNY/Year (double room)"
+   "50% of students -> Type C: Tuition free; student pays accommodation 6000 RMB/Year (double room)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -523,13 +523,13 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition Fees: 16000 CNY/Year",
-   "Accommodation: 2000 CNY/Year (four-bed room); 4000 CNY/Year (double-bed room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit (Visa Extension): 400 CNY/Year",
-   "Medical Check Up: 400 CNY (1st year only)",
-   "Registration Fees: 500 CNY",
-   "Application Fees: 500 CNY (non-refundable), paid when submitting application materials"
+   "Tuition Fees: 16000 RMB/Year",
+   "Accommodation: 2000 RMB/Year (four-bed room); 4000 RMB/Year (double-bed room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit (Visa Extension): 400 RMB/Year",
+   "Medical Check Up: 400 RMB (1st year only)",
+   "Registration Fees: 500 RMB",
+   "Application Fees: 500 RMB (non-refundable), paid when submitting application materials"
   ],
   "tuition": null,
   "dorm": null,
@@ -554,11 +554,11 @@
   "headline": null,
   "details": {
    "How The Scholarship Is Paid": [
-    "Normal rule: student pays Tuition + Accommodation to the university, then the university pays the student 2000 CNY/Month (10 months each year)",
-    "Financial-hardship option: student writes a commitment letter allowing the university to deduct tuition (16000 CNY/Year) from the 20000 CNY scholarship; student then receives 400 CNY/Month stipend"
+    "Normal rule: student pays Tuition + Accommodation to the university, then the university pays the student 2000 RMB/Month (10 months each year)",
+    "Financial-hardship option: student writes a commitment letter allowing the university to deduct tuition (16000 RMB/Year) from the 20000 RMB scholarship; student then receives 400 RMB/Month stipend"
    ],
    "Pre-Admission Payment": [
-    "Pay 2000 CNY after the pre-admission / conditional letter as accommodation fee (four-bed room); then the university issues the Admission Letter and JW202"
+    "Pay 2000 RMB after the pre-admission / conditional letter as accommodation fee (four-bed room); then the university issues the Admission Letter and JW202"
    ]
   },
   "noIeltsRequired": false,
@@ -571,16 +571,16 @@
   "introVideoRequired": false,
   "chineseTaught": true,
   "costItems": [
-   "Tuition Fees: 16000 CNY/Year",
-   "Accommodation: 2000 CNY/Year (four-bed room); 4000 CNY/Year (double-bed room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit (Visa Extension): 400 CNY/Year",
-   "Medical Check Up: 400 CNY (1st year only)",
-   "Registration Fees: 500 CNY",
-   "Application Fees: 500 CNY (non-refundable), paid when submitting application materials",
-   "Normal rule: student pays Tuition + Accommodation to the university, then the university pays the student 2000 CNY/Month (10 months each year)",
-   "Financial-hardship option: student writes a commitment letter allowing the university to deduct tuition (16000 CNY/Year) from the 20000 CNY scholarship; student then receives 400 CNY/Month stipend",
-   "Pay 2000 CNY after the pre-admission / conditional letter as accommodation fee (four-bed room); then the university issues the Admission Letter and JW202"
+   "Tuition Fees: 16000 RMB/Year",
+   "Accommodation: 2000 RMB/Year (four-bed room); 4000 RMB/Year (double-bed room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit (Visa Extension): 400 RMB/Year",
+   "Medical Check Up: 400 RMB (1st year only)",
+   "Registration Fees: 500 RMB",
+   "Application Fees: 500 RMB (non-refundable), paid when submitting application materials",
+   "Normal rule: student pays Tuition + Accommodation to the university, then the university pays the student 2000 RMB/Month (10 months each year)",
+   "Financial-hardship option: student writes a commitment letter allowing the university to deduct tuition (16000 RMB/Year) from the 20000 RMB scholarship; student then receives 400 RMB/Month stipend",
+   "Pay 2000 RMB after the pre-admission / conditional letter as accommodation fee (four-bed room); then the university issues the Admission Letter and JW202"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 16000,
@@ -646,15 +646,15 @@
   ],
   "scholarships": [
    "Per the the university scholarship evaluation method, students can get a scholarship every year after arriving",
-   "Amounts: Type A 20000 CNY/Person/Year | Type B 8000 CNY/Person/Year Type C 5000 CNY/Person/Year | Type D 2000 CNY/Person/Year"
+   "Amounts: Type A 20000 RMB/Person/Year | Type B 8000 RMB/Person/Year Type C 5000 RMB/Person/Year | Type D 2000 RMB/Person/Year"
   ],
   "fees": [
    "Tuition Fees: FREE",
-   "Accommodation: 1600 CNY/Year (Male; 3 persons per room) 3000 CNY/Year (Female; 2-3 persons per room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Registration Fees: 600 CNY (1st year only)",
-   "Medical Health Check Up: Around 550 CNY (1st year only)"
+   "Accommodation: 1600 RMB/Year (Male; 3 persons per room) 3000 RMB/Year (Female; 2-3 persons per room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Registration Fees: 600 RMB (1st year only)",
+   "Medical Health Check Up: Around 550 RMB (1st year only)"
   ],
   "tuition": null,
   "dorm": null,
@@ -676,11 +676,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Accommodation: 1600 CNY/Year (Male; 3 persons per room) 3000 CNY/Year (Female; 2-3 persons per room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Registration Fees: 600 CNY (1st year only)",
-   "Medical Health Check Up: Around 550 CNY (1st year only)"
+   "Accommodation: 1600 RMB/Year (Male; 3 persons per room) 3000 RMB/Year (Female; 2-3 persons per room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Registration Fees: 600 RMB (1st year only)",
+   "Medical Health Check Up: Around 550 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -828,17 +828,17 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition Fees: 14000-30000 CNY/Year",
-   "Accommodation: 4000 CNY/Year (3-bed room)",
-   "Insurance Fees: 1000 CNY/Year",
-   "Resident Permit (Visa Extension): 400 CNY/Year",
-   "Medical Check Up: 400 CNY (1st year only)",
-   "Registration Fees: 600 CNY",
-   "Tuition + Accommodation combined: 10000 CNY/Year (3-bed room)",
-   "Insurance Fees: 1000 CNY/Year",
-   "Resident Permit (Visa Extension): 400 CNY/Year",
-   "Medical Check Up: 400 CNY (1st year only)",
-   "Registration Fees: 600 CNY"
+   "Tuition Fees: 14000-30000 RMB/Year",
+   "Accommodation: 4000 RMB/Year (3-bed room)",
+   "Insurance Fees: 1000 RMB/Year",
+   "Resident Permit (Visa Extension): 400 RMB/Year",
+   "Medical Check Up: 400 RMB (1st year only)",
+   "Registration Fees: 600 RMB",
+   "Tuition + Accommodation combined: 10000 RMB/Year (3-bed room)",
+   "Insurance Fees: 1000 RMB/Year",
+   "Resident Permit (Visa Extension): 400 RMB/Year",
+   "Medical Check Up: 400 RMB (1st year only)",
+   "Registration Fees: 600 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -864,7 +864,7 @@
    "Admission Conditions": [
     "Students must first take an ONLINE EXAM arranged by the school; only those who pass are admitted",
     "Before starting the major, the university gives an English Proficiency Test; students who fail must study 1 year Chinese + 4 years major in the Chinese-taught program",
-    "During the Chinese language year: Tuition + Accommodation = 10600 CNY/Year"
+    "During the Chinese language year: Tuition + Accommodation = 10600 RMB/Year"
    ]
   },
   "noIeltsRequired": false,
@@ -877,14 +877,14 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 14000-30000 CNY/Year",
-   "Accommodation: 4000 CNY/Year (3-bed room)",
-   "Insurance Fees: 1000 CNY/Year",
-   "Resident Permit (Visa Extension): 400 CNY/Year",
-   "Medical Check Up: 400 CNY (1st year only)",
-   "Registration Fees: 600 CNY",
-   "Tuition + Accommodation combined: 10000 CNY/Year (3-bed room)",
-   "During the Chinese language year: Tuition + Accommodation = 10600 CNY/Year"
+   "Tuition Fees: 14000-30000 RMB/Year",
+   "Accommodation: 4000 RMB/Year (3-bed room)",
+   "Insurance Fees: 1000 RMB/Year",
+   "Resident Permit (Visa Extension): 400 RMB/Year",
+   "Medical Check Up: 400 RMB (1st year only)",
+   "Registration Fees: 600 RMB",
+   "Tuition + Accommodation combined: 10000 RMB/Year (3-bed room)",
+   "During the Chinese language year: Tuition + Accommodation = 10600 RMB/Year"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 30000,
@@ -955,10 +955,10 @@
   "headline": null,
   "details": {
    "Other Costs Payable To University": [
-    "Accommodation: 900 CNY/Month inside campus (around 750 CNY/Month outside campus)",
-    "Insurance Fees: 800 CNY/Year",
-    "Resident Permit: 400 CNY/Year",
-    "Medical Check Up: 500 CNY (1st year only)"
+    "Accommodation: 900 RMB/Month inside campus (around 750 RMB/Month outside campus)",
+    "Insurance Fees: 800 RMB/Year",
+    "Resident Permit: 400 RMB/Year",
+    "Medical Check Up: 500 RMB (1st year only)"
    ]
   },
   "noIeltsRequired": false,
@@ -974,10 +974,10 @@
    "Type A: Tuition free + Living Allowance 1400 RMB/month (10 months in total)",
    "Type C: Tuition 50% free",
    "Type D: Tuition subsidy 6000 RMB",
-   "Accommodation: 900 CNY/Month inside campus (around 750 CNY/Month outside campus)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Check Up: 500 CNY (1st year only)"
+   "Accommodation: 900 RMB/Month inside campus (around 750 RMB/Month outside campus)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Check Up: 500 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1043,13 +1043,13 @@
   ],
   "scholarships": [
    "Type A: Tuition free + Hostel free (four-person room)",
-   "Type B: Tuition free; Accommodation 2000 CNY/Year (four-person room)"
+   "Type B: Tuition free; Accommodation 2000 RMB/Year (four-person room)"
   ],
   "fees": [
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Fees: 500 CNY (1st year only)",
-   "Registration Fees: 500 CNY/Year"
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Fees: 500 RMB (1st year only)",
+   "Registration Fees: 500 RMB/Year"
   ],
   "tuition": null,
   "dorm": null,
@@ -1078,11 +1078,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type B: Tuition free; Accommodation 2000 CNY/Year (four-person room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Fees: 500 CNY (1st year only)",
-   "Registration Fees: 500 CNY/Year"
+   "Type B: Tuition free; Accommodation 2000 RMB/Year (four-person room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Fees: 500 RMB (1st year only)",
+   "Registration Fees: 500 RMB/Year"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1138,7 +1138,7 @@
   ],
   "scholarships": [
    "Type A: Tuition free + Accommodation free (four-person room)",
-   "Type B: Tuition after scholarship 5000 CNY/Year + Accommodation free (four-person room)"
+   "Type B: Tuition after scholarship 5000 RMB/Year + Accommodation free (four-person room)"
   ],
   "fees": [],
   "tuition": null,
@@ -1163,9 +1163,9 @@
   "headline": null,
   "details": {
    "Need To Pay To The University": [
-    "Insurance Fees: 800 CNY/Year",
-    "Visa Extension Fees: 400 CNY/Year",
-    "Medical Check Up Fees: approx. 400 CNY"
+    "Insurance Fees: 800 RMB/Year",
+    "Visa Extension Fees: 400 RMB/Year",
+    "Medical Check Up Fees: approx. 400 RMB"
    ]
   },
   "noIeltsRequired": false,
@@ -1178,10 +1178,10 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type B: Tuition after scholarship 5000 CNY/Year + Accommodation free (four-person room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check Up Fees: approx. 400 CNY"
+   "Type B: Tuition after scholarship 5000 RMB/Year + Accommodation free (four-person room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check Up Fees: approx. 400 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1252,10 +1252,10 @@
   "headline": null,
   "details": {
    "Need To Pay After Arriving": [
-    "Accommodation fee: 5400 CNY/Year",
-    "Insurance Fees: 600 CNY/Year",
-    "Residence Permit: 400 CNY/Year",
-    "Medical: 400-500 CNY (first year only)"
+    "Accommodation fee: 5400 RMB/Year",
+    "Insurance Fees: 600 RMB/Year",
+    "Residence Permit: 400 RMB/Year",
+    "Medical: 400-500 RMB (first year only)"
    ]
   },
   "noIeltsRequired": true,
@@ -1268,10 +1268,10 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Accommodation fee: 5400 CNY/Year",
-   "Insurance Fees: 600 CNY/Year",
-   "Residence Permit: 400 CNY/Year",
-   "Medical: 400-500 CNY (first year only)"
+   "Accommodation fee: 5400 RMB/Year",
+   "Insurance Fees: 600 RMB/Year",
+   "Residence Permit: 400 RMB/Year",
+   "Medical: 400-500 RMB (first year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1279,7 +1279,7 @@
   "tuitionMinCNYPerYear": 0,
   "tuitionPerSemesterCNY": null,
   "tuitionAndDormCombinedCNYPerYear": null,
-  "tuitionNote": "Type A majors free; Type B majors pay 5000 CNY after scholarship",
+  "tuitionNote": "Type A majors free; Type B majors pay 5000 RMB after scholarship",
   "languagePolicy": {
    "type": "none",
    "note": "No IELTS/Duolingo required (as stated)"
@@ -1331,9 +1331,9 @@
    "2nd to 4th year: different scholarship types; to keep a scholarship the student must perform well in semester results and other activities"
   ],
   "fees": [
-   "Accommodation: 15 CNY/day (two-bed room); 30 CNY/day (single bed)",
-   "Application fees: 400 CNY",
-   "Insurance: 800 CNY/Year"
+   "Accommodation: 15 RMB/day (two-bed room); 30 RMB/day (single bed)",
+   "Application fees: 400 RMB",
+   "Insurance: 800 RMB/Year"
   ],
   "tuition": null,
   "dorm": null,
@@ -1355,9 +1355,9 @@
   "headline": null,
   "details": {
    "Normal Tuition (Undergraduate, Without Scholarship)": [
-    "Liberal arts programs: 16,000 CNY/Year",
-    "Science and engineering programs: 19,200 CNY/Year",
-    "Medical and art programs: 24,000 CNY/Year"
+    "Liberal arts programs: 16,000 RMB/Year",
+    "Science and engineering programs: 19,200 RMB/Year",
+    "Medical and art programs: 24,000 RMB/Year"
    ]
   },
   "noIeltsRequired": false,
@@ -1371,10 +1371,10 @@
   "chineseTaught": false,
   "costItems": [
    "Type A: Free tuition + free accommodation + Monthly Stipend 500 RMB (10 months)",
-   "Accommodation: 15 CNY/day (two-bed room); 30 CNY/day (single bed)",
-   "Application fees: 400 CNY",
-   "Insurance: 800 CNY/Year",
-   "Medical and art programs: 24,000 CNY/Year"
+   "Accommodation: 15 RMB/day (two-bed room); 30 RMB/day (single bed)",
+   "Application fees: 400 RMB",
+   "Insurance: 800 RMB/Year",
+   "Medical and art programs: 24,000 RMB/Year"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 24000,
@@ -1436,12 +1436,12 @@
    "Type B: One semester tuition fees free"
   ],
   "fees": [
-   "Tuition fees: 39900 CNY/Year",
+   "Tuition fees: 39900 RMB/Year",
    "Accommodation fees: 1200-3600/Month",
-   "Insurance fees: 800 CNY/Year",
-   "Medical: 500 CNY (only one year)",
-   "Visa Fees: 400 CNY/Year",
-   "Registration Fees: 800 CNY (first year only)"
+   "Insurance fees: 800 RMB/Year",
+   "Medical: 500 RMB (only one year)",
+   "Visa Fees: 400 RMB/Year",
+   "Registration Fees: 800 RMB (first year only)"
   ],
   "tuition": null,
   "dorm": null,
@@ -1473,12 +1473,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition fees: 39900 CNY/Year",
+   "Tuition fees: 39900 RMB/Year",
    "Accommodation fees: 1200-3600/Month",
-   "Insurance fees: 800 CNY/Year",
-   "Medical: 500 CNY (only one year)",
-   "Visa Fees: 400 CNY/Year",
-   "Registration Fees: 800 CNY (first year only)"
+   "Insurance fees: 800 RMB/Year",
+   "Medical: 500 RMB (only one year)",
+   "Visa Fees: 400 RMB/Year",
+   "Registration Fees: 800 RMB (first year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 39900,
@@ -1536,8 +1536,8 @@
    "Biotechnology"
   ],
   "scholarships": [
-   "Type A: Full tuition free + full accommodation free + stipend 1500 CNY/Month (12 months)",
-   "Type B: Full tuition free + stipend 1500 CNY/Month (12 months)",
+   "Type A: Full tuition free + full accommodation free + stipend 1500 RMB/Month (12 months)",
+   "Type B: Full tuition free + stipend 1500 RMB/Month (12 months)",
    "Type C: 50% of tuition fees free",
    "All other fees are paid by the student"
   ],
@@ -1565,7 +1565,7 @@
     "High School / A Level minimum score: 70 out of 100; 14 out of 20; 7 out of 10; 3.50 out of 5.0; 2.80 out of 4.0",
     "English (for scholarship): IELTS 6.0+ / TOEFL 80+ / SAT 1150+ / PTE Academic 55 / Duolingo 115+ / Cambridge Advanced Level English B or above",
     "University interview, 4-5 minutes",
-    "University deposit: after passing the interview pay 2000 CNY deposit; refunded after arrival at the university"
+    "University deposit: after passing the interview pay 2000 RMB deposit; refunded after arrival at the university"
    ]
   },
   "noIeltsRequired": false,
@@ -1578,8 +1578,8 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Full tuition free + full accommodation free + stipend 1500 CNY/Month (12 months)",
-   "Type B: Full tuition free + stipend 1500 CNY/Month (12 months)",
+   "Type A: Full tuition free + full accommodation free + stipend 1500 RMB/Month (12 months)",
+   "Type B: Full tuition free + stipend 1500 RMB/Month (12 months)",
    "Type C: 50% of tuition fees free",
    "Tuition fees (Bachelor Degree) 22000/Year 3150/Year",
    "Accommodation Fees 7200-10800/Year 1050-1550/Year",
@@ -1587,7 +1587,7 @@
    "Residence Permit fees 400/Year 60/Year",
    "Health Checkup fees (only 1st year) 400-500 60-70",
    "Application Fees (only 1st year) 600 85",
-   "University deposit: after passing the interview pay 2000 CNY deposit; refunded after arrival at the university"
+   "University deposit: after passing the interview pay 2000 RMB deposit; refunded after arrival at the university"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 22000,
@@ -1648,16 +1648,16 @@
   "scholarships": [
    "Tuition Fees: FREE",
    "Insurance Fees: FREE",
-   "Accommodation Fees: 1200 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 1200 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "fees": [
    "Tuition Fees: FREE",
    "Insurance Fees: FREE",
-   "Accommodation Fees: 1200 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 1200 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "tuition": null,
   "dorm": null,
@@ -1679,9 +1679,9 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Accommodation Fees: 1200 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 1200 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1734,16 +1734,16 @@
   "scholarships": [
    "Tuition Fees: FULL FREE",
    "Insurance Fees: FULL FREE",
-   "Accommodation Fees: 40 CNY/Day",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 40 RMB/Day",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "fees": [
    "Tuition Fees: FULL FREE",
    "Insurance Fees: FULL FREE",
-   "Accommodation Fees: 40 CNY/Day",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 40 RMB/Day",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "tuition": null,
   "dorm": null,
@@ -1765,9 +1765,9 @@
   "introVideoRequired": true,
   "chineseTaught": false,
   "costItems": [
-   "Accommodation Fees: 40 CNY/Day",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "Accommodation Fees: 40 RMB/Day",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -1821,8 +1821,8 @@
   ],
   "scholarships": [
    "Type A: Full Tuition Fees free",
-   "Type B: 50% Tuition Fees free (student pays tuition 6000 CNY/Year)",
-   "Implied full tuition: ~12,000 CNY/Year",
+   "Type B: 50% Tuition Fees free (student pays tuition 6000 RMB/Year)",
+   "Implied full tuition: ~12,000 RMB/Year",
    "Type A: Age 18-22 years + average score 70% or above in High School / Grade 12 / A Level",
    "Type B: Age 18-25 + passed all exams in High School / Grade 12 / A Level"
   ],
@@ -1847,10 +1847,10 @@
   "headline": null,
   "details": {
    "After Scholarship Need To Pay": [
-    "Accommodation: 3000 CNY/Year (2 persons/room); 1500 CNY/Year (4-person room)",
-    "Insurance Fees: 800 CNY/Year",
-    "Visa Extension Fees: 800 CNY/Year",
-    "Medical Check up: 340 CNY"
+    "Accommodation: 3000 RMB/Year (2 persons/room); 1500 RMB/Year (4-person room)",
+    "Insurance Fees: 800 RMB/Year",
+    "Visa Extension Fees: 800 RMB/Year",
+    "Medical Check up: 340 RMB"
    ]
   },
   "noIeltsRequired": false,
@@ -1863,12 +1863,12 @@
   "introVideoRequired": false,
   "chineseTaught": true,
   "costItems": [
-   "Type B: 50% Tuition Fees free (student pays tuition 6000 CNY/Year)",
-   "Implied full tuition: ~12,000 CNY/Year (estimated)",
-   "Accommodation: 3000 CNY/Year (2 persons/room); 1500 CNY/Year (4-person room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Medical Check up: 340 CNY"
+   "Type B: 50% Tuition Fees free (student pays tuition 6000 RMB/Year)",
+   "Implied full tuition: ~12,000 RMB/Year (estimated)",
+   "Accommodation: 3000 RMB/Year (2 persons/room); 1500 RMB/Year (4-person room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Medical Check up: 340 RMB"
   ],
   "tuitionStandardEstimated": true,
   "tuitionStandardCNYPerYear": 12000,
@@ -1920,14 +1920,14 @@
   "scholarships": [
    "Free Tuition Fees",
    "Free Insurance",
-   "Type A: Free tuition + free accommodation + free insurance + Stipend 12000 CNY/Year",
+   "Type A: Free tuition + free accommodation + free insurance + Stipend 12000 RMB/Year",
    "Type B: Free tuition + free insurance"
   ],
   "fees": [
-   "Accommodation Fees: 3500 CNY/Year",
-   "Resident Permit: 800 CNY/Year",
-   "Medical Check Up: 450 CNY",
-   "Registration fees: 600 CNY"
+   "Accommodation Fees: 3500 RMB/Year",
+   "Resident Permit: 800 RMB/Year",
+   "Medical Check Up: 450 RMB",
+   "Registration fees: 600 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -1956,11 +1956,11 @@
   "introVideoRequired": true,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Free tuition + free accommodation + free insurance + Stipend 12000 CNY/Year",
-   "Accommodation Fees: 3500 CNY/Year",
-   "Resident Permit: 800 CNY/Year",
-   "Medical Check Up: 450 CNY",
-   "Registration fees: 600 CNY"
+   "Type A: Free tuition + free accommodation + free insurance + Stipend 12000 RMB/Year",
+   "Accommodation Fees: 3500 RMB/Year",
+   "Resident Permit: 800 RMB/Year",
+   "Medical Check Up: 450 RMB",
+   "Registration fees: 600 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2006,12 +2006,12 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition fees: 21500 CNY/Year",
-   "Accommodation: 500 CNY/Month (2-bed room); 1000 CNY/Month (single room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 380 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Application Fees: 400 CNY"
+   "Tuition fees: 21500 RMB/Year",
+   "Accommodation: 500 RMB/Month (2-bed room); 1000 RMB/Month (single room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 380 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Application Fees: 400 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -2042,12 +2042,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition fees: 21500 CNY/Year",
-   "Accommodation: 500 CNY/Month (2-bed room); 1000 CNY/Month (single room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 380 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Application Fees: 400 CNY"
+   "Tuition fees: 21500 RMB/Year",
+   "Accommodation: 500 RMB/Month (2-bed room); 1000 RMB/Month (single room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 380 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Application Fees: 400 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 21500,
@@ -2204,14 +2204,14 @@
   "headline": null,
   "details": {
    "After Scholarship Need To Pay": [
-    "Tuition Fees: 2000 CNY/Year",
-    "Accommodation Fees: 1200 CNY/Year (two-person room)"
+    "Tuition Fees: 2000 RMB/Year",
+    "Accommodation Fees: 1200 RMB/Year (two-person room)"
    ],
    "Need To Pay To The University": [
-    "Insurance Fees: 800 CNY/Year",
-    "Resident Permit: 400 CNY/Year",
-    "Medical Fees: 500 CNY (1st year only)",
-    "Registration Fees: 500 CNY (1st year only)"
+    "Insurance Fees: 800 RMB/Year",
+    "Resident Permit: 400 RMB/Year",
+    "Medical Fees: 500 RMB (1st year only)",
+    "Registration Fees: 500 RMB (1st year only)"
    ]
   },
   "noIeltsRequired": false,
@@ -2224,12 +2224,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 2000 CNY/Year",
-   "Accommodation Fees: 1200 CNY/Year (two-person room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Fees: 500 CNY (1st year only)",
-   "Registration Fees: 500 CNY (1st year only)"
+   "Tuition Fees: 2000 RMB/Year",
+   "Accommodation Fees: 1200 RMB/Year (two-person room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Fees: 500 RMB (1st year only)",
+   "Registration Fees: 500 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2278,11 +2278,11 @@
    "Original tuition: 5000 RMB/Year"
   ],
   "fees": [
-   "Insurance Fees: 800 CNY (120 USD)/Year",
-   "Resident Permit: 400 CNY (75 USD)/Year",
-   "Medical Fees: 600 CNY (85 USD)/Year",
-   "Textbook Fees: 500 CNY (80 USD)/Year",
-   "Bedding Fees: 400 CNY (74 USD) (first year)"
+   "Insurance Fees: 800 RMB (120 USD)/Year",
+   "Resident Permit: 400 RMB (75 USD)/Year",
+   "Medical Fees: 600 RMB (85 USD)/Year",
+   "Textbook Fees: 500 RMB (80 USD)/Year",
+   "Bedding Fees: 400 RMB (74 USD) (first year)"
   ],
   "tuition": null,
   "dorm": null,
@@ -2303,11 +2303,11 @@
   "headline": null,
   "details": {
    "Extra Scholarships From 2Nd Academic Year (For Brilliant / Well-Performing Students": [
-    "Sichuan Provincial Government Scholarship: 20,000 CNY (3000 USD)/Year (undergraduate)",
-    "10000 CNY (15000 USD)/Year (Chinese language student)",
-    "the university Scholarship Type A: 7000 CNY/Year",
-    "the university Scholarship Type B: 6000 CNY/Year",
-    "the university Scholarship Type C: 5000 CNY/Year"
+    "Sichuan Provincial Government Scholarship: 20,000 RMB (3000 USD)/Year (undergraduate)",
+    "10000 RMB (15000 USD)/Year (Chinese language student)",
+    "the university Scholarship Type A: 7000 RMB/Year",
+    "the university Scholarship Type B: 6000 RMB/Year",
+    "the university Scholarship Type C: 5000 RMB/Year"
    ],
    "Hsk Conditions": [
     "Can apply for the university scholarship only after passing HSK Level-4 during the first year of study",
@@ -2327,11 +2327,11 @@
   "costItems": [
    "Type B: Free tuition + 1200 RMB for accommodation (4-person room)",
    "Original tuition: 5000 RMB/Year",
-   "Insurance Fees: 800 CNY (120 USD)/Year",
-   "Resident Permit: 400 CNY (75 USD)/Year",
-   "Medical Fees: 600 CNY (85 USD)/Year",
-   "Textbook Fees: 500 CNY (80 USD)/Year",
-   "Bedding Fees: 400 CNY (74 USD) (first year)"
+   "Insurance Fees: 800 RMB (120 USD)/Year",
+   "Resident Permit: 400 RMB (75 USD)/Year",
+   "Medical Fees: 600 RMB (85 USD)/Year",
+   "Textbook Fees: 500 RMB (80 USD)/Year",
+   "Bedding Fees: 400 RMB (74 USD) (first year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 5000,
@@ -2402,12 +2402,12 @@
   "headline": null,
   "details": {
    "After Scholarship Need To Pay": [
-    "Tuition Fees: 5000 CNY/Year",
-    "Accommodation: 1500 CNY/Year (four persons per room) 3000 CNY/Year (two persons per room) 6000 CNY/Year (one person per room)",
-    "Insurance Fees: about 550 CNY/Year",
-    "Registration Fees: 500 CNY",
-    "Visa Extension Fees: 400 CNY/Year",
-    "Medical Check Up: 400-500 CNY"
+    "Tuition Fees: 5000 RMB/Year",
+    "Accommodation: 1500 RMB/Year (four persons per room) 3000 RMB/Year (two persons per room) 6000 RMB/Year (one person per room)",
+    "Insurance Fees: about 550 RMB/Year",
+    "Registration Fees: 500 RMB",
+    "Visa Extension Fees: 400 RMB/Year",
+    "Medical Check Up: 400-500 RMB"
    ]
   },
   "noIeltsRequired": false,
@@ -2420,12 +2420,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 5000 CNY/Year",
-   "Accommodation: 1500 CNY/Year (four persons per room) 3000 CNY/Year (two persons per room) 6000 CNY/Year (one person per room)",
-   "Insurance Fees: about 550 CNY/Year",
-   "Registration Fees: 500 CNY",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check Up: 400-500 CNY"
+   "Tuition Fees: 5000 RMB/Year",
+   "Accommodation: 1500 RMB/Year (four persons per room) 3000 RMB/Year (two persons per room) 6000 RMB/Year (one person per room)",
+   "Insurance Fees: about 550 RMB/Year",
+   "Registration Fees: 500 RMB",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check Up: 400-500 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2512,14 +2512,14 @@
     "Insurance: 800 RMB"
    ],
    "Payment After Admission Notice": [
-    "Pay 5850 CNY to the university = Application 400 + Tuition 4250 + Deposit 1200",
-    "University refunds the 1200 CNY deposit after arrival"
+    "Pay 5850 RMB to the university = Application 400 + Tuition 4250 + Deposit 1200",
+    "University refunds the 1200 RMB deposit after arrival"
    ],
    "Extra University Scholarship, 2Nd To 4Th Year": [
-    "Grand prize (\"Ground prize\" in source): 8000 CNY/Student",
-    "1st Prize: 6000 CNY/Student",
-    "2nd Prize: 4000 CNY/Student",
-    "3rd Prize: 2000 CNY/Student"
+    "Grand prize (\"Ground prize\" in source): 8000 RMB/Student",
+    "1st Prize: 6000 RMB/Student",
+    "2nd Prize: 4000 RMB/Student",
+    "3rd Prize: 2000 RMB/Student"
    ]
   },
   "noIeltsRequired": false,
@@ -2539,8 +2539,8 @@
    "Registration Fees: 400 RMB",
    "Medical Fees: 425 RMB",
    "Insurance: 800 RMB",
-   "Pay 5850 CNY to the university = Application 400 + Tuition 4250 + Deposit 1200",
-   "University refunds the 1200 CNY deposit after arrival"
+   "Pay 5850 RMB to the university = Application 400 + Tuition 4250 + Deposit 1200",
+   "University refunds the 1200 RMB deposit after arrival"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2612,12 +2612,12 @@
   "headline": null,
   "details": {
    "After Scholarship Need To Pay": [
-    "Tuition Fees: 6000 CNY/Year (Digital Media Technology); 5000 CNY/Year (IET)",
-    "Accommodation Fees: 3000 CNY/Year",
-    "Insurance Fees: 800 CNY/Year",
-    "Visa Extension Fees: 400 CNY/Year",
-    "Medical Check up: 400 CNY",
-    "Registration Fees: 500 CNY"
+    "Tuition Fees: 6000 RMB/Year (Digital Media Technology); 5000 RMB/Year (IET)",
+    "Accommodation Fees: 3000 RMB/Year",
+    "Insurance Fees: 800 RMB/Year",
+    "Visa Extension Fees: 400 RMB/Year",
+    "Medical Check up: 400 RMB",
+    "Registration Fees: 500 RMB"
    ]
   },
   "noIeltsRequired": false,
@@ -2630,12 +2630,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 6000 CNY/Year (Digital Media Technology); 5000 CNY/Year (IET)",
-   "Accommodation Fees: 3000 CNY/Year",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check up: 400 CNY",
-   "Registration Fees: 500 CNY"
+   "Tuition Fees: 6000 RMB/Year (Digital Media Technology); 5000 RMB/Year (IET)",
+   "Accommodation Fees: 3000 RMB/Year",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check up: 400 RMB",
+   "Registration Fees: 500 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2685,8 +2685,8 @@
   ],
   "scholarships": [
    "Type A: Full Tuition Fees free",
-   "Type B: 50% Tuition Fees free (student pays 7000 CNY/Year)",
-   "Implied full tuition: ~14,000 CNY/Year"
+   "Type B: 50% Tuition Fees free (student pays 7000 RMB/Year)",
+   "Implied full tuition: ~14,000 RMB/Year"
   ],
   "fees": [],
   "tuition": null,
@@ -2710,17 +2710,17 @@
   "headline": null,
   "details": {
    "Need To Pay After Arriving - Type A": [
-    "Accommodation: 1500 CNY/Year (4 persons/room); 2000 CNY/Year (3 persons/room); 3000 CNY/Year (2 persons/room)",
-    "Insurance Fees: 800 CNY/Year",
-    "Residence Permit: 400 CNY/Year",
-    "Medical: 400-500 CNY (first year only)"
+    "Accommodation: 1500 RMB/Year (4 persons/room); 2000 RMB/Year (3 persons/room); 3000 RMB/Year (2 persons/room)",
+    "Insurance Fees: 800 RMB/Year",
+    "Residence Permit: 400 RMB/Year",
+    "Medical: 400-500 RMB (first year only)"
    ],
    "Need To Pay After Arriving - Type B": [
-    "Tuition Fees: 7000 CNY/Year",
-    "Accommodation: same as Type A (1500 / 2000 / 3000 CNY/Year)",
-    "Insurance Fees: 800 CNY/Year",
-    "Residence Permit: 400 CNY/Year",
-    "Medical: 400-500 CNY (first year only)"
+    "Tuition Fees: 7000 RMB/Year",
+    "Accommodation: same as Type A (1500 / 2000 / 3000 RMB/Year)",
+    "Insurance Fees: 800 RMB/Year",
+    "Residence Permit: 400 RMB/Year",
+    "Medical: 400-500 RMB (first year only)"
    ]
   },
   "noIeltsRequired": false,
@@ -2733,14 +2733,14 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type B: 50% Tuition Fees free (student pays 7000 CNY/Year)",
-   "Implied full tuition: ~14,000 CNY/Year (estimated)",
-   "Accommodation: 1500 CNY/Year (4 persons/room); 2000 CNY/Year (3 persons/room); 3000 CNY/Year (2 persons/room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Residence Permit: 400 CNY/Year",
-   "Medical: 400-500 CNY (first year only)",
-   "Tuition Fees: 7000 CNY/Year",
-   "Accommodation: same as Type A (1500 / 2000 / 3000 CNY/Year)"
+   "Type B: 50% Tuition Fees free (student pays 7000 RMB/Year)",
+   "Implied full tuition: ~14,000 RMB/Year (estimated)",
+   "Accommodation: 1500 RMB/Year (4 persons/room); 2000 RMB/Year (3 persons/room); 3000 RMB/Year (2 persons/room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Residence Permit: 400 RMB/Year",
+   "Medical: 400-500 RMB (first year only)",
+   "Tuition Fees: 7000 RMB/Year",
+   "Accommodation: same as Type A (1500 / 2000 / 3000 RMB/Year)"
   ],
   "tuitionStandardEstimated": true,
   "tuitionStandardCNYPerYear": 14000,
@@ -2814,11 +2814,11 @@
   "headline": null,
   "details": {
    "After Scholarship Need To Pay": [
-    "Tuition Fees: 5000 CNY/Year (original tuition 14000 CNY/Year)",
-    "Accommodation: 1800-3000 CNY/Year (3-4 persons per room)",
-    "Visa Extension: 800 CNY/Year",
-    "Insurance: 800 CNY/Year",
-    "Health Check Up: 343 CNY"
+    "Tuition Fees: 5000 RMB/Year (original tuition 14000 RMB/Year)",
+    "Accommodation: 1800-3000 RMB/Year (3-4 persons per room)",
+    "Visa Extension: 800 RMB/Year",
+    "Insurance: 800 RMB/Year",
+    "Health Check Up: 343 RMB"
    ]
   },
   "noIeltsRequired": false,
@@ -2831,11 +2831,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 5000 CNY/Year (original tuition 14000 CNY/Year)",
-   "Accommodation: 1800-3000 CNY/Year (3-4 persons per room)",
-   "Visa Extension: 800 CNY/Year",
-   "Insurance: 800 CNY/Year",
-   "Health Check Up: 343 CNY"
+   "Tuition Fees: 5000 RMB/Year (original tuition 14000 RMB/Year)",
+   "Accommodation: 1800-3000 RMB/Year (3-4 persons per room)",
+   "Visa Extension: 800 RMB/Year",
+   "Insurance: 800 RMB/Year",
+   "Health Check Up: 343 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 14000,
@@ -2910,15 +2910,15 @@
   "headline": null,
   "details": {
    "Need To Pay After Scholarship (Cny With Usd Equivalent)": [
-    "Tuition Fees: 7000 CNY (1005$)/Year",
-    "Accommodation: 3000 CNY/Year (440$) triple room 6000 CNY/Year (880$) double room 10000 CNY/Year (1470$) single room",
-    "Registration Fees: 400 CNY (60$)/Year",
-    "Insurance Fees: 600-800 CNY (86$-115$)/Year",
-    "Visa Extension Fees: 400 CNY (60$)/Semester or Year",
-    "Medical Fees: 400 CNY (60$) (only 1st year)"
+    "Tuition Fees: 7000 RMB (1005$)/Year",
+    "Accommodation: 3000 RMB/Year (440$) triple room 6000 RMB/Year (880$) double room 10000 RMB/Year (1470$) single room",
+    "Registration Fees: 400 RMB (60$)/Year",
+    "Insurance Fees: 600-800 RMB (86$-115$)/Year",
+    "Visa Extension Fees: 400 RMB (60$)/Semester or Year",
+    "Medical Fees: 400 RMB (60$) (only 1st year)"
    ],
    "Merit Scholarships": [
-    "Students with excellent results and a perfect educational background may get a different scholarship: 15000 / 10000 / 5000 / 3000 CNY/Year/student",
+    "Students with excellent results and a perfect educational background may get a different scholarship: 15000 / 10000 / 5000 / 3000 RMB/Year/student",
     "Decision made by the the university scholarship authority",
     "Result requirement - Bangladeshi students: HSC 4.50 or above out of 5.00 and Diploma 3.50 or above out of 4.0",
     "Result requirement - other countries: 85% in high school"
@@ -2934,12 +2934,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 7000 CNY (1005$)/Year",
-   "Accommodation: 3000 CNY/Year (440$) triple room 6000 CNY/Year (880$) double room 10000 CNY/Year (1470$) single room",
-   "Registration Fees: 400 CNY (60$)/Year",
-   "Insurance Fees: 600-800 CNY (86$-115$)/Year",
-   "Visa Extension Fees: 400 CNY (60$)/Semester or Year",
-   "Medical Fees: 400 CNY (60$) (only 1st year)"
+   "Tuition Fees: 7000 RMB (1005$)/Year",
+   "Accommodation: 3000 RMB/Year (440$) triple room 6000 RMB/Year (880$) double room 10000 RMB/Year (1470$) single room",
+   "Registration Fees: 400 RMB (60$)/Year",
+   "Insurance Fees: 600-800 RMB (86$-115$)/Year",
+   "Visa Extension Fees: 400 RMB (60$)/Semester or Year",
+   "Medical Fees: 400 RMB (60$) (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -2990,15 +2990,15 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 15000 CNY/Year (Science & Engineering majors); 14000 CNY/Year (Humanities & Social Sciences majors)",
-   "Accommodation: 4000 CNY/Year (double room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 530 CNY (first year only)",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Application Fees: 800 CNY (first year only, non-refundable)",
+   "Tuition: 15000 RMB/Year (Science & Engineering majors); 14000 RMB/Year (Humanities & Social Sciences majors)",
+   "Accommodation: 4000 RMB/Year (double room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 530 RMB (first year only)",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Application Fees: 800 RMB (first year only, non-refundable)",
    "First Class: Free tuition",
-   "Second Class: 12000 CNY/Year waiver",
-   "Third Class: 7500 CNY/Year waiver",
+   "Second Class: 12000 RMB/Year waiver",
+   "Third Class: 7500 RMB/Year waiver",
    "Admitted freshmen get the FIRST CLASS scholarship",
    "From the 2nd academic year: annual review - 50% of students First Class, 30% Second Class, 20% Third Class"
   ],
@@ -3022,7 +3022,7 @@
   "headline": null,
   "details": {
    "Nanjing City Scholarship (For Excellent Students)": [
-    "10000 CNY/Year (from the first year)",
+    "10000 RMB/Year (from the first year)",
     "First year: student must take an exam to get this stipend",
     "From 2nd year: awarded by academic performance"
    ],
@@ -3040,12 +3040,12 @@
   "introVideoRequired": false,
   "chineseTaught": true,
   "costItems": [
-   "Tuition: 15000 CNY/Year (Science & Engineering majors); 14000 CNY/Year (Humanities & Social Sciences majors)",
-   "Accommodation: 4000 CNY/Year (double room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 530 CNY (first year only)",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Application Fees: 800 CNY (first year only, non-refundable)",
+   "Tuition: 15000 RMB/Year (Science & Engineering majors); 14000 RMB/Year (Humanities & Social Sciences majors)",
+   "Accommodation: 4000 RMB/Year (double room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 530 RMB (first year only)",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Application Fees: 800 RMB (first year only, non-refundable)",
    "Pre-admitted applicants must pay accommodation 4000 yuan + application fee 800 yuan in advance, within the time set by the university (source says \"undergraduate courses taught in English\" although the listed majors are Chinese-taught)"
   ],
   "tuitionStandardEstimated": false,
@@ -3122,12 +3122,12 @@
   "headline": null,
   "details": {
    "Need To Pay After Arriving": [
-    "Tuition + Accommodation combined: 6000 CNY/Year",
-    "Insurance Fees: 800 CNY/Year",
-    "Visa Extension Fees: 400 CNY/Year",
-    "Medical Check Up: 470 CNY (only 1st year)",
-    "Registration Fees: 400 CNY",
-    "Dorm Deposit: 500 CNY (refundable)"
+    "Tuition + Accommodation combined: 6000 RMB/Year",
+    "Insurance Fees: 800 RMB/Year",
+    "Visa Extension Fees: 400 RMB/Year",
+    "Medical Check Up: 470 RMB (only 1st year)",
+    "Registration Fees: 400 RMB",
+    "Dorm Deposit: 500 RMB (refundable)"
    ]
   },
   "noIeltsRequired": false,
@@ -3140,12 +3140,12 @@
   "introVideoRequired": true,
   "chineseTaught": false,
   "costItems": [
-   "Tuition + Accommodation combined: 6000 CNY/Year",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check Up: 470 CNY (only 1st year)",
-   "Registration Fees: 400 CNY",
-   "Dorm Deposit: 500 CNY (refundable)"
+   "Tuition + Accommodation combined: 6000 RMB/Year",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check Up: 470 RMB (only 1st year)",
+   "Registration Fees: 400 RMB",
+   "Dorm Deposit: 500 RMB (refundable)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -3205,7 +3205,7 @@
   ],
   "scholarships": [
    "1st year: Full tuition fees free",
-   "2nd to 4th year: student pays 5500 CNY/Year tuition"
+   "2nd to 4th year: student pays 5500 RMB/Year tuition"
   ],
   "fees": [],
   "tuition": null,
@@ -3229,10 +3229,10 @@
   "headline": null,
   "details": {
    "Other Costs": [
-    "Accommodation: OUTSIDE campus, depends on apartment (around 500-600 CNY/Month)",
-    "Insurance Fees: 800 CNY/Year",
-    "Resident Permit: 400 CNY/Year",
-    "Medical Checkup: 400-450 CNY (only 1st year)"
+    "Accommodation: OUTSIDE campus, depends on apartment (around 500-600 RMB/Month)",
+    "Insurance Fees: 800 RMB/Year",
+    "Resident Permit: 400 RMB/Year",
+    "Medical Checkup: 400-450 RMB (only 1st year)"
    ]
   },
   "noIeltsRequired": false,
@@ -3246,11 +3246,11 @@
   "chineseTaught": false,
   "costItems": [
    "1st year: Full tuition fees free",
-   "2nd to 4th year: student pays 5500 CNY/Year tuition",
-   "Accommodation: OUTSIDE campus, depends on apartment (around 500-600 CNY/Month)",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 400 CNY/Year",
-   "Medical Checkup: 400-450 CNY (only 1st year)"
+   "2nd to 4th year: student pays 5500 RMB/Year tuition",
+   "Accommodation: OUTSIDE campus, depends on apartment (around 500-600 RMB/Month)",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 400 RMB/Year",
+   "Medical Checkup: 400-450 RMB (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -3306,12 +3306,12 @@
    "From 2nd year: scholarship according to the university's policy"
   ],
   "fees": [
-   "Tuition Fees: 17000-19000 CNY/Year",
-   "Accommodation: 300-600 CNY/Month (2 or 4 persons per room)",
-   "Visa Extension: 800 CNY/Year",
-   "Insurance: 800 CNY/Year",
-   "Health Check Up: 400 CNY",
-   "Registration Fees: 500 CNY (first year only)"
+   "Tuition Fees: 17000-19000 RMB/Year",
+   "Accommodation: 300-600 RMB/Month (2 or 4 persons per room)",
+   "Visa Extension: 800 RMB/Year",
+   "Insurance: 800 RMB/Year",
+   "Health Check Up: 400 RMB",
+   "Registration Fees: 500 RMB (first year only)"
   ],
   "tuition": null,
   "dorm": null,
@@ -3344,12 +3344,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 17000-19000 CNY/Year",
-   "Accommodation: 300-600 CNY/Month (2 or 4 persons per room)",
-   "Visa Extension: 800 CNY/Year",
-   "Insurance: 800 CNY/Year",
-   "Health Check Up: 400 CNY",
-   "Registration Fees: 500 CNY (first year only)"
+   "Tuition Fees: 17000-19000 RMB/Year",
+   "Accommodation: 300-600 RMB/Month (2 or 4 persons per room)",
+   "Visa Extension: 800 RMB/Year",
+   "Insurance: 800 RMB/Year",
+   "Health Check Up: 400 RMB",
+   "Registration Fees: 500 RMB (first year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 19000,
@@ -3415,12 +3415,12 @@
   "headline": null,
   "details": {
    "Normal Cost (Heading \"Normal Cost Of the university\")": [
-    "Tuition Fees: 7500 CNY/Year",
-    "Accommodation Fees: 1300 CNY/Year",
-    "Insurance Fees: 800 CNY/Year",
-    "Residence Permit: 400 CNY/Year",
-    "Text Books: 700 CNY/Year",
-    "Medical Check Up: 500 CNY (only 1st time)"
+    "Tuition Fees: 7500 RMB/Year",
+    "Accommodation Fees: 1300 RMB/Year",
+    "Insurance Fees: 800 RMB/Year",
+    "Residence Permit: 400 RMB/Year",
+    "Text Books: 700 RMB/Year",
+    "Medical Check Up: 500 RMB (only 1st time)"
    ],
    "Huawei Ict Certification (Included On This Page)": [
     "What is ICT: Huawei, using new ICT infrastructure featuring cloud-pipe-device synergy, offers what it calls the only industry certification system covering all ICT technical fields: * ICT Infrastructure Certification * Platform and Service Certification * ICT Vertical Certification",
@@ -3438,12 +3438,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 7500 CNY/Year",
-   "Accommodation Fees: 1300 CNY/Year",
-   "Insurance Fees: 800 CNY/Year",
-   "Residence Permit: 400 CNY/Year",
-   "Text Books: 700 CNY/Year",
-   "Medical Check Up: 500 CNY (only 1st time)"
+   "Tuition Fees: 7500 RMB/Year",
+   "Accommodation Fees: 1300 RMB/Year",
+   "Insurance Fees: 800 RMB/Year",
+   "Residence Permit: 400 RMB/Year",
+   "Text Books: 700 RMB/Year",
+   "Medical Check Up: 500 RMB (only 1st time)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 7500,
@@ -3504,8 +3504,8 @@
   "scholarships": [
    "1st year: awarded according to the student's High School result",
    "2nd to last year: according to performance at the university",
-   "Type A: Zhejiang Provincial Government Scholarship - 20,000 CNY/Student/Year",
-   "Type B: the university Scholarship - 8000 CNY/Student/Year"
+   "Type A: Zhejiang Provincial Government Scholarship - 20,000 RMB/Student/Year",
+   "Type B: the university Scholarship - 8000 RMB/Student/Year"
   ],
   "fees": [],
   "tuition": null,
@@ -3529,12 +3529,12 @@
   "headline": null,
   "details": {
    "Original Costs [Img Heading]": [
-    "Tuition Fees: 18000 CNY/Year",
-    "Accommodation Fees: 5400 CNY/Year",
-    "Insurance Fees: 800 CNY/Year",
-    "Resident Permit: 800 CNY/Year",
-    "Medical Check Up: 400 CNY/Year",
-    "Text Book: 800 CNY/Year"
+    "Tuition Fees: 18000 RMB/Year",
+    "Accommodation Fees: 5400 RMB/Year",
+    "Insurance Fees: 800 RMB/Year",
+    "Resident Permit: 800 RMB/Year",
+    "Medical Check Up: 400 RMB/Year",
+    "Text Book: 800 RMB/Year"
    ]
   },
   "noIeltsRequired": false,
@@ -3547,12 +3547,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition Fees: 18000 CNY/Year",
-   "Accommodation Fees: 5400 CNY/Year",
-   "Insurance Fees: 800 CNY/Year",
-   "Resident Permit: 800 CNY/Year",
-   "Medical Check Up: 400 CNY/Year",
-   "Text Book: 800 CNY/Year"
+   "Tuition Fees: 18000 RMB/Year",
+   "Accommodation Fees: 5400 RMB/Year",
+   "Insurance Fees: 800 RMB/Year",
+   "Resident Permit: 800 RMB/Year",
+   "Medical Check Up: 400 RMB/Year",
+   "Text Book: 800 RMB/Year"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 18000,
@@ -3619,7 +3619,7 @@
    "Type A: Full tuition free for 4 years",
    "Type B: Full tuition free for 1st year",
    "Type C: 50% tuition free for 1st year",
-   "Type D: 3500 CNY waiver of 1st-year tuition",
+   "Type D: 3500 RMB waiver of 1st-year tuition",
    "Type B, C, D students: university provides scholarships in years 2-4 according to its rules and the student's performance"
   ],
   "fees": [],
@@ -3643,13 +3643,13 @@
   "headline": null,
   "details": {
    "Normal Cost (Heading \"Normal Cost Of the university\")": [
-    "Tuition Fees: 17800 CNY/Year",
-    "Accommodation Fees: 3500-5300 CNY/Year",
-    "Insurance Fees: 1000 CNY/Year",
-    "Residence Permit: 400 CNY/Year",
-    "Text Books: 400 CNY/Year",
-    "Accommodation Deposit: 800 CNY (refundable)",
-    "Medical Check Up: 500 CNY (only 1st time)"
+    "Tuition Fees: 17800 RMB/Year",
+    "Accommodation Fees: 3500-5300 RMB/Year",
+    "Insurance Fees: 1000 RMB/Year",
+    "Residence Permit: 400 RMB/Year",
+    "Text Books: 400 RMB/Year",
+    "Accommodation Deposit: 800 RMB (refundable)",
+    "Medical Check Up: 500 RMB (only 1st time)"
    ]
   },
   "noIeltsRequired": false,
@@ -3665,14 +3665,14 @@
    "Type A: Full tuition free for 4 years",
    "Type B: Full tuition free for 1st year",
    "Type C: 50% tuition free for 1st year",
-   "Type D: 3500 CNY waiver of 1st-year tuition",
-   "Tuition Fees: 17800 CNY/Year",
-   "Accommodation Fees: 3500-5300 CNY/Year",
-   "Insurance Fees: 1000 CNY/Year",
-   "Residence Permit: 400 CNY/Year",
-   "Text Books: 400 CNY/Year",
-   "Accommodation Deposit: 800 CNY (refundable)",
-   "Medical Check Up: 500 CNY (only 1st time)"
+   "Type D: 3500 RMB waiver of 1st-year tuition",
+   "Tuition Fees: 17800 RMB/Year",
+   "Accommodation Fees: 3500-5300 RMB/Year",
+   "Insurance Fees: 1000 RMB/Year",
+   "Residence Permit: 400 RMB/Year",
+   "Text Books: 400 RMB/Year",
+   "Accommodation Deposit: 800 RMB (refundable)",
+   "Medical Check Up: 500 RMB (only 1st time)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 17800,
@@ -3738,18 +3738,18 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition Fees: 4000 CNY/Semester",
-   "Accommodation: 1620 CNY/Semester",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 460 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Registration Fees: 600 CNY",
-   "Tuition fees: 18000-20000 CNY/Year",
-   "Accommodation fees: 5400 CNY/Year (double room)",
-   "Registration Fees: 600 CNY",
-   "Residence Permit (Visa): 400 CNY",
-   "Insurance Fees: 800 CNY",
-   "Medical Fees: 460 CNY"
+   "Tuition Fees: 4000 RMB/Semester",
+   "Accommodation: 1620 RMB/Semester",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 460 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Registration Fees: 600 RMB",
+   "Tuition fees: 18000-20000 RMB/Year",
+   "Accommodation fees: 5400 RMB/Year (double room)",
+   "Registration Fees: 600 RMB",
+   "Residence Permit (Visa): 400 RMB",
+   "Insurance Fees: 800 RMB",
+   "Medical Fees: 460 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -3777,7 +3777,7 @@
    ],
    "Bachelor Scholarship": [
     "Type A: Tuition + accommodation free",
-    "Type B: Tuition free; accommodation 5400 CNY/Year (double room)"
+    "Type B: Tuition free; accommodation 5400 RMB/Year (double room)"
    ]
   },
   "noIeltsRequired": false,
@@ -3790,17 +3790,17 @@
   "introVideoRequired": false,
   "chineseTaught": true,
   "costItems": [
-   "Tuition Fees: 4000 CNY/Semester",
-   "Accommodation: 1620 CNY/Semester",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 460 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Registration Fees: 600 CNY",
-   "Type B: Tuition free; accommodation 5400 CNY/Year (double room)",
-   "Tuition fees: 18000-20000 CNY/Year",
-   "Accommodation fees: 5400 CNY/Year (double room)",
-   "Residence Permit (Visa): 400 CNY",
-   "Insurance Fees: 800 CNY"
+   "Tuition Fees: 4000 RMB/Semester",
+   "Accommodation: 1620 RMB/Semester",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 460 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Registration Fees: 600 RMB",
+   "Type B: Tuition free; accommodation 5400 RMB/Year (double room)",
+   "Tuition fees: 18000-20000 RMB/Year",
+   "Accommodation fees: 5400 RMB/Year (double room)",
+   "Residence Permit (Visa): 400 RMB",
+   "Insurance Fees: 800 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 20000,
@@ -3859,15 +3859,15 @@
   ],
   "scholarships": [
    "Type A: Full tuition free for first year",
-   "Type B: 8000 CNY (1150$) waiver on tuition",
+   "Type B: 8000 RMB (1150$) waiver on tuition",
    "From 2nd year: university scholarship according to performance"
   ],
   "fees": [
-   "Full Tuition Fees: 20000-22000 CNY (2875$-3160$)/Year",
-   "Accommodation Fees: 2900-4000 CNY (420$-575$)/Year",
-   "Insurance Fees: 800 CNY (115$)/Year",
-   "Residence Permit: 800 CNY (115$)/Year",
-   "Medical Check Up: 450 CNY (65$) (only 1st time)"
+   "Full Tuition Fees: 20000-22000 RMB (2875$-3160$)/Year",
+   "Accommodation Fees: 2900-4000 RMB (420$-575$)/Year",
+   "Insurance Fees: 800 RMB (115$)/Year",
+   "Residence Permit: 800 RMB (115$)/Year",
+   "Medical Check Up: 450 RMB (65$) (only 1st time)"
   ],
   "tuition": null,
   "dorm": null,
@@ -3898,12 +3898,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type B: 8000 CNY (1150$) waiver on tuition",
-   "Full Tuition Fees: 20000-22000 CNY (2875$-3160$)/Year",
-   "Accommodation Fees: 2900-4000 CNY (420$-575$)/Year",
-   "Insurance Fees: 800 CNY (115$)/Year",
-   "Residence Permit: 800 CNY (115$)/Year",
-   "Medical Check Up: 450 CNY (65$) (only 1st time)"
+   "Type B: 8000 RMB (1150$) waiver on tuition",
+   "Full Tuition Fees: 20000-22000 RMB (2875$-3160$)/Year",
+   "Accommodation Fees: 2900-4000 RMB (420$-575$)/Year",
+   "Insurance Fees: 800 RMB (115$)/Year",
+   "Residence Permit: 800 RMB (115$)/Year",
+   "Medical Check Up: 450 RMB (65$) (only 1st time)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 22000,
@@ -3952,10 +3952,10 @@
    "International Economics and Trade"
   ],
   "scholarships": [
-   "Type A: Free tuition + free accommodation + stipend 800 CNY/Month",
+   "Type A: Free tuition + free accommodation + stipend 800 RMB/Month",
    "Type B: Free tuition + free accommodation",
    "Type C: Free tuition",
-   "Type D: Tuition 6000 CNY/Year to be paid (after scholarship)"
+   "Type D: Tuition 6000 RMB/Year to be paid (after scholarship)"
   ],
   "fees": [],
   "tuition": null,
@@ -3978,14 +3978,14 @@
   "headline": null,
   "details": {
    "Other Costs": [
-    "Accommodation: 3200 CNY/Year (double room) - not payable by Type A or B students",
-    "Insurance Fees: 800 CNY/Year",
-    "Visa Extension Fees: 400 CNY/Year",
-    "Medical Check up: 400-500 CNY (only 1st year)",
-    "Registration Fees: 500 CNY (only 1st year)"
+    "Accommodation: 3200 RMB/Year (double room) - not payable by Type A or B students",
+    "Insurance Fees: 800 RMB/Year",
+    "Visa Extension Fees: 400 RMB/Year",
+    "Medical Check up: 400-500 RMB (only 1st year)",
+    "Registration Fees: 500 RMB (only 1st year)"
    ],
    "Seat-Booking Deposit": [
-    "2000 CNY to the university's official account after the pre-admission notice",
+    "2000 RMB to the university's official account after the pre-admission notice",
     "Refunded after arrival at the university"
    ]
   },
@@ -3999,13 +3999,13 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type A: Free tuition + free accommodation + stipend 800 CNY/Month",
-   "Type D: Tuition 6000 CNY/Year to be paid (after scholarship)",
-   "Accommodation: 3200 CNY/Year (double room) - not payable by Type A or B students",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check up: 400-500 CNY (only 1st year)",
-   "Registration Fees: 500 CNY (only 1st year)"
+   "Type A: Free tuition + free accommodation + stipend 800 RMB/Month",
+   "Type D: Tuition 6000 RMB/Year to be paid (after scholarship)",
+   "Accommodation: 3200 RMB/Year (double room) - not payable by Type A or B students",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check up: 400-500 RMB (only 1st year)",
+   "Registration Fees: 500 RMB (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -4077,12 +4077,12 @@
   "headline": null,
   "details": {
    "Need To Pay After Scholarship": [
-    "Tuition fees: 4900 CNY/Year",
-    "Accommodation: 1600 CNY/Year (two persons per room)",
-    "Registration Fees: 400 CNY/Year",
-    "Insurance Fees: 600-800 CNY/Year",
-    "Visa Extension: 400 CNY/Year",
-    "Medical Fees: 400 CNY (only 1st year)"
+    "Tuition fees: 4900 RMB/Year",
+    "Accommodation: 1600 RMB/Year (two persons per room)",
+    "Registration Fees: 400 RMB/Year",
+    "Insurance Fees: 600-800 RMB/Year",
+    "Visa Extension: 400 RMB/Year",
+    "Medical Fees: 400 RMB (only 1st year)"
    ]
   },
   "noIeltsRequired": false,
@@ -4095,12 +4095,12 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition fees: 4900 CNY/Year",
-   "Accommodation: 1600 CNY/Year (two persons per room)",
-   "Registration Fees: 400 CNY/Year",
-   "Insurance Fees: 600-800 CNY/Year",
-   "Visa Extension: 400 CNY/Year",
-   "Medical Fees: 400 CNY (only 1st year)"
+   "Tuition fees: 4900 RMB/Year",
+   "Accommodation: 1600 RMB/Year (two persons per room)",
+   "Registration Fees: 400 RMB/Year",
+   "Insurance Fees: 600-800 RMB/Year",
+   "Visa Extension: 400 RMB/Year",
+   "Medical Fees: 400 RMB (only 1st year)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -4150,17 +4150,17 @@
   ],
   "scholarships": [
    "Full tuition fees free",
-   "Type A (top 10%): Free tuition + free accommodation + stipend 5000 CNY/Year",
-   "Type B (11-70%): Free tuition; student pays accommodation 3000 CNY/Year",
-   "Type C (71-90%): Student pays tuition 6000 CNY/Year (after scholarship) + accommodation 3000 CNY/Year",
-   "Type D (91-100%): Student pays tuition 12000 CNY/Year + accommodation 3000 CNY/Year",
+   "Type A (top 10%): Free tuition + free accommodation + stipend 5000 RMB/Year",
+   "Type B (11-70%): Free tuition; student pays accommodation 3000 RMB/Year",
+   "Type C (71-90%): Student pays tuition 6000 RMB/Year (after scholarship) + accommodation 3000 RMB/Year",
+   "Type D (91-100%): Student pays tuition 12000 RMB/Year + accommodation 3000 RMB/Year",
    "Accommodation: double room for all"
   ],
   "fees": [
-   "Registration Fees: 500 CNY",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check up: 400-500 CNY/Year"
+   "Registration Fees: 500 RMB",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check up: 400-500 RMB/Year"
   ],
   "tuition": null,
   "dorm": null,
@@ -4191,14 +4191,14 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Type A (top 10%): Free tuition + free accommodation + stipend 5000 CNY/Year",
-   "Type B (11-70%): Free tuition; student pays accommodation 3000 CNY/Year",
-   "Type C (71-90%): Student pays tuition 6000 CNY/Year (after scholarship) + accommodation 3000 CNY/Year",
-   "Type D (91-100%): Student pays tuition 12000 CNY/Year + accommodation 3000 CNY/Year",
-   "Registration Fees: 500 CNY",
-   "Insurance Fees: 800 CNY/Year",
-   "Visa Extension Fees: 400 CNY/Year",
-   "Medical Check up: 400-500 CNY/Year"
+   "Type A (top 10%): Free tuition + free accommodation + stipend 5000 RMB/Year",
+   "Type B (11-70%): Free tuition; student pays accommodation 3000 RMB/Year",
+   "Type C (71-90%): Student pays tuition 6000 RMB/Year (after scholarship) + accommodation 3000 RMB/Year",
+   "Type D (91-100%): Student pays tuition 12000 RMB/Year + accommodation 3000 RMB/Year",
+   "Registration Fees: 500 RMB",
+   "Insurance Fees: 800 RMB/Year",
+   "Visa Extension Fees: 400 RMB/Year",
+   "Medical Check up: 400-500 RMB/Year"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -4245,14 +4245,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 26,000 CNY/year",
-   "Hostel: 3000-4,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 26,000 RMB/year",
+   "Hostel: 3000-4,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "26,000 CNY/year",
-  "dorm": "3000-4,000 CNY/year",
+  "tuition": "26,000 RMB/year",
+  "dorm": "3000-4,000 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4284,11 +4284,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 26,000 CNY/year",
-   "Hostel: 3000-4,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 26,000 RMB/year",
+   "Hostel: 3000-4,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 26000,
@@ -4334,14 +4334,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 30,000 CNY/year",
-   "Hostel: 4,000-6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 30,000 RMB/year",
+   "Hostel: 4,000-6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "30,000 CNY/year",
-  "dorm": "4,000-6,000 CNY/year",
+  "tuition": "30,000 RMB/year",
+  "dorm": "4,000-6,000 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4373,11 +4373,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 30,000 CNY/year",
-   "Hostel: 4,000-6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 30,000 RMB/year",
+   "Hostel: 4,000-6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 30000,
@@ -4423,14 +4423,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 32,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 32,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "32,000 CNY/year",
-  "dorm": "6,000 CNY/year",
+  "tuition": "32,000 RMB/year",
+  "dorm": "6,000 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4462,11 +4462,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 32,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 32,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 32000,
@@ -4512,14 +4512,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 40,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 40,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "40,000 CNY/year",
-  "dorm": "6,000 CNY/year",
+  "tuition": "40,000 RMB/year",
+  "dorm": "6,000 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4551,11 +4551,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 40,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 40,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 40000,
@@ -4601,14 +4601,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 40,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 40,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "40,000 CNY/year",
-  "dorm": "6,000 CNY/year",
+  "tuition": "40,000 RMB/year",
+  "dorm": "6,000 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4640,11 +4640,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 40,000 CNY/year",
-   "Hostel: 6,000 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 40,000 RMB/year",
+   "Hostel: 6,000 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 40000,
@@ -4690,14 +4690,14 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition: 35,000 CNY/year",
-   "Hostel: 5500 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 35,000 RMB/year",
+   "Hostel: 5500 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
-  "tuition": "35,000 CNY/year",
-  "dorm": "5500 CNY/year",
+  "tuition": "35,000 RMB/year",
+  "dorm": "5500 RMB/year",
   "stipendText": null,
   "totalFee": null,
   "languageRequirement": "English-taught (no test stated)",
@@ -4729,11 +4729,11 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: 35,000 CNY/year",
-   "Hostel: 5500 CNY/year",
-   "Insurance: 800 CNY/year",
-   "Registration: 400-500 CNY/year",
-   "Medical check-up: 400-450 CNY (1st year only)"
+   "Tuition: 35,000 RMB/year",
+   "Hostel: 5500 RMB/year",
+   "Insurance: 800 RMB/year",
+   "Registration: 400-500 RMB/year",
+   "Medical check-up: 400-450 RMB (1st year only)"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 35000,
@@ -4839,7 +4839,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-5",
   "interview": null,
@@ -4870,7 +4870,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -4926,7 +4926,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "TOEFL 80 / IELTS 6.0",
   "interview": null,
@@ -4957,7 +4957,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5007,7 +5007,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK Level 5 + HSKK intermediate (60)",
   "interview": null,
@@ -5038,7 +5038,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5103,7 +5103,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-5",
   "interview": null,
@@ -5134,7 +5134,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5193,7 +5193,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "IELTS 6.0 / TOEFL 60",
   "interview": null,
@@ -5224,7 +5224,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5296,7 +5296,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-5",
   "interview": null,
@@ -5327,7 +5327,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5442,7 +5442,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "1400 CNY",
+  "stipendText": "1400 RMB",
   "totalFee": null,
   "languageRequirement": "IELTS 6.0 / TOEFL 80",
   "interview": null,
@@ -5473,7 +5473,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 1400 CNY"
+   "Monthly stipend: 1400 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5548,7 +5548,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-4",
   "interview": null,
@@ -5579,7 +5579,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5656,7 +5656,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-4 (score 200)",
   "interview": null,
@@ -5687,7 +5687,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -5738,12 +5738,12 @@
   ],
   "scholarships": [],
   "fees": [
-   "Tuition fees: 20000 CNY/Year",
-   "Accommodation: 750 CNY/Month (2-bed room); 1350 CNY/Month (single room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 400 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Application Fees: 500 CNY"
+   "Tuition fees: 20000 RMB/Year",
+   "Accommodation: 750 RMB/Month (2-bed room); 1350 RMB/Month (single room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 400 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Application Fees: 500 RMB"
   ],
   "tuition": null,
   "dorm": null,
@@ -5770,7 +5770,7 @@
     "Full Tuition Fees free",
     "Full Accommodation Fees free (first year)",
     "Insurance Fees free",
-    "Monthly stipend: 3000 CNY/Month"
+    "Monthly stipend: 3000 RMB/Month"
    ],
    "Program Structure": [
     "Year 1: coursework on campus in China",
@@ -5793,12 +5793,12 @@
   "introVideoRequired": true,
   "chineseTaught": false,
   "costItems": [
-   "Tuition fees: 20000 CNY/Year",
-   "Accommodation: 750 CNY/Month (2-bed room); 1350 CNY/Month (single room)",
-   "Insurance Fees: 800 CNY/Year",
-   "Medical Fees: 400 CNY",
-   "Visa Extension Fees: 800 CNY/Year",
-   "Application Fees: 500 CNY"
+   "Tuition fees: 20000 RMB/Year",
+   "Accommodation: 750 RMB/Month (2-bed room); 1350 RMB/Month (single room)",
+   "Insurance Fees: 800 RMB/Year",
+   "Medical Fees: 400 RMB",
+   "Visa Extension Fees: 800 RMB/Year",
+   "Application Fees: 500 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": 20000,
@@ -5900,7 +5900,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "TOEFL 80 / IELTS 6.0",
   "interview": null,
@@ -5931,7 +5931,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6009,7 +6009,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "TOEFL 80 / IELTS 6.0",
   "interview": null,
@@ -6040,7 +6040,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6130,7 +6130,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "500 CNY",
+  "stipendText": "500 RMB",
   "totalFee": null,
   "languageRequirement": "IELTS 5.5 / TOEFL 70 / any other English certificate",
   "interview": null,
@@ -6161,7 +6161,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 500 CNY"
+   "Monthly stipend: 500 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6234,7 +6234,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-4",
   "interview": null,
@@ -6265,7 +6265,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6326,7 +6326,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "HSK-5 (score 180)",
   "interview": null,
@@ -6357,7 +6357,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6439,7 +6439,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "1500 CNY",
+  "stipendText": "1500 RMB",
   "totalFee": null,
   "languageRequirement": "Language Proficiency Certificate (test and score not specified)",
   "interview": null,
@@ -6471,7 +6471,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 1500 CNY"
+   "Monthly stipend: 1500 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6529,7 +6529,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "3000 CNY",
+  "stipendText": "3000 RMB",
   "totalFee": null,
   "languageRequirement": "Language Proficiency Certificate (Chinese or English; test not specified)",
   "interview": null,
@@ -6560,7 +6560,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 3000 CNY"
+   "Monthly stipend: 3000 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6638,7 +6638,7 @@
   "fees": [],
   "tuition": "Free",
   "dorm": "Free",
-  "stipendText": "1700 CNY",
+  "stipendText": "1700 RMB",
   "totalFee": null,
   "languageRequirement": "IELTS 6.0 / TOEFL 80 / any other valid English certificate",
   "interview": null,
@@ -6670,7 +6670,7 @@
   "costItems": [
    "Tuition: Free",
    "Dormitory: Free",
-   "Monthly stipend: 1700 CNY"
+   "Monthly stipend: 1700 RMB"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6773,7 +6773,7 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: Free | Dormitory: Free | Stipend: 3500 CNY/month"
+   "Tuition: Free | Dormitory: Free | Stipend: 3500 RMB/month"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6869,7 +6869,7 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: Free | Dormitory: Free | Stipend: 3500 CNY/month"
+   "Tuition: Free | Dormitory: Free | Stipend: 3500 RMB/month"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -6954,7 +6954,7 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: Free | Dormitory: Free | Stipend: 3500 CNY/month"
+   "Tuition: Free | Dormitory: Free | Stipend: 3500 RMB/month"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -7057,7 +7057,7 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: Free | Dormitory: Free | Stipend: 3500 CNY/month"
+   "Tuition: Free | Dormitory: Free | Stipend: 3500 RMB/month"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,
@@ -7141,7 +7141,7 @@
   "introVideoRequired": false,
   "chineseTaught": false,
   "costItems": [
-   "Tuition: Free | Dormitory: Free | Stipend: 3500 CNY/month"
+   "Tuition: Free | Dormitory: Free | Stipend: 3500 RMB/month"
   ],
   "tuitionStandardEstimated": false,
   "tuitionStandardCNYPerYear": null,

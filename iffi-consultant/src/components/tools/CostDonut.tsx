@@ -1,5 +1,5 @@
 'use client';
-import { fmtMoney } from '@/lib/format';
+import { fmtCNY } from '@/lib/format';
 
 export interface Slice {
   label: string;
@@ -7,8 +7,8 @@ export interface Slice {
   color: string;
 }
 
-/** Hand-drawn SVG donut (no chart library). Values in the display currency. */
-export function CostDonut({ slices, code, centerLabel, centerValue }: { slices: Slice[]; code: string; centerLabel: string; centerValue: string }) {
+/** Hand-drawn SVG donut (no chart library). Values in RMB. */
+export function CostDonut({ slices, centerLabel, centerValue }: { slices: Slice[]; centerLabel: string; centerValue: string }) {
   const total = slices.reduce((n, s) => n + Math.max(0, s.value), 0) || 1;
   const r = 70;
   const c = 2 * Math.PI * r;
@@ -43,7 +43,7 @@ export function CostDonut({ slices, code, centerLabel, centerValue }: { slices: 
               <span className="h-3 w-3 shrink-0 rounded-sm" style={{ background: s.color }} aria-hidden="true" />
               {s.label}
             </span>
-            <span className="tabular shrink-0 whitespace-nowrap font-medium text-navy">{fmtMoney(s.value, code)}</span>
+            <span className="tabular shrink-0 whitespace-nowrap font-medium text-navy">{fmtCNY(s.value)}</span>
           </li>
         ))}
       </ul>

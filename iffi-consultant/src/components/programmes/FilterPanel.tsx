@@ -5,7 +5,7 @@ import { programs } from '@/data/catalog';
 import { provinces } from '@/data/places';
 import { tools } from '@/data/config';
 import { cn } from '@/lib/cn';
-import { fmtMoney, fmtNumber } from '@/lib/format';
+import { fmtNumber } from '@/lib/format';
 import { FUNDING, TUITION_MAX, TUITION_STEP, matches, toggle, type FinderState } from '@/lib/filters';
 import { LEVEL_LABEL, LEVEL_ORDER } from '@/lib/programs';
 import { Chip } from '@/components/ui/primitives';
@@ -15,7 +15,6 @@ import { MiniMap } from '@/components/map/MiniMap';
 interface Props {
   state: FinderState;
   onChange: (next: FinderState) => void;
-  currency: { code: string; toLocal: (cny: number) => number };
 }
 
 function Group({ title, children, id }: { title: string; children: ReactNode; id?: string }) {
@@ -46,7 +45,7 @@ function useCounter(state: FinderState) {
   return (patch: Partial<FinderState>) => programs.filter((p) => matches(p, { ...state, ...patch })).length;
 }
 
-export function FilterPanel({ state, onChange, currency }: Props) {
+export function FilterPanel({ state, onChange }: Props) {
   const set = (patch: Partial<FinderState>) => onChange({ ...state, ...patch });
   const count = useCounter(state);
   const uid = useId();
@@ -132,11 +131,10 @@ export function FilterPanel({ state, onChange, currency }: Props) {
 
       <Group title="Maximum tuition per year">
         <div className="flex items-baseline justify-between text-sm">
-          <span className="font-medium text-navy">{state.max === null ? 'Any amount' : `${fmtNumber(sliderValue)} CNY`}</span>
-          {state.max !== null && currency.code !== 'CNY' && <span className="text-muted">≈ {fmtMoney(currency.toLocal(sliderValue), currency.code)}</span>}
+          <span className="font-medium text-navy">{state.max === null ? 'Any amount' : `${fmtNumber(sliderValue)} RMB`}</span>
         </div>
         <Slider
-          aria-label="Maximum tuition per year in CNY"
+          aria-label="Maximum tuition per year in RMB"
           value={sliderValue}
           min={0}
           max={TUITION_MAX}
