@@ -56,14 +56,17 @@ export function PageHeader({ title, lede, crumbs, children, aside, className }: 
       <Container className="relative">
         <Breadcrumbs items={crumbs} />
         <div className={cn('mt-8 grid gap-10', !!aside && 'lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-end')}>
-          <div className="max-w-3xl">
+          {/* hero-enter: the same CSS-only entrance as the home hero (the h1 stays visible from the first frame) */}
+          <div className="hero-enter max-w-3xl">
             <h1 className="text-[clamp(2.1rem,4vw,3.4rem)] leading-[1.08] text-white">{title}</h1>
             {lede && <div className="text-lede mt-5 max-w-2xl text-mist">{lede}</div>}
             {children && <div className="mt-7">{children}</div>}
           </div>
-          {aside}
+          {aside && <div className="motion-safe:animate-card-in [animation-delay:200ms]">{aside}</div>}
         </div>
       </Container>
+      {/* the key-fret border that also tops the footer, so every inner page opens and closes with it */}
+      <div className="fret-line absolute inset-x-0 bottom-0 opacity-70" aria-hidden="true" />
     </header>
   );
 }

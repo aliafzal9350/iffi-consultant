@@ -173,6 +173,8 @@ function ToolsMenu() {
   );
 }
 
+const XL_ONLY = new Set(['/', '/faq']);
+
 const navLinkClass = (active: boolean) =>
   cn(
     'relative whitespace-nowrap rounded-md px-1 py-1.5 text-[14px] xl:text-[14.5px] font-medium transition-colors duration-200',
@@ -240,8 +242,8 @@ export function Header() {
           <nav aria-label="Main" className="hidden lg:block">
             <ul className="flex items-center gap-3.5 xl:gap-5">
               {nav.map((item) => (
-                // the logo already links home, so "Home" only shows when there is room for it
-                <li key={item.path} className={item.path === '/' ? 'hidden xl:block' : undefined}>
+                // only shown when there is room (xl): the logo already links home, and the FAQ is on the home page and in the footer
+                <li key={item.path} className={XL_ONLY.has(item.path) ? 'hidden xl:block' : undefined}>
                   {item.children ? (
                     <ToolsMenu />
                   ) : (

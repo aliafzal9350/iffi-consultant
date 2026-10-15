@@ -10,8 +10,8 @@ import {
   ServicesSection,
   ToolsSection,
   TrustStrip,
-  WhyUsSection,
 } from '@/components/sections/HomeSections';
+import { StoriesSection } from '@/components/testimonials/StoriesSection';
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <HighlightsSection />
       <ServicesSection />
       <ProcessSection />
-      <WhyUsSection />
+      <StoriesSection />
       <FaqPreview />
       <FinalCta />
     </>

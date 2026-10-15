@@ -18,7 +18,7 @@ interface DrawerProps {
   labelId?: string;
 }
 
-const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+export const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
 const EXIT_MS = 380;
 
@@ -26,7 +26,7 @@ const EXIT_MS = 380;
  * Keep the dialog mounted for the exit transition: `mounted` adds it to the page, `shown` (set one frame
  * later) slides it in, so the CSS transition runs both ways without an animation library.
  */
-function usePresence(open: boolean) {
+export function usePresence(open: boolean) {
   const [mounted, setMounted] = useState(open);
   const [shown, setShown] = useState(false);
   useEffect(() => {

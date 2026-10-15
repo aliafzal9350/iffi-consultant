@@ -83,7 +83,8 @@ site = {
             {"label": "Cost Calculator", "path": "/tools/cost-calculator"},
             {"label": "University Finder", "path": "/programmes"},
             {"label": "Eligibility Checker", "path": "/tools/eligibility-checker"}]},
-        {"label": "Services", "path": "/services"}, {"label": "About", "path": "/about"},
+        {"label": "Services", "path": "/services"}, {"label": "Success Stories", "path": "/testimonials"},
+        {"label": "About", "path": "/about"},
         {"label": "Blog", "path": "/blog"}, {"label": "FAQ", "path": "/faq"},
         {"label": "Contact", "path": "/contact"},
     ],
@@ -315,6 +316,9 @@ site = {
             "/about": {"title": "About IFFI Consultant - China Study Experts",
                        "description": "A China study consultancy (IFFI Consultant) helping students from Pakistan and "
                                       "worldwide reach Chinese universities."},
+            "/testimonials": {"title": "Student Stories & China Admission Results | IFFI Consultant",
+                              "description": "Watch IFFI students talk about studying in China and see their 2026 "
+                                             "admission notices and JW202 visa forms, with personal details blurred."},
             "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Consultant",
                      "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."},
             "/contact": {"title": "Contact IFFI Consultant - WhatsApp +86 182 7572 2580",

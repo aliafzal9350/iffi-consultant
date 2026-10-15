@@ -13,6 +13,7 @@ const STATIC: [path: string, priority: number][] = [
   ['/tools/cost-calculator', 0.9],
   ['/tools/eligibility-checker', 0.9],
   ['/services', 0.8],
+  ['/testimonials', 0.8],
   ['/about', 0.6],
   ['/blog', 0.7],
   ['/faq', 0.7],
