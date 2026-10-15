@@ -7,24 +7,9 @@ export function fmtNumber(n: number, decimals = 0): string {
   return decimals === 0 ? intFmt.format(Math.round(n)) : oneDecFmt.format(n);
 }
 
+/** Every amount on the site is in Chinese yuan, shown as "RMB" (data and code keep the ISO code CNY). */
 export function fmtCNY(n: number): string {
-  return `${fmtNumber(n)} CNY`;
-}
-
-/** Round converted amounts to a sensible precision so "41,236.9 PKR" reads as "41,240 PKR". */
-export function roundForDisplay(n: number): number {
-  const abs = Math.abs(n);
-  if (abs >= 1_000_000) return Math.round(n / 1000) * 1000;
-  if (abs >= 100_000) return Math.round(n / 100) * 100;
-  if (abs >= 1_000) return Math.round(n / 10) * 10;
-  if (abs >= 100) return Math.round(n);
-  return Math.round(n * 10) / 10;
-}
-
-export function fmtMoney(n: number, code: string): string {
-  const v = roundForDisplay(n);
-  const body = Math.abs(v) < 100 && !Number.isInteger(v) ? oneDecFmt.format(v) : intFmt.format(v);
-  return `${body} ${code}`;
+  return `${fmtNumber(n)} RMB`;
 }
 
 export function plural(n: number, one: string, many?: string): string {

@@ -27,7 +27,6 @@ export function SettingsForm({ initial }: { initial: PaymentSettings }) {
     accountNumber: initial.accountNumber,
     iban: initial.iban,
     instructions: initial.instructions,
-    currency: initial.currency,
   });
   const [fees, setFees] = useState<Record<string, string>>(Object.fromEntries(LEVEL_ORDER.map((l) => [l, initial.applicationFeeUsd[l]?.toString() ?? ''])));
   const [qrPath, setQrPath] = useState('');
@@ -103,7 +102,6 @@ export function SettingsForm({ initial }: { initial: PaymentSettings }) {
           <Text name="bankName" label="Bank or wallet" value={v.bankName} onChange={set('bankName')} />
           <Text name="accountNumber" label="Account number" value={v.accountNumber} onChange={set('accountNumber')} />
           <Text name="iban" label="IBAN" value={v.iban} onChange={set('iban')} />
-          <Text name="currency" label="Currency most students pay in" value={v.currency} onChange={(x) => set('currency')(x.toUpperCase())} hint="3 letters, for example PKR." />
           <label className="block sm:col-span-2">
             <span className="mb-1.5 block text-[14px] font-medium text-navy">Instructions under the QR code</span>
             <textarea name="instructions" rows={3} maxLength={600} value={v.instructions} onChange={(e) => set('instructions')(e.target.value)} className={cn(inputClass, 'min-h-24 py-3')} />
@@ -112,8 +110,8 @@ export function SettingsForm({ initial }: { initial: PaymentSettings }) {
       </section>
 
       <section className="rounded-card border border-line bg-white p-6 sm:p-7">
-        <h2 className="text-[1.25rem]">Default application fee (USD)</h2>
-        <p className="mt-1 text-[14px] text-muted">Used when an application has no fee of its own. Leave empty until IFFI confirms the price: students then see “Ask IFFI”.</p>
+        <h2 className="text-[1.25rem]">Default application fee (RMB)</h2>
+        <p className="mt-1 text-[14px] text-muted">Used when an application has no fee of its own. Every fee and payment is in RMB. Leave empty until IFFI confirms the price: students then see “Ask IFFI”.</p>
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-5">
           {LEVEL_ORDER.map((l) => (
             <label key={l} className="block">

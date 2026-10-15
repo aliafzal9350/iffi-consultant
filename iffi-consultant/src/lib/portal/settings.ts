@@ -2,7 +2,7 @@
 import 'server-only';
 import { cache } from 'react';
 import { createClient } from '@/lib/supabase/server';
-import { EMPTY_PAYMENT_SETTINGS, type PaymentSettings } from './payment';
+import { EMPTY_PAYMENT_SETTINGS, PAYMENT_CURRENCY, type PaymentSettings } from './payment';
 
 export const getPaymentSettings = cache(async (): Promise<PaymentSettings> => {
   const supabase = await createClient();
@@ -11,6 +11,7 @@ export const getPaymentSettings = cache(async (): Promise<PaymentSettings> => {
   return {
     ...EMPTY_PAYMENT_SETTINGS,
     ...saved,
+    currency: PAYMENT_CURRENCY,
     applicationFeeUsd: { ...EMPTY_PAYMENT_SETTINGS.applicationFeeUsd, ...(saved.applicationFeeUsd ?? {}) },
   };
 });

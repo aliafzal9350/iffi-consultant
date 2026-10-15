@@ -7,7 +7,6 @@ import { programs } from '@/data/catalog';
 import { plural } from '@/lib/format';
 import { EMPTY, SORTS, activeFilters, parseState, relaxSuggestions, runFinder, toParams, type FinderState, type SortId } from '@/lib/filters';
 import { useIsClient } from '@/hooks/useIsClient';
-import { useCurrency } from '@/hooks/useCurrency';
 import { useLists } from '@/hooks/useLists';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, Disclaimer, EmptyState } from '@/components/ui/primitives';
@@ -27,7 +26,6 @@ export default function Finder() {
   const state = useMemo(() => (isClient ? parseState(params) : EMPTY), [isClient, params]);
   const results = useMemo(() => runFinder(state), [state]);
   const active = activeFilters(state);
-  const currency = useCurrency();
   const { shortlist, setShortlistOpen } = useLists();
   const [sheet, setSheet] = useState(false);
   // a page of cards keeps the DOM small on phones; filters reset it to the first page
@@ -78,7 +76,7 @@ export default function Finder() {
                   </button>
                 )}
               </div>
-              <FilterPanel state={state} onChange={update} currency={currency} />
+              <FilterPanel state={state} onChange={update} />
             </div>
           </aside>
 
@@ -218,7 +216,7 @@ export default function Finder() {
           </div>
         }
       >
-        <FilterPanel state={state} onChange={update} currency={currency} />
+        <FilterPanel state={state} onChange={update} />
       </Drawer>
     </>
   );

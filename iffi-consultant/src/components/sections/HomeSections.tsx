@@ -38,7 +38,7 @@ import { ProgrammeCard } from '@/components/programmes/ProgrammeCard';
 
 const hours = site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '');
 
-/** "3,500 CNY" -> 3500 and " CNY", so text figures can count up too */
+/** "3,500 RMB" -> 3500 and " RMB", so text figures can count up too */
 function splitFigure(v: number | string): { n: number | null; rest: string } {
   if (typeof v === 'number') return { n: v, rest: '' };
   const m = v.match(/^([\d,]+)(.*)$/);
@@ -226,7 +226,7 @@ function ProvinceTile({ name, compact }: { name: string; compact?: boolean }) {
       <span className="relative mt-1 text-sm text-gold-2">{plural(p.programCount, 'programme')}</span>
       <span className="relative mt-5 text-[13.5px] text-mist">{levels.join(', ')}</span>
       <span className="relative mt-1 text-[13.5px] text-mist/75">{p.cities.length ? p.cities.map((c) => c.name).join(', ') : 'Province-wide'}</span>
-      {p.maxStipendCNYPerMonth && <span className="relative mt-auto pt-5 text-[13px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} CNY/month</span>}
+      {p.maxStipendCNYPerMonth && <span className="relative mt-auto pt-5 text-[13px] text-white">Stipends up to {fmtNumber(p.maxStipendCNYPerMonth)} RMB/month</span>}
       <span className="absolute inset-x-6 bottom-0 h-[2px] origin-left scale-x-0 bg-gold-2 transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
     </Link>
   );

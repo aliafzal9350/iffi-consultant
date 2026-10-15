@@ -144,7 +144,7 @@ export default function ProgrammeDetail({ p, similar }: { p: Program; similar: P
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-[15px]">Fully funded offer: tuition and dormitory are free and a monthly stipend is paid{p.stipendCNYPerMonth ? ` (${fmtNumber(p.stipendCNYPerMonth)} CNY)` : ''}.</p>
+                  <p className="text-[15px]">Fully funded offer: tuition and dormitory are free and a monthly stipend is paid{p.stipendCNYPerMonth ? ` (${fmtNumber(p.stipendCNYPerMonth)} RMB)` : ''}.</p>
                 )}
               </Block>
             )}

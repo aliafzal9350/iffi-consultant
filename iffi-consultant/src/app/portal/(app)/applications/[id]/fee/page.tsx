@@ -4,12 +4,11 @@ import { CircleAlert, CircleCheck, Clock, Lock, QrCode, ShieldCheck } from 'luci
 import { site } from '@/data/content';
 import { requireUser } from '@/lib/auth/dal';
 import { cn } from '@/lib/cn';
-import { CURRENCIES } from '@/lib/currency';
 import { Link } from '@/lib/router';
 import { applicationRef, stepPath } from '@/lib/portal/application';
 import { acceptRefundPolicy } from '@/lib/portal/apply-actions';
 import { loadApplication } from '@/lib/portal/load';
-import { PAYMENT_STATUS_LABEL, PURPOSE_LABEL, amountDue, fmtMoney, latestPayment, type PaymentPurpose } from '@/lib/portal/payment';
+import { PAYMENT_CURRENCY, PAYMENT_STATUS_LABEL, PURPOSE_LABEL, amountDue, fmtMoney, latestPayment, type PaymentPurpose } from '@/lib/portal/payment';
 import { REFUND_POLICY } from '@/lib/portal/policy';
 import { getPaymentSettings, paymentReady } from '@/lib/portal/settings';
 import { buttonClass } from '@/components/ui/buttonStyles';
@@ -39,7 +38,6 @@ export default async function FeePage({ params, searchParams }: { params: Promis
   const open = isService ? ['jw202_issued', 'visa'].includes(app.status) : Boolean(app.signed_at);
   const usedProofs = new Set(payments.map((p) => p.proof_document_id));
   const spare = [...docs].reverse().find((d) => d.kind === 'payment_proof' && !usedProofs.has(d.id));
-  const currencies = [...new Set([settings.currency, 'USD', 'PKR', 'CNY', ...CURRENCIES.map((c) => c.code)])];
   const wa = `https://wa.me/${site.contact.whatsappNumber}?text=${encodeURIComponent(`Hello IFFI, I am paying the ${PURPOSE_LABEL[purpose].toLowerCase()} for application ${ref}. Can you confirm the amount and payment details?`)}`;
 
   const details = [
@@ -169,9 +167,9 @@ export default async function FeePage({ params, searchParams }: { params: Promis
                     <div className="space-y-4">
                       <div className="rounded-2xl bg-navy p-4 text-mist">
                         <p className="text-[13px]">Amount to pay</p>
-                        <p className="tabular mt-1 font-display text-[1.9rem] font-semibold leading-none text-gold-2">{due != null ? fmtMoney(due, 'USD') : 'Ask IFFI'}</p>
+                        <p className="tabular mt-1 font-display text-[1.9rem] font-semibold leading-none text-gold-2">{due != null ? fmtMoney(due, PAYMENT_CURRENCY) : 'Ask IFFI'}</p>
                         <p className="mt-2 text-[13px]">
-                          {due != null ? `Paying in ${settings.currency}? Ask your adviser for the exact figure first.` : 'Your adviser confirms the exact amount on WhatsApp before you pay.'}
+                          {due != null ? 'Pay this amount in RMB. Your adviser can confirm it on WhatsApp first.' : 'Your adviser confirms the exact amount on WhatsApp before you pay.'}
                         </p>
                       </div>
                       {details.length > 0 && (
@@ -207,7 +205,7 @@ export default async function FeePage({ params, searchParams }: { params: Promis
                     3. Send us the transaction details
                   </h2>
                   <p className="mt-1 mb-5 text-[14px] text-muted">From the confirmation screen in your banking app. Take a screenshot of it too.</p>
-                  <PaymentForm appId={app.id} purpose={purpose} currencies={currencies} defaultCurrency={settings.currency} pendingProof={spare ? { id: spare.id, name: spare.file_name } : null} />
+                  <PaymentForm appId={app.id} purpose={purpose} pendingProof={spare ? { id: spare.id, name: spare.file_name } : null} />
                 </section>
               </>
             )}

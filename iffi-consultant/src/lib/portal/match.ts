@@ -31,7 +31,7 @@ export function reasonsFor(p: Program, pr: Profile): string[] {
   const out: string[] = [];
   if (p.fullyFunded) out.push('Full scholarship listed');
   else if (hasTuitionFreeOption(p)) out.push('Tuition-free scholarship option');
-  if (hasStipend(p)) out.push(`Stipend of ${fmtNumber(p.stipendCNYPerMonth!)} CNY a month`);
+  if (hasStipend(p)) out.push(`Stipend of ${fmtNumber(p.stipendCNYPerMonth!)} RMB a month`);
   if (pr.field && p.fields.includes(pr.field)) out.push(`Has ${pr.field} majors`);
   if (isEnglishTaught(p)) out.push('Taught in English');
   if (p.noIeltsRequired) out.push('No IELTS needed');

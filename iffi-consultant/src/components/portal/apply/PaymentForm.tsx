@@ -4,7 +4,7 @@ import { useActionState, useState } from 'react';
 import { Check, CircleCheck, Copy, Paperclip } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { buttonClass } from '@/components/ui/buttonStyles';
-import { Select, inputClass } from '@/components/ui/Form';
+import { inputClass } from '@/components/ui/Form';
 import { submitPayment, type ActionResult } from '@/lib/portal/apply-actions';
 import type { PaymentPurpose } from '@/lib/portal/payment';
 import { DocumentUploader } from './DocumentUploader';
@@ -44,17 +44,15 @@ function Err({ id, text }: { id: string; text?: string }) {
 interface Props {
   appId: string;
   purpose: PaymentPurpose;
-  currencies: string[];
-  defaultCurrency: string;
   /** a screenshot uploaded earlier that no payment uses yet */
   pendingProof: { id: string; name: string } | null;
 }
 
-export function PaymentForm({ appId, purpose, currencies, defaultCurrency, pendingProof }: Props) {
+export function PaymentForm({ appId, purpose, pendingProof }: Props) {
   const [state, action, pending] = useActionState<ActionResult, FormData>(submitPayment, { ok: false });
   const [proof, setProof] = useState(pendingProof);
   // controlled: React resets uncontrolled fields after every action, which would wipe them on an error
-  const [v, setV] = useState({ amount: '', currency: defaultCurrency, transactionId: '', paidOn: new Date().toISOString().slice(0, 10) });
+  const [v, setV] = useState({ amount: '', transactionId: '', paidOn: new Date().toISOString().slice(0, 10) });
   const bind = (name: keyof typeof v) => ({ name, value: v[name], onChange: (ev: { target: { value: string } }) => setV((cur) => ({ ...cur, [name]: ev.target.value })) });
   const e = state.errors ?? {};
   const today = new Date().toISOString().slice(0, 10);
@@ -74,24 +72,11 @@ export function PaymentForm({ appId, purpose, currencies, defaultCurrency, pendi
       <input type="hidden" name="purpose" value={purpose} />
       <input type="hidden" name="proofId" value={proof?.id ?? ''} />
 
-      <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_140px]">
-        <label className="block">
-          <span className="mb-1.5 block text-sm font-medium text-navy">Amount you paid</span>
-          <input {...bind('amount')} inputMode="decimal" required aria-invalid={e.amount ? true : undefined} aria-describedby="pay-amount-err" className={cn(inputClass, 'tabular')} placeholder="0.00" />
-          <Err id="pay-amount-err" text={e.amount} />
-        </label>
-        <label className="block">
-          <span className="mb-1.5 block text-sm font-medium text-navy">Currency</span>
-          <Select {...bind('currency')} aria-invalid={e.currency ? true : undefined}>
-            {currencies.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </Select>
-          <Err id="pay-currency-err" text={e.currency} />
-        </label>
-      </div>
+      <label className="block sm:max-w-[320px]">
+        <span className="mb-1.5 block text-sm font-medium text-navy">Amount you paid (RMB)</span>
+        <input {...bind('amount')} inputMode="decimal" required aria-invalid={e.amount ? true : undefined} aria-describedby="pay-amount-err" className={cn(inputClass, 'tabular')} placeholder="0.00" />
+        <Err id="pay-amount-err" text={e.amount} />
+      </label>
 
       <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_200px]">
         <label className="block">

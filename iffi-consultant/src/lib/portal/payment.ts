@@ -6,6 +6,9 @@
 import { LEVEL_ORDER } from '@/lib/programs';
 
 export type PaymentPurpose = 'application_fee' | 'service_charge';
+
+/** Every fee and payment is in Chinese yuan (ISO code CNY), shown as "RMB" (client decision, 2026-10-14). */
+export const PAYMENT_CURRENCY = 'CNY';
 export type PaymentStatus = 'submitted' | 'verified' | 'rejected';
 
 export const PURPOSE_LABEL: Record<PaymentPurpose, string> = {
@@ -26,11 +29,12 @@ export interface PaymentSettings {
   iban: string;
   /** shown under the QR code, e.g. "Raast QR: works with every Pakistani banking app" */
   instructions: string;
-  /** the currency most students pay in (they can choose another) */
+  /** always PAYMENT_CURRENCY; getPaymentSettings overrides any older saved value */
   currency: string;
   /** storage path of the QR image in the private bucket, or null before an admin uploads it */
   qrPath: string | null;
-  /** default application fee by level in USD; null = not set (staff then set it per application) */
+  /** default application fee by level in RMB; null = not set (staff then set it per application). The key and the
+   *  applications.*_usd columns keep their names from before the switch from USD to RMB. */
   applicationFeeUsd: Record<string, number | null>;
 }
 
@@ -40,7 +44,7 @@ export const EMPTY_PAYMENT_SETTINGS: PaymentSettings = {
   accountNumber: '',
   iban: '',
   instructions: '',
-  currency: 'PKR',
+  currency: PAYMENT_CURRENCY,
   qrPath: null,
   applicationFeeUsd: Object.fromEntries(LEVEL_ORDER.map((l) => [l, null])),
 };
@@ -74,5 +78,6 @@ export function amountDue(
 /** The latest payment for a purpose (payments arrive newest first). */
 export const latestPayment = (payments: PaymentRow[], purpose: PaymentPurpose) => payments.find((p) => p.purpose === purpose) ?? null;
 
+/** "RMB 2,000"; a payment recorded in another currency before the switch keeps its own code. */
 export const fmtMoney = (amount: number, currency: string) =>
-  `${currency} ${amount.toLocaleString('en-US', { minimumFractionDigits: Number.isInteger(amount) ? 0 : 2, maximumFractionDigits: 2 })}`;
+  `${currency === 'CNY' ? 'RMB' : currency} ${amount.toLocaleString('en-US', { minimumFractionDigits: Number.isInteger(amount) ? 0 : 2, maximumFractionDigits: 2 })}`;

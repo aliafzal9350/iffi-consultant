@@ -40,9 +40,7 @@ export const KEYS = {
   shortlist: 'gj:shortlist',
   compare: 'gj:compare',
   consent: 'gj:consent',
-  rates: 'gj:fx',
   eligibility: 'gj:eligibility',
   checklist: 'gj:checklist',
-  currency: 'gj:currency',
   portalQuiz: 'gj:portal-quiz',
 } as const;

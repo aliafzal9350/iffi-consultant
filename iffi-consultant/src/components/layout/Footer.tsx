@@ -5,7 +5,7 @@ import { TOOLS } from '@/lib/toolsMeta';
 import { Container } from '@/components/ui/primitives';
 import { Wordmark } from '@/components/ui/Logo';
 import { WhatsAppButton } from '@/components/ui/Button';
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '@/components/ui/BrandIcons';
+import { FacebookIcon, InstagramIcon, WeChatIcon, WhatsAppIcon } from '@/components/ui/BrandIcons';
 
 const quickLinks = [
   { label: 'Programme finder', path: '/programmes' },
@@ -98,6 +98,13 @@ export function Footer() {
                   <WhatsAppIcon size={16} className="text-gold-2" />
                   WhatsApp, {site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '')}
                 </a>
+              </li>
+              {/* a link only: the WeChat QR code stays on the contact page, off the home page */}
+              <li>
+                <Link to="/contact#wechat" className="inline-flex items-center gap-2.5 hover:text-gold-2">
+                  <WeChatIcon size={16} className="text-gold-2" />
+                  WeChat
+                </Link>
               </li>
               {site.social.email && (
                 <li>

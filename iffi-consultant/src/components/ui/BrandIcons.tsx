@@ -12,6 +12,21 @@ export function WhatsAppIcon({ size = 20, className }: Props) {
   );
 }
 
+export function WeChatIcon({ size = 20, className }: Props) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path
+        fillRule="evenodd"
+        d="M9.5 3C5.36 3 2 5.8 2 9.25c0 1.97 1.1 3.73 2.82 4.87L4.2 16.5l2.67-1.38c.83.24 1.71.38 2.63.38.3 0 .6-.01.89-.04A5.6 5.6 0 0 1 10.2 14c0-3.2 3.06-5.8 6.84-5.8.3 0 .6.02.89.05C17.25 5.25 13.7 3 9.5 3ZM7 7.4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
+      />
+      <path
+        fillRule="evenodd"
+        d="M17.04 9.4c-3.15 0-5.7 2.1-5.7 4.7s2.55 4.7 5.7 4.7c.68 0 1.33-.1 1.94-.28L21 19.6l-.5-1.86c1.3-.86 2.1-2.17 2.1-3.64 0-2.6-2.4-4.7-5.56-4.7Zm-1.94 3a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Zm3.9 0a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"
+      />
+    </svg>
+  );
+}
+
 export function FacebookIcon({ size = 20, className }: Props) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>

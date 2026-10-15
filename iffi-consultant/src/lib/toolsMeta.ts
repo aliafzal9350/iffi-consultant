@@ -26,7 +26,7 @@ export const TOOLS: ToolMeta[] = [
     path: '/tools/cost-calculator',
     name: 'Study Cost Calculator',
     short: 'Cost Calculator',
-    description: 'Tuition, hostel and living costs for any city, converted into your own currency.',
+    description: 'Tuition, hostel and living costs for any city, with every amount in RMB.',
     benefit: 'See your first-year total and what a scholarship would save.',
     icon: Calculator,
   },

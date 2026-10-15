@@ -1,6 +1,5 @@
 import { Link } from '@/lib/router';
 import { BadgeCheck, ChevronRight, Coins, FileText, Lock } from 'lucide-react';
-import { tools } from '@/data/config';
 import { meta } from '@/data/content';
 import { TOOLS } from '@/lib/toolsMeta';
 import { JsonLd } from '@/components/ui/Seo';
@@ -23,8 +22,8 @@ const HOW = [
   },
   {
     icon: Coins,
-    title: 'In your own currency',
-    text: `Costs are shown in Chinese yuan and converted into ${tools.currency.currencies.length} currencies, including PKR, BDT, NGN and INR, with exchange rates updated daily.`,
+    title: 'All amounts in RMB',
+    text: 'Every cost is shown in RMB (Chinese yuan), the currency universities in China charge in, so the figures match what you will pay.',
   },
   {
     icon: BadgeCheck,

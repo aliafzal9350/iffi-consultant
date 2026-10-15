@@ -5,6 +5,7 @@ that file) and computed statistics from programs.json / the keyword-research CSV
 """
 import json, os, statistics, collections, csv, sys
 from pathlib import Path
+from rmb_label import rmb
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent  # research folder
 KIT_DATA = ROOT / 'iffi-consultant' / 'src' / 'data'
@@ -12,13 +13,12 @@ KIT_DATA = ROOT / 'iffi-consultant' / 'src' / 'data'
 OUT = sys.argv[1] if len(sys.argv) > 1 else str(KIT_DATA)
 ps = json.load(open(os.path.join(OUT, "programs.json"), encoding="utf-8"))
 provs = json.load(open(os.path.join(OUT, "provinces.json"), encoding="utf-8"))
-fx = json.load(open(HERE / "inputs" / "fx_cny.json", encoding="utf-8"))
 KW = ROOT / "Gujjify_Keyword_Research_Global.csv"
 kw = list(csv.DictReader(open(KW, encoding="utf-8-sig")))
 
 BRAND = "IFFI Consultant"
 SITE_URL = "https://www.ifficonsultant.com"
-WA = "923264570214"
+WA = "8618275722580"
 EMAIL = "ifficonsultant@gmail.com"
 n = len(ps)
 english = sum("English" in (p["teachingLanguages"] or []) for p in ps)
@@ -47,9 +47,11 @@ site = {
                    "whatsapp": "#25d366", "error": "#c0392b"},
     },
     "contact": {
-        "phoneDisplay": "+92 326 4570214", "phoneE164": "+923264570214", "whatsappNumber": WA,
+        "phoneDisplay": "+86 182 7572 2580", "phoneE164": "+8618275722580", "whatsappNumber": WA,
         # Instagram / Facebook / UK company belonged to Gujjify - left empty until IFFI confirms its own
         "whatsappUrl": f"https://wa.me/{WA}", "email": EMAIL,
+        # WeChat QR from IFFI (2026-10-14), shown on the contact page only, never on the home page
+        "wechat": {"qrImage": "/images/wechat-qr.jpg", "note": "Scan with WeChat to add IFFI as a friend."},
         "responsePromise": "We usually reply within minutes on WhatsApp.",
         "hours": "Open 24/7 on WhatsApp",
         "offices": [
@@ -65,7 +67,7 @@ site = {
         "instagram": None,
         "whatsapp": f"https://wa.me/{WA}",
         "email": f"mailto:{EMAIL}",
-        "phone": "tel:+923264570214",
+        "phone": "tel:+8618275722580",
     },
     "legal": {
         "companyName": None, "companyNumber": None, "registeredIn": None, "registeredOffice": None,
@@ -236,7 +238,7 @@ site = {
          "a": "In our current list, Bachelor tuition before scholarships ranges from about 2,000 to 39,900 CNY per "
               "year (median about 14,000 CNY), MBBS from 26,000 to 40,000 CNY per year, and the Master and PhD offers "
               "are fully funded. Living costs are roughly 800-4,000 CNY a month depending on the city. Use our Cost "
-              "Calculator for an estimate in your own currency."},
+              "Calculator for an estimate in RMB."},
         {"q": "What are hostels and student life like?", "status": "draft-needs-client-approval",
          "a": "Most universities offer on-campus dormitories - shared rooms are the cheapest and many scholarships "
               "include free accommodation. Single rooms and off-campus options cost more. Campuses have canteens, "
@@ -303,7 +305,7 @@ site = {
                                            "and stipend. Shortlist, compare and download your list as PDF."},
             "/tools/cost-calculator": {"title": "Study in China Cost Calculator - Tuition + Living | IFFI Consultant",
                                        "description": "Estimate tuition, hostel and living costs in China by city and "
-                                                      "scholarship - shown in PKR, BDT, NGN, IDR and 40+ currencies."},
+                                                      "scholarship, with every amount in RMB."},
             "/tools/eligibility-checker": {"title": "China Scholarship (CSC) Eligibility Checker | IFFI Consultant",
                                            "description": "Check your eligibility for Chinese university scholarships "
                                                           "in 2 minutes - with or without IELTS - and see matching programmes."},
@@ -315,7 +317,7 @@ site = {
                                       "worldwide reach Chinese universities."},
             "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Consultant",
                      "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."},
-            "/contact": {"title": "Contact IFFI Consultant - WhatsApp +92 326 4570214",
+            "/contact": {"title": "Contact IFFI Consultant - WhatsApp +86 182 7572 2580",
                          "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Consultant."},
             "/blog": {"title": "Study in China Guides & News | IFFI Consultant Blog",
                       "description": "Guides on CSC scholarships, China student visas, costs and universities."},
@@ -357,7 +359,6 @@ MARKETS = [("PK", "Pakistan", "PKR"), ("ID", "Indonesia", "IDR"), ("VN", "Vietna
            ("GM", "Gambia", "GMD"), ("SO", "Somalia", "SOS"), ("LR", "Liberia", "LRD"),
            ("SL", "Sierra Leone", "SLE"), ("SN", "Senegal", "XOF")]
 flag = lambda cc: "".join(chr(0x1F1E6 + ord(c) - 65) for c in cc)
-rates = fx["cny"]
 currencies = [{"country": name, "countryCode": cc, "currency": cur, "flag": flag(cc),
                "keywordDemand": market_counts.get(cc, 0)} for cc, name, cur in MARKETS]
 currencies += [{"country": c, "countryCode": cc, "currency": cur, "flag": flag(cc), "keywordDemand": 0}
@@ -378,20 +379,11 @@ tools = {
         "ranking": [{"tool": t, "keywords": c, "markets": tool_markets[t]} for t, c in tool_counts.most_common()],
         "selected": ["Cost calculator", "University finder / agency no.", "Eligibility checker"],
     },
+    # Every amount on the site is shown in RMB only (client decision 2026-10-14): no conversion, no exchange rates.
+    # The market list stays as the country list for nationality pickers.
     "currency": {
         "base": "CNY",
-        "liveRatesUrl": "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/cny.json",
-        "liveRatesFallbackUrl": "https://latest.currency-api.pages.dev/v1/currencies/cny.json",
-        "liveRatesShape": "{ date: 'YYYY-MM-DD', cny: { pkr: 41.2, usd: 0.149, ... } } (lower-case codes)",
-        "fallbackRatesDate": fx["date"],
-        "fallbackRates": {c["currency"]: round(rates[c["currency"].lower()], 6) if c["currency"] != "CNY" else 1
-                          for c in currencies},
         "currencies": currencies,
-        "defaultByTimezoneHint": {"Asia/Karachi": "PKR", "Asia/Dhaka": "BDT", "Asia/Kolkata": "INR",
-                                  "Africa/Lagos": "NGN", "Asia/Jakarta": "IDR", "Asia/Ho_Chi_Minh": "VND",
-                                  "Africa/Nairobi": "KES", "Africa/Cairo": "EGP", "Asia/Almaty": "KZT",
-                                  "Asia/Tashkent": "UZS", "Asia/Kathmandu": "NPR", "Asia/Colombo": "LKR"},
-        "defaultCurrency": "PKR",
     },
     "costCalculator": {
         "note": "Fixed fees = most common values in the programme brochures. Living and accommodation = typical "
@@ -493,7 +485,6 @@ meta = {
         "website": "Gujjify_Website_Extraction.txt (old gujjify.com site - copy reused with the brand name replaced)",
         "keywords": "Gujjify_Keyword_Research_Global.csv + Gujjify_Keyword_Research_Autocomplete.csv",
         "geo": "Alibaba DataV GeoAtlas China provinces, simplified (china-provinces.geo.json)",
-        "fx": f"fawazahmed0 currency-api, {fx['date']}",
     },
     "counts": {"programmes": n, "provinces": len(provs), "cities": cities,
                "byLevel": dict(collections.Counter(p["level"] for p in ps)),
@@ -533,9 +524,9 @@ site_core = {
     "legal": {"footerDisclosure": site["legal"]["footerDisclosure"]},
 }
 
-json.dump(site, open(os.path.join(OUT, "site.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-json.dump(site_core, open(os.path.join(OUT, "site-core.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-json.dump(tools, open(os.path.join(OUT, "tools.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(rmb(site), open(os.path.join(OUT, "site.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(rmb(site_core), open(os.path.join(OUT, "site-core.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(rmb(tools), open(os.path.join(OUT, "tools.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 json.dump(meta, open(os.path.join(OUT, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 for f in ("site.json", "site-core.json", "tools.json", "meta.json"):
     print(f, os.path.getsize(os.path.join(OUT, f)), "bytes")

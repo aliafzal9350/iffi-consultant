@@ -47,7 +47,7 @@ export type QuestionId = (typeof QUESTIONS)[number];
 
 export const ENGLISH_TESTS = tools.eligibilityChecker.englishTests as { id: EnglishTest; label: string; max?: number; step?: number }[];
 
-/** "+92 326 4570214", "0092-326-4570214" -> "+923264570214"; null when it cannot be an international number */
+/** "+92 300 1234567", "0092-300-1234567" -> "+923001234567"; null when it cannot be an international number */
 export function normaliseWhatsApp(raw: string): string | null {
   let digits = raw.replace(/[\s\-().]/g, '');
   if (digits.startsWith('00')) digits = '+' + digits.slice(2);

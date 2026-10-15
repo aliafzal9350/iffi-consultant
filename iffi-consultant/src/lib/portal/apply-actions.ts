@@ -28,7 +28,7 @@ import { logEvent } from './events';
 import { BUCKET, cleanFileName, isUploadPathFor, uploadPath, UUID } from './files';
 import { SECTIONS, passportName, sanitizeSection, savedSection, validateSection, type Errors } from './form';
 import { formContextFor, loadApplication } from './load';
-import { latestPayment, type PaymentPurpose } from './payment';
+import { PAYMENT_CURRENCY, latestPayment, type PaymentPurpose } from './payment';
 import { DECLARATION, REFUND_POLICY } from './policy';
 import { emailPaymentSubmitted, emailStaffStudentFixed } from '@/lib/notify/application';
 
@@ -328,12 +328,11 @@ export async function submitPayment(_prev: ActionResult, data: FormData): Promis
 
   const errors: Errors = {};
   const amount = Number(String(data.get('amount') ?? '').replace(/,/g, ''));
-  const currency = String(data.get('currency') ?? '').toUpperCase();
+  const currency = PAYMENT_CURRENCY;
   const txn = String(data.get('transactionId') ?? '').trim();
   const paidOn = String(data.get('paidOn') ?? '');
   const proofId = String(data.get('proofId') ?? '');
   if (!(amount > 0 && amount < 1e9)) errors.amount = 'Enter the amount you paid.';
-  if (!/^[A-Z]{3}$/.test(currency)) errors.currency = 'Choose the currency.';
   if (!TXN.test(txn)) errors.transactionId = 'Copy the transaction ID (or reference number) from your banking app.';
   const day = /^\d{4}-\d{2}-\d{2}$/.test(paidOn) ? new Date(`${paidOn}T00:00:00Z`) : null;
   const tomorrow = Date.now() + 24 * 3600 * 1000;

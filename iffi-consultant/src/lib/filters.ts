@@ -193,7 +193,7 @@ export function activeFilters(s: FinderState): ActiveFilter[] {
     out.push({ key: `funding:${f}`, label: FUNDING.find((x) => x.id === f)!.label, without: { ...s, funding: s.funding.filter((x) => x !== f) } }),
   );
   if (s.noielts) out.push({ key: 'noielts', label: 'No IELTS required', without: { ...s, noielts: false } });
-  if (s.max !== null) out.push({ key: 'max', label: `Tuition up to ${fmtNumber(s.max)} CNY/yr`, without: { ...s, max: null } });
+  if (s.max !== null) out.push({ key: 'max', label: `Tuition up to ${fmtNumber(s.max)} RMB/yr`, without: { ...s, max: null } });
   if (s.top50) out.push({ key: 'top50', label: 'Top 50 in China', without: { ...s, top50: false } });
   if (s.easy) out.push({ key: 'easy', label: 'No interview or video', without: { ...s, easy: false } });
   return out;

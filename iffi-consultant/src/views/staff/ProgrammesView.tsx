@@ -886,7 +886,7 @@ export default function ProgrammesView({ initialPrograms = [] }: { initialProgra
                 <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
                   <div>
                     <label className="block text-xs font-medium text-navy">
-                      Standard Tuition (CNY/year)
+                      Standard Tuition (RMB/year)
                     </label>
                     <input
                       type="number"
@@ -903,7 +903,7 @@ export default function ProgrammesView({ initialPrograms = [] }: { initialProgra
 
                   <div>
                     <label className="block text-xs font-medium text-navy">
-                      Minimum Tuition (CNY/year)
+                      Minimum Tuition (RMB/year)
                     </label>
                     <input
                       type="number"
@@ -920,7 +920,7 @@ export default function ProgrammesView({ initialPrograms = [] }: { initialProgra
 
                   <div>
                     <label className="block text-xs font-medium text-navy">
-                      Monthly Stipend (CNY/month)
+                      Monthly Stipend (RMB/month)
                     </label>
                     <input
                       type="number"
@@ -944,7 +944,7 @@ export default function ProgrammesView({ initialPrograms = [] }: { initialProgra
                       type="text"
                       value={editingProgram.dorm || ''}
                       onChange={(e) => setEditingProgram({ ...editingProgram, dorm: e.target.value })}
-                      placeholder="e.g. Free (scholarship) or 4,000 CNY/year"
+                      placeholder="e.g. Free (scholarship) or 4,000 RMB/year"
                       className="mt-1 w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-navy"
                     />
                   </div>

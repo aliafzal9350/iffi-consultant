@@ -13,7 +13,7 @@ import { DOCS, isDocKind } from '@/lib/portal/documents';
 import { logEvent } from '@/lib/portal/events';
 import { BUCKET, UUID, settingsPath } from '@/lib/portal/files';
 import { LEVEL_ORDER } from '@/lib/programs';
-import { EMPTY_PAYMENT_SETTINGS, PURPOSE_LABEL, type PaymentPurpose, type PaymentSettings } from '@/lib/portal/payment';
+import { EMPTY_PAYMENT_SETTINGS, PAYMENT_CURRENCY, PURPOSE_LABEL, type PaymentPurpose, type PaymentSettings } from '@/lib/portal/payment';
 import { getPaymentSettings } from '@/lib/portal/settings';
 import { emailDocumentRejected, emailNoteToStudent, emailPaymentChecked, emailStatusChange } from '@/lib/notify/application';
 
@@ -156,7 +156,7 @@ export async function saveCase(_prev: ActionState, form: FormData): Promise<Acti
   const service = money(form.get('service_charge_usd'));
   if (!UUID.test(id)) return fail('Application not found.');
   if (assignee && !UUID.test(assignee)) return fail('Choose someone from the team.');
-  if (fee === 'bad' || service === 'bad') return fail('Fees are amounts in US dollars, for example 150.');
+  if (fee === 'bad' || service === 'bad') return fail('Fees are amounts in RMB, for example 2000.');
 
   const db = createAdminClient();
   const { data: before } = await db.from('applications').select('assigned_to, application_fee_usd, service_charge_usd').eq('id', id).maybeSingle();
@@ -232,11 +232,9 @@ export async function savePaymentSettings(_prev: ActionState, form: FormData): P
   const fees: PaymentSettings['applicationFeeUsd'] = {};
   for (const level of LEVEL_ORDER) {
     const v = money(form.get(`fee_${level}`));
-    if (v === 'bad') return fail(`The ${level} fee must be an amount in US dollars.`);
+    if (v === 'bad') return fail(`The ${level} fee must be an amount in RMB.`);
     fees[level] = v;
   }
-  const currency = text(form, 'currency', 3).toUpperCase();
-  if (!/^[A-Z]{3}$/.test(currency)) return fail('The currency is a 3-letter code, for example PKR.');
 
   const value: PaymentSettings = {
     ...EMPTY_PAYMENT_SETTINGS,
@@ -245,7 +243,7 @@ export async function savePaymentSettings(_prev: ActionState, form: FormData): P
     accountNumber: text(form, 'accountNumber', 60),
     iban: text(form, 'iban', 60),
     instructions: text(form, 'instructions', 600),
-    currency,
+    currency: PAYMENT_CURRENCY,
     qrPath,
     applicationFeeUsd: fees,
   };

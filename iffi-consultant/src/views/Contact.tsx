@@ -1,5 +1,6 @@
 'use client';
 import { useState, type FormEvent } from 'react';
+import Image from 'next/image';
 import { Link } from '@/lib/router';
 import { CircleCheck, Mail, MapPin, Phone } from 'lucide-react';
 import { site, whatsappLink } from '@/data/core';
@@ -12,7 +13,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Container, DraftBadge } from '@/components/ui/primitives';
 import { Field, Select, inputClass } from '@/components/ui/Form';
 import { Button, WhatsAppButton } from '@/components/ui/Button';
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from '@/components/ui/BrandIcons';
+import { FacebookIcon, InstagramIcon, WeChatIcon, WhatsAppIcon } from '@/components/ui/BrandIcons';
 
 const crumbs = [{ name: 'Contact', path: '/contact' }];
 const COUNTRIES = CURRENCIES.filter((c) => !['USD', 'GBP', 'EUR', 'CNY'].includes(c.code)).sort((a, b) => a.country.localeCompare(b.country));
@@ -132,6 +133,29 @@ export default function Contact() {
                 </li>
               )}
             </ul>
+
+            {/* WeChat lives on this page only: the QR code is never shown on the home page */}
+            <section id="wechat" aria-labelledby="wechat-h" className="scroll-mt-28 rounded-card border border-line bg-white p-5">
+              <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">
+                <a href={site.contact.wechat.qrImage} target="_blank" rel="noopener" className="shrink-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+                  <Image
+                    src={site.contact.wechat.qrImage}
+                    width={888}
+                    height={1191}
+                    sizes="200px"
+                    alt={`WeChat QR code to add ${site.brand.name}`}
+                    className="h-auto w-[200px] rounded-xl border border-line"
+                  />
+                </a>
+                <div>
+                  <h2 id="wechat-h" className="flex items-center justify-center gap-2 font-display text-xl sm:justify-start">
+                    <WeChatIcon size={22} className="text-gold-deep" /> Add us on WeChat
+                  </h2>
+                  <p className="mt-2 text-[15px] text-muted">{site.contact.wechat.note} Already in China? WeChat is the quickest way to reach us there.</p>
+                  <p className="mt-2 text-[13.5px] text-muted">On your phone, open the QR code, save it, then choose Scan in WeChat and pick it from your photos.</p>
+                </div>
+              </div>
+            </section>
 
             <div className="rounded-card border border-line bg-white p-5">
               <h2 className="font-display text-xl">Offices</h2>

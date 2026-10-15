@@ -33,7 +33,7 @@ export default function Terms() {
 
       <h2>Our free tools</h2>
       <ul>
-        <li>The cost calculator gives estimates. Living costs are typical student budgets and exchange rates change daily.</li>
+        <li>The cost calculator gives estimates. Living costs are typical student budgets, and every amount is in RMB.</li>
         <li>The eligibility checker is indicative only. It is not an admission or scholarship decision.</li>
         <li>The programme finder lists programmes from our current brochures. Availability is not guaranteed.</li>
       </ul>
