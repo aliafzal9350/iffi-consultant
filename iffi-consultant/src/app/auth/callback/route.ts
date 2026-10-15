@@ -6,14 +6,14 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { isOwnerEmail } from '@/lib/auth/dal';
-import { SIGN_IN_PATH, nextPathAfterSignIn, safeNext } from '@/lib/auth/redirects';
+import { SIGN_IN_PATH, nextPathAfterSignIn, safeNext, siteUrl } from '@/lib/auth/redirects';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const code = searchParams.get('code');
-  const back = (reason: string) => NextResponse.redirect(new URL(`${SIGN_IN_PATH}?error=${reason}`, request.url));
+  const back = (reason: string) => NextResponse.redirect(siteUrl(`${SIGN_IN_PATH}?error=${reason}`, request));
 
   if (!code) return back(searchParams.get('error') ? 'cancelled' : 'missing-code');
 
@@ -48,5 +48,5 @@ export async function GET(request: NextRequest) {
     profileComplete: Boolean(study?.completed_at),
     hasApplication: (applications ?? 0) > 0,
   });
-  return NextResponse.redirect(new URL(path, request.url));
+  return NextResponse.redirect(siteUrl(path, request));
 }

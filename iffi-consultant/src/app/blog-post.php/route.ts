@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { postBySlug } from '@/content/blog';
+import { siteUrl } from '@/lib/auth/redirects';
 
 /**
  * Old PHP blog links (blog-post.php?slug=...) -> /blog/<slug>. A redirect in next.config.mjs would carry
@@ -7,8 +8,5 @@ import { postBySlug } from '@/content/blog';
  */
 export function GET(request: NextRequest) {
   const slug = request.nextUrl.searchParams.get('slug') ?? '';
-  const target = request.nextUrl.clone();
-  target.pathname = postBySlug.has(slug) ? `/blog/${slug}` : '/blog';
-  target.search = '';
-  return NextResponse.redirect(target, 308);
+  return NextResponse.redirect(siteUrl(postBySlug.has(slug) ? `/blog/${slug}` : '/blog', request), 308);
 }
