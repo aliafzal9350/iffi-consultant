@@ -23,6 +23,9 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+  // NEXT_OUTPUT=standalone (set by the Dockerfile) builds a self-contained server for the Oracle Cloud deployment;
+  // local `npm start` and Vercel keep the default output
+  ...(process.env.NEXT_OUTPUT === 'standalone' ? { output: 'standalone' } : {}),
   // the Next.js development badge (local only, never on the live site) sits top-right, away from the chat button.
   // devIndicators: false would hide it, but in Next 16.4 that makes every page reload in a loop during development.
   devIndicators: { position: 'top-right' },

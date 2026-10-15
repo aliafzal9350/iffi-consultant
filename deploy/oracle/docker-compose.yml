@@ -1,0 +1,28 @@
+# IFFI Consultant on one Oracle Cloud server: the Next.js app behind Caddy (automatic HTTPS).
+# Started by setup.sh; see README.md in this folder.
+services:
+  app:
+    build:
+      context: ../../iffi-consultant
+    env_file: ../../iffi-consultant/.env.production
+    restart: unless-stopped
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+*.log
+.vercel
+.env
+.env.local
+.env.development*
+# .env.production is deliberately NOT ignored: the build reads it on the server

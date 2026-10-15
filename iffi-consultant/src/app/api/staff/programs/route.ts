@@ -34,19 +34,19 @@ function generateSlug(id: string, level: string, city: string | null, province: 
 }
 
 async function guardStaff(): Promise<NextResponse | null> {
-  // In development, allow easy editing; in production or when profile exists, verify staff/admin role
+  let profile: Awaited<ReturnType<typeof getProfile>> = null;
   try {
-    const profile = await getProfile();
-    if (profile && !isTeam(profile.role)) {
-      return NextResponse.json({ success: false, error: 'Staff access required' }, { status: 403 });
-    }
+    profile = await getProfile();
   } catch {
-    // If auth failed in prod, block
-    if (process.env.NODE_ENV === 'production') {
-      return NextResponse.json({ success: false, error: 'Unauthorized: Staff sign-in required' }, { status: 401 });
-    }
+    // Supabase not configured or unreachable: treated as not signed in
   }
-  return null;
+  if (profile && isTeam(profile.role)) return null;
+  // local development only: the editor also works without signing in
+  if (process.env.NODE_ENV !== 'production' && !profile) return null;
+  // in production a visitor who is not signed in has no profile, so this must not fall through
+  return profile
+    ? NextResponse.json({ success: false, error: 'Staff access required' }, { status: 403 })
+    : NextResponse.json({ success: false, error: 'Unauthorized: Staff sign-in required' }, { status: 401 });
 }
 
 export async function GET() {
