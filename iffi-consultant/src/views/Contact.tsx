@@ -134,6 +134,43 @@ export default function Contact() {
               )}
             </ul>
 
+            {(site.social.facebook || site.social.instagram) && (
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {site.social.facebook && (
+                  <li>
+                    <a
+                      href={site.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-start gap-3 rounded-card border border-line bg-white p-5 transition-colors hover:border-navy/30"
+                    >
+                      <FacebookIcon size={20} className="mt-0.5 text-navy transition-colors group-hover:text-gold-deep" />
+                      <span>
+                        <span className="block font-medium text-navy">Facebook</span>
+                        <span className="text-[15px] text-muted">Official page &amp; updates</span>
+                      </span>
+                    </a>
+                  </li>
+                )}
+                {site.social.instagram && (
+                  <li>
+                    <a
+                      href={site.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-start gap-3 rounded-card border border-line bg-white p-5 transition-colors hover:border-navy/30"
+                    >
+                      <InstagramIcon size={20} className="mt-0.5 text-navy transition-colors group-hover:text-gold-deep" />
+                      <span>
+                        <span className="block font-medium text-navy">Instagram</span>
+                        <span className="text-[15px] text-muted">@ifficonsultant</span>
+                      </span>
+                    </a>
+                  </li>
+                )}
+              </ul>
+            )}
+
             {/* WeChat lives on this page only: the QR code is never shown on the home page */}
             <section id="wechat" aria-labelledby="wechat-h" className="scroll-mt-28 rounded-card border border-line bg-white p-5">
               <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left">

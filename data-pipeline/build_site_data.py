@@ -18,7 +18,7 @@ kw = list(csv.DictReader(open(KW, encoding="utf-8-sig")))
 
 BRAND = "IFFI Consultant"
 SITE_URL = "https://www.ifficonsultant.com"
-WA = "8618275722580"
+WA = "15676190796"
 EMAIL = "ifficonsultant@gmail.com"
 n = len(ps)
 english = sum("English" in (p["teachingLanguages"] or []) for p in ps)
@@ -47,7 +47,7 @@ site = {
                    "whatsapp": "#25d366", "error": "#c0392b"},
     },
     "contact": {
-        "phoneDisplay": "+86 182 7572 2580", "phoneE164": "+8618275722580", "whatsappNumber": WA,
+        "phoneDisplay": "+1 567 619 0796", "phoneE164": "+15676190796", "whatsappNumber": WA,
         # Instagram / Facebook / UK company belonged to Gujjify - left empty until IFFI confirms its own
         "whatsappUrl": f"https://wa.me/{WA}", "email": EMAIL,
         # WeChat QR from IFFI (2026-10-14), shown on the contact page only, never on the home page
@@ -63,11 +63,11 @@ site = {
         ],
     },
     "social": {
-        "facebook": None,
-        "instagram": None,
+        "facebook": "https://www.facebook.com/profile.php?id=61595356113167",
+        "instagram": "https://www.instagram.com/ifficonsultant/",
         "whatsapp": f"https://wa.me/{WA}",
         "email": f"mailto:{EMAIL}",
-        "phone": "tel:+8618275722580",
+        "phone": "tel:+15676190796",
     },
     "legal": {
         "companyName": None, "companyNumber": None, "registeredIn": None, "registeredOffice": None,
@@ -321,7 +321,7 @@ site = {
                                              "admission notices and JW202 visa forms, with personal details blurred."},
             "/faq": {"title": "Study in China FAQ - Scholarships, Costs, Visa | IFFI Consultant",
                      "description": "Answers about scholarships, marks, IELTS, MBBS, costs, hostels and student visas for China."},
-            "/contact": {"title": "Contact IFFI Consultant - WhatsApp +86 182 7572 2580",
+            "/contact": {"title": "Contact IFFI Consultant - WhatsApp +1 567 619 0796",
                          "description": "Free counselling for studying in China. WhatsApp, call or email IFFI Consultant."},
             "/blog": {"title": "Study in China Guides & News | IFFI Consultant Blog",
                       "description": "Guides on CSC scholarships, China student visas, costs and universities."},

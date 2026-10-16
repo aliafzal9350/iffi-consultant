@@ -28,7 +28,7 @@ export function TopBar() {
             <Phone size={14} aria-hidden="true" className="text-gold-2" />
             {site.contact.phoneDisplay}
           </a>
-          <span className="hidden items-center gap-1 xl:flex">
+          <span className="hidden items-center gap-1 lg:flex">
             {site.social.facebook && (
               <SocialLink href={site.social.facebook} label={`${site.brand.name} on Facebook`}>
                 <FacebookIcon size={15} />

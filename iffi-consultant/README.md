@@ -129,7 +129,8 @@ Re-running `data-pipeline/parse_programs.py` regenerates that file from the broc
 
 ## Before going live (client approvals)
 
-- [ ] IFFI's legal entity, registered address, email, Facebook and Instagram (currently hidden), and the governing
+- [x] Facebook and Instagram profiles linked and live.
+- [ ] IFFI's legal entity, registered address, and the governing
       law for the Terms (shown as a draft in development only).
 - [ ] Marketing stats, 5 draft FAQs, and a testimonial from an IFFI student with written permission (the existing
       one was given to Gujjify and must not be used).
