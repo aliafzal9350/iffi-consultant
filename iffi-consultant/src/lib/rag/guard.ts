@@ -74,7 +74,7 @@ export function guardOutput(raw: string, opts: GuardOptions): GuardResult {
   const flags: string[] = [];
   let text = raw
     .slice(0, MAX_ASSISTANT_CHARS)
-    // models write numbers and ids with no-break spaces and hyphens ("+1 567…", "B‑01"): plain ones copy and search properly
+    // models write numbers and ids with no-break spaces and hyphens ("+86 156…", "B‑01"): plain ones copy and search properly
     .replace(/[   ]/g, ' ')
     .replace(/[‐‑]/g, '-')
     // some models cite as 【1】; the chat links [1]

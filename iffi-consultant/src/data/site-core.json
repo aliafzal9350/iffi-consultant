@@ -9,10 +9,10 @@
   "mapCaption": "72 programmes · 21 provinces · 30 cities"
  },
  "contact": {
-  "phoneDisplay": "+1 567 619 0796",
-  "phoneE164": "+15676190796",
-  "whatsappNumber": "15676190796",
-  "whatsappUrl": "https://wa.me/15676190796",
+  "phoneDisplay": "+86 156 7619 0796",
+  "phoneE164": "+8615676190796",
+  "whatsappNumber": "8615676190796",
+  "whatsappUrl": "https://wa.me/8615676190796",
   "wechat": {
    "qrImage": "/images/wechat-qr.jpg",
    "note": "Scan with WeChat to add IFFI as a friend."
@@ -42,9 +42,9 @@
  "social": {
   "facebook": "https://www.facebook.com/profile.php?id=61595356113167",
   "instagram": "https://www.instagram.com/ifficonsultant/",
-  "whatsapp": "https://wa.me/15676190796",
+  "whatsapp": "https://wa.me/8615676190796",
   "email": "mailto:ifficonsultant@gmail.com",
-  "phone": "tel:+15676190796"
+  "phone": "tel:+8615676190796"
  },
  "navigation": [
   {
@@ -99,7 +99,7 @@
   }
  ],
  "whatsapp": {
-  "number": "15676190796",
+  "number": "8615676190796",
   "messages": {
    "default": "Hello IFFI Consultant, I want to study in China.",
    "heroConsultation": "Hello IFFI Consultant, I want a free consultation for studying in China.",
