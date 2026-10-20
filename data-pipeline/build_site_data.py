@@ -54,12 +54,10 @@ site = {
         "wechat": {"qrImage": "/images/wechat-qr.jpg", "note": "Scan with WeChat to add IFFI as a friend."},
         "responsePromise": "We usually reply within minutes on WhatsApp.",
         "hours": "Open 24/7 on WhatsApp",
+        # confirmed by IFFI on 2026-10-20; the China address is the registered address
         "offices": [
-            {"label": "Pakistan office", "city": "Lahore", "country": "Pakistan",
-             "address": "Lakshmi Station, Lahore, Pakistan", "verified": False,
-             "note": "Address as written on Facebook - confirm the full street address with the client"},
-            {"label": "China", "city": None, "country": "China", "address": None, "verified": False,
-             "note": "Listed on the old site with no city - confirm before publishing"},
+            {'label': 'Pakistan office', 'city': 'Lahore', 'region': 'Punjab', 'country': 'Pakistan', 'countryCode': 'PK', 'streetAddress': '41, McLeod Road', 'address': '41, McLeod Road, Lahore, Pakistan', 'verified': True, 'note': ''},
+            {'label': 'China office (registered address)', 'city': 'Nanning', 'region': 'Guangxi Zhuang Autonomous Region', 'country': 'China', 'countryCode': 'CN', 'streetAddress': 'Shop C103, First Floor, Xiuling 168 Tiandi, No. 9, West Second Li, Xiuling Road, Xixiangtang District', 'address': 'Shop C103, First Floor, Xiuling 168 Tiandi, No. 9, West Second Li, Xiuling Road, Xixiangtang District, Nanning, Guangxi Zhuang Autonomous Region, China', 'verified': True, 'note': ''},
         ],
     },
     "social": {

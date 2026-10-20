@@ -7,6 +7,7 @@ import { Container, DraftBadge, IconTile, Section } from '@/components/ui/primit
 import { WhatsAppButton } from '@/components/ui/Button';
 import { Crest } from '@/components/ui/Logo';
 import { FinalCta, WhyUsSection } from '@/components/sections/HomeSections';
+import { officeCities } from '@/lib/offices';
 
 const crumbs = [{ name: 'About', path: '/about' }];
 
@@ -50,10 +51,8 @@ export default function About() {
                   </div>
                 )}
                 <div>
-                  <dt className="text-mist/75">Office</dt>
-                  <dd className="text-white">
-                    {site.contact.offices[0].city}, {site.contact.offices[0].country}
-                  </dd>
+                  <dt className="text-mist/75">Offices</dt>
+                  <dd className="text-white">{offices.map((o) => `${o.city}, ${o.country}`).join(' · ')}</dd>
                 </div>
                 <div>
                   <dt className="text-mist/75">Support</dt>
@@ -61,7 +60,7 @@ export default function About() {
                 </div>
                 <div>
                   <dt className="text-mist/75">Students</dt>
-                  <dd className="text-white">Pakistan and worldwide, counselled on WhatsApp and from our Lahore office</dd>
+                  <dd className="text-white">Pakistan and worldwide, counselled on WhatsApp and from our offices in {officeCities(offices)}</dd>
                 </div>
               </dl>
             </div>
@@ -85,19 +84,18 @@ export default function About() {
 
       <Section tone="light" title="Where we are" lede="Most students work with us entirely on WhatsApp, wherever they live.">
         <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <li className="rounded-card border border-line bg-white p-6">
-            <MapPin size={20} aria-hidden="true" className="text-gold-deep" />
-            <h3 className="mt-3 font-display text-xl">Lahore, Pakistan</h3>
-            <p className="mt-1 text-[15px] text-muted">Counselling for students in Pakistan. Message us on WhatsApp to arrange a visit.</p>
-          </li>
-          {offices.map((o) => (
+          {offices.map((o, i) => (
             <li key={o.label} className="rounded-card border border-line bg-white p-6">
-              <Building size={20} aria-hidden="true" className="text-gold-deep" />
+              {i === 0 ? <MapPin size={20} aria-hidden="true" className="text-gold-deep" /> : <Building size={20} aria-hidden="true" className="text-gold-deep" />}
               <h3 className="mt-3 font-display text-xl">
-                {o.label}
+                {o.city}, {o.country}
                 {!o.verified && <DraftBadge note={o.note} />}
               </h3>
-              <p className="mt-1 text-[15px] text-muted">{o.address ?? 'Address to be confirmed'}</p>
+              <p className="text-[13px] text-muted">{o.label}</p>
+              <address className="mt-2 text-[15px] not-italic text-ink">{o.address ?? 'Address to be confirmed'}</address>
+              <p className="mt-2 text-[14px] text-muted">
+                {o.countryCode === 'PK' ? 'Counselling for students in Pakistan.' : 'Support for students once they are in China.'} Message us on WhatsApp to arrange a visit.
+              </p>
             </li>
           ))}
         </ul>

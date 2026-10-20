@@ -35,6 +35,7 @@ import { CountUp } from '@/components/ui/CountUp';
 import { Marquee } from '@/components/ui/Marquee';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProgrammeCard } from '@/components/programmes/ProgrammeCard';
+import { officeCities } from '@/lib/offices';
 
 const hours = site.contact.hours.replace('Open ', '').replace(' on WhatsApp', '');
 
@@ -50,7 +51,7 @@ const noIeltsCount = programs.filter((p) => p.noIeltsRequired && p.level !== 'La
 
 // verified facts only: unconfirmed marketing claims (site.stats.marketingClaims) stay out until IFFI confirms them
 const PROMISES: { icon: LucideIcon; text: string }[] = [
-  { icon: MapPin, text: `Office in ${site.contact.offices[0].city}` },
+  { icon: MapPin, text: `Offices in ${officeCities(site.contact.offices)}` },
   { icon: MessageCircle, text: `WhatsApp support, ${hours}` },
   { icon: BadgeCheck, text: 'Free counselling' },
   { icon: ShieldCheck, text: 'Free eligibility check' },
@@ -451,7 +452,7 @@ export function WhyUsSection() {
             <h2 className="text-h2 mt-8 text-white">Why students choose {site.brand.name}</h2>
             <p className="mt-4 max-w-md leading-relaxed">{site.about.values}</p>
             <p className="mt-6 text-sm text-mist/80">
-              Office in {site.contact.offices[0].city}, support on WhatsApp {hours}.
+              Offices in {officeCities(site.contact.offices)}, support on WhatsApp {hours}.
             </p>
           </div>
         </Reveal>

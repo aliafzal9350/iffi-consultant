@@ -57,18 +57,24 @@
    {
     "label": "Pakistan office",
     "city": "Lahore",
+    "region": "Punjab",
     "country": "Pakistan",
-    "address": "Lakshmi Station, Lahore, Pakistan",
-    "verified": false,
-    "note": "Address as written on Facebook - confirm the full street address with the client"
+    "countryCode": "PK",
+    "streetAddress": "41, McLeod Road",
+    "address": "41, McLeod Road, Lahore, Pakistan",
+    "verified": true,
+    "note": ""
    },
    {
-    "label": "China",
-    "city": null,
+    "label": "China office (registered address)",
+    "city": "Nanning",
+    "region": "Guangxi Zhuang Autonomous Region",
     "country": "China",
-    "address": null,
-    "verified": false,
-    "note": "Listed on the old site with no city - confirm before publishing"
+    "countryCode": "CN",
+    "streetAddress": "Shop C103, First Floor, Xiuling 168 Tiandi, No. 9, West Second Li, Xiuling Road, Xixiangtang District",
+    "address": "Shop C103, First Floor, Xiuling 168 Tiandi, No. 9, West Second Li, Xiuling Road, Xixiangtang District, Nanning, Guangxi Zhuang Autonomous Region, China",
+    "verified": true,
+    "note": ""
    }
   ]
  },

@@ -115,12 +115,12 @@ export function Footer() {
                   </a>
                 </li>
               )}
-              <li className="flex gap-2.5">
-                <MapPin size={16} aria-hidden="true" className="mt-1 shrink-0 text-gold-2" />
-                <span>
-                  {site.contact.offices[0].city}, {site.contact.offices[0].country}
-                </span>
-              </li>
+              {site.contact.offices.map((o) => (
+                <li key={o.label} className="flex gap-2.5">
+                  <MapPin size={16} aria-hidden="true" className="mt-1 shrink-0 text-gold-2" />
+                  <address className="text-[14px] not-italic leading-relaxed">{o.address ?? `${o.city}, ${o.country}`}</address>
+                </li>
+              ))}
               {site.legal.registeredOffice && (
                 <li className="flex gap-2.5">
                   <MapPin size={16} aria-hidden="true" className="mt-1 shrink-0 text-gold-2" />
