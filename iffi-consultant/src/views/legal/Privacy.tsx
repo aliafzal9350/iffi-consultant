@@ -17,7 +17,7 @@ export default function Privacy() {
       <p>
         This website and the student portal are run by {site.brand.name}
         {l.companyName ? `, operated by ${l.companyName}${l.registeredIn ? `, registered in ${l.registeredIn}` : ''}${l.companyNumber ? ` (company no. ${l.companyNumber})` : ''}` : ''}, with an
-        office in {site.contact.offices[0].city}. We are the controller of the personal data described here. Contact us about privacy at {contact}.
+        offices in {site.contact.offices.map((o) => `${o.city} (${o.country})`).join(' and ')}. We are the controller of the personal data described here. Contact us about privacy at {contact}.
         {SHOW_DRAFTS && !l.companyName && <DraftBadge note={l.note} />}
       </p>
 

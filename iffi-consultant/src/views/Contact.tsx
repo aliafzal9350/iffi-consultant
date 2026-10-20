@@ -5,6 +5,7 @@ import { Link } from '@/lib/router';
 import { CircleCheck, Mail, MapPin, Phone } from 'lucide-react';
 import { site, whatsappLink } from '@/data/core';
 import { cn } from '@/lib/cn';
+import { directionsUrl } from '@/lib/offices';
 import { FORM_ENDPOINT, SHOW_DRAFTS } from '@/lib/env';
 import { LEVEL_LABEL, LEVEL_ORDER } from '@/lib/programs';
 import { CURRENCIES } from '@/lib/currency';
@@ -197,26 +198,30 @@ export default function Contact() {
             <div className="rounded-card border border-line bg-white p-5">
               <h2 className="font-display text-xl">Offices</h2>
               <ul className="mt-3 space-y-3 text-[15px]">
-                <li className="flex gap-3">
-                  <MapPin size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-deep" />
-                  <span>
-                    <strong className="font-medium text-navy">Lahore, Pakistan</strong>
-                    <span className="block text-muted">Visits by appointment: message us on WhatsApp.</span>
-                  </span>
-                </li>
                 {site.contact.offices
                   .filter((o) => o.verified || SHOW_DRAFTS)
                   .map((o) => (
                     <li key={o.label} className="flex gap-3">
                       <MapPin size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-deep" />
                       <span>
-                        <strong className="font-medium text-navy">{o.label}</strong>
+                        <strong className="font-medium text-navy">
+                          {o.city}, {o.country}
+                        </strong>
                         {!o.verified && <DraftBadge note={o.note} />}
-                        <span className="block text-muted">{o.address ?? 'To be confirmed'}</span>
+                        <span className="block text-[13px] text-muted">{o.label}</span>
+                        {o.address && (
+                          <>
+                            <address className="mt-1 not-italic text-ink">{o.address}</address>
+                            <a href={directionsUrl(o.address)} target="_blank" rel="noopener" className="mt-1 inline-block text-[14px] font-medium text-navy underline underline-offset-4 hover:text-gold-deep">
+                              Get directions
+                            </a>
+                          </>
+                        )}
                       </span>
                     </li>
                   ))}
               </ul>
+              <p className="mt-4 border-t border-line pt-3 text-[14px] text-muted">Visits by appointment: message us on WhatsApp first.</p>
               {(site.social.facebook || site.social.instagram) && (
                 <div className="mt-5 flex gap-2 border-t border-line pt-4">
                   {site.social.facebook && (

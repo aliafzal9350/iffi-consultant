@@ -150,7 +150,7 @@ add('documents', 'Documents checklist', '/programmes', `Typical documents for a 
 add('contact', `Contact ${site.brand.name}`, '/contact',
   `WhatsApp and phone: ${site.contact.phoneDisplay}. ${site.contact.email ? `Email: ${site.contact.email}. ` : ''}${site.contact.responsePromise} ${site.contact.hours}. ` +
   `WeChat: scan the QR code on the contact page (/contact#wechat) to add IFFI as a friend. ` +
-  `Office: ${site.contact.offices[0].city}, ${site.contact.offices[0].country} (visits by appointment - message on WhatsApp first). Counselling is free.`);
+  `Offices: ${site.contact.offices.map((o) => `${o.label}: ${o.address}`).join('; ')}. Visits by appointment - message on WhatsApp first. Counselling is free.`);
 
 const cc = tools.costCalculator;
 const tierLine = (t) => `${t}: lean ${n(cc.livingMonthlyCNY[t].lean)}, standard ${n(cc.livingMonthlyCNY[t].standard)}, comfortable ${n(cc.livingMonthlyCNY[t].comfortable)} RMB per month`;

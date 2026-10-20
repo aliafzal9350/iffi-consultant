@@ -41,7 +41,13 @@ export function organizationLd(): Record<string, unknown> {
     ...(sameAs.length ? { sameAs } : {}),
     areaServed: 'Worldwide',
     knowsAbout: ['Study in China', 'Chinese Government Scholarship (CSC)', 'China student visa (X1/X2)', 'MBBS in China'],
-    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
+    address: site.contact.offices.map((o) => ({
+      '@type': 'PostalAddress',
+      streetAddress: o.streetAddress,
+      addressLocality: o.city,
+      addressRegion: o.region,
+      addressCountry: o.countryCode,
+    })),
     contactPoint: [
       {
         '@type': 'ContactPoint',

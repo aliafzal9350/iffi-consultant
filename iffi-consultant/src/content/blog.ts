@@ -359,7 +359,7 @@ const posts: Omit<BlogPost, 'date'>[] = [
       { h2: 'Fast answers on WhatsApp' },
       { p: `${site.contact.responsePromise} You can also call ${site.contact.phoneDisplay}${site.contact.email ? ` or email ${site.contact.email}` : ''}.` },
       { h2: 'Meet us in person' },
-      { p: `Students in Pakistan can also meet us at our office in ${site.contact.offices[0].city}.` },
+      { p: `Students in Pakistan can also meet us at our office at ${site.contact.offices[0].address}, by appointment on WhatsApp.` },
       { p: 'Start with a free eligibility check: [answer seven questions](/tools/eligibility-checker) and send us your results.' },
     ],
   },

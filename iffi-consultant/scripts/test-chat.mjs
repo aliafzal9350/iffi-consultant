@@ -31,6 +31,8 @@ const BUSINESS = [
   ['How can I contact you?', 'answer', [PHONE]],
   ['Do you have WeChat?', 'answer', [/WeChat/i]],
   ['Where is your office?', 'answer', [/Lahore/i]],
+  ['What is the address of your Lahore office?', 'answer', [/McLeod Road/i]],
+  ['Do you have an office in China?', 'answer', [/Nanning/i]],
   ['How do I apply online on your website?', 'answer', [/Google|sign in|portal|Get started/i]],
   ['What are the steps of the online application?', 'answer', [/document/i, /sign/i]],
   ['What documents do I need to apply?', 'answer', [/passport/i]],

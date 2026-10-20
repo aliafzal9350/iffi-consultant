@@ -6,6 +6,7 @@ import { Button, WhatsAppButton } from '@/components/ui/Button';
 import { Container } from '@/components/ui/primitives';
 import { CountUp } from '@/components/ui/CountUp';
 import { HeroMap } from '@/components/map/HeroMap';
+import { officeCities } from '@/lib/offices';
 
 const STATS = [
   { value: meta.counts.programmes, label: 'programmes' },
@@ -92,7 +93,7 @@ export function Hero() {
             </li>
             <li className="inline-flex items-center gap-1.5">
               <MapPin size={15} aria-hidden="true" className="text-gold-2" />
-              {site.contact.offices[0].city} office
+              Offices in {officeCities(site.contact.offices)}
             </li>
             <li className="inline-flex items-center gap-1.5">
               <MessageCircle size={15} aria-hidden="true" className="text-gold-2" />
