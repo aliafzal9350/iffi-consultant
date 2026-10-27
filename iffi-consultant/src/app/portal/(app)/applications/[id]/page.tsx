@@ -16,6 +16,7 @@ import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { PortalBand } from '@/components/portal/PortalBand';
 import { MarkFixed } from '@/components/portal/apply/MarkFixed';
 import { Timeline } from '@/components/portal/apply/Timeline';
+import { TrackEvent } from '@/components/portal/TrackEvent';
 
 export const metadata: Metadata = { title: { absolute: `My application | ${site.brand.name}` } };
 
@@ -57,9 +58,16 @@ const STEP_STATE = {
   todo: { icon: null, cls: 'bg-white text-navy ring-1 ring-navy/20', words: '' },
 } as const;
 
-export default async function ApplicationPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function ApplicationPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ new?: string }>;
+}) {
   const me = await requireUser();
   const { id } = await params;
+  const isNew = (await searchParams).new === '1';
   const loaded = await loadApplication(id);
   if (!loaded || loaded.app.user_id !== me.id) notFound();
   const { app, program, steps, events, summary, payments } = loaded;
@@ -77,6 +85,7 @@ export default async function ApplicationPage({ params }: { params: Promise<{ id
 
   return (
     <>
+      {isNew && <TrackEvent event="application_started" dropParam="new" />}
       <PortalBand
         title={program.displayName}
         lede={
