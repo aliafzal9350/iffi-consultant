@@ -1,7 +1,7 @@
 'use client';
 import { Link } from '@/lib/router';
 import { site } from '@/data/core';
-import { GA4_ID } from '@/lib/env';
+import { GA4_ID, META_PIXEL_ID } from '@/lib/env';
 import { Button } from '@/components/ui/Button';
 import { OPEN_CONSENT_EVENT } from '@/components/layout/CookieConsent';
 import { LegalPage } from './LegalPage';
@@ -73,6 +73,12 @@ export default function Cookies() {
         {GA4_ID ? 'We use' : 'If enabled, we use'} Google Analytics 4 to count visits and see which pages help students. It sets cookies named _ga and _ga_
         followed by an ID, kept for up to 2 years. IP addresses are anonymised.
       </p>
+      {META_PIXEL_ID && (
+        <p>
+          We also use the Meta Pixel to measure visits that come from our Facebook and Instagram adverts. It sets a cookie named _fbp, kept for up to 90 days,
+          and tells Meta which pages you visit.
+        </p>
+      )}
 
       <h2>Other services</h2>
       <ul>

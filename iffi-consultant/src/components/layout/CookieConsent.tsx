@@ -4,7 +4,7 @@ import { Link } from '@/lib/router';
 import { Cookie } from 'lucide-react';
 import { KEYS, readJSON, writeJSON } from '@/lib/storage';
 import { loadAnalytics } from '@/lib/analytics';
-import { GA4_ID } from '@/lib/env';
+import { GA4_ID, META_PIXEL_ID } from '@/lib/env';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 
@@ -32,8 +32,8 @@ export function CookieConsent() {
     if (c) {
       setAnalytics(c.analytics);
       if (c.analytics) loadAnalytics();
-    } else if (GA4_ID) {
-      // nothing to consent to until analytics is configured, so no banner without a GA4 id
+    } else if (GA4_ID || META_PIXEL_ID) {
+      // nothing to consent to until analytics is configured, so no banner without a GA4 or Pixel id
       setOpen(true);
     }
     const reopen = () => {
@@ -87,7 +87,7 @@ export function CookieConsent() {
           <label className="flex cursor-pointer items-center justify-between gap-3">
             <span>
               <span className="block font-medium text-navy">Analytics</span>
-              <span className="text-muted">Google Analytics, anonymised.</span>
+              <span className="text-muted">Google Analytics (anonymised) and Meta Pixel.</span>
             </span>
             <input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} className="h-5 w-5 accent-navy" />
           </label>
