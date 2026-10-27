@@ -35,7 +35,7 @@ export default function Privacy() {
         </li>
         <li>
           <strong>Analytics, only if you accept:</strong> pages visited, device and browser type and an approximate location, collected by Google Analytics with IP
-          anonymisation.
+          anonymisation, and by the Meta Pixel to measure our Facebook and Instagram adverts.
         </li>
       </ul>
       <p>
@@ -97,7 +97,7 @@ export default function Privacy() {
         <li>Universities, scholarship bodies and visa authorities, only for the applications you ask us to make.</li>
         <li>
           Service providers that run the website and portal for us: Supabase (database and file storage), Google (sign-in, and Gmail for our emails), our
-          hosting provider, WhatsApp (Meta) and, if you accept analytics, Google Analytics.
+          hosting provider, WhatsApp (Meta) and, if you accept analytics, Google Analytics and the Meta Pixel.
         </li>
         <li>
           Google Gemini, in two places only: the question box sends your question to write an answer, and the portal sends your profile answers (study level,
