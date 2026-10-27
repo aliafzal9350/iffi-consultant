@@ -24,9 +24,17 @@ interface FbQueue {
 
 let loaded = false;
 let pixelLoaded = false;
+// events sent before analytics loaded on this page (e.g. a component effect that runs before the consent check);
+// sent once the visitor's consent loads analytics, dropped with the page otherwise
+const pending: [string, Record<string, unknown>][] = [];
 
 export function loadAnalytics(): void {
   loadMetaPixel();
+  loadGa4();
+  for (const [event, params] of pending.splice(0)) track(event, params);
+}
+
+function loadGa4(): void {
   if (loaded || !GA4_ID || typeof window === 'undefined') return;
   loaded = true;
   window.dataLayer = window.dataLayer || [];
@@ -72,9 +80,14 @@ const META_EVENTS: Record<string, string> = {
   contact_form_whatsapp: 'Lead',
   whatsapp_click: 'Contact',
   application_started: 'SubmitApplication',
+  sign_up: 'CompleteRegistration',
 };
 
 export function track(event: string, params: Record<string, unknown> = {}): void {
+  if (!loaded && !pixelLoaded) {
+    if (pending.length < 20) pending.push([event, params]);
+    return;
+  }
   if (loaded && window.gtag) window.gtag('event', event, params);
   const metaEvent = META_EVENTS[event];
   if (metaEvent && pixelLoaded && window.fbq) window.fbq('track', metaEvent);

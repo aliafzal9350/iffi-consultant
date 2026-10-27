@@ -76,7 +76,7 @@ export default function Cookies() {
       {META_PIXEL_ID && (
         <p>
           We also use the Meta Pixel to measure visits that come from our Facebook and Instagram adverts. It sets a cookie named _fbp, kept for up to 90 days,
-          and tells Meta which pages you visit and when you send us an enquiry, message us on WhatsApp or start an application (never what you wrote).
+          and tells Meta which pages you visit and when you send us an enquiry, message us on WhatsApp, create an account or start an application (never what you wrote).
         </p>
       )}
 

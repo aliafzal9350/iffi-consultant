@@ -48,5 +48,13 @@ export async function GET(request: NextRequest) {
     profileComplete: Boolean(study?.completed_at),
     hasApplication: (applications ?? 0) > 0,
   });
-  return NextResponse.redirect(siteUrl(path, request));
+  const response = NextResponse.redirect(siteUrl(path, request));
+  // A brand-new student account: let the browser count one sign-up (Meta CompleteRegistration) on the next page.
+  // Supabase stamps created_at and last_sign_in_at together on the first sign-in only.
+  const { created_at, last_sign_in_at } = data.user;
+  const firstSignIn = Boolean(last_sign_in_at) && Date.parse(last_sign_in_at!) - Date.parse(created_at) < 60_000;
+  if (firstSignIn && role === 'student') {
+    response.cookies.set('iffi_signup', '1', { path: '/', maxAge: 600, sameSite: 'lax', secure: true });
+  }
+  return response;
 }

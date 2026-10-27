@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useRef, type ReactNode } from 'react';
 import { useLocation } from '@/lib/router';
-import { trackPageView } from '@/lib/analytics';
+import { track, trackPageView } from '@/lib/analytics';
 import { TopBar, Header } from './Header';
 import { BackToTop, FloatingWhatsApp, Toast } from './Floating';
-import { CookieConsent } from './CookieConsent';
+import { ConsentedAnalytics, CookieConsent } from './CookieConsent';
 import { ListsHost } from '@/components/programmes/ListsHost';
 import { ChatLauncher } from '@/components/chat/ChatLauncher';
 
@@ -44,6 +44,17 @@ function FocusOnNavigate() {
   return null;
 }
 
+/** /auth/callback sets this cookie when a Google sign-in created a new account; count it once, then clear it. */
+const SIGNUP_COOKIE = 'iffi_signup';
+function SignupTracker() {
+  useEffect(() => {
+    if (!document.cookie.split('; ').includes(`${SIGNUP_COOKIE}=1`)) return;
+    document.cookie = `${SIGNUP_COOKIE}=; Max-Age=0; Path=/`;
+    track('sign_up', { method: 'Google' });
+  }, []);
+  return null;
+}
+
 /** Client shell. The footer arrives as a prop so it stays a Server Component (no JS for it). */
 export function Layout({ children, footer, assistant = false }: { children: ReactNode; footer: ReactNode; assistant?: boolean }) {
   const { pathname } = useLocation();
@@ -61,6 +72,8 @@ export function Layout({ children, footer, assistant = false }: { children: Reac
           Skip to content
         </a>
         <FocusOnNavigate />
+        <ConsentedAnalytics />
+        <SignupTracker />
         {children /* PortalShell renders <main id="content"> after its own header */}
         <Toast />
       </>
@@ -88,6 +101,7 @@ export function Layout({ children, footer, assistant = false }: { children: Reac
       <BackToTop />
       <Toast />
       <CookieConsent />
+      <SignupTracker />
       <ListsHost />
       {assistant && pathname !== '/portal/sign-in' && <ChatLauncher />}
     </>

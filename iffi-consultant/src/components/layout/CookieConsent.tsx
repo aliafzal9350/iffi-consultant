@@ -21,6 +21,14 @@ export function readConsent(): Consent | null {
   return c;
 }
 
+/** Portal pages show no banner, but still load analytics for visitors who accepted it on the public site. */
+export function ConsentedAnalytics() {
+  useEffect(() => {
+    if (readConsent()?.analytics) loadAnalytics();
+  }, []);
+  return null;
+}
+
 /** Analytics stays blocked until the visitor clicks Accept (or enables it in Settings). */
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
