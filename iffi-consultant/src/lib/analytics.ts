@@ -66,8 +66,18 @@ function loadMetaPixel(): void {
   window.fbq('track', 'PageView');
 }
 
+/** Site events that also count as Meta standard events, so adverts can be measured by enquiries, not just visits. */
+const META_EVENTS: Record<string, string> = {
+  contact_form_sent: 'Lead',
+  contact_form_whatsapp: 'Lead',
+  whatsapp_click: 'Contact',
+  application_started: 'SubmitApplication',
+};
+
 export function track(event: string, params: Record<string, unknown> = {}): void {
   if (loaded && window.gtag) window.gtag('event', event, params);
+  const metaEvent = META_EVENTS[event];
+  if (metaEvent && pixelLoaded && window.fbq) window.fbq('track', metaEvent);
 }
 
 export function trackPageView(path: string): void {

@@ -239,5 +239,5 @@ export async function startApplication(form: FormData): Promise<void> {
 
   emailStaffNewApplication(data.id);
   revalidatePath('/portal', 'layout');
-  redirect(`/portal/applications/${data.id}`);
+  redirect(`/portal/applications/${data.id}?new=1`);
 }
